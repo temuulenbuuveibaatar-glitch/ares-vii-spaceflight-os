@@ -35,12 +35,14 @@ import {
   Gauge,
   Crosshair,
   BookOpen,
+  Sun,
 } from "lucide-react";
 
 export default function Intro() {
   const [activeHazard, setActiveHazard] = useState<number>(0);
   const [activePersona, setActivePersona] = useState<number>(0);
   const [activeScenario, setActiveScenario] = useState<number>(0);
+  const [healthSimMode, setHealthSimMode] = useState<"nominal" | "spe_flare" | "sans_shift">("nominal");
   const [liveHeartRate, setLiveHeartRate] = useState<number>(72);
   const [liveBpSys, setLiveBpSys] = useState<number>(119);
   const [liveBpDia, setLiveBpDia] = useState<number>(76);
@@ -238,11 +240,11 @@ export default function Intro() {
       <section className="relative pt-16 pb-20 px-4 border-b border-[#232d1a] bg-gradient-to-b from-[#11160e] via-[#0e120b] to-[#0b0e0a]">
         <div className="max-w-6xl mx-auto text-center relative z-10">
           {/* Tactical Sunflower Stencil Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#182213] border border-[#3f5231] font-mono text-sm text-[#a3c988] mb-6 shadow-sm">
-            <span className="text-base">🌻</span>
-            <span className="font-bold text-[#fbbf24]">SONNENBLUME (SUNFLOWER)</span>
-            <span className="text-[#4d633b]">//</span>
-            <span className="text-[#c7dfb8]">DEEP-SPACE HEALTH & AUTONOMY OS</span>
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-[#182213] border border-[#3f5231] font-mono text-xs sm:text-sm text-[#a3c988] mb-6 shadow-sm">
+            <Sun className="w-4 h-4 text-[#fbbf24]" />
+            <span className="font-bold text-[#fbbf24] tracking-wide">SONNENBLUME</span>
+            <span className="text-[#4d633b]">•</span>
+            <span className="text-[#c7dfb8] tracking-wide">AUTONOMOUS SPACE HEALTH & HELIO-PROTECTION</span>
           </div>
 
           {/* Bold Headline */}
@@ -359,44 +361,366 @@ export default function Intro() {
         </div>
       </section>
 
-      {/* SECTION: WHO WE ARE */}
+      {/* ========================================================================= */}
+      {/* SECTION: CONTINUOUS 24/7 CREW VITALS & HEALTH MONITOR CENTERPIECE        */}
+      {/* ========================================================================= */}
+      <section id="health-monitor" className="py-20 px-4 border-b border-[#232d1a] bg-[#0c100a]">
+        <div className="max-w-6xl mx-auto space-y-12">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold tracking-wider">
+              <Activity className="w-3.5 h-3.5 text-[#fbbf24]" />
+              <span>CORE MEDICAL CENTERPIECE • CLINICAL 24/7 SURVEILLANCE</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+              Continuous Crew Vitals & Health Monitor
+            </h2>
+            <p className="text-base sm:text-lg text-[#c7dfb8] leading-relaxed">
+              Medical-grade physiological telemetry combining Xiaomi Watch H1 micro-cuff sphygmomanometry, Lead-I ECG waveform rhythm analysis, SANS intracranial fluid pressure monitoring, and deep-space cosmic radiation dosimetry.
+            </p>
+          </div>
+
+          {/* Interactive Flight Scenario Simulator Bar */}
+          <div className="bg-[#11160e] border border-[#2e3b23] rounded-2xl p-4 sm:p-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#1f2818] mb-4">
+              <div className="flex items-center gap-2 font-mono text-xs text-[#a8baa0]">
+                <Gauge className="w-4 h-4 text-[#fbbf24]" />
+                <span className="font-bold text-white uppercase tracking-wider">Interactive Flight Stress Telemetry Test</span>
+              </div>
+              <span className="text-xs font-mono text-[#84a96c]">Click a condition below to test Hermes autonomous response:</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <button
+                type="button"
+                onClick={() => setHealthSimMode("nominal")}
+                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
+                  healthSimMode === "nominal"
+                    ? "bg-[#1c2616] border-[#fbbf24] text-white shadow-sm"
+                    : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:text-white hover:border-[#354528]"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-bold text-xs uppercase font-mono tracking-wide">Nominal Deep-Space Cruise</span>
+                  <CheckCircle2 className={`w-3.5 h-3.5 ${healthSimMode === "nominal" ? "text-[#fbbf24]" : "text-[#4d633b]"}`} />
+                </div>
+                <div className="text-[12px] text-[#a8baa0] leading-snug">
+                  Baseline vitals: Sinus rhythm 72 BPM, MAP 90.3 mmHg, GCR background 18.7 µSv/h.
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setHealthSimMode("spe_flare")}
+                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
+                  healthSimMode === "spe_flare"
+                    ? "bg-[#251f12] border-[#fbbf24] text-white shadow-sm"
+                    : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:text-white hover:border-[#354528]"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-bold text-xs uppercase font-mono tracking-wide text-[#fbbf24]">Solar Flare (SPE Event)</span>
+                  <ShieldAlert className={`w-3.5 h-3.5 ${healthSimMode === "spe_flare" ? "text-[#fbbf24]" : "text-[#4d633b]"}`} />
+                </div>
+                <div className="text-[12px] text-[#a8baa0] leading-snug">
+                  Proton shower: Flux spikes to 142.6 µSv/h. Indralin B-190 protocol and storm shelter armed.
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setHealthSimMode("sans_shift")}
+                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
+                  healthSimMode === "sans_shift"
+                    ? "bg-[#182522] border-[#84a96c] text-white shadow-sm"
+                    : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:text-white hover:border-[#354528]"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-bold text-xs uppercase font-mono tracking-wide text-[#84a96c]">Cephalad SANS Congestion</span>
+                  <AlertTriangle className={`w-3.5 h-3.5 ${healthSimMode === "sans_shift" ? "text-[#84a96c]" : "text-[#4d633b]"}`} />
+                </div>
+                <div className="text-[12px] text-[#a8baa0] leading-snug">
+                  Microgravity fluid stasis: ONSD 5.95 mm. Hermes engages Chibis-M LBNP at -35 mmHg.
+                </div>
+              </button>
+            </div>
+          </div>
+
+          {/* 4-Column Clinical Telemetry Cockpit Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
+            {/* Card 1: Lead-I ECG Tracing */}
+            <div className="bg-[#11160e] border border-[#2e3b23] rounded-2xl p-5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between text-xs text-[#8ea873] pb-2 border-b border-[#1f2818] mb-3">
+                  <span className="font-bold text-[#c7dfb8] tracking-wide">LEAD-I ECG (CLINICAL)</span>
+                  <Heart className="w-4 h-4 text-[#fbbf24]" />
+                </div>
+                <div className="text-3xl font-black text-white tabular-nums">
+                  {healthSimMode === "spe_flare" ? 89 : healthSimMode === "sans_shift" ? 68 : liveHeartRate}{" "}
+                  <span className="text-xs font-normal text-[#8ea873]">BPM</span>
+                </div>
+                <div className="text-xs text-[#84a96c] font-sans font-medium mt-1">
+                  {healthSimMode === "spe_flare" ? "Sinus Tachycardia (SPE Stress)" : "Normal Sinus Rhythm"}
+                </div>
+              </div>
+
+              {/* Animated ECG Waveform Canvas / SVG */}
+              <div className="mt-4 pt-3 border-t border-[#1f2818]">
+                <div className="relative h-16 w-full bg-[#070a06] border border-[#1b2414] rounded-lg overflow-hidden flex items-center">
+                  {/* Medical calibration grid */}
+                  <div
+                    className="absolute inset-0 opacity-20 pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, #84a96c 1px, transparent 1px), linear-gradient(to bottom, #84a96c 1px, transparent 1px)",
+                      backgroundSize: "8px 8px",
+                    }}
+                  />
+                  <svg className="w-full h-12 stroke-[#84a96c] fill-none" viewBox="0 0 240 40">
+                    <path
+                      d="M 0 20 L 30 20 L 35 15 L 40 20 L 55 20 L 60 27 L 65 3 L 70 33 L 75 20 L 90 20 L 100 12 L 110 20 L 140 20 L 145 15 L 150 20 L 165 20 L 170 27 L 175 3 L 180 33 L 185 20 L 200 20 L 210 12 L 220 20 L 240 20"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div className="absolute right-2 bottom-1 text-[10px] text-[#6d845e] font-mono">
+                    25 mm/s • 10 mm/mV
+                  </div>
+                </div>
+                <div className="flex justify-between text-[11px] text-[#8ea873] mt-2 font-mono">
+                  <span>QTc: 412 ms</span>
+                  <span>PR: 158 ms</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Micro-Cuff Blood Pressure */}
+            <div className="bg-[#11160e] border border-[#2e3b23] rounded-2xl p-5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between text-xs text-[#8ea873] pb-2 border-b border-[#1f2818] mb-3">
+                  <span className="font-bold text-[#c7dfb8] tracking-wide">MICRO-CUFF BP (XIAOMI H1)</span>
+                  <Activity className="w-4 h-4 text-[#fbbf24]" />
+                </div>
+                <div className="text-3xl font-black text-white tabular-nums">
+                  {healthSimMode === "spe_flare" ? "128/82" : healthSimMode === "sans_shift" ? "134/88" : `${liveBpSys}/${liveBpDia}`}{" "}
+                  <span className="text-xs font-normal text-[#8ea873]">mmHg</span>
+                </div>
+                <div className="text-xs text-[#84a96c] font-sans font-medium mt-1">
+                  MAP: {healthSimMode === "sans_shift" ? "103.3 mmHg (Venous Surge)" : "90.3 mmHg (Optimal)"}
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-[#1f2818] space-y-2 text-xs">
+                <div className="flex justify-between text-[#a8baa0]">
+                  <span>Inflation Method:</span>
+                  <span className="text-white">Dual-Layer Airbag Cuff</span>
+                </div>
+                <div className="flex justify-between text-[#a8baa0]">
+                  <span>Pulse Transit Time:</span>
+                  <span className="text-white">218 ms</span>
+                </div>
+                <div className="flex justify-between text-[#a8baa0]">
+                  <span>SpO2 Peripheral:</span>
+                  <span className="text-[#84a96c] font-bold">98.6% Nominal</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: Cephalad Fluid Shift & SANS Monitor */}
+            <div className="bg-[#11160e] border border-[#2e3b23] rounded-2xl p-5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between text-xs text-[#8ea873] pb-2 border-b border-[#1f2818] mb-3">
+                  <span className="font-bold text-[#c7dfb8] tracking-wide">SANS & CRANIAL FLUID SHIFT</span>
+                  <Eye className="w-4 h-4 text-[#fbbf24]" />
+                </div>
+                <div className="text-2xl font-black text-white tabular-nums">
+                  {healthSimMode === "sans_shift" ? "5.95" : "5.10"}{" "}
+                  <span className="text-xs font-normal text-[#8ea873]">mm ONSD</span>
+                </div>
+                <div className={`text-xs font-sans font-medium mt-1 ${healthSimMode === "sans_shift" ? "text-[#fbbf24]" : "text-[#84a96c]"}`}>
+                  {healthSimMode === "sans_shift" ? "Threshold Exceeded (>5.8 mm)" : "Optic Nerve Sheath Nominal"}
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-[#1f2818] space-y-2 text-xs">
+                <div className="flex justify-between text-[#a8baa0]">
+                  <span>Chibis-M LBNP:</span>
+                  <span className={`font-bold ${healthSimMode === "sans_shift" ? "text-[#fbbf24]" : "text-[#84a96c]"}`}>
+                    {healthSimMode === "sans_shift" ? "-35 mmHg ACTIVE" : "Standby (Ready)"}
+                  </span>
+                </div>
+                <div className="flex justify-between text-[#a8baa0]">
+                  <span>Caudal Draw Vol:</span>
+                  <span className="text-white">{healthSimMode === "sans_shift" ? "320 mL Shift" : "0 mL (Resting)"}</span>
+                </div>
+                <div className="flex justify-between text-[#a8baa0]">
+                  <span>Vorotnik Collar:</span>
+                  <span className="text-white">Prepared</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4: Cosmic Radiation Dosimetry */}
+            <div className="bg-[#11160e] border border-[#2e3b23] rounded-2xl p-5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between text-xs text-[#8ea873] pb-2 border-b border-[#1f2818] mb-3">
+                  <span className="font-bold text-[#c7dfb8] tracking-wide">DEEP-SPACE DOSIMETER</span>
+                  <Shield className="w-4 h-4 text-[#fbbf24]" />
+                </div>
+                <div className="text-3xl font-black text-white tabular-nums">
+                  {healthSimMode === "spe_flare" ? "142.6" : liveGcrFlux}{" "}
+                  <span className="text-xs font-normal text-[#8ea873]">µSv/h</span>
+                </div>
+                <div className={`text-xs font-sans font-medium mt-1 ${healthSimMode === "spe_flare" ? "text-[#fbbf24]" : "text-[#8ea873]"}`}>
+                  {healthSimMode === "spe_flare" ? "SPE Solar Particle Shower" : "GCR Heavy Ion Background"}
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-[#1f2818] space-y-2 text-xs">
+                <div className="flex justify-between text-[#a8baa0]">
+                  <span>Cumulative Dose:</span>
+                  <span className="text-white">{healthSimMode === "spe_flare" ? "4.12 mSv" : "3.37 mSv"}</span>
+                </div>
+                <div className="flex justify-between text-[#a8baa0]">
+                  <span>NASA Career Limit:</span>
+                  <span className="text-white">600 mSv PEL</span>
+                </div>
+                <div className="flex justify-between text-[#a8baa0]">
+                  <span>Indralin B-190:</span>
+                  <span className={`font-bold ${healthSimMode === "spe_flare" ? "text-[#fbbf24]" : "text-[#84a96c]"}`}>
+                    {healthSimMode === "spe_flare" ? "ARMED (DRF 1.45)" : "Secured in Rack"}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Real-Time Hermes Autonomous Triage Readout Banner */}
+          <div className="bg-[#13190e] border border-[#354528] rounded-2xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 font-mono text-xs">
+            <div className="space-y-1.5 max-w-3xl">
+              <div className="flex items-center gap-2">
+                <Cpu className="w-4 h-4 text-[#fbbf24]" />
+                <span className="font-bold text-white uppercase tracking-wider">HERMES AUTONOMOUS AI CONSENSUS TRIAGE:</span>
+                <span className="px-2 py-0.5 rounded bg-[#1f2917] text-[#84a96c] border border-[#2e3b23] text-[10px]">
+                  50 ms OFFLINE LATENCY
+                </span>
+              </div>
+              <p className="text-[#c7dfb8] font-sans text-sm leading-relaxed">
+                {healthSimMode === "nominal" &&
+                  "Nominal bio-telemetry. All 4 subagents (Med-Sentinel, Rad-Guard, Psy-Oracle, Nav-Pilot) report zero clinical deviations. Continuous passive sync with Xiaomi Watch H1 active."}
+                {healthSimMode === "spe_flare" &&
+                  "PRIORITY-1 SOLAR PARTICLE WARNING: Rad-Guard detects 142.6 µSv/h proton shower. Recommending immediate evacuation to central storm shelter (32 g/cm² water-wall) and Indralin B-190 ingestion."}
+                {healthSimMode === "sans_shift" &&
+                  "CRANIAL HYPERTENSION DETECTED: Optic nerve sheath diameter exceeds 5.8 mm. Med-Sentinel initiating 60-min Chibis-M Lower Body Negative Pressure (-35 mmHg) to restore caudal venous circulation."}
+              </p>
+            </div>
+
+            <div className="shrink-0">
+              <a
+                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/xiaomi-watch" : "https://sonnenblume-tool.vercel.app/xiaomi-watch"}
+                className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-black text-xs px-5 py-3 rounded-xl inline-flex items-center gap-2 cursor-pointer shadow-md shadow-amber-500/20 active:scale-95 transition-all"
+              >
+                <Activity className="w-4 h-4 text-[#0b0e0a]" />
+                <span>OPEN WEARABLE TELEMETRY HUB ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* SECTION: WHO WE ARE (AEROSPACE ENGINEERING & FOUNDATIONAL LINEAGE)       */}
+      {/* ========================================================================= */}
       <section id="who-we-are" className="py-20 px-4 border-b border-[#232d1a] bg-[#11160e]">
         <div className="max-w-6xl mx-auto space-y-12">
+          {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold">
-              <span>🌻 OUR MISSION & PHILOSOPHY</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold tracking-wider">
+              <Sun className="w-3.5 h-3.5 text-[#fbbf24]" />
+              <span>AEROSPACE SYSTEMS & BIO-ASTRONAUTICS TEAM</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               Who We Are
             </h2>
-            <p className="text-lg text-[#c7dfb8] leading-relaxed">
-              We are bio-astronautics engineers, software architects, and clinicians building for humanity’s next frontier: deep space beyond Earth's protective magnetosphere.
+            <p className="text-base sm:text-lg text-[#c7dfb8] leading-relaxed">
+              We are the bio-astronautics engineering team from the German-Mongolian Institute for Resources & Technology (GMIT) building humanity's first completely autonomous, zero-Earth-dependency spaceflight health operating system.
             </p>
           </div>
 
+          {/* Three Foundational Pillars */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-3">
-              <div className="text-2xl mb-1">🌻</div>
-              <h3 className="text-xl font-bold text-white">Why "Sonnenblume"?</h3>
-              <p className="text-base text-[#a8baa0] leading-relaxed">
-                In German, <em>Sonnenblume</em> means sunflower. Just as a sunflower turns toward the sun to harness energy while shielding its delicate seeds, our software tracks solar cosmic radiation storms, steers storm-shelter shielding, and protects the human genome.
+            {/* Pillar 1: GMIT Heritage */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-[#182213] border border-[#354528] flex items-center justify-center text-[#fbbf24]">
+                <Globe className="w-5 h-5 text-[#fbbf24]" />
+              </div>
+              <h3 className="text-xl font-bold text-white tracking-tight">
+                The GMIT Aerospace Lineage
+              </h3>
+              <p className="text-sm text-[#a8baa0] leading-relaxed">
+                Conceived and engineered by software architect and payload researcher <strong>Temuulen Buuveibaatar</strong> in Ulaanbaatar, Mongolia. Rooted in Mongolia's historic 1981 Interkosmos spaceflight (Soyuz 39 / Salyut 6 flight of Jügderdemidiin Gürragchaa), which conducted foundational research into human neuro-vestibular adaptation in microgravity.
               </p>
+              <div className="pt-2 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
+                German-Mongolian Institute for Resources & Technology (GMIT)
+              </div>
             </div>
 
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-3">
-              <div className="text-2xl mb-1">🛰️</div>
-              <h3 className="text-xl font-bold text-white">The Autonomy Imperative</h3>
-              <p className="text-base text-[#a8baa0] leading-relaxed">
-                When an astronaut suffers cardiac arrest or cranial hypertension on the way to Mars, waiting 22 minutes for an Earth doctor to respond is a death sentence. We build offline, deterministic clinical intelligence that guides crew members in seconds.
+            {/* Pillar 2: 42 Validated Clinical Countermeasures */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-[#182213] border border-[#354528] flex items-center justify-center text-[#fbbf24]">
+                <ShieldCheck className="w-5 h-5 text-[#fbbf24]" />
+              </div>
+              <h3 className="text-xl font-bold text-white tracking-tight">
+                42 Empirically Proven Protocols
+              </h3>
+              <p className="text-sm text-[#a8baa0] leading-relaxed">
+                Sonnenblume synthesizes 60+ years of documented space medicine across NASA's Bio-Astronautics Roadmap, the Soviet/Russian space program (437-day Mir mission of Dr. Valeri Polyakov, Chibis-M LBNP, Penguin axial suits, Indralin B-190 radioprotectant), and Chinese CMSA Tiangong acupoint electro-stimulation.
               </p>
+              <div className="pt-2 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
+                Zero Hypotheses • 100% Empirically Validated Flight Data
+              </div>
             </div>
 
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-3">
-              <div className="text-2xl mb-1">🛡️</div>
-              <h3 className="text-xl font-bold text-white">Crew Dignity & Privacy</h3>
-              <p className="text-base text-[#a8baa0] leading-relaxed">
-                Astronauts deserve private mental health care. Sonnenblume runs 100% on-device voice therapy without broadcasting intimate reflections back to Houston, preserving mental wellness without fear of medical grounding.
+            {/* Pillar 3: Sunflower Autonomy Doctrine */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-[#182213] border border-[#354528] flex items-center justify-center text-[#fbbf24]">
+                <Sun className="w-5 h-5 text-[#fbbf24]" />
+              </div>
+              <h3 className="text-xl font-bold text-white tracking-tight">
+                The Sunflower Autonomy Doctrine
+              </h3>
+              <p className="text-sm text-[#a8baa0] leading-relaxed">
+                Named after the German word for sunflower (<em>Sonnenblume</em>). Just as a sunflower tracks the sun while shielding its reproductive core, our software actively points spacecraft storm shielding during solar particle events and provides instant clinical decision-making when 22-minute light-speed delays make Earth telemedicine impossible.
               </p>
+              <div className="pt-2 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
+                Zero-Earth Dependency Beyond Cis-Lunar Orbit
+              </div>
+            </div>
+          </div>
+
+          {/* Tactical Verification & Credentials Strip */}
+          <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-2xl p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
+            <div>
+              <div className="text-[#8ea873] uppercase text-[11px] mb-1">Architecture</div>
+              <div className="text-white font-bold text-sm">Rust + TS + GMAT</div>
+              <div className="text-[#84a96c] text-[11px] mt-0.5">NASA GMAT R2026a Coupled</div>
+            </div>
+            <div>
+              <div className="text-[#8ea873] uppercase text-[11px] mb-1">Clinical Engine</div>
+              <div className="text-white font-bold text-sm">Hermes 4-Subagent</div>
+              <div className="text-[#84a96c] text-[11px] mt-0.5">100% Offline Consensus</div>
+            </div>
+            <div>
+              <div className="text-[#8ea873] uppercase text-[11px] mb-1">Hardware Interface</div>
+              <div className="text-white font-bold text-sm">Xiaomi Watch H1</div>
+              <div className="text-[#84a96c] text-[11px] mt-0.5">Medical-Grade Micro-Cuff BP</div>
+            </div>
+            <div>
+              <div className="text-[#8ea873] uppercase text-[11px] mb-1">Security Standard</div>
+              <div className="text-white font-bold text-sm">Zero-Knowledge RLS</div>
+              <div className="text-[#84a96c] text-[11px] mt-0.5">Encrypted Onboard Memory</div>
             </div>
           </div>
         </div>

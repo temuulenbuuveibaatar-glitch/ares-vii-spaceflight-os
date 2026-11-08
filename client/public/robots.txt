@@ -1,0 +1,23 @@
+# ==============================================================
+# Sonnenblume Deep-Space Health & Autonomy Platform
+# Robots & Sitemap Configuration for Search Engine Indexing
+# ==============================================================
+
+User-agent: *
+Allow: /
+Allow: /privacy
+Allow: /app
+Allow: /hermes
+Allow: /space-encyclopedia
+Allow: /gmat-orbiter
+Allow: /world-agencies
+Allow: /emergency
+Allow: /xiaomi-watch
+Allow: /cloud-desktop
+Allow: /sitemap.xml
+
+# Protect internal raw telemetry streaming endpoints from crawler noise
+Disallow: /api/telemetry/raw-dump
+Disallow: /api/autopilot/emergency-force
+
+Sitemap: https://sonnenblume-marketing.vercel.app/sitemap.xml

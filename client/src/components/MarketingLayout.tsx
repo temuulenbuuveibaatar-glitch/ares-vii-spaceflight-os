@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Link } from "wouter";
-import { Rocket, FileText, Lock, Globe, ArrowRight } from "lucide-react";
+import { Rocket, FileText, Lock, Globe, ArrowRight, Sun, Activity, Shield } from "lucide-react";
 
 interface MarketingLayoutProps {
   children: ReactNode;
@@ -17,8 +17,8 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
           <Link href="/">
             <div className="flex items-center gap-3.5 cursor-pointer group">
-              <div className="w-10 h-10 rounded-2xl bg-[#182213] border border-[#3f5231] flex items-center justify-center text-2xl shadow-sm shadow-amber-500/10 group-hover:border-[#fbbf24] transition-colors">
-                🌻
+              <div className="w-10 h-10 rounded-2xl bg-[#182213] border border-[#3f5231] flex items-center justify-center text-[#fbbf24] shadow-sm shadow-amber-500/10 group-hover:border-[#fbbf24] transition-colors">
+                <Sun className="w-5 h-5 text-[#fbbf24]" />
               </div>
               <div>
                 <div className="font-extrabold text-lg tracking-tight text-white flex items-center gap-2">
@@ -35,7 +35,11 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
           </Link>
 
           {/* Navigation Links with Readable Typography */}
-          <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold text-[#c7dfb8]">
+          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#c7dfb8]">
+            <a href="#health-monitor" className="hover:text-[#fbbf24] transition-colors flex items-center gap-1.5 text-[#fbbf24]">
+              <Activity className="w-3.5 h-3.5" />
+              <span>Health Monitor</span>
+            </a>
             <a href="#who-we-are" className="hover:text-[#fbbf24] transition-colors">
               Who We Are
             </a>
@@ -87,7 +91,8 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-[#1a2313]">
             <div className="space-y-2 max-w-xl">
               <div className="font-bold text-white text-base flex items-center gap-2">
-                <span>🌻 Sonnenblume Spaceflight Health OS</span>
+                <Sun className="w-4 h-4 text-[#fbbf24]" />
+                <span>Sonnenblume Spaceflight Health OS</span>
               </div>
               <p className="text-[#a8baa0] leading-relaxed text-sm">
                 Named after the German word for Sunflower (following the sun and shielding crews from solar radiation). Built for 24/7 crew autonomy during 22-minute communication blackouts to Mars.
