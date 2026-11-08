@@ -18,7 +18,7 @@ import {
 } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // 1. GET /api/mission/overview - Full real-time state of Crew, Xiaomi Watch H1, Hermes 4 Subagents, Ship Autopilot, GMIT/DSN Earth Comms & Supabase
+  // 1. GET /api/mission/overview - Full real-time state of Crew, Xiaomi Watch H1, Hermes 4 Subagents, Ship Autopilot, DSN Earth Comms & Supabase
   app.get("/api/mission/overview", async (_req: Request, res: Response) => {
     try {
       const overview = await storage.getMissionOverview();
@@ -180,7 +180,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 7. POST /api/earth-comm/send - Downlink telemetry/message to NASA DSN + GMIT Nalaikh Ground Station
+  // 7. POST /api/earth-comm/send - Downlink telemetry/message to NASA DSN Ground Station
   app.post("/api/earth-comm/send", async (req: Request, res: Response) => {
     try {
       const parsed = earthCommSendSchema.safeParse(req.body);

@@ -191,16 +191,16 @@ export interface ShipAutopilotState {
   earthCommStatus: EarthCommStatus;
   signalLatencySec: number;
   uplinkKbps: number;
-  // Real-Time Physics & GMIT Ground Station Synchronization Telemetry
+  // Real-Time Physics & Ground Station Synchronization Telemetry
   distanceToEarthKm?: number;
   orbitalVelocityKmS?: number;
   propellantMassKg?: number;
   shieldAttenuationPct?: number;
   dynamicCardioGCap?: number;
   utcTimestamp?: string;
-  gmitLocalTime?: string;
+  groundLocalTime?: string;
   missionElapsedTime?: string;
-  gmitStationStatus?: string;
+  groundStationStatus?: string;
 }
 
 export interface EarthCommLog {

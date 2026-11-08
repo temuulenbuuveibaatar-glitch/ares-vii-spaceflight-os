@@ -215,19 +215,19 @@ export const WORLD_SPACE_AGENCIES: WorldSpaceAgencyProfile[] = [
     flagEmoji: "🇲🇳",
     foundedYear: "1961 (MAS) / March 22, 1981 (Soyuz-39)",
     leadBiomedicalInstitute:
-      "Institute of Physics & Technology (MAS), Information & Communications Space Research Center, & GMIT Nalaikh",
+      "Institute of Physics & Technology (MAS), Information & Communications Space Research Center",
     accentColor: "#38bdf8",
     badgeClass: "bg-sky-950/90 text-sky-300 border-sky-500/40",
     borderClass: "border-sky-500/40",
     heroSummary:
-      "During the historic March 22–30, 1981 Soyuz-39 / Salyut-6 mission, Mongolian cosmonaut Jügderdemidiin Gürragchaa and Commander Vladimir Dzhanibekov executed 25+ landmark biomedical, neuro-vestibular, rheological, optical, and thermoluminescent dosimetry experiments ('Vorotnik', 'Krovoobrashcheniye', 'Biorhythm', 'Vremya', 'Neptune', 'Contrast', 'Solongo', 'Erdenet', 'Altai'). Today, Mongolia bridges this heritage with Mazaalai (2017), Temuulel, and GMIT wearable space telemetry.",
+      "During the historic March 22–30, 1981 Soyuz-39 / Salyut-6 mission, Mongolian cosmonaut Jügderdemidiin Gürragchaa and Commander Vladimir Dzhanibekov executed 25+ landmark biomedical, neuro-vestibular, rheological, optical, and thermoluminescent dosimetry experiments ('Vorotnik', 'Krovoobrashcheniye', 'Biorhythm', 'Vremya', 'Neptune', 'Contrast', 'Solongo', 'Erdenet', 'Altai'). Today, Mongolia bridges this heritage with Mazaalai (2017), Temuulel, and open space telemetry.",
     signaturePrograms: [
       "Soyuz 39 / Salyut 6 (March 22–30, 1981  •  124 orbits, 7d 20h 42m 03s)",
       "'Vorotnik' (Воротник) Pneumatic Cervical Counter-Pressure SMS Prevention",
       "'Krovoobrashcheniye' (Кровообращение) 0G Tetrapolar Impedance Rheography",
       "'Biorhythm' & 'Vremya' Circadian Desynchrony & Psychomotor Time-Perception",
       "'Erdenet' / 'Solongo' (Солонго) Multi-Spectral Earth Observation & 'Altai' Crystallization",
-      "Mazaalai (2017 BIRDS-1 CubeSat) & GMIT Nalaikh Space Ground Telemetry",
+      "Mazaalai (2017 BIRDS-1 CubeSat)  Space Ground Telemetry",
     ],
     radiationStandard: {
       agencyId: "MAS-INTERKOSMOS",
@@ -970,7 +970,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     agencyFullName: "Mongolian Academy of Sciences (MAS) & Space Research Center",
     nativeAgencyName: "Монгол Улсын Шинжлэх Ухааны Академи (ШУА) / Сансар судлалын төв",
     foundedYear: "1961 (MAS) / 1981 (Soyuz 39)",
-    biomedicalInstitute: "MAS Institute of Physics & Technology, Aviation Medical Center, & GMIT Nalaikh",
+    biomedicalInstitute: "MAS Institute of Physics & Technology, Aviation Medical Center",
     notableAstronautsOrCosmonauts: [
       "Jügderdemidiin Gürragchaa (Жүгдэрдэмидийн Гүррагчаа  •  Soyuz 39 / Salyut 6, March 22–30, 1981)",
       "Maidarjavyn Ganzorig (Майдаржавын Ганзориг  •  Backup Cosmonaut & Principal Investigator)",
@@ -978,7 +978,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     keyMissionsAndPlatforms: [
       "Soyuz 39 / Salyut 6 (1981  •  7d 20h 42m, 124 orbits)",
       "Mazaalai (2017 First Mongolian CubeSat  •  Cosmic Ray & Ionospheric Sensor)",
-      "Chinggis Sat (2023) & GMIT Nalaikh Deep-Space Telemetry Ground Station",
+      "Chinggis Sat (2023)  Deep-Space Telemetry Ground Station",
     ],
     flagshipHardwareAndDosimeters: [
       "Vorotnik (Воротник) Pneumatic Cervical Counter-Pressure Collar",
@@ -1962,7 +1962,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
           "Validated traditional Central Asian fermented lactic peptides (rich in lactoferrin and vitamin C) to counteract space anemia and radiation-induced lipid peroxidation.",
       },
     ],
-    watchH1Synergy: "Supports Baikonur / Steppe landing zone telemetry handoff with GMIT Nalaikh ground station.",
+    watchH1Synergy: "Supports Baikonur / Steppe landing zone telemetry handoff with Ulaanbaatar Ground Station ground station.",
   },
 
   // 27. NIGERIA

@@ -536,7 +536,7 @@ REF_FRAME      = EME2000
     {
       id: "gs_network",
       folder: "GroundStations",
-      label: "DSN_Goldstone / Madrid / GMIT_Nalaikh",
+      label: "DSN_Goldstone / Madrid / Berlin_Station",
       summary: "24/7 Continuous Deep-Space Link",
     },
     {

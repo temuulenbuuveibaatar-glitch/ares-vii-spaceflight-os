@@ -54,12 +54,12 @@ export function formatMissionElapsedTime(nowMs = Date.now()): string {
 }
 
 /**
- * Formats GMIT Local Time (German-Mongolian Institute for Resources and Technology, Nalaikh, Ulaanbaatar, UTC+8)
+ * Formats Berlin & European Mission Ground Time (UTC+1 CET)
  */
-export function formatGmitLocalTime(now = new Date()): string {
-  const utc8Ms = now.getTime() + 8 * 3600 * 1000;
-  const d = new Date(utc8Ms);
-  return `${d.toISOString().replace("T", " ").slice(0, 19)} UTC+8 (GMIT Nalaikh, MN)`;
+export function formatGroundLocalTime(now = new Date()): string {
+  const cetMs = now.getTime() + 1 * 3600 * 1000;
+  const d = new Date(cetMs);
+  return `${d.toISOString().replace("T", " ").slice(0, 19)} CET (Berlin Mission Hub)`;
 }
 
 /**
@@ -94,7 +94,7 @@ export function computeDynamicCardioGCap(
 /**
  * Real-Time Physics & Orbital Mechanics Tick (executed continuously every second)
  * Evaluates Vis-Viva orbital velocity, Earth distance, light-time latency d(t)/c,
- * Tsiolkovsky rocket propellant burn, radiation shielding attenuation, and GMIT/UTC clocks.
+ * Tsiolkovsky rocket propellant burn, radiation shielding attenuation, and Berlin/UTC clocks.
  */
 export function computeRealTimePhysicsTick(
   state: ShipAutopilotState,
@@ -210,10 +210,10 @@ export function computeRealTimePhysicsTick(
     shieldAttenuationPct,
     dynamicCardioGCap: dynamicGCap,
     utcTimestamp: nowIso,
-    gmitLocalTime: formatGmitLocalTime(now),
+    groundLocalTime: formatGroundLocalTime(now),
     missionElapsedTime: formatMissionElapsedTime(now.getTime()),
-    gmitStationStatus:
-      "GMIT_NALAIKH_MN (47.78°N, 107.26°E) • S/X-BAND TELEMETRY LOCKED",
+    groundStationStatus:
+      "BERLIN_MISSION_HUB (52.52°N, 13.40°E) • S/X-BAND TELEMETRY LOCKED",
   };
 
   return {

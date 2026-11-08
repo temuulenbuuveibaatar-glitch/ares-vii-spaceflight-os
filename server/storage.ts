@@ -15,7 +15,7 @@ import {
   calculateOrbitalManeuver,
   buildScenarioTelemetry,
   computeRealTimePhysicsTick,
-  formatGmitLocalTime,
+  formatGroundLocalTime,
   formatMissionElapsedTime,
 } from "./hermesEngine";
 import { supabaseManager } from "./supabase";
@@ -190,7 +190,7 @@ export class MemStorage implements IStorage {
       });
     }
 
-    // 3. Seed Ship Autopilot State with Real-Time Orbital & GMIT Ground Station fields
+    // 3. Seed Ship Autopilot State with Real-Time Orbital & Ground Station fields
     this.autopilotState = {
       id: "ares-vii-autopilot",
       updatedAt: nowIso,
@@ -211,7 +211,7 @@ export class MemStorage implements IStorage {
       humanOverrideEngaged: false,
       overrideAuthorizedBy: null,
       overrideTimestamp: null,
-      dsnStation: "GOLDSTONE_DS14 + GMIT_NALAIKH_MN",
+      dsnStation: "GOLDSTONE_DS14 + BERLIN_GROUND_STATION",
       earthCommStatus: "CONNECTED",
       signalLatencySec: 184.2,
       uplinkKbps: 1240.0,
@@ -221,10 +221,10 @@ export class MemStorage implements IStorage {
       shieldAttenuationPct: 32.0,
       dynamicCardioGCap: 2.45,
       utcTimestamp: nowIso,
-      gmitLocalTime: formatGmitLocalTime(now),
+      groundLocalTime: formatGroundLocalTime(now),
       missionElapsedTime: formatMissionElapsedTime(now.getTime()),
-      gmitStationStatus:
-        "GMIT_NALAIKH_MN (47.78°N, 107.26°E) • S/X-BAND TELEMETRY LOCKED",
+      groundStationStatus:
+        "BERLIN_GROUND_STATION (52.52°N, 13.40°E) • S/X-BAND TELEMETRY LOCKED",
     };
 
     // 4. Seed Hermes 4 Subagent Logs
@@ -265,7 +265,7 @@ export class MemStorage implements IStorage {
         analysis:
           "Crew mean HRV 64.5 ms, Stress Index 22.8/100, Sleep Quality 88%. Zero isolation-induced cognitive drift detected.",
         actionExecuted:
-          "Synchronized habitat SLA-LED circadian cycle with GMT/GMIT mission schedule.",
+          "Synchronized habitat SLA-LED circadian cycle with Berlin & mission schedule.",
         confidence: 0.97,
       },
       {
@@ -283,17 +283,17 @@ export class MemStorage implements IStorage {
       },
     ];
 
-    // 5. Seed Earth DSN & GMIT Ground Station Comm Logs
+    // 5. Seed Earth DSN Ground Station Comm Logs
     this.earthCommLogs = [
       {
         id: "seed-comm-1",
         timestamp: new Date(now.getTime() - 120000).toISOString(),
         direction: "UPLINK_FROM_EARTH",
-        sender: "HOUSTON MCC & GMIT NALAIKH GROUND STATION (47.78°N, 107.26°E)",
-        station: "GOLDSTONE_DS14 + GMIT_NALAIKH_MN",
+        sender: "HOUSTON MCC & BERLIN MISSION HUB (52.52°N, 13.40°E)",
+        station: "GOLDSTONE_DS14 + BERLIN_STATION",
         priority: "TELEMETRY_SYNC",
         message:
-          "Sonnenblume, copy nominal Xiaomi Watch H1 bio-telemetry across all 4 crewmembers. GMIT Nalaikh Ground Station (UTC+8) and NASA Goldstone DS-14 have full carrier lock. Hermes Autonomous Flight Takeover authority verified.",
+          "Sonnenblume, copy nominal Xiaomi Watch H1 bio-telemetry across all 4 crewmembers. Berlin Station and NASA Goldstone DS-14 have full carrier lock. Hermes Autonomous Flight Takeover authority verified.",
         telemetryAttached: true,
         acknowledged: true,
       },
@@ -301,11 +301,11 @@ export class MemStorage implements IStorage {
         id: "seed-comm-2",
         timestamp: new Date(now.getTime() - 45000).toISOString(),
         direction: "DOWNLINK_TO_EARTH",
-        sender: "Dr. Temuulen B. (NOMAD-2)",
-        station: "GMIT_NALAIKH_MN (47.78°N, 107.26°E)",
+        sender: "Temuulen B. (NOMAD-2)",
+        station: "BERLIN_STATION (52.52°N, 13.40°E)",
         priority: "ROUTINE",
         message:
-          "Houston & GMIT Nalaikh Mission Control, Xiaomi Watch H1 real-time ECG/SpO2/Radiation stream is locked into Hermes AI. All 4 subagents green.",
+          "Houston & Berlin Mission Control, Xiaomi Watch H1 real-time ECG/SpO2/Radiation stream is locked into Hermes AI. All 4 subagents green.",
         telemetryAttached: true,
         acknowledged: true,
       },
@@ -669,14 +669,14 @@ export class MemStorage implements IStorage {
       id: `comm-up-${Date.now() + 1}`,
       timestamp: new Date(now.getTime() + 1200).toISOString(),
       direction: "UPLINK_FROM_EARTH",
-      sender: "HOUSTON FLIGHT SURGEON & GMIT NALAIKH CONTROL",
-      station: "GOLDSTONE_DS14 + GMIT_NALAIKH_MN (47.78°N, 107.26°E)",
+      sender: "HOUSTON FLIGHT SURGEON & BERLIN CONTROL",
+      station: "GOLDSTONE_DS14 + BERLIN_STATION (52.52°N, 13.40°E)",
       priority: params.priority,
       message:
         params.priority === "PRIORITY_0_MAYDAY" ||
         params.priority === "URGENT_MEDICAL"
-          ? `[ACK PRIORITY-0] Sonnenblume, Houston Flight Surgeon & GMIT Nalaikh Station copy your emergency telemetry packet (one-way light latency ${this.autopilotState.signalLatencySec}s). We concur with Hermes MED-SENTINEL & NAV-PILOT Fast Earth Return trajectory (ETA ${this.autopilotState.estimatedReturnHours}h). Recovery forces alerted.`
-          : `[ACK TELEMETRY] Sonnenblume, Houston & GMIT Nalaikh Ground Station copy message and Xiaomi Watch H1 biometric frame. Orbital state vector and crew dosimetry verified nominal.`,
+          ? `[ACK PRIORITY-0] Sonnenblume, Houston Flight Surgeon & Berlin Station copy your emergency telemetry packet (one-way light latency ${this.autopilotState.signalLatencySec}s). We concur with Hermes MED-SENTINEL & NAV-PILOT Fast Earth Return trajectory (ETA ${this.autopilotState.estimatedReturnHours}h). Recovery forces alerted.`
+          : `[ACK TELEMETRY] Sonnenblume, Houston & Berlin Ground Station copy message and Xiaomi Watch H1 biometric frame. Orbital state vector and crew dosimetry verified nominal.`,
       telemetryAttached: false,
       acknowledged: true,
     };

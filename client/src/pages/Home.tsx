@@ -59,7 +59,7 @@ const ASTRONAUT_SELF_CHECK_SYMPTOMS: SelfCheckSymptom[] = [
     recommendedMedication:
       "China CMSA Taikong Yangxin Wan (1 packet PO) or Soviet Panangin + Riboxin metabolic protocol.",
     shipAndEarthAction:
-      "Hermes AI caps spacecraft thruster maneuvers at <= 2.2G and transmits live 12-lead ECG + cuff BP packet to Houston & GMIT Nalaikh.",
+      "Hermes AI caps spacecraft thruster maneuvers at <= 2.2G and transmits live 12-lead ECG + cuff BP packet to Houston & Berlin Mission Control.",
   },
   {
     id: "sym-vision-headache",
@@ -360,7 +360,7 @@ export default function Home() {
 
                 <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-lg p-3 space-y-1">
                   <div className="flex items-center justify-between text-[#8ea873]">
-                    <span>GMIT Nalaikh (Mongolia)</span>
+                    <span>Berlin Mission Hub</span>
                     <span className="text-[#84a96c] font-bold">ONLINE</span>
                   </div>
                   <div className="font-semibold text-white tabular-nums">

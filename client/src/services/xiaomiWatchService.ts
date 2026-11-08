@@ -1,5 +1,5 @@
 // Xiaomi Watch H1 Real Web Bluetooth (BLE) + Real-Time Biometric, Radiation & Astrodynamics Telemetry Service
-// Supports GMIT (German-Mongolian Institute for Resources and Technology, Nalaikh 47.7758° N, 107.2569° E) Ground Station & Offline-Resilient LAN Mode
+// Supports Berlin Mission Hub Ground Station & Offline-Resilient LAN Mode
 
 export type ScenarioId =
   | "nominal"
@@ -28,8 +28,8 @@ export interface LivePhysicsCalculations {
   // Distance & Light Time: tau = d / c
   distanceFromEarthKm: number;
   oneWayLightTimeSec: number;
-  gmitGroundStationElevationDeg: number;
-  gmitSlantRangeKm: number;
+  groundStationElevationDeg: number;
+  groundSlantRangeKm: number;
   // Lambert Earth-Return & Tsiolkovsky Rocket Equation: dm = m0 * (1 - exp(-dv / (Isp * g0)))
   lambertDeltaVMS: number;
   spacecraftMassKg: number;
@@ -49,7 +49,7 @@ export interface XiaomiWatchTelemetryPacket {
   id: string;
   timestamp: string;
   gmtTime: string;
-  gmitTime: string; // UTC+8 Nalaikh / Ulaanbaatar
+  groundTime: string; // UTC+8 Nalaikh / Ulaanbaatar
   missionElapsedTime: string;
   astronautId: string;
   astronautName: string;
@@ -115,15 +115,15 @@ const MU_EARTH_KM3_S2 = 398600.4418; // Earth standard gravitational parameter k
 const SPEED_OF_LIGHT_KM_S = 299792.458; // c in km/s
 const G0_M_S2 = 9.80665; // Standard gravity m/s^2
 
-export const GMIT_GROUND_STATION = {
-  code: "GMIT-NALAIKH-GS1",
-  name: "German-Mongolian Institute for Resources and Technology (GMIT)",
-  location: "Nalaikh District, Ulaanbaatar, Mongolia",
-  latitude: 47.7758,
-  longitude: 107.2569,
-  altitudeM: 1410,
-  band: "X-Band / Ka-Band & Campus Optical Telemetry Array",
-  timezone: "UTC+8 (ULAT / GMIT Time)",
+export const BERLIN_GROUND_STATION = {
+  code: "BERLIN-MISSION-GS1",
+  name: "Berlin Mission Control Ground Station",
+  location: "Berlin, Germany",
+  latitude: 52.5200,
+  longitude: 13.4050,
+  altitudeM: 34,
+  band: "X-Band / Ka-Band Ground Telemetry Array",
+  timezone: "UTC+1 (CET / Berlin Time)",
 };
 
 class XiaomiWatchTelemetryService {
@@ -439,12 +439,12 @@ class XiaomiWatchTelemetryService {
           scenario,
           astronautId: "ARES-CDR-01",
           watchModel: "Xiaomi Watch H1",
-          gmitGroundStation: GMIT_GROUND_STATION.code,
+          groundStation: BERLIN_GROUND_STATION.code,
           packet: this.latestPacket,
         }),
       });
     } catch {
-      // Offline / GMIT Campus LAN resilient fallback
+      // Offline / Local network resilient fallback
     }
 
     return this.latestPacket;
@@ -565,8 +565,8 @@ class XiaomiWatchTelemetryService {
     this.phaseAngle += 0.18;
     const now = new Date();
     const gmtTime = now.toISOString().replace("T", " ").slice(0, 19) + " GMT";
-    const gmitDate = new Date(now.getTime() + 8 * 3600 * 1000);
-    const gmitTime = gmitDate.toISOString().replace("T", " ").slice(0, 19) + " ULAT (GMIT UTC+8)";
+    const groundDate = new Date(now.getTime() + 1 * 3600 * 1000);
+    const groundTime = groundDate.toISOString().replace("T", " ").slice(0, 19) + " CET (Berlin)";
 
     // Mission Elapsed Time (MET)
     const metSec = Math.floor((Date.now() - this.missionStartEpoch) / 1000);
@@ -739,11 +739,11 @@ class XiaomiWatchTelemetryService {
       (1 - Math.exp(-lambertDeltaVMS / (this.specificImpulseSec * G0_M_S2)))
     ).toFixed(2);
 
-    const gmitElevation = +(
+    const groundElevation = +(
       42.5 +
       18.2 * Math.sin((Date.now() / 60000) % (2 * Math.PI))
     ).toFixed(2);
-    const gmitSlantRangeKm = +(this.distanceFromEarthKm + 1420 * Math.cos(this.phaseAngle * 0.1)).toFixed(1);
+    const groundSlantRangeKm = +(this.distanceFromEarthKm + 1420 * Math.cos(this.phaseAngle * 0.1)).toFixed(1);
 
     const physics: LivePhysicsCalculations = {
       orbitalRadiusKm: r,
@@ -751,8 +751,8 @@ class XiaomiWatchTelemetryService {
       visVivaVelocityKmS,
       distanceFromEarthKm: this.distanceFromEarthKm,
       oneWayLightTimeSec,
-      gmitGroundStationElevationDeg: gmitElevation,
-      gmitSlantRangeKm,
+      groundStationElevationDeg: groundElevation,
+      groundSlantRangeKm,
       lambertDeltaVMS,
       spacecraftMassKg: this.spacecraftMassKg,
       specificImpulseSec: this.specificImpulseSec,
@@ -787,7 +787,7 @@ class XiaomiWatchTelemetryService {
       id: `XIAOMI-H1-${Date.now()}`,
       timestamp: now.toISOString(),
       gmtTime,
-      gmitTime,
+      groundTime,
       missionElapsedTime,
       astronautId: "ARES-CDR-01",
       astronautName: "Temuulen Buuveibaatar (Berlin / Sonnenblume)",
@@ -930,8 +930,8 @@ class XiaomiWatchTelemetryService {
       recommendedAction: this.humanManualOverride
         ? "Standing by as flight envelope advisor while crew flies manually."
         : navCritical
-        ? `Executing ${this.activeManeuver} (Δv=${physics.lambertDeltaVMS} m/s, G-Cap=${physics.maxSafeGLoad}G). Uplink active to GMIT Nalaikh & DSN.`
-        : "Maintain continuous telemetry downlink to GMIT Nalaikh & NASA DSN.",
+        ? `Executing ${this.activeManeuver} (Δv=${physics.lambertDeltaVMS} m/s, G-Cap=${physics.maxSafeGLoad}G). Uplink active to Berlin Station & DSN.`
+        : "Maintain continuous telemetry downlink to Berlin Station & NASA DSN.",
       formulaUsed: `v = √(μ(2/r - 1/a)) = ${physics.visVivaVelocityKmS} km/s | Δm = m₀(1 - e^(-Δv/I_sp·g₀)) = ${physics.tsiolkovskyPropellantKg} kg`,
       timestamp: ts,
     };
@@ -960,7 +960,7 @@ class XiaomiWatchTelemetryService {
         }),
       });
     } catch {
-      // Silent fallback when running in offline / GMIT Campus LAN environment
+      // Silent fallback when running in offline / local environment
     }
   }
 }

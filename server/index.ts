@@ -68,9 +68,9 @@ app.use((req, res, next) => {
     await setupVite(app, server);
   }
 
-  // Serve the app on PORT (default 5000), compatible with Windows, Linux, and GMIT LAN
+  // Serve the app on PORT (default 5000), compatible with Windows, Linux, and LAN
   const port = Number(process.env.PORT) || 5000;
   server.listen(port, "0.0.0.0", () => {
-    log(`serving on http://localhost:${port} (GMIT LAN & Mission Control ready)`);
+    log(`serving on http://localhost:${port} (Sonnenblume LAN & Mission Control ready)`);
   });
 })();
