@@ -631,96 +631,184 @@ export default function Intro() {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION: WHO WE ARE (AEROSPACE ENGINEERING & FOUNDATIONAL LINEAGE)       */}
+      {/* SECTION: WHO WE ARE (THE REAL BUILDERS: TEMUULEN, ALESSIA & AZJARGAL)     */}
       {/* ========================================================================= */}
       <section id="who-we-are" className="py-20 px-4 border-b border-[#232d1a] bg-[#11160e]">
-        <div className="max-w-6xl mx-auto space-y-12">
+        <div className="max-w-6xl mx-auto space-y-14">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold tracking-wider">
-              <Sun className="w-3.5 h-3.5 text-[#fbbf24]" />
-              <span>AEROSPACE SYSTEMS & BIO-ASTRONAUTICS TEAM</span>
+              <Users className="w-3.5 h-3.5 text-[#fbbf24]" />
+              <span>THE BUILDERS • THREE INDEPENDENT DEVELOPERS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               Who We Are
             </h2>
             <p className="text-base sm:text-lg text-[#c7dfb8] leading-relaxed">
-              We are the bio-astronautics engineering team from the German-Mongolian Institute for Resources & Technology (GMIT) building humanity's first completely autonomous, zero-Earth-dependency spaceflight health operating system.
+              We are three young developers and close friends from Germany, Italy, and Mongolia who decided to build solutions for real human survival, show other kids that anything is possible, and prove that humanity still has hope for a brighter future.
             </p>
           </div>
 
-          {/* Three Foundational Pillars */}
+          {/* Three Team Members */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Pillar 1: GMIT Heritage */}
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-[#182213] border border-[#354528] flex items-center justify-center text-[#fbbf24]">
-                <Globe className="w-5 h-5 text-[#fbbf24]" />
+            {/* Member 1: Temuulen */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between pb-3 border-b border-[#1f2818]">
+                  <div className="w-10 h-10 rounded-xl bg-[#182213] border border-[#354528] flex items-center justify-center text-[#fbbf24]">
+                    <Terminal className="w-5 h-5 text-[#fbbf24]" />
+                  </div>
+                  <span className="font-mono text-xs text-[#84a96c] bg-[#13190e] px-2.5 py-1 rounded-lg border border-[#232d1a]">
+                    BERLIN, GERMANY
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white tracking-tight">
+                    Temuulen Buuveibaatar
+                  </h3>
+                  <div className="text-xs font-mono text-[#fbbf24] mt-0.5">
+                    Lead Systems Architect & Full-Stack Developer
+                  </div>
+                </div>
+                <p className="text-sm text-[#a8baa0] leading-relaxed">
+                  Based in Berlin, Germany. Started coding with the conviction to tackle hard problems, help people in need, and lessen the financial burden on his parents. Named the project <em>Sonnenblume</em> (German for Sunflower) from Berlin. Architected the complete mission OS, Rust native engine, Hermes consensus logic, and NASA GMAT trajectory bridge.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-white tracking-tight">
-                The GMIT Aerospace Lineage
-              </h3>
-              <p className="text-sm text-[#a8baa0] leading-relaxed">
-                Conceived and engineered by software architect and payload researcher <strong>Temuulen Buuveibaatar</strong> in Ulaanbaatar, Mongolia. Rooted in Mongolia's historic 1981 Interkosmos spaceflight (Soyuz 39 / Salyut 6 flight of Jügderdemidiin Gürragchaa), which conducted foundational research into human neuro-vestibular adaptation in microgravity.
-              </p>
-              <div className="pt-2 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
-                German-Mongolian Institute for Resources & Technology (GMIT)
-              </div>
-            </div>
-
-            {/* Pillar 2: 42 Validated Clinical Countermeasures */}
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-[#182213] border border-[#354528] flex items-center justify-center text-[#fbbf24]">
-                <ShieldCheck className="w-5 h-5 text-[#fbbf24]" />
-              </div>
-              <h3 className="text-xl font-bold text-white tracking-tight">
-                42 Empirically Proven Protocols
-              </h3>
-              <p className="text-sm text-[#a8baa0] leading-relaxed">
-                Sonnenblume synthesizes 60+ years of documented space medicine across NASA's Bio-Astronautics Roadmap, the Soviet/Russian space program (437-day Mir mission of Dr. Valeri Polyakov, Chibis-M LBNP, Penguin axial suits, Indralin B-190 radioprotectant), and Chinese CMSA Tiangong acupoint electro-stimulation.
-              </p>
-              <div className="pt-2 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
-                Zero Hypotheses • 100% Empirically Validated Flight Data
+              <div className="pt-3 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
+                Role: Architecture • Rust Engine • NASA GMAT
               </div>
             </div>
 
-            {/* Pillar 3: Sunflower Autonomy Doctrine */}
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-[#182213] border border-[#354528] flex items-center justify-center text-[#fbbf24]">
-                <Sun className="w-5 h-5 text-[#fbbf24]" />
+            {/* Member 2: Alessia */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between pb-3 border-b border-[#1f2818]">
+                  <div className="w-10 h-10 rounded-xl bg-[#182213] border border-[#354528] flex items-center justify-center text-[#fbbf24]">
+                    <Heart className="w-5 h-5 text-[#fbbf24]" />
+                  </div>
+                  <span className="font-mono text-xs text-[#84a96c] bg-[#13190e] px-2.5 py-1 rounded-lg border border-[#232d1a]">
+                    ITALY
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white tracking-tight">
+                    Alessia
+                  </h3>
+                  <div className="text-xs font-mono text-[#fbbf24] mt-0.5">
+                    Human Systems & Clinical Interface Developer
+                  </div>
+                </div>
+                <p className="text-sm text-[#a8baa0] leading-relaxed">
+                  Collaborating from Italy. Passionate about human dignity, clinical accessibility, and stress-resilient user interfaces. Designed the crew physiological workflows, cognitive fatigue sentiment models, and medical ergonomics so that any astronaut under extreme hypoxia or stress can act with instant clarity.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-white tracking-tight">
-                The Sunflower Autonomy Doctrine
-              </h3>
-              <p className="text-sm text-[#a8baa0] leading-relaxed">
-                Named after the German word for sunflower (<em>Sonnenblume</em>). Just as a sunflower tracks the sun while shielding its reproductive core, our software actively points spacecraft storm shielding during solar particle events and provides instant clinical decision-making when 22-minute light-speed delays make Earth telemedicine impossible.
-              </p>
-              <div className="pt-2 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
-                Zero-Earth Dependency Beyond Cis-Lunar Orbit
+              <div className="pt-3 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
+                Role: Human Systems • Clinical UX • Psychology
+              </div>
+            </div>
+
+            {/* Member 3: Azjargal */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between pb-3 border-b border-[#1f2818]">
+                  <div className="w-10 h-10 rounded-xl bg-[#182213] border border-[#354528] flex items-center justify-center text-[#fbbf24]">
+                    <Cpu className="w-5 h-5 text-[#fbbf24]" />
+                  </div>
+                  <span className="font-mono text-xs text-[#84a96c] bg-[#13190e] px-2.5 py-1 rounded-lg border border-[#232d1a]">
+                    MONGOLIA
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white tracking-tight">
+                    Azjargal
+                  </h3>
+                  <div className="text-xs font-mono text-[#fbbf24] mt-0.5">
+                    Data Engineering & Hardware Telemetry Specialist
+                  </div>
+                </div>
+                <p className="text-sm text-[#a8baa0] leading-relaxed">
+                  Building from Mongolia. Focused on hardware edge interfacing, high-frequency biosensor telemetry, and network fault tolerance. Engineered the Xiaomi Watch H1 micro-cuff blood pressure and ECG data bridge, ensuring zero packet loss across delay-tolerant space and terrestrial networks.
+                </p>
+              </div>
+              <div className="pt-3 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
+                Role: Telemetry Pipelines • Wearables • Ingestion
               </div>
             </div>
           </div>
 
-          {/* Tactical Verification & Credentials Strip */}
-          <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-2xl p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
-            <div>
-              <div className="text-[#8ea873] uppercase text-[11px] mb-1">Architecture</div>
-              <div className="text-white font-bold text-sm">Rust + TS + GMAT</div>
-              <div className="text-[#84a96c] text-[11px] mt-0.5">NASA GMAT R2026a Coupled</div>
+          {/* Why We Build Manifesto (The Core Drive) */}
+          <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-8 sm:p-10 space-y-6">
+            <div className="flex items-center gap-2 font-mono text-xs text-[#fbbf24]">
+              <Sparkles className="w-4 h-4 text-[#fbbf24]" />
+              <span className="font-bold uppercase tracking-wider">Our Manifesto: Why We Build</span>
             </div>
-            <div>
-              <div className="text-[#8ea873] uppercase text-[11px] mb-1">Clinical Engine</div>
-              <div className="text-white font-bold text-sm">Hermes 4-Subagent</div>
-              <div className="text-[#84a96c] text-[11px] mt-0.5">100% Offline Consensus</div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-2">
+                <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#fbbf24]" />
+                  Lessening the Burden on Our Parents
+                </h4>
+                <p className="text-sm text-[#a8baa0] leading-relaxed">
+                  We started this because we wanted to help anyone we can, and work tirelessly so we become a source of pride rather than a financial burden to our families. We code through the night with our own resources and grit.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#84a96c]" />
+                  Showing Kids What Is Possible
+                </h4>
+                <p className="text-sm text-[#a8baa0] leading-relaxed">
+                  We entered global hackathons to show other young people and kids everywhere that you do not need permission from giant corporations or wealthy institutions to solve real problems. If three friends across Berlin, Italy, and Mongolia can build an autonomous health OS, you can build your dreams too.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#38bdf8]" />
+                  Humanity Still Has Hope
+                </h4>
+                <p className="text-sm text-[#a8baa0] leading-relaxed">
+                  Instead of corrupt governments, ongoing wars, and preventable diseases, we believe humanity has a better future. When young minds unite across different countries, share knowledge openly, and build tools to save lives, hope becomes real.
+                </p>
+              </div>
             </div>
-            <div>
-              <div className="text-[#8ea873] uppercase text-[11px] mb-1">Hardware Interface</div>
-              <div className="text-white font-bold text-sm">Xiaomi Watch H1</div>
-              <div className="text-[#84a96c] text-[11px] mt-0.5">Medical-Grade Micro-Cuff BP</div>
+          </div>
+
+          {/* Section: The Scientific Foundation We Researched & Built */}
+          <div className="pt-8 border-t border-[#232d1a] space-y-6">
+            <div className="flex items-center gap-2 font-mono text-xs text-[#a8baa0]">
+              <BookOpen className="w-4 h-4 text-[#fbbf24]" />
+              <span className="font-bold text-white uppercase tracking-wider">
+                The Scientific & Flight Medicine Foundation We Integrated
+              </span>
             </div>
-            <div>
-              <div className="text-[#8ea873] uppercase text-[11px] mb-1">Security Standard</div>
-              <div className="text-white font-bold text-sm">Zero-Knowledge RLS</div>
-              <div className="text-[#84a96c] text-[11px] mt-0.5">Encrypted Onboard Memory</div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-6 space-y-2">
+                <div className="text-xs font-mono text-[#fbbf24]">CLINICAL PROTOCOLS</div>
+                <h4 className="text-base font-bold text-white">42 Validated Countermeasures</h4>
+                <p className="text-sm text-[#a8baa0] leading-relaxed">
+                  We synthesized 60+ years of documented flight medicine across NASA's Bio-Astronautics Roadmap, Soviet/Mir long-duration missions (Chibis-M LBNP, Penguin suits, Indralin B-190 radioprotectant), and Chinese Tiangong acupoint regimens.
+                </p>
+              </div>
+
+              <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-6 space-y-2">
+                <div className="text-xs font-mono text-[#fbbf24]">HISTORICAL FLIGHT DATA</div>
+                <h4 className="text-base font-bold text-white">Empirical Microgravity Research</h4>
+                <p className="text-sm text-[#a8baa0] leading-relaxed">
+                  We integrated real microgravity flight records, including Apollo 16/17 deep-space missions, Mir long-duration flights, and Mongolia's landmark 1981 Interkosmos mission (Soyuz 39 / Salyut 6 flight of J. Gürragchaa) which pioneered vestibular adaptation studies.
+                </p>
+              </div>
+
+              <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-6 space-y-2">
+                <div className="text-xs font-mono text-[#fbbf24]">SUNFLOWER PRINCIPLE</div>
+                <h4 className="text-base font-bold text-white">Autonomous Offline Survival</h4>
+                <p className="text-sm text-[#a8baa0] leading-relaxed">
+                  Named <em>Sonnenblume</em> from Berlin. Just as a sunflower tracks the sun while shielding its seeds, our software tracks solar cosmic radiation storms, steers active storm shielding, and provides instant medical decisions when Earth is 22 light-minutes away.
+                </p>
+              </div>
             </div>
           </div>
         </div>

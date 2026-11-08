@@ -146,7 +146,7 @@ class XiaomiWatchTelemetryService {
   private missionStartEpoch = Date.now() - (4 * 86400 + 14 * 3600 + 27 * 60) * 1000; // MET 04d 14h 27m
   private activeScenario: ScenarioId = "nominal";
   private humanManualOverride = false;
-  private overrideCallsign = "CDR. TEMUUJIN (GMIT-01)";
+  private overrideCallsign = "CDR. TEMUULEN (BERLIN-01)";
   private autonomousTakeoverActive = false;
   private activeManeuver = "NOMINAL_DEEP_SPACE_CRUISE";
   private burnCountdownSec = 0;
@@ -790,7 +790,7 @@ class XiaomiWatchTelemetryService {
       gmitTime,
       missionElapsedTime,
       astronautId: "ARES-CDR-01",
-      astronautName: "CDR. B. Temuujin (GMIT / NASA)",
+      astronautName: "Temuulen Buuveibaatar (Berlin / Sonnenblume)",
       deviceModel: "Xiaomi Watch H1 (Space Medical Edition)",
       firmwareVersion: "v4.8.2-HERMES-BLE",
       connectionMode: this.bleConnected

@@ -115,8 +115,8 @@ export class MemStorage implements IStorage {
       },
       {
         id: "astro-2",
-        name: "Dr. Temuulen B.",
-        role: "Flight Surgeon & GMIT Payload Specialist",
+        name: "Temuulen B.",
+        role: "Systems Architect & Mission Specialist (Berlin)",
         callsign: "NOMAD-2",
         bloodType: "A+",
         cumulativeRadiationMsv: 44.72,
