@@ -31,6 +31,7 @@ import {
   Sliders,
   Award,
   ShieldAlert,
+  ShieldCheck,
   Gauge,
   Crosshair,
 } from "lucide-react";

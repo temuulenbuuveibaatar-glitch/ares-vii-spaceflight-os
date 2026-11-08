@@ -369,23 +369,22 @@ export default function SpaceRadiationAndMeds() {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 py-10">
+    <div className="min-h-screen bg-[#0b0e0a] text-[#e3ecd8] py-10 selection:bg-[#2e3b23] selection:text-[#fbbf24]">
       <div className="container mx-auto px-4 space-y-10">
         {/* HEADER */}
         <section className="space-y-6">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-zinc-800/80 pb-6">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[#232d1a] pb-6">
             <div className="space-y-2 max-w-3xl">
-              <div className="inline-flex items-center gap-2 text-xs font-medium text-orange-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+              <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#fbbf24]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#fbbf24]" />
                 <span>
-                  Complete Multi-Agency Space Pharmacy · USSR / Russia IBMP ·
-                  NASA · China CMSA · Mongolia MAS · ESA/JAXA · India ISRO
+                  MULTI-AGENCY SPACE PHARMACY · USSR/IBMP · NASA · CMSA · MAS · JAXA · ISRO
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-4xl font-semibold tracking-tight text-white">
+              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white font-sans">
                 Global Space Agency Medication Formulary & Radiation Shielding
               </h1>
-              <p className="text-sm text-zinc-300 leading-relaxed">
+              <p className="text-sm text-[#a8baa0] leading-relaxed">
                 Complete offline space pharmacology database across every spacefaring
                 nation—including Soviet Union / Russian IBMP radioprotectants
                 (Indralin B-190, Cystamine RS-1, Phenibut, Mexidol, Panangin),
@@ -397,14 +396,14 @@ export default function SpaceRadiationAndMeds() {
             </div>
 
             {/* Active Crew Selector for Medication Administration */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-3.5 space-y-1.5 shrink-0">
-              <div className="text-[11px] text-zinc-400 font-medium">
+            <div className="bg-[#13190e] border border-[#2e3b23] rounded-xl p-3.5 space-y-1.5 shrink-0 font-mono text-xs">
+              <div className="text-[11px] text-[#8ea873] font-bold">
                 Active Astronaut for Dose Administration
               </div>
               <select
                 value={selectedCrewMember}
                 onChange={(e) => setSelectedCrewMember(e.target.value)}
-                className="w-full bg-zinc-950 text-white text-xs font-semibold px-3 py-2 rounded-lg border border-zinc-800 focus:outline-none focus:border-orange-500"
+                className="w-full bg-[#0b0e0a] text-white text-xs font-semibold px-3 py-2 rounded-lg border border-[#232d1a] focus:outline-none focus:border-[#fbbf24]"
               >
                 {astronauts.map((a: any, i: number) => (
                   <option key={i} value={a.name}>
@@ -418,15 +417,14 @@ export default function SpaceRadiationAndMeds() {
           {/* LIVE MEDICATION ADMINISTRATION LOG & EARTH SYNC */}
           <div className="card-outer">
             <div className="card-inner p-5 space-y-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex items-center gap-2 text-sm font-semibold text-white">
-                  <Syringe className="w-4 h-4 text-orange-500" />
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#232d1a] pb-3">
+                <div className="flex items-center gap-2 text-sm font-bold text-white">
+                  <Syringe className="w-4 h-4 text-[#fbbf24]" />
                   <span>
-                    24/7 Crew Medication Administration Log (Auto-Synced to
-                    Hermes AI & Earth DSN)
+                    24/7 Crew Medication Administration Log (Auto-Synced to Hermes AI & Earth DSN)
                   </span>
                 </div>
-                <span className="text-xs font-mono text-emerald-400 inline-flex items-center gap-1.5">
+                <span className="text-xs font-mono text-[#84a96c] inline-flex items-center gap-1.5 font-bold">
                   <Radio className="w-3.5 h-3.5" />
                   <span>Mission Control Telemetry Uplink Active</span>
                 </span>
@@ -436,21 +434,21 @@ export default function SpaceRadiationAndMeds() {
                 {administeredLog.slice(0, 3).map((entry) => (
                   <div
                     key={entry.id}
-                    className="bg-zinc-900/70 border border-zinc-800 rounded-lg p-3 text-xs space-y-1"
+                    className="bg-[#0b0e0a] border border-[#232d1a] rounded-lg p-3 text-xs space-y-1"
                   >
-                    <div className="flex items-center justify-between text-[11px] font-mono text-orange-400">
+                    <div className="flex items-center justify-between text-[11px] font-mono text-[#fbbf24]">
                       <span>{entry.crewMember}</span>
                       <span>{entry.time}</span>
                     </div>
                     <div className="font-semibold text-white truncate">
                       {entry.drugName}
                     </div>
-                    <div className="text-zinc-400 text-[11px] truncate">
+                    <div className="text-[#8ea873] text-[11px] truncate">
                       {entry.agencyBadge} · {entry.dose}
                     </div>
-                    <div className="text-[11px] text-emerald-400 flex items-center gap-1 pt-0.5">
+                    <div className="text-[11px] text-[#84a96c] flex items-center gap-1 pt-0.5 font-mono">
                       <CheckCircle2 className="w-3 h-3" />
-                      <span>Logged to EHR & Sent to Earth Mission Control</span>
+                      <span>Logged to EHR & Downlinked</span>
                     </div>
                   </div>
                 ))}
@@ -463,33 +461,32 @@ export default function SpaceRadiationAndMeds() {
         <section className="space-y-5">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
             <div>
-              <h2 className="text-xl sm:text-2xl font-semibold text-white flex items-center gap-2">
-                <Pill className="w-5 h-5 text-orange-500" />
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                <Pill className="w-5 h-5 text-[#fbbf24]" />
                 <span>
-                  Multi-Agency Space Medications ({filteredMeds.length} Drugs
-                  Available Onboard)
+                  Multi-Agency Space Medications ({filteredMeds.length} Drugs Available Onboard)
                 </span>
               </h2>
-              <p className="text-xs sm:text-sm text-zinc-400">
+              <p className="text-xs sm:text-sm text-[#a8baa0]">
                 Filter by space agency (including Soviet Union/USSR, China,
                 Mongolia, India, Europe/Japan, and NASA) or clinical category.
               </p>
             </div>
 
             <div className="relative w-full lg:w-80">
-              <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-2.5" />
+              <Search className="w-4 h-4 text-[#8ea873] absolute left-3.5 top-2.5" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search Indralin, Phenibut, USSR, radiation..."
-                className="w-full bg-zinc-900 text-zinc-100 text-xs pl-9 pr-3 py-2 rounded-lg border border-zinc-800 focus:outline-none focus:border-orange-500"
+                className="w-full bg-[#13190e] text-white text-xs pl-9 pr-3 py-2 rounded-xl border border-[#2e3b23] focus:outline-none focus:border-[#fbbf24]"
               />
             </div>
           </div>
 
           {/* AGENCY FILTER TABS */}
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-1.5 font-mono text-xs">
             {AGENCY_FILTER_TABS.map((tab) => {
               const isSelected = selectedAgency === tab.id;
               const count =
@@ -502,10 +499,10 @@ export default function SpaceRadiationAndMeds() {
                 <button
                   key={tab.id}
                   onClick={() => setSelectedAgency(tab.id)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium border cursor-pointer inline-flex items-center gap-1.5 ${
+                  className={`px-3 py-1.5 rounded-lg border cursor-pointer inline-flex items-center gap-1.5 transition-colors active:scale-[0.97] ${
                     isSelected
-                      ? "bg-orange-500 text-zinc-950 border-orange-500 font-semibold"
-                      : "bg-zinc-900 text-zinc-300 border-zinc-800 hover:border-zinc-700 hover:text-white"
+                      ? "bg-[#28381c] text-[#fbbf24] border-[#4d633b] font-bold shadow-sm shadow-amber-500/10"
+                      : "bg-[#13190e] text-[#8ea873] border-[#2e3b23] hover:border-[#3f5231] hover:text-white"
                   }`}
                 >
                   <span>{tab.flag}</span>
@@ -513,8 +510,8 @@ export default function SpaceRadiationAndMeds() {
                   <span
                     className={`font-mono text-[11px] px-1.5 py-0.2 rounded ${
                       isSelected
-                        ? "bg-zinc-950/20 text-zinc-950"
-                        : "bg-zinc-800 text-zinc-400"
+                        ? "bg-[#0b0e0a] text-[#fbbf24]"
+                        : "bg-[#0b0e0a] text-[#8ea873]"
                     }`}
                   >
                     {count}
@@ -525,17 +522,17 @@ export default function SpaceRadiationAndMeds() {
           </div>
 
           {/* CLINICAL CATEGORY FILTER TABS */}
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-1.5 font-mono text-xs">
             {spaceMedicationCategories.map((cat) => {
               const isSelected = selectedCategory === cat.id;
               return (
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-2.5 py-1 rounded-md text-xs border cursor-pointer ${
+                  className={`px-2.5 py-1 rounded-md border cursor-pointer transition-colors active:scale-[0.97] ${
                     isSelected
-                      ? "bg-zinc-800 text-orange-400 border-orange-500/50 font-medium"
-                      : "bg-zinc-950 text-zinc-400 border-zinc-800 hover:text-zinc-200"
+                      ? "bg-[#182213] text-[#fbbf24] border-[#3f5231] font-bold"
+                      : "bg-[#0b0e0a] text-[#8ea873] border-[#232d1a] hover:text-white"
                   }`}
                 >
                   {cat.label}
@@ -554,69 +551,69 @@ export default function SpaceRadiationAndMeds() {
                   <div className="card-inner p-5 space-y-3.5 h-full flex flex-col justify-between">
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-2">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-orange-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-md">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#fbbf24] bg-[#182213] border border-[#3f5231] px-2.5 py-1 rounded-md font-mono">
                           <span>{med.countryFlag}</span>
                           <span>{med.agencyBadge}</span>
                         </span>
-                        <span className="text-xs font-mono text-zinc-400 tabular-nums">
+                        <span className="text-xs font-mono text-[#8ea873] tabular-nums">
                           Stock: {remaining} doses
                         </span>
                       </div>
 
                       <div>
-                        <h3 className="text-base font-semibold text-white">
+                        <h3 className="text-base font-bold text-white">
                           {med.name}
                         </h3>
-                        <div className="text-xs text-zinc-400 mt-0.5">
+                        <div className="text-xs text-[#8ea873] mt-0.5">
                           {med.nativeOrGenericName}
                         </div>
                       </div>
 
-                      <div className="text-xs text-zinc-400 font-mono">
+                      <div className="text-xs text-[#8ea873] font-mono">
                         Missions Flown:{" "}
-                        <span className="text-zinc-200">{med.missionsFlown}</span>
+                        <span className="text-white">{med.missionsFlown}</span>
                       </div>
 
-                      <p className="text-xs text-zinc-300 leading-relaxed">
+                      <p className="text-xs text-[#a8baa0] leading-relaxed">
                         <strong className="text-white">
                           Spaceflight Indication & Mechanism:
                         </strong>{" "}
                         {med.spaceIndication}
                       </p>
 
-                      <div className="bg-zinc-900/60 border border-zinc-800 rounded-lg p-3 text-xs space-y-1">
+                      <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-lg p-3 text-xs space-y-1">
                         <div className="flex items-center justify-between">
-                          <span className="font-semibold text-orange-400">
+                          <span className="font-mono font-bold text-[#fbbf24]">
                             Dosage ({med.kitLocation})
                           </span>
-                          <span className="font-mono text-[11px] text-zinc-300">
+                          <span className="font-mono text-[11px] text-[#8ea873]">
                             {med.efficacyMetric}
                           </span>
                         </div>
-                        <div className="text-zinc-200 font-mono leading-relaxed">
+                        <div className="text-white font-mono leading-relaxed">
                           {med.dosage}
                         </div>
                       </div>
                     </div>
 
-                    <div className="space-y-3 pt-2 border-t border-zinc-800/80">
-                      <div className="text-xs text-zinc-400 leading-relaxed">
-                        <strong className="text-zinc-200">
+                    <div className="space-y-3 pt-2 border-t border-[#232d1a]">
+                      <div className="text-xs text-[#8ea873] leading-relaxed">
+                        <strong className="text-white">
                           0G Pharmacokinetics:{" "}
                         </strong>
                         {med.microgravityEffects}
                       </div>
 
-                      <div className="flex items-center justify-between gap-2 pt-1">
-                        <span className="text-[11px] font-mono text-zinc-400">
+                      <div className="flex items-center justify-between gap-2 pt-1 font-mono">
+                        <span className="text-[11px] text-[#8ea873]">
                           Route: {med.route}
                         </span>
                         <button
                           onClick={() => handleAdministerDose(med)}
                           disabled={remaining <= 0}
-                          className="bg-orange-500 hover:bg-orange-400 disabled:opacity-40 text-zinc-950 font-semibold px-3.5 py-1.5 rounded-lg text-xs inline-flex items-center gap-1.5 cursor-pointer"
+                          className="bg-[#f59e0b] hover:bg-[#d97706] disabled:opacity-40 text-[#0b0e0a] font-bold px-3.5 py-1.5 rounded-lg text-xs inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97] transition-colors"
                         >
-                          <Syringe className="w-3.5 h-3.5" />
+                          <Syringe className="w-3.5 h-3.5 text-[#0b0e0a]" />
                           <span>
                             Administer to {selectedCrewMember.split(" ").pop()}
                           </span>
@@ -633,16 +630,15 @@ export default function SpaceRadiationAndMeds() {
         {/* SOLAR STORM SHELTER SHIELDING CALCULATOR */}
         <section className="card-outer">
           <div className="card-inner p-6 space-y-5">
-            <div className="flex items-center justify-between border-b border-zinc-800/80 pb-4">
+            <div className="flex items-center justify-between border-b border-[#232d1a] pb-4">
               <div>
-                <h2 className="text-base font-semibold text-white flex items-center gap-2">
-                  <Atom className="w-4 h-4 text-orange-500" />
+                <h2 className="text-base font-bold text-white flex items-center gap-2">
+                  <Atom className="w-4 h-4 text-[#fbbf24]" />
                   <span>
-                    Solar Storm Shelter Shielding Calculator (Paired with B-190 /
-                    Amifostine Radioprotectants)
+                    Solar Storm Shelter Shielding Calculator (Paired with B-190 Radioprotectant)
                   </span>
                 </h2>
-                <p className="text-xs text-zinc-400">
+                <p className="text-xs text-[#a8baa0]">
                   Adjust water-wall thickness to see how much solar storm
                   radiation is blocked before reaching the astronaut.
                 </p>
@@ -651,12 +647,12 @@ export default function SpaceRadiationAndMeds() {
 
             <div className="grid md:grid-cols-2 gap-6 items-center">
               <div className="space-y-4">
-                <div className="bg-zinc-900/60 border border-zinc-800 rounded-lg p-4 space-y-2">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-zinc-300">
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-lg p-4 space-y-2">
+                  <div className="flex justify-between text-xs font-mono">
+                    <span className="text-[#c7dfb8]">
                       Water / Polyethylene Wall Thickness
                     </span>
-                    <span className="font-mono font-semibold text-orange-400 tabular-nums">
+                    <span className="font-bold text-[#fbbf24] tabular-nums">
                       {shieldingGcm2} g/cm²
                     </span>
                   </div>
@@ -666,19 +662,19 @@ export default function SpaceRadiationAndMeds() {
                     max={60}
                     value={shieldingGcm2}
                     onChange={(e) => setShieldingGcm2(Number(e.target.value))}
-                    className="w-full accent-orange-500 cursor-pointer"
+                    className="w-full accent-[#fbbf24] cursor-pointer"
                   />
-                  <div className="flex justify-between text-[11px] text-zinc-500">
-                    <span>2 g/cm² (Spacesuit only)</span>
+                  <div className="flex justify-between text-[11px] text-[#6d845e] font-mono">
+                    <span>2 g/cm² (Spacesuit)</span>
                     <span>20 g/cm² (Cabin wall)</span>
                     <span>50 g/cm² (Water Storm Shelter)</span>
                   </div>
                 </div>
 
-                <div className="bg-zinc-900/60 border border-zinc-800 rounded-lg p-4 space-y-2">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-zinc-300">Solar Storm Duration</span>
-                    <span className="font-mono font-semibold text-orange-400 tabular-nums">
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-lg p-4 space-y-2">
+                  <div className="flex justify-between text-xs font-mono">
+                    <span className="text-[#c7dfb8]">Solar Storm Duration</span>
+                    <span className="font-bold text-[#fbbf24] tabular-nums">
                       {stormHours} Hours
                     </span>
                   </div>
@@ -688,32 +684,32 @@ export default function SpaceRadiationAndMeds() {
                     max={48}
                     value={stormHours}
                     onChange={(e) => setStormHours(Number(e.target.value))}
-                    className="w-full accent-orange-500 cursor-pointer"
+                    className="w-full accent-[#fbbf24] cursor-pointer"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-zinc-900/70 border border-zinc-800 rounded-lg p-4 space-y-1.5">
-                  <div className="text-xs text-zinc-400">
+              <div className="grid grid-cols-2 gap-3 font-mono">
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-lg p-4 space-y-1.5">
+                  <div className="text-xs text-[#8ea873]">
                     Unprotected Outside Dose
                   </div>
-                  <div className="text-2xl font-mono font-semibold text-white tabular-nums">
+                  <div className="text-2xl font-bold text-white tabular-nums">
                     {unshieldedDoseMsv} mSv
                   </div>
-                  <div className="text-xs text-zinc-400">
+                  <div className="text-xs text-[#ef4444] font-sans">
                     Without shelter, causes acute radiation sickness.
                   </div>
                 </div>
 
-                <div className="bg-zinc-900/70 border border-zinc-800 rounded-lg p-4 space-y-1.5">
-                  <div className="text-xs text-zinc-400">
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-lg p-4 space-y-1.5">
+                  <div className="text-xs text-[#8ea873]">
                     Protected Dose Inside Shelter
                   </div>
-                  <div className="text-2xl font-mono font-semibold text-orange-400 tabular-nums">
+                  <div className="text-2xl font-bold text-[#fbbf24] tabular-nums">
                     {shieldedDoseMsv} mSv
                   </div>
-                  <div className="text-xs text-zinc-400">
+                  <div className="text-xs text-[#8ea873] font-sans">
                     With Soviet Indralin B-190 (DRF 1.45), effective marrow dose
                     drops to{" "}
                     <strong className="font-mono text-white">

@@ -44,35 +44,35 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
         forceOpen={launcherOpen}
         onClose={() => setLauncherOpen(false)}
       />
-      <header className="bg-zinc-950/95 backdrop-blur-sm text-zinc-100 border-b border-zinc-800/80 sticky top-0 z-50">
+      <header className="bg-[#0b0e0a]/95 backdrop-blur-md text-[#e3ecd8] border-b border-[#232d1a] sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-14 gap-4">
             <Link href="/">
               <div className="flex items-center gap-2.5 cursor-pointer">
-                <span className="w-2.5 h-2.5 rounded-full bg-orange-500" />
-                <span className="font-semibold text-sm tracking-tight text-white">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#fbbf24]" />
+                <span className="font-bold text-sm tracking-tight text-white font-mono">
                   ARES-VII
                 </span>
-                <span className="text-xs text-zinc-400 hidden sm:inline">
-                  Spaceflight Health & Mission Prevention
+                <span className="text-xs text-[#8ea873] hidden sm:inline">
+                  Deep-Space Astronaut Health OS
                 </span>
               </div>
             </Link>
 
             <div className="flex items-center gap-2.5">
-              <div className="hidden sm:flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-lg">
+              <div className="hidden sm:flex items-center gap-2 bg-[#13190e] border border-[#2e3b23] px-3 py-1.5 rounded-xl">
                 <span
                   className={`w-1.5 h-1.5 rounded-full ${
                     isTakeover && !isOverridden
-                      ? "bg-red-500"
+                      ? "bg-[#ef4444]"
                       : isOverridden
-                      ? "bg-amber-500"
-                      : "bg-emerald-500"
+                      ? "bg-[#fbbf24]"
+                      : "bg-[#84a96c]"
                   }`}
                 />
-                <span className="text-xs text-zinc-200 font-medium">
+                <span className="text-xs text-[#e3ecd8] font-medium font-mono">
                   {isTakeover && !isOverridden
-                    ? "Hermes Autopilot Active"
+                    ? "Autopilot Active"
                     : isOverridden
                     ? "Manual Override"
                     : "Hermes Armed"}
@@ -80,9 +80,9 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
                 <button
                   onClick={() => overrideMutation.mutate(!isOverridden)}
                   disabled={overrideMutation.isPending}
-                  className="text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-100 px-2.5 py-0.5 rounded-md border border-zinc-700 cursor-pointer inline-flex items-center gap-1"
+                  className="text-xs font-semibold bg-[#1c2615] hover:bg-[#28381c] text-[#fbbf24] px-2.5 py-0.5 rounded-md border border-[#3f5231] cursor-pointer inline-flex items-center gap-1 active:scale-[0.97]"
                 >
-                  <Hand className="w-3 h-3 text-orange-400" />
+                  <Hand className="w-3 h-3 text-[#fbbf24]" />
                   <span>
                     {overrideMutation.isPending
                       ? "Updating..."
@@ -93,16 +93,17 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
                 </button>
               </div>
 
-              <div className="flex items-center gap-1.5 p-1 bg-[#0b0e0a] border border-[#2d3b22] rounded-xl font-mono">
+              {/* DUAL PORTAL NAVIGATION PILL */}
+              <div className="flex items-center gap-1 p-1 bg-[#0b0e0a] border border-[#2e3b23] rounded-xl font-mono text-xs">
                 <Link href="/">
-                  <span className="flex items-center gap-1.5 bg-[#182213] hover:bg-[#24331c] text-[#a3c988] hover:text-[#fbbf24] border border-[#3f5231] px-2.5 py-1 rounded-lg text-xs font-bold cursor-pointer transition-all">
+                  <span className="flex items-center gap-1.5 bg-[#182213] hover:bg-[#24331c] text-[#a3c988] hover:text-[#fbbf24] border border-[#3f5231] px-2.5 py-1 rounded-lg font-bold cursor-pointer transition-colors active:scale-[0.97]">
                     <Sparkles className="w-3.5 h-3.5 text-[#fbbf24]" />
                     <span>Portal 1: Info</span>
                   </span>
                 </Link>
 
                 <Link href="/cockpit">
-                  <span className="flex items-center gap-1.5 bg-[#28381c] hover:bg-[#354528] text-[#fbbf24] border border-[#4d633b] px-2.5 py-1 rounded-lg text-xs font-bold cursor-pointer transition-all shadow-sm shadow-amber-500/10">
+                  <span className="flex items-center gap-1.5 bg-[#28381c] hover:bg-[#354528] text-[#fbbf24] border border-[#4d633b] px-2.5 py-1 rounded-lg font-bold cursor-pointer transition-colors shadow-sm shadow-amber-500/10 active:scale-[0.97]">
                     <Rocket className="w-3.5 h-3.5 text-[#fbbf24]" />
                     <span>Portal 2: Cockpit</span>
                   </span>
@@ -112,25 +113,25 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
               <a
                 href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
                 download="ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-                className="hidden lg:flex items-center gap-1.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 px-3 py-1.5 rounded-lg text-xs text-zinc-200 font-medium cursor-pointer"
+                className="hidden lg:flex items-center gap-1.5 bg-[#13190e] hover:bg-[#1a2313] border border-[#2e3b23] px-3 py-1.5 rounded-xl text-xs text-[#c7dfb8] font-medium cursor-pointer transition-colors active:scale-[0.97]"
                 title="Download Complete Plain-English & Scientific Research Guide (.docx)"
               >
-                <FileText className="w-3.5 h-3.5 text-orange-500" />
-                <span>Research Guide (.docx)</span>
+                <FileText className="w-3.5 h-3.5 text-[#fbbf24]" />
+                <span>Research (.docx)</span>
               </a>
 
               <button
                 onClick={() => setLauncherOpen(true)}
-                className="hidden md:flex items-center gap-1.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 px-3 py-1.5 rounded-lg text-xs text-zinc-200 font-medium cursor-pointer"
+                className="hidden md:flex items-center gap-1.5 bg-[#13190e] hover:bg-[#1a2313] border border-[#2e3b23] px-3 py-1.5 rounded-xl text-xs text-[#c7dfb8] font-medium cursor-pointer transition-colors active:scale-[0.97]"
               >
-                <Cpu className="w-3.5 h-3.5 text-orange-500" />
+                <Cpu className="w-3.5 h-3.5 text-[#84a96c]" />
                 <span>System Check</span>
               </button>
 
               <LanguageSelector />
 
               <button
-                className="md:hidden p-1.5 text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900"
+                className="md:hidden p-1.5 text-[#8ea873] hover:text-white rounded-lg hover:bg-[#1a2313]"
                 onClick={toggleMobileMenu}
                 aria-label="Toggle menu"
               >

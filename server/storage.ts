@@ -493,7 +493,7 @@ export class MemStorage implements IStorage {
     if (scenario === "nominal") {
       // Reset all astronauts and ship to nominal state
       const nowIso = new Date().toISOString();
-      for (const [id, a] of this.astronauts.entries()) {
+      for (const [id, a] of Array.from(this.astronauts.entries())) {
         const resetAstro: Astronaut = {
           ...a,
           status: "NOMINAL",

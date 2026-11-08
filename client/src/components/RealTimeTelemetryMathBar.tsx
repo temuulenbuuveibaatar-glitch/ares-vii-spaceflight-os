@@ -25,16 +25,16 @@ export default function RealTimeTelemetryMathBar() {
   const mapMmHg = Math.round(bpDia + (bpSys - bpDia) / 3);
 
   return (
-    <div className="bg-zinc-950 text-zinc-400 border-b border-zinc-900 text-xs">
+    <div className="bg-[#080b07] text-[#8ea873] border-b border-[#1f2817] text-xs font-mono">
       <div className="container mx-auto px-4 h-9 flex items-center justify-between gap-6 overflow-x-auto whitespace-nowrap">
         <div className="flex items-center gap-5">
-          <span className="inline-flex items-center gap-2 text-zinc-200 font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-            <span>Live Space Feed</span>
+          <span className="inline-flex items-center gap-2 text-[#c7dfb8] font-bold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#fbbf24]" />
+            <span>Telemetry Link</span>
           </span>
           <span>
             ISS{" "}
-            <strong className="font-mono text-zinc-100">
+            <strong className="font-mono text-white tabular-nums">
               {isLoading && !iss
                 ? "Syncing..."
                 : iss
@@ -44,16 +44,16 @@ export default function RealTimeTelemetryMathBar() {
           </span>
           <span>
             Solar Wind{" "}
-            <strong className="font-mono text-zinc-100">
+            <strong className="font-mono text-white tabular-nums">
               {wind?.speedKmS ?? 412.5} km/s
             </strong>
           </span>
           <span>
             GOES ≥10MeV{" "}
-            <strong className="font-mono text-zinc-100">
+            <strong className="font-mono text-[#fbbf24] tabular-nums">
               {rad?.goesProtonFlux10MeV ?? 0.24} PFU
             </strong>{" "}
-            <span className="font-mono text-zinc-400">
+            <span className="font-mono text-[#6d845e] tabular-nums">
               (Kp {rad?.planetaryKpIndex ?? 2.33})
             </span>
           </span>
@@ -62,19 +62,19 @@ export default function RealTimeTelemetryMathBar() {
         <div className="flex items-center gap-5">
           <span>
             LEO Dose{" "}
-            <strong className="font-mono text-zinc-100">
+            <strong className="font-mono text-white tabular-nums">
               {rad?.estimatedLeoDoseRateUsvHr ?? 18.4} µSv/h
             </strong>
           </span>
           <span>
             Watch H1{" "}
-            <strong className="font-mono text-zinc-100">
+            <strong className="font-mono text-[#a3c988] tabular-nums">
               {hr} bpm · {spo2}% · MAP {mapMmHg}
             </strong>
           </span>
           <Link href="/gmat-orbiter">
-            <span className="text-orange-400 hover:text-orange-300 font-medium cursor-pointer">
-              GMAT Cap <span className="font-mono">{autopilot?.dynamicCardioGCap ?? 2.6}G</span>
+            <span className="text-[#fbbf24] hover:text-[#fde68a] font-bold cursor-pointer transition-colors active:scale-[0.97]">
+              GMAT Cap <span className="font-mono tabular-nums">{autopilot?.dynamicCardioGCap ?? 2.6}G</span>
             </span>
           </Link>
         </div>

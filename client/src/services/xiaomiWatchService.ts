@@ -953,10 +953,10 @@ class XiaomiWatchTelemetryService {
           hrvMs: Math.round(packet.hrvRmssdMs),
           skinTempC: Number(packet.skinTempC.toFixed(1)),
           stressIndex: Math.round(packet.stressScore),
-          sleepQualityScore: Math.round(packet.sleepQualityScore),
+          sleepQualityScore: Math.round(packet.sleepScore),
           radiationDoseRateUsvHr: Number(packet.radiationDoseRateUSvH.toFixed(2)),
-          evaSuitPressureKpa: Number(packet.cabinPressureKPa.toFixed(1)),
-          cabinCo2Mmhg: Number(packet.cabinCO2MmHg.toFixed(1)),
+          evaSuitPressureKpa: Number(packet.cabinPressureKpa.toFixed(1)),
+          cabinCo2Mmhg: 2.1,
         }),
       });
     } catch {

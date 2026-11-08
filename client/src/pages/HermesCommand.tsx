@@ -333,22 +333,21 @@ export default function HermesCommand() {
   const bpDia = latestTelemetry?.bloodPressureDia ?? 76;
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 py-10">
+    <div className="min-h-screen bg-[#0b0e0a] text-[#e3ecd8] py-10 selection:bg-[#2e3b23] selection:text-[#fbbf24]">
       <div className="container mx-auto px-4 space-y-10">
         {/* HEADER */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-zinc-800/80 pb-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[#232d1a] pb-6">
           <div className="space-y-2 max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-medium text-orange-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#fbbf24]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#fbbf24]" />
               <span>
-                Voice-Interactive AI Therapist · Continuous Human-in-the-Loop ·
-                24/7 Earth & Satellite Uplink
+                VOICE-INTERACTIVE AI THERAPIST · HUMAN-IN-THE-LOOP FLIGHT INTERLOCK
               </span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-semibold tracking-tight text-white">
-              Hermes Voice Partner, Psychological Therapy & Flight Control
+            <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white font-sans">
+              Hermes Voice Companion, Mental Therapy & Flight Interlock
             </h1>
-            <p className="text-sm text-zinc-300 leading-relaxed">
+            <p className="text-sm text-[#a8baa0] leading-relaxed">
               Provides active psychological therapy for deep-space isolation and
               confinement (100% private on-device), speaks plain-English
               clinical decisions aloud, and guides you step-by-step until every
@@ -356,7 +355,7 @@ export default function HermesCommand() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0 font-mono text-xs">
             <button
               onClick={() => {
                 setVoiceEnabled(!voiceEnabled);
@@ -366,16 +365,16 @@ export default function HermesCommand() {
                   window.speechSynthesis.cancel();
                 }
               }}
-              className="bg-zinc-900 hover:bg-zinc-800 text-zinc-100 border border-zinc-800 px-3.5 py-2.5 rounded-lg text-xs font-medium inline-flex items-center gap-1.5 cursor-pointer"
+              className="bg-[#13190e] hover:bg-[#1a2313] text-[#c7dfb8] border border-[#2e3b23] px-3.5 py-2.5 rounded-xl font-medium inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97] transition-colors"
             >
               {voiceEnabled ? (
                 <>
-                  <Volume2 className="w-4 h-4 text-orange-500" />
+                  <Volume2 className="w-4 h-4 text-[#84a96c]" />
                   <span>Voice On</span>
                 </>
               ) : (
                 <>
-                  <VolumeX className="w-4 h-4 text-zinc-400" />
+                  <VolumeX className="w-4 h-4 text-[#6d845e]" />
                   <span>Voice Muted</span>
                 </>
               )}
@@ -383,9 +382,9 @@ export default function HermesCommand() {
 
             <button
               onClick={() => overrideMutation.mutate(!isOverridden)}
-              className="bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold px-4 py-2.5 rounded-lg text-xs inline-flex items-center gap-1.5 cursor-pointer"
+              className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-bold px-4 py-2.5 rounded-xl inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97] transition-colors shadow-sm shadow-amber-500/10"
             >
-              <Hand className="w-4 h-4" />
+              <Hand className="w-4 h-4 text-[#0b0e0a]" />
               <span>
                 {isOverridden
                   ? "Restore Hermes Autopilot"
@@ -398,24 +397,23 @@ export default function HermesCommand() {
         {/* DEDICATED AI PSYCHOLOGICAL THERAPY & ISOLATION COUNTERMEASURE STUDIO */}
         <section className="card-outer">
           <div className="card-inner p-6 space-y-5">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-800/80 pb-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#232d1a] pb-4">
               <div>
-                <h2 className="text-base font-semibold text-white flex items-center gap-2">
-                  <HeartHandshake className="w-4 h-4 text-orange-500" />
+                <h2 className="text-base font-bold text-white flex items-center gap-2">
+                  <HeartHandshake className="w-4 h-4 text-[#fbbf24]" />
                   <span>
-                    Interactive Psychological Health & Deep-Space Isolation
-                    Therapy (Zero Earth Surveillance)
+                    Interactive Psychological Health & Deep-Space Isolation Therapy
                   </span>
                 </h2>
-                <p className="text-xs text-zinc-400 mt-0.5">
+                <p className="text-xs text-[#a8baa0] mt-0.5">
                   Select a behavioral therapy module below to have Hermes speak
                   guided Cognitive Behavioral Therapy (CBT) and pace your
                   autonomic breathing.
                 </p>
               </div>
-              <span className="text-xs font-mono text-emerald-400 inline-flex items-center gap-1.5">
+              <span className="text-xs font-mono text-[#84a96c] inline-flex items-center gap-1.5 font-bold">
                 <Lock className="w-3.5 h-3.5" />
-                <span>Encrypted On-Device Session</span>
+                <span>Encrypted On-Device Session (Zero Ground Logging)</span>
               </span>
             </div>
 
@@ -426,25 +424,25 @@ export default function HermesCommand() {
                   return (
                     <div
                       key={t.id}
-                      className={`p-4 rounded-lg border flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+                      className={`p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition-colors ${
                         isSelected
-                          ? "bg-zinc-900 border-orange-500/60 text-white"
-                          : "bg-zinc-950 border-zinc-900 text-zinc-300"
+                          ? "bg-[#182213] border-[#4d633b] text-white shadow-sm shadow-amber-500/10"
+                          : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:text-[#e3ecd8]"
                       }`}
                     >
                       <div className="space-y-1">
-                        <div className="text-xs font-semibold text-orange-400">
+                        <div className="text-xs font-mono font-bold text-[#fbbf24]">
                           {t.label}
                         </div>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
+                        <p className="text-xs text-[#a8baa0] leading-relaxed font-sans">
                           {t.hermesSpeech}
                         </p>
                       </div>
                       <button
                         onClick={() => startTherapySession(t.id)}
-                        className="bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold px-3.5 py-2 rounded-lg text-xs shrink-0 inline-flex items-center gap-1.5 cursor-pointer"
+                        className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-bold px-3.5 py-2 rounded-lg text-xs shrink-0 inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97] transition-colors"
                       >
-                        <Play className="w-3.5 h-3.5" />
+                        <Play className="w-3.5 h-3.5 text-[#0b0e0a]" />
                         <span>Speak Therapy</span>
                       </button>
                     </div>
@@ -452,29 +450,29 @@ export default function HermesCommand() {
                 })}
               </div>
 
-              <div className="lg:col-span-5 bg-zinc-900/70 border border-zinc-800 rounded-xl p-5 space-y-4">
+              <div className="lg:col-span-5 bg-[#13190e] border border-[#2e3b23] rounded-xl p-5 space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-white flex items-center gap-1.5">
-                    <Brain className="w-4 h-4 text-orange-500" />
+                  <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                    <Brain className="w-4 h-4 text-[#84a96c]" />
                     <span>4-7-8 Vagal & ISRO Pranayama Breathing Pacer</span>
                   </span>
-                  <span className="text-xs font-mono text-orange-400 tabular-nums">
+                  <span className="text-xs font-mono font-bold text-[#fbbf24] tabular-nums">
                     HRV +26%
                   </span>
                 </div>
 
-                <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4 text-center space-y-2">
-                  <div className="text-xs text-zinc-400">
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-lg p-4 text-center space-y-2 font-mono">
+                  <div className="text-xs text-[#8ea873]">
                     Current Autonomic Cadence
                   </div>
-                  <div className="text-lg font-mono font-semibold text-orange-400">
+                  <div className="text-lg font-bold text-[#fbbf24]">
                     {breathingActive
                       ? breathPhase
                       : "Ready for Vagal Decompression"}
                   </div>
                   <button
                     onClick={() => setBreathingActive(!breathingActive)}
-                    className="bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-700 px-4 py-1.5 rounded-lg text-xs font-medium cursor-pointer"
+                    className="bg-[#182213] hover:bg-[#24331c] text-[#fbbf24] border border-[#3f5231] px-4 py-1.5 rounded-lg text-xs font-bold cursor-pointer active:scale-[0.97] transition-colors"
                   >
                     {breathingActive
                       ? "Stop Breathing Pacer"
@@ -483,8 +481,8 @@ export default function HermesCommand() {
                 </div>
 
                 <form onSubmit={savePrivateJournal} className="space-y-2">
-                  <div className="text-xs text-zinc-300 font-medium">
-                    Log Private Therapy Reflection (Never Downlinked to Earth)
+                  <div className="text-xs text-[#c7dfb8] font-bold">
+                    Log Private Reflection (Never Downlinked to Earth)
                   </div>
                   <div className="flex gap-2">
                     <input
@@ -492,20 +490,20 @@ export default function HermesCommand() {
                       value={privateNote}
                       onChange={(e) => setPrivateNote(e.target.value)}
                       placeholder="Write private mood or crew stress note..."
-                      className="flex-1 bg-zinc-950 text-white text-xs px-3 py-2 rounded-lg border border-zinc-800 focus:outline-none focus:border-orange-500"
+                      className="flex-1 bg-[#0b0e0a] text-white text-xs px-3 py-2 rounded-lg border border-[#232d1a] focus:outline-none focus:border-[#fbbf24]"
                     />
                     <button
                       type="submit"
-                      className="bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold px-3 py-2 rounded-lg text-xs cursor-pointer"
+                      className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-bold px-3 py-2 rounded-lg text-xs cursor-pointer active:scale-[0.97]"
                     >
                       Save
                     </button>
                   </div>
                 </form>
 
-                <div className="text-xs text-zinc-400 bg-zinc-950 p-2.5 rounded-lg border border-zinc-800">
+                <div className="text-xs text-[#8ea873] bg-[#0b0e0a] p-2.5 rounded-lg border border-[#232d1a]">
                   Latest Private Entry ({localVaultLogs[0]?.time}):{" "}
-                  <span className="text-zinc-200">
+                  <span className="text-white">
                     {localVaultLogs[0]?.note}
                   </span>
                 </div>
@@ -519,19 +517,17 @@ export default function HermesCommand() {
           {/* Left 7 Cols: Continuous Human-in-the-Loop Checklist */}
           <div className="lg:col-span-7 card-outer">
             <div className="card-inner p-6 space-y-5">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-800/80 pb-4">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#232d1a] pb-4">
                 <div>
-                  <h2 className="text-base font-semibold text-white">
-                    Continuous Human-in-the-Loop Procedure ({completedCount}/
-                    {hitlSteps.length} Complete)
+                  <h2 className="text-base font-bold text-white">
+                    Human-in-the-Loop Procedure ({completedCount}/{hitlSteps.length} Complete)
                   </h2>
-                  <p className="text-xs text-zinc-400 mt-0.5">
-                    Hermes speaks each step aloud and waits for your
-                    confirmation before advancing to the next step.
+                  <p className="text-xs text-[#a8baa0] mt-0.5">
+                    Hermes speaks each step aloud and waits for your confirmation before advancing.
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 font-mono text-xs">
                   <button
                     onClick={() => {
                       setAutoGuideActive(true);
@@ -541,14 +537,14 @@ export default function HermesCommand() {
                         );
                       }
                     }}
-                    className="bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold px-3.5 py-1.5 rounded-lg text-xs inline-flex items-center gap-1.5 cursor-pointer"
+                    className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-bold px-3.5 py-1.5 rounded-lg inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97]"
                   >
-                    <Play className="w-3.5 h-3.5" />
+                    <Play className="w-3.5 h-3.5 text-[#0b0e0a]" />
                     <span>Speak Current Step</span>
                   </button>
                   <button
                     onClick={resetHitlLoop}
-                    className="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 p-1.5 rounded-lg cursor-pointer"
+                    className="bg-[#13190e] hover:bg-[#1a2313] text-[#8ea873] hover:text-white border border-[#2e3b23] p-1.5 rounded-lg cursor-pointer active:scale-[0.97]"
                     title="Restart checklist"
                   >
                     <RotateCcw className="w-4 h-4" />
@@ -562,29 +558,29 @@ export default function HermesCommand() {
                   return (
                     <div
                       key={step.id}
-                      className={`p-4 rounded-lg border ${
+                      className={`p-4 rounded-xl border transition-colors ${
                         step.completed
-                          ? "bg-zinc-900/40 border-zinc-800/80 text-zinc-400"
+                          ? "bg-[#0b0e0a]/60 border-[#232d1a] text-[#6d845e]"
                           : isCurrent
-                          ? "bg-zinc-900 border-orange-500/60 text-white"
-                          : "bg-zinc-950 border-zinc-900 text-zinc-400"
+                          ? "bg-[#182213] border-[#4d633b] text-white shadow-sm shadow-amber-500/10"
+                          : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873]"
                       }`}
                     >
                       <div className="flex items-start justify-between gap-4">
                         <div className="space-y-1">
-                          <div className="text-xs font-mono text-orange-400">
+                          <div className="text-xs font-mono font-bold text-[#fbbf24]">
                             {step.phase}
                           </div>
                           <div className="text-sm font-semibold text-white">
                             {step.instruction}
                           </div>
-                          <p className="text-xs text-zinc-400 leading-relaxed">
+                          <p className="text-xs text-[#a8baa0] leading-relaxed">
                             {step.plainExplanation}
                           </p>
                         </div>
 
                         {step.completed ? (
-                          <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-400 shrink-0">
+                          <span className="inline-flex items-center gap-1 text-xs font-mono font-bold text-[#84a96c] shrink-0">
                             <CheckCircle2 className="w-4 h-4" />
                             <span>Done</span>
                           </span>
@@ -594,7 +590,7 @@ export default function HermesCommand() {
                               setAutoGuideActive(true);
                               completeStep(step.id);
                             }}
-                            className="bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold px-3 py-1.5 rounded-md text-xs shrink-0 cursor-pointer"
+                            className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-bold px-3 py-1.5 rounded-lg text-xs shrink-0 cursor-pointer active:scale-[0.97]"
                           >
                             Confirm & Next
                           </button>
@@ -610,22 +606,21 @@ export default function HermesCommand() {
           {/* Right 5 Cols: Live Voice Assistant Console */}
           <div className="lg:col-span-5 card-outer">
             <div className="card-inner p-6 space-y-4">
-              <div className="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+              <div className="flex items-center justify-between border-b border-[#232d1a] pb-3">
                 <div>
-                  <h2 className="text-base font-semibold text-white">
+                  <h2 className="text-base font-bold text-white">
                     Speak With Hermes AI
                   </h2>
-                  <p className="text-xs text-zinc-400">
-                    Say &ldquo;Done&rdquo; to advance the checklist, or ask any
-                    medical, therapy, or flight question.
+                  <p className="text-xs text-[#a8baa0]">
+                    Say &ldquo;Done&rdquo; to advance checklist, or ask any clinical question.
                   </p>
                 </div>
                 <button
                   onClick={toggleMicrophone}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold inline-flex items-center gap-1.5 cursor-pointer font-mono active:scale-[0.97] transition-colors ${
                     isListening
-                      ? "bg-orange-500 text-zinc-950"
-                      : "bg-zinc-900 hover:bg-zinc-800 text-zinc-100 border border-zinc-800"
+                      ? "bg-[#f59e0b] text-[#0b0e0a]"
+                      : "bg-[#13190e] hover:bg-[#1a2313] text-[#c7dfb8] border border-[#2e3b23]"
                   }`}
                 >
                   {isListening ? (
@@ -635,7 +630,7 @@ export default function HermesCommand() {
                     </>
                   ) : (
                     <>
-                      <Mic className="w-3.5 h-3.5 text-orange-500" />
+                      <Mic className="w-3.5 h-3.5 text-[#fbbf24]" />
                       <span>Speak</span>
                     </>
                   )}
@@ -646,15 +641,14 @@ export default function HermesCommand() {
                 {chatHistory.map((msg, i) => (
                   <div
                     key={i}
-                    className={`p-3 rounded-lg text-xs leading-relaxed ${
+                    className={`p-3 rounded-xl text-xs leading-relaxed ${
                       msg.role === "user"
-                        ? "bg-orange-500 text-zinc-950 font-medium ml-6"
-                        : "bg-zinc-900 border border-zinc-800 text-zinc-200 mr-4"
+                        ? "bg-[#28381c] border border-[#4d633b] text-[#fbbf24] font-medium ml-6"
+                        : "bg-[#0b0e0a] border border-[#232d1a] text-[#e3ecd8] mr-4"
                     }`}
                   >
                     <div className="text-[10px] font-mono opacity-75 mb-0.5">
-                      {msg.role === "user" ? "CREW" : "HERMES VOICE"} ·{" "}
-                      {msg.timestamp}
+                      {msg.role === "user" ? "CREW" : "HERMES VOICE"} · {msg.timestamp}
                     </div>
                     <div>{msg.text}</div>
                   </div>
@@ -666,15 +660,15 @@ export default function HermesCommand() {
                   type="text"
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
-                  placeholder="Ask Hermes or type 'done' to complete step..."
-                  className="flex-1 bg-zinc-900 text-white text-xs px-3 py-2.5 rounded-lg border border-zinc-800 focus:outline-none focus:border-orange-500"
+                  placeholder="Ask Hermes or type 'done'..."
+                  className="flex-1 bg-[#0b0e0a] text-white text-xs px-3 py-2.5 rounded-xl border border-[#232d1a] focus:outline-none focus:border-[#fbbf24]"
                 />
                 <button
                   type="submit"
                   disabled={commandMutation.isPending}
-                  className="bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold px-3.5 py-2.5 rounded-lg text-xs cursor-pointer inline-flex items-center gap-1"
+                  className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-bold px-3.5 py-2.5 rounded-xl text-xs cursor-pointer inline-flex items-center gap-1 active:scale-[0.97]"
                 >
-                  <Send className="w-3.5 h-3.5" />
+                  <Send className="w-3.5 h-3.5 text-[#0b0e0a]" />
                 </button>
               </form>
             </div>

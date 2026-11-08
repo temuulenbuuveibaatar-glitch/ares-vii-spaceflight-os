@@ -44,38 +44,37 @@ export default function EmergencyProtocols() {
   });
 
   return (
-    <div className="py-10 bg-zinc-950 text-zinc-100 min-h-screen">
+    <div className="py-10 bg-[#0b0e0a] text-[#e3ecd8] min-h-screen selection:bg-[#2e3b23] selection:text-[#fbbf24]">
       <div className="container mx-auto px-4 space-y-8">
-        {/* Header — Rule 9, 10, 11, 16 */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-zinc-800/80 pb-6">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[#232d1a] pb-6">
           <div className="space-y-2 max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-medium text-orange-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#fbbf24]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#fbbf24]" />
               <span>
-                NASA-STD-3001 · Roscosmos IBMP · CMSA · Interkosmos Mongolia ·
-                ESA · JAXA
+                NASA-STD-3001 · ROSCOSMOS IBMP · CMSA · INTERKOSMOS MONGOLIA · ESA · JAXA
               </span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-semibold tracking-tight text-white">
+            <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white font-sans">
               Microgravity & Deep-Space Emergency Procedures
             </h1>
-            <p className="text-sm text-zinc-300 leading-relaxed">
+            <p className="text-sm text-[#a8baa0] leading-relaxed">
               Step-by-step clinical and flight checklists paired with Xiaomi
               Watch H1 biomarker thresholds and Hermes autonomous ship actions.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2.5 shrink-0">
+          <div className="flex flex-wrap gap-2.5 shrink-0 font-mono text-xs">
             <Link href="/world-agencies">
-              <button className="bg-orange-500 hover:bg-orange-400 text-zinc-950 px-4 py-2.5 rounded-lg text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer">
-                <Globe className="w-4 h-4" />
+              <button className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] px-4 py-2.5 rounded-xl font-bold inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97] transition-colors shadow-sm shadow-amber-500/10">
+                <Globe className="w-4 h-4 text-[#0b0e0a]" />
                 <span>28 Space Agencies Archive</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </Link>
             <Link href="/space-encyclopedia">
-              <button className="bg-zinc-900 hover:bg-zinc-800 text-zinc-100 border border-zinc-800 px-3.5 py-2.5 rounded-lg text-xs font-medium inline-flex items-center gap-1.5 cursor-pointer">
-                <Pill className="w-4 h-4 text-orange-500" />
+              <button className="bg-[#13190e] hover:bg-[#1a2313] text-[#c7dfb8] border border-[#2e3b23] px-3.5 py-2.5 rounded-xl font-medium inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97] transition-colors">
+                <Pill className="w-4 h-4 text-[#fbbf24]" />
                 <span>0G Pharmacology</span>
               </button>
             </Link>
@@ -85,25 +84,25 @@ export default function EmergencyProtocols() {
         {/* Search & Category Filter */}
         <div className="space-y-3">
           <div className="relative">
-            <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-3" />
+            <Search className="w-4 h-4 text-[#8ea873] absolute left-3.5 top-3" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search procedure (0G CPR, depressurization, SPE storm shelter, EVA helmet water, SANS, jugular thrombosis)..."
-              className="w-full bg-zinc-900 text-zinc-100 text-sm pl-10 pr-4 py-2.5 rounded-lg border border-zinc-800 focus:outline-none focus:border-orange-500"
+              className="w-full bg-[#13190e] text-white text-sm pl-10 pr-4 py-2.5 rounded-xl border border-[#2e3b23] focus:outline-none focus:border-[#fbbf24]"
             />
           </div>
 
-          <div className="flex flex-wrap gap-1.5 text-xs">
+          <div className="flex flex-wrap gap-1.5 text-xs font-mono">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3 py-1.5 rounded-lg font-medium cursor-pointer border ${
+                className={`px-3 py-1.5 rounded-lg font-medium cursor-pointer border transition-colors active:scale-[0.97] ${
                   selectedCategory === cat.id
-                    ? "bg-orange-500 text-zinc-950 border-orange-500"
-                    : "bg-zinc-900 text-zinc-300 border-zinc-800 hover:border-zinc-700 hover:text-white"
+                    ? "bg-[#28381c] text-[#fbbf24] border-[#4d633b] font-bold shadow-sm shadow-amber-500/10"
+                    : "bg-[#13190e] text-[#8ea873] border-[#2e3b23] hover:border-[#3f5231] hover:text-white"
                 }`}
               >
                 {cat.label}

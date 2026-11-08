@@ -108,22 +108,21 @@ export default function CloudAndDesktopHub() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 py-10">
+    <div className="min-h-screen bg-[#0b0e0a] text-[#e3ecd8] py-10 selection:bg-[#2e3b23] selection:text-[#fbbf24]">
       <div className="container mx-auto px-4 space-y-10">
-        {/* Header — Rule 9, 10, 11, 16 */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-zinc-800/80 pb-6">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[#232d1a] pb-6">
           <div className="space-y-2 max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-medium text-orange-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#fbbf24]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#fbbf24]" />
               <span>
-                Rust 64-Bit Core · Tauri v2 Desktop (Win / macOS / Linux) ·
-                Vercel Serverless
+                RUST 64-BIT CORE · TAURI V2 DESKTOP (WIN / MACOS / LINUX) · VERCEL CLOUD
               </span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-semibold tracking-tight text-white">
+            <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white font-sans">
               Native Rust Desktop Runtime & Cloud Deployment
             </h1>
-            <p className="text-sm text-zinc-300 leading-relaxed">
+            <p className="text-sm text-[#a8baa0] leading-relaxed">
               Memory-safe Rust astrodynamics and biometric engine (
               <code>src-tauri/src/main.rs</code>) with portable auto-setup
               launchers for Windows, macOS, and Linux, plus Vercel Serverless
@@ -133,9 +132,9 @@ export default function CloudAndDesktopHub() {
 
           <button
             onClick={runRustBenchmark}
-            className="bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold px-4 py-2.5 rounded-lg text-xs inline-flex items-center gap-1.5 cursor-pointer shrink-0 tabular-nums"
+            className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-bold px-4 py-2.5 rounded-xl text-xs inline-flex items-center gap-1.5 cursor-pointer shrink-0 tabular-nums active:scale-[0.97] transition-colors shadow-sm shadow-amber-500/10 font-mono"
           >
-            <Play className="w-4 h-4" />
+            <Play className="w-4 h-4 text-[#0b0e0a]" />
             <span>
               Benchmark Rust RK4 ({rustBenchLatencyUs} µs/step)
             </span>

@@ -548,22 +548,21 @@ REF_FRAME      = EME2000
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 py-10">
+    <div className="min-h-screen bg-[#0b0e0a] text-[#e3ecd8] py-10 selection:bg-[#2e3b23] selection:text-[#fbbf24]">
       <div className="container mx-auto px-4 space-y-10">
         {/* HEADER */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-zinc-800/80 pb-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[#232d1a] pb-6">
           <div className="space-y-2 max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-medium text-orange-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#fbbf24]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#fbbf24]" />
               <span>
-                Rebuilt NASA GMAT R2026a IDE Workbench · Live Native{" "}
-                <code>F:\gmat-win-R2026a\bin\GmatConsole.exe</code> Engine
+                NASA GMAT R2026A IDE WORKBENCH · NATIVE <code>GmatConsole.exe</code> ENGINE
               </span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-semibold tracking-tight text-white">
-              NASA GMAT R2026a In-App Workbench & Trajectory Propagator
+            <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white font-sans">
+              NASA GMAT R2026a Astrodynamics & Trajectory Interlock
             </h1>
-            <p className="text-sm text-zinc-300 leading-relaxed">
+            <p className="text-sm text-[#a8baa0] leading-relaxed">
               Full interactive rebuild of NASA&apos;s open-source General Mission
               Analysis Tool (<code>F:\gmat-win-R2026a</code>) directly inside
               ARES-VII. Inspect and edit the GMAT Resource Tree, Mission
@@ -572,13 +571,13 @@ REF_FRAME      = EME2000
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0 font-mono text-xs">
             <button
               onClick={() => executeGmatMutation.mutate()}
               disabled={executeGmatMutation.isPending}
-              className="bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold px-4 py-2.5 rounded-lg text-xs inline-flex items-center gap-1.5 cursor-pointer shadow-sm"
+              className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-bold px-4 py-2.5 rounded-xl inline-flex items-center gap-1.5 cursor-pointer shadow-sm shadow-amber-500/10 active:scale-[0.97] transition-colors"
             >
-              <Play className="w-4 h-4" />
+              <Play className="w-4 h-4 text-[#0b0e0a]" />
               <span>
                 {executeGmatMutation.isPending
                   ? "Running GmatConsole.exe..."
@@ -587,9 +586,9 @@ REF_FRAME      = EME2000
             </button>
             <button
               onClick={() => overrideMutation.mutate(!isOverridden)}
-              className="bg-zinc-900 hover:bg-zinc-800 text-zinc-100 border border-zinc-800 px-3.5 py-2.5 rounded-lg text-xs font-medium inline-flex items-center gap-1.5 cursor-pointer"
+              className="bg-[#13190e] hover:bg-[#1a2313] text-[#c7dfb8] border border-[#2e3b23] px-3.5 py-2.5 rounded-xl font-medium inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97] transition-colors"
             >
-              <Hand className="w-4 h-4 text-orange-500" />
+              <Hand className="w-4 h-4 text-[#fbbf24]" />
               <span>
                 {isOverridden ? "Restore Hermes AI" : "Engage Manual Stick"}
               </span>
@@ -602,28 +601,28 @@ REF_FRAME      = EME2000
           {/* LEFT PANE (3 Cols): GMAT Resource Tree & Mission Sequence Tree */}
           <div className="lg:col-span-3 card-outer">
             <div className="card-inner p-4 space-y-4">
-              <div className="flex items-center justify-between border-b border-zinc-800/80 pb-3">
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-white">
-                  <FolderTree className="w-4 h-4 text-orange-500" />
-                  <span>GMAT R2026a Project Tree</span>
+              <div className="flex items-center justify-between border-b border-[#232d1a] pb-3">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-white font-mono">
+                  <FolderTree className="w-4 h-4 text-[#fbbf24]" />
+                  <span>GMAT Project Tree</span>
                 </div>
-                <div className="flex gap-1 text-[11px]">
+                <div className="flex gap-1 text-[11px] font-mono">
                   <button
                     onClick={() => setActiveTreeTab("resources")}
-                    className={`px-2 py-0.5 rounded cursor-pointer ${
+                    className={`px-2 py-0.5 rounded cursor-pointer active:scale-[0.97] transition-colors ${
                       activeTreeTab === "resources"
-                        ? "bg-orange-500 text-zinc-950 font-semibold"
-                        : "bg-zinc-900 text-zinc-400"
+                        ? "bg-[#28381c] text-[#fbbf24] border border-[#4d633b] font-bold"
+                        : "bg-[#0b0e0a] text-[#8ea873]"
                     }`}
                   >
                     Resources
                   </button>
                   <button
                     onClick={() => setActiveTreeTab("mission")}
-                    className={`px-2 py-0.5 rounded cursor-pointer ${
+                    className={`px-2 py-0.5 rounded cursor-pointer active:scale-[0.97] transition-colors ${
                       activeTreeTab === "mission"
-                        ? "bg-orange-500 text-zinc-950 font-semibold"
-                        : "bg-zinc-900 text-zinc-400"
+                        ? "bg-[#28381c] text-[#fbbf24] border border-[#4d633b] font-bold"
+                        : "bg-[#0b0e0a] text-[#8ea873]"
                     }`}
                   >
                     Mission
@@ -639,13 +638,13 @@ REF_FRAME      = EME2000
                       <button
                         key={res.id}
                         onClick={() => setSelectedResource(res.id)}
-                        className={`w-full text-left p-2.5 rounded-lg border text-xs cursor-pointer ${
+                        className={`w-full text-left p-2.5 rounded-lg border text-xs cursor-pointer transition-colors active:scale-[0.98] ${
                           isSelected
-                            ? "bg-zinc-900 border-orange-500/60 text-white"
-                            : "bg-zinc-950 border-zinc-900 text-zinc-400 hover:bg-zinc-900/50 hover:text-zinc-200"
+                            ? "bg-[#182213] border-[#4d633b] text-white shadow-sm shadow-amber-500/10"
+                            : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:text-[#e3ecd8]"
                         }`}
                       >
-                        <div className="text-[10px] font-mono text-orange-400 uppercase">
+                        <div className="text-[10px] font-mono font-bold text-[#fbbf24] uppercase">
                           {res.folder}
                         </div>
                         <div className="font-semibold text-white truncate">
