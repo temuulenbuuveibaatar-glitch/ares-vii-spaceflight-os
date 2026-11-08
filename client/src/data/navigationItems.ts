@@ -1,6 +1,6 @@
 export const navigationItems = [
-  { path: "/intro", key: "intro", defaultLabel: "0. Project Presentation & Intro" },
-  { path: "/", key: "home", defaultLabel: "1. 24/7 Health Monitor & Self-Check" },
+  { path: "/", key: "intro", defaultLabel: "🌟 Portal 1: Mission Info & Why It Matters" },
+  { path: "/cockpit", key: "home", defaultLabel: "🚀 Portal 2: 24/7 Flight Cockpit" },
   { path: "/hermes", key: "hermes", defaultLabel: "2. Hermes Voice & AI Therapy" },
   { path: "/space-encyclopedia", key: "spaceEncyclopedia", defaultLabel: "3. Multi-Agency Meds (USSR/NASA/CMSA)" },
   { path: "/gmat-orbiter", key: "gmatOrbiter", defaultLabel: "4. NASA GMAT R2026a IDE" },

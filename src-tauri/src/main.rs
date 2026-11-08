@@ -72,7 +72,7 @@ fn compute_acceleration_j2(s: &StateVectorJ2000, thrust_km_s2: [f64; 3]) -> [f64
 
 /// High-precision 4th-Order Runge-Kutta (RK4) propagator in native Rust
 #[tauri::command]
-pub fn rust_propagate_and_evaluate(
+fn rust_propagate_and_evaluate(
     state: StateVectorJ2000,
     dt_sec: f64,
     vitals: XiaomiWatchVitals,

@@ -93,18 +93,18 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
                 </button>
               </div>
 
-              <div className="flex items-center gap-1.5 p-1 bg-zinc-900 border border-zinc-800 rounded-xl">
-                <Link href="/intro">
-                  <span className="flex items-center gap-1.5 bg-gradient-to-r from-cyan-500/20 to-teal-500/20 hover:from-cyan-500/30 hover:to-teal-500/30 text-cyan-300 border border-cyan-500/40 px-2.5 py-1 rounded-lg text-xs font-bold cursor-pointer transition-all">
-                    <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>1. Public Showcase</span>
+              <div className="flex items-center gap-1.5 p-1 bg-[#0b0e0a] border border-[#2d3b22] rounded-xl font-mono">
+                <Link href="/">
+                  <span className="flex items-center gap-1.5 bg-[#182213] hover:bg-[#24331c] text-[#a3c988] hover:text-[#fbbf24] border border-[#3f5231] px-2.5 py-1 rounded-lg text-xs font-bold cursor-pointer transition-all">
+                    <Sparkles className="w-3.5 h-3.5 text-[#fbbf24]" />
+                    <span>Portal 1: Info</span>
                   </span>
                 </Link>
 
-                <Link href="/">
-                  <span className="flex items-center gap-1.5 bg-zinc-950 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 px-2.5 py-1 rounded-lg text-xs font-semibold cursor-pointer transition-all">
-                    <Rocket className="w-3.5 h-3.5 text-amber-400" />
-                    <span>2. Live OS Cockpit</span>
+                <Link href="/cockpit">
+                  <span className="flex items-center gap-1.5 bg-[#28381c] hover:bg-[#354528] text-[#fbbf24] border border-[#4d633b] px-2.5 py-1 rounded-lg text-xs font-bold cursor-pointer transition-all shadow-sm shadow-amber-500/10">
+                    <Rocket className="w-3.5 h-3.5 text-[#fbbf24]" />
+                    <span>Portal 2: Cockpit</span>
                   </span>
                 </Link>
               </div>

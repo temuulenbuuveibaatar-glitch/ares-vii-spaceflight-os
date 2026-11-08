@@ -358,9 +358,9 @@ export const WORLD_SPACE_AGENCIES: WorldSpaceAgencyProfile[] = [
     foundedYear: "1975 (ESA) / 2003 (JAXA, merging NASDA/ISAS/NAL)",
     leadBiomedicalInstitute:
       "ESA European Astronaut Centre (EAC, Cologne), DLR Institute of Aerospace Medicine, & JAXA Tsukuba Space Biomedical Research Group",
-    accentColor: "#a855f7",
-    badgeClass: "bg-purple-950/90 text-purple-300 border-purple-500/40",
-    borderClass: "border-purple-500/40",
+    accentColor: "#84a96c",
+    badgeClass: "bg-[#182213] text-[#a3c988] border-[#3f5231]",
+    borderClass: "border-[#4d633b]",
     heroSummary:
       "Leaders in quantitative radiation depth-dose mapping and anti-resorptive bone pharmacology. ESA/DLR's Matroshka anthropomorphic torso phantom mounted outside the ISS Zvezda module proved that EVA skin dose exceeds deep Blood-Forming Organ (BFO) dose by 2.8x. JAXA's Kibo laboratory and cooperative JAXA/NASA Bisphosphonate + ARED study demonstrated that weekly Alendronate or annual IV Zoledronic Acid combined with resistive loading slashes spaceflight bone loss by 94.7% (from -1.5%/mo to -0.08%/mo).",
     signaturePrograms: [

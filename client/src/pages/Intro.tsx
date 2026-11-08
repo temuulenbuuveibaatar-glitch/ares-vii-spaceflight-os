@@ -31,6 +31,8 @@ import {
   Sliders,
   Award,
   ShieldAlert,
+  Gauge,
+  Crosshair,
 } from "lucide-react";
 
 export default function Intro() {
@@ -42,7 +44,7 @@ export default function Intro() {
   const [liveBpDia, setLiveBpDia] = useState<number>(76);
   const [liveGcrFlux, setLiveGcrFlux] = useState<number>(18.7);
 
-  // Purposeful live telemetry tick (Emil Kowalski: tabular-nums, subtle life without dizzying pulses)
+  // Purposeful tactical telemetry tick (Emil Kowalski: tabular-nums, subtle life without dizzying pulses)
   useEffect(() => {
     const timer = setInterval(() => {
       setLiveHeartRate((prev) => {
@@ -51,63 +53,67 @@ export default function Intro() {
         return next >= 69 && next <= 75 ? next : 72;
       });
       setLiveGcrFlux((prev) => +(prev + (Math.random() * 0.4 - 0.2)).toFixed(1));
-    }, 3000);
+    }, 3200);
     return () => clearInterval(timer);
   }, []);
 
   const personas = [
     {
-      title: "For Astronauts & Deep-Space Crews",
-      badge: "In-Flight Autonomy",
+      title: "For Astronauts & Deep-Space Flight Crews",
+      badge: "In-Flight Operator Autonomy",
+      code: "CREW-SPEC-01",
       icon: Users,
       summary:
-        "Complete self-reliance when Earth is 22 light-minutes away. Astronauts can evaluate their own symptoms, receive plain-English countermeasure instructions, talk confidentially to offline AI therapy, and administer life-saving treatments without having an MD on board.",
+        "Complete self-reliance when Earth is 22 light-minutes away. Flight crews can evaluate their own symptoms, receive step-by-step countermeasure protocols, consult confidential on-device AI therapy, and administer life-saving zero-G clinical procedures without an MD on board.",
       features: [
-        "24/7 continuous Lead-I ECG & oscillometric micro-cuff BP monitoring via wrist wearable",
-        "Private on-device mental health & cognitive fatigue therapy (100% confidential from Earth)",
-        "Step-by-step emergency zero-G surgical and countermeasure execution guides",
-        "Instant manual flight override interlock with illuminated authority indicators",
+        "24/7 continuous Lead-I ECG & oscillometric micro-cuff BP via radiation-hardened wrist telemetry",
+        "100% confidential on-device offline voice sentiment & cognitive fatigue therapy (zero ground logging)",
+        "Zero-G surgical and pharmacological step-by-step guidance manuals with dosage calculator",
+        "Tactical manual flight authority interlock with physical status indicators",
       ],
       metric: "0 ms Dependency on Earth Flight Surgeons",
     },
     {
-      title: "For Flight Surgeons & Mission Control",
-      badge: "Earth Houston & TsUP",
+      title: "For Flight Surgeons & Mission Control Centers",
+      badge: "Earth DSN Houston / TsUP",
+      code: "SURGEON-EHR-02",
       icon: Activity,
       summary:
-        "Planetary-scale Electronic Health Record (EHR) synchronization with delay-tolerant transmission. Flight surgeons receive consolidated risk dashboards, high-fidelity cardiac telemetry snapshots, and automated alerts during critical solar flares.",
+        "Planetary-scale Electronic Health Record (EHR) synchronization engineered for intermittent, high-latency deep space comms. Flight surgeons receive consolidated multi-agency risk timelines, ECG waveform bursts, and immediate alerts during major solar flare events.",
       features: [
-        "Delay-tolerant burst packet synchronization across Deep Space Network (DSN)",
-        "Unified multi-agency health timeline covering ECG, BP, dosimeter, and psychological state",
-        "Automated Glasgow-derivative arrhythmia classification and hypoxia triage",
-        "Dual-key authorization protocol for critical ship trajectory adjustments",
+        "Delay-tolerant burst packet telemetry transmission across Deep Space Network (DSN)",
+        "Unified health timeline integrating continuous cardiac, blood pressure, dosimeter, and psychological markers",
+        "Automated Glasgow-derivative cardiac arrhythmia classification and hypoxia triage",
+        "Cryptographic dual-key authorization interlock for remote ship maneuver approvals",
       ],
       metric: "100% Audit Trail & Encrypted DSN Telemetry",
     },
     {
-      title: "For Astrodynamics & Spacecraft Guidance",
-      badge: "Closed-Loop Physics",
+      title: "For Astrodynamics Guidance & Flight Controllers",
+      badge: "Closed-Loop Trajectory Interlock",
+      code: "NAV-GMAT-03",
       icon: Compass,
       summary:
-        "The first bio-astronautics software directly coupled to spacecraft propulsion. If an astronaut experiences acute cardiac stress, intracranial venous surge, or bone fracture, the navigation system throttles engine burns to prevent fatal high-G acceleration.",
+        "The first bio-astronautics software directly coupled to spacecraft propulsion. If an astronaut experiences acute cardiac failure, intracranial venous pooling, or skeletal fracture, the guidance system throttles engine burns to prevent fatal acceleration.",
       features: [
         "Direct API integration with verified NASA GMAT R2026a astrodynamics engine (0.047s execution)",
         "Automated Tsiolkovsky propellant mass and Vis-Viva orbital velocity calculation",
-        "Cardiovascular-coupled G-load ceilings (limits acceleration when Mean Arterial Pressure drops)",
+        "Cardiovascular-coupled G-load ceilings (automatically limits acceleration when MAP drops)",
         "Autonomous Fast Earth-Return and solar-storm attitude slewing maneuvers",
       ],
       metric: "3.81 G Real-Time Ceiling Based on Crew BP",
     },
     {
-      title: "For Space Medicine Researchers & Students",
-      badge: "28-Nation Science Archive",
+      title: "For Space Medicine Researchers & Aerospace Engineers",
+      badge: "28-Nation Global Archive",
+      code: "GLOBAL-BIO-04",
       icon: Globe,
       summary:
         "An unprecedented cross-agency repository uniting 60 years of space medicine from the Soviet Union (IBMP), NASA (JSC), China (CMSA), Japan (JAXA), India (ISRO), Europe (ESA), and Mongolia (Interkosmos).",
       features: [
         "42 validated spaceflight medications with real clinical doses and DRF metrics",
-        "Complete mathematical formulas for cephalad fluid shifts, osteopenia, and proton depth-dose",
-        "Historical incident database: August 1972 Apollo SPE, Mir 1997, Salyut-6, and Soyuz-39",
+        "Empirical formulas for cephalad fluid shifts, osteopenia, and proton depth-dose",
+        "Historical mission incident database: August 1972 Apollo SPE, Mir 1997, Salyut-6, and Soyuz-39",
         "Downloadable 53.5 KB plain-English & scientific research handbook (.docx)",
       ],
       metric: "42 Space Medications • 28 Nations Matrix",
@@ -118,7 +124,8 @@ export default function Intro() {
     {
       id: "radiation",
       title: "1. Space Radiation & Solar Proton Events",
-      badge: "Cosmic Rays & SPEs",
+      badge: "Radiation",
+      code: "HAZ-01",
       icon: Shield,
       analogy:
         "Imagine spending 3 years directly in front of a running industrial microwave with no atmospheric blanket or planetary magnetic shield to protect your DNA.",
@@ -133,6 +140,7 @@ export default function Intro() {
       id: "isolation",
       title: "2. Extreme Isolation & Behavioral Decay",
       badge: "Behavioral Health",
+      code: "HAZ-02",
       icon: Brain,
       analogy:
         "Imagine being locked inside a small camper van with three colleagues for 900 days without ever opening a window, feeling fresh air, or having a private conversation.",
@@ -147,6 +155,7 @@ export default function Intro() {
       id: "gravity",
       title: "3. Altered Gravity & Cephalad Fluid Shift",
       badge: "Cardiovascular & SANS",
+      code: "HAZ-03",
       icon: Activity,
       analogy:
         "Without gravity pulling your fluids down, two liters of blood and plasma rush into your head, puffing your face and squeezing your eyes, while your bones dissolve into your urine like sugar in hot tea.",
@@ -160,7 +169,8 @@ export default function Intro() {
     {
       id: "distance",
       title: "4. Hostile Environment & 22-Min Communication Lag",
-      badge: "Distance & Comm Blackout",
+      badge: "Comm Delay & Distance",
+      code: "HAZ-04",
       icon: Rocket,
       analogy:
         "If an astronaut experiences ventricular fibrillation on the way to Mars, calling 911 takes 22 minutes to reach Earth, and 22 minutes for Houston to answer. The patient would be dead before the doctor even hears the call.",
@@ -221,95 +231,94 @@ export default function Intro() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#030712] text-zinc-100 selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* GLOBAL WINNER-GRADE SUB-HEADER & DUAL-WEBSITE SWITCHER */}
-      <div className="sticky top-14 z-40 bg-zinc-950/90 backdrop-blur-xl border-b border-cyan-500/20 px-4 py-3">
+    <div className="min-h-screen bg-[#0b0e0a] text-[#e3ecd8] selection:bg-[#4d633b] selection:text-[#fbbf24]">
+      {/* TACTICAL TOP HUD STRIP */}
+      <div className="sticky top-0 z-50 bg-[#11160e]/95 backdrop-blur-md border-b border-[#2d3b22] px-4 py-2.5">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          {/* Dual Website Switcher Pill */}
-          <div className="flex items-center gap-1.5 p-1 bg-zinc-900/90 border border-zinc-800 rounded-xl">
-            <span className="px-3 py-1 rounded-lg bg-gradient-to-r from-cyan-500 to-teal-400 text-black font-bold text-xs shadow-md shadow-cyan-500/20 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>1. Public Showcase & Science (Why It Matters)</span>
+          {/* Dual Website Switcher */}
+          <div className="flex items-center gap-1.5 p-1 bg-[#0b0e0a] border border-[#2d3b22] rounded-xl">
+            <span className="px-3 py-1 rounded-lg bg-[#27351c] text-[#a3c988] border border-[#485f34] font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm">
+              <Crosshair className="w-3.5 h-3.5 text-[#fbbf24]" />
+              <span>PORTAL 1: MISSION & SCIENCE SPECIFICATION</span>
             </span>
-            <Link href="/">
-              <button className="px-3 py-1 rounded-lg text-zinc-400 hover:text-white text-xs font-semibold flex items-center gap-1.5 cursor-pointer transition-colors">
-                <Rocket className="w-3.5 h-3.5 text-amber-400" />
-                <span>2. Live Flight OS Cockpit</span>
+            <Link href="/cockpit">
+              <button className="px-3 py-1 rounded-lg text-[#8ea873] hover:text-[#fbbf24] font-mono text-xs font-semibold flex items-center gap-1.5 cursor-pointer transition-colors">
+                <Rocket className="w-3.5 h-3.5 text-[#fbbf24]" />
+                <span>PORTAL 2: 24/7 OPERATIONAL COCKPIT</span>
               </button>
             </Link>
           </div>
 
-          <div className="hidden xl:flex items-center gap-6 text-xs text-zinc-400 font-medium">
-            <a href="#who-is-it-for" className="hover:text-cyan-300 transition-colors">
-              Who Is It For
+          {/* Quick HUD Jump Links */}
+          <div className="hidden lg:flex items-center gap-6 font-mono text-xs text-[#8ea873]">
+            <a href="#who-is-it-for" className="hover:text-[#fbbf24] transition-colors">
+              // WHO IS IT FOR
             </a>
-            <a href="#why-it-matters" className="hover:text-cyan-300 transition-colors">
-              The 4 Hazards
+            <a href="#why-it-matters" className="hover:text-[#fbbf24] transition-colors">
+              // 4 HAZARDS
             </a>
-            <a href="#scenarios" className="hover:text-cyan-300 transition-colors">
-              Flight Scenarios
+            <a href="#scenarios" className="hover:text-[#fbbf24] transition-colors">
+              // FLIGHT INCIDENTS
             </a>
-            <a href="#seo-audit" className="hover:text-cyan-300 transition-colors">
-              SEO & Tech Score
+            <a href="#seo-audit" className="hover:text-[#fbbf24] transition-colors">
+              // SEO & AUDIT
             </a>
-            <a href="#research" className="hover:text-cyan-300 transition-colors">
-              Research Guide
+            <a href="#research" className="hover:text-[#fbbf24] transition-colors">
+              // RESEARCH DOCS
             </a>
           </div>
 
+          {/* Primary Action Button */}
           <div className="flex items-center gap-2.5">
             <a
               href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
               download="ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-              className="text-xs bg-zinc-900 hover:bg-zinc-800 text-zinc-300 px-3 py-1.5 rounded-lg border border-zinc-800 inline-flex items-center gap-1.5 transition-colors"
+              className="text-xs font-mono bg-[#182012] hover:bg-[#222d19] text-[#c2dcb0] px-3 py-1.5 rounded-lg border border-[#354528] inline-flex items-center gap-1.5 transition-colors"
             >
-              <FileText className="w-3.5 h-3.5 text-amber-400" />
-              <span>Research (.docx)</span>
+              <FileText className="w-3.5 h-3.5 text-[#fbbf24]" />
+              <span>Guide (.docx)</span>
             </a>
 
-            <Link href="/">
-              <button className="text-xs font-bold bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black px-4 py-1.5 rounded-lg cursor-pointer inline-flex items-center gap-1.5 shadow-md shadow-amber-500/20 transition-all">
+            <Link href="/cockpit">
+              <button className="text-xs font-mono font-bold bg-[#d97706] hover:bg-[#b45309] text-[#0b0e0a] px-4 py-1.5 rounded-lg cursor-pointer inline-flex items-center gap-1.5 shadow-md shadow-amber-500/20 transition-all">
                 <Rocket className="w-3.5 h-3.5" />
-                <span>Launch Cockpit</span>
+                <span>ENTER COCKPIT</span>
               </button>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* HERO SECTION WITH ELECTRIC COSMIC GRADIENTS & REAL TELEMETRY HUD */}
-      <section className="relative pt-16 pb-24 px-4 overflow-hidden border-b border-zinc-900">
-        {/* Glowing cosmic nebula background */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[400px] bg-gradient-to-tr from-cyan-500/15 via-teal-500/10 to-amber-500/10 blur-[140px] pointer-events-none rounded-full" />
-
+      {/* HERO SECTION: TACTICAL OLIVE & SOLAR AMBER */}
+      <section className="relative pt-16 pb-20 px-4 border-b border-[#232d1a] bg-gradient-to-b from-[#11160e] via-[#0e120b] to-[#0b0e0a]">
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-cyan-950/80 via-zinc-900 to-zinc-900 border border-cyan-500/40 px-4 py-1.5 rounded-full text-xs font-semibold text-cyan-200 mb-6 shadow-lg shadow-cyan-500/10">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-            <span>NASA SPACE APPS CHALLENGE 2026 GLOBAL ENTRY</span>
-            <span className="text-zinc-600">•</span>
-            <span className="text-amber-400">Deep Space Human Habitation</span>
+          {/* Tactical Stencil Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#182213] border border-[#3f5231] font-mono text-xs text-[#a3c988] mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#fbbf24]" />
+            <span className="font-bold text-[#fbbf24]">NASA SPACE APPS CHALLENGE 2026</span>
+            <span className="text-[#4d633b]">//</span>
+            <span>SPEC: BIO-ASTRONAUTICS & HABITATION</span>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] max-w-5xl mx-auto">
+          {/* Bold Military/Aerospace Headline */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-sans tracking-tight text-white leading-tight max-w-5xl mx-auto">
             Autonomous Spaceflight Health &{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-teal-300 to-amber-300">
+            <span className="text-[#fbbf24] underline decoration-[#4d633b] underline-offset-8">
               Mission Preservation OS
             </span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="mt-6 text-base sm:text-lg text-zinc-300 max-w-3xl mx-auto leading-relaxed">
-            Bridging 24/7 continuous Xiaomi Watch H1 biometric telemetry, 42 Soviet, Chinese, and NASA spaceflight countermeasures, and offline Hermes AI with NASA GMAT R2026a astrodynamics to guarantee human survival when Earth is 22 light-minutes away.
+          {/* Subhead */}
+          <p className="mt-6 text-sm sm:text-base text-[#a8baa0] max-w-3xl mx-auto leading-relaxed">
+            Engineered for deep-space missions beyond Low-Earth Orbit. Uniting continuous 24/7 Xiaomi Watch H1 biometric telemetry, 42 Soviet, Chinese, and NASA spaceflight countermeasures, and offline Hermes AI with NASA GMAT R2026a astrodynamics to guarantee crew survival across 22-minute communication blackouts.
           </p>
 
-          {/* Primary Action Buttons */}
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/">
-              <button className="bg-gradient-to-r from-cyan-400 via-teal-400 to-amber-400 hover:from-cyan-300 hover:to-amber-300 text-black font-extrabold text-sm px-7 py-3.5 rounded-xl inline-flex items-center gap-2 shadow-xl shadow-cyan-500/20 cursor-pointer transition-all">
+          {/* Action Row */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5 font-mono text-xs">
+            <Link href="/cockpit">
+              <button className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-black text-sm px-7 py-3.5 rounded-xl inline-flex items-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer transition-all">
                 <Rocket className="w-4 h-4" />
-                <span>Launch Live Spaceflight OS</span>
+                <span>LAUNCH 24/7 OPERATIONAL COCKPIT</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
             </Link>
@@ -317,87 +326,85 @@ export default function Intro() {
             <a
               href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
               download="ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-              className="bg-zinc-900 hover:bg-zinc-800 text-zinc-200 font-semibold text-sm px-6 py-3.5 rounded-xl border border-zinc-800 inline-flex items-center gap-2 cursor-pointer transition-colors"
+              className="bg-[#182213] hover:bg-[#24331c] text-[#c7dfb8] font-bold text-sm px-6 py-3.5 rounded-xl border border-[#3f5231] inline-flex items-center gap-2 cursor-pointer transition-colors"
             >
-              <FileText className="w-4 h-4 text-amber-400" />
-              <span>Download Research Handbook (.docx)</span>
+              <FileText className="w-4 h-4 text-[#fbbf24]" />
+              <span>DOWNLOAD RESEARCH HANDBOOK (.DOCX)</span>
             </a>
 
             <Link href="/world-agencies">
-              <button className="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 font-medium text-sm px-5 py-3.5 rounded-xl border border-zinc-800 inline-flex items-center gap-1.5 cursor-pointer transition-colors">
-                <Globe className="w-4 h-4 text-cyan-400" />
-                <span>Explore 28 Space Agencies</span>
+              <button className="bg-[#182213] hover:bg-[#24331c] text-[#8ea873] font-bold text-sm px-5 py-3.5 rounded-xl border border-[#3f5231] inline-flex items-center gap-1.5 cursor-pointer transition-colors">
+                <Globe className="w-4 h-4 text-[#fbbf24]" />
+                <span>28 SPACE AGENCIES MATRIX</span>
               </button>
             </Link>
           </div>
 
-          {/* Coupled Telemetry Strip */}
-          <div className="mt-14 max-w-4xl mx-auto bg-zinc-950/80 border border-cyan-500/30 rounded-2xl p-4 shadow-2xl backdrop-blur-xl">
-            <div className="flex items-center justify-between pb-3 border-b border-zinc-800/80 mb-3 px-1">
+          {/* Tactical HUD Telemetry Bar */}
+          <div className="mt-12 max-w-4xl mx-auto bg-[#13190e] border border-[#354528] rounded-2xl p-4 shadow-xl text-left">
+            <div className="flex items-center justify-between pb-3 border-b border-[#232d1a] mb-3 px-1 font-mono text-xs">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span className="text-xs font-bold uppercase tracking-wider text-cyan-300">
-                  Coupled Telemetry Stream • Live Astrodynamics Link
+                <span className="w-2 h-2 rounded-full bg-[#84a96c]" />
+                <span className="font-bold text-[#c7dfb8] uppercase tracking-wider">
+                  TELEMETRY COUPLING: XIAOMI WATCH H1 // NASA GMAT R2026A
                 </span>
               </div>
-              <span className="text-xs font-mono text-zinc-500">
-                Xiaomi Watch H1 + NASA GMAT R2026a
-              </span>
+              <span className="text-[#6d845e]">DSN X-BAND: 8.4 GHz LOCKED</span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono">
               {/* ECG */}
-              <div className="bg-zinc-900/80 border border-zinc-800 rounded-xl p-3">
-                <div className="flex items-center justify-between text-xs text-zinc-400 mb-1">
-                  <span>Lead-I ECG</span>
-                  <Heart className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-3">
+                <div className="flex items-center justify-between text-xs text-[#8ea873] mb-1">
+                  <span>LEAD-I ECG</span>
+                  <Heart className="w-3.5 h-3.5 text-[#fbbf24]" />
                 </div>
                 <div className="text-lg font-bold text-white tabular-nums">
-                  {liveHeartRate} <span className="text-xs font-normal text-zinc-400">BPM</span>
+                  {liveHeartRate} <span className="text-xs font-normal text-[#8ea873]">BPM</span>
                 </div>
-                <div className="text-[11px] text-emerald-400 font-medium mt-0.5">
+                <div className="text-[11px] text-[#84a96c] font-sans font-medium mt-0.5">
                   Normal Sinus Rhythm
                 </div>
               </div>
 
               {/* BP */}
-              <div className="bg-zinc-900/80 border border-zinc-800 rounded-xl p-3">
-                <div className="flex items-center justify-between text-xs text-zinc-400 mb-1">
-                  <span>Micro-Cuff BP</span>
-                  <Activity className="w-3.5 h-3.5 text-amber-400" />
+              <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-3">
+                <div className="flex items-center justify-between text-xs text-[#8ea873] mb-1">
+                  <span>MICRO-CUFF BP</span>
+                  <Activity className="w-3.5 h-3.5 text-[#fbbf24]" />
                 </div>
                 <div className="text-lg font-bold text-white tabular-nums">
-                  {liveBpSys}/{liveBpDia} <span className="text-xs font-normal text-zinc-400">mmHg</span>
+                  {liveBpSys}/{liveBpDia} <span className="text-xs font-normal text-[#8ea873]">mmHg</span>
                 </div>
-                <div className="text-[11px] text-emerald-400 font-medium mt-0.5">
+                <div className="text-[11px] text-[#84a96c] font-sans font-medium mt-0.5">
                   MAP 90.3 mmHg (Nominal)
                 </div>
               </div>
 
               {/* Radiation */}
-              <div className="bg-zinc-900/80 border border-zinc-800 rounded-xl p-3">
-                <div className="flex items-center justify-between text-xs text-zinc-400 mb-1">
-                  <span>Deep-Space GCR</span>
-                  <Shield className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-3">
+                <div className="flex items-center justify-between text-xs text-[#8ea873] mb-1">
+                  <span>DEEP-SPACE GCR</span>
+                  <Shield className="w-3.5 h-3.5 text-[#fbbf24]" />
                 </div>
                 <div className="text-lg font-bold text-white tabular-nums">
-                  {liveGcrFlux} <span className="text-xs font-normal text-zinc-400">µSv/h</span>
+                  {liveGcrFlux} <span className="text-xs font-normal text-[#8ea873]">µSv/h</span>
                 </div>
-                <div className="text-[11px] text-zinc-400 font-medium mt-0.5">
+                <div className="text-[11px] text-[#8ea873] font-sans font-medium mt-0.5">
                   Cumulative: 3.37 mSv
                 </div>
               </div>
 
               {/* GMAT */}
-              <div className="bg-zinc-900/80 border border-zinc-800 rounded-xl p-3">
-                <div className="flex items-center justify-between text-xs text-zinc-400 mb-1">
-                  <span>NASA GMAT R2026a</span>
-                  <Compass className="w-3.5 h-3.5 text-amber-400" />
+              <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-3">
+                <div className="flex items-center justify-between text-xs text-[#8ea873] mb-1">
+                  <span>NASA GMAT R2026A</span>
+                  <Compass className="w-3.5 h-3.5 text-[#fbbf24]" />
                 </div>
                 <div className="text-lg font-bold text-white tabular-nums">
-                  2.6316 <span className="text-xs font-normal text-zinc-400">km/s</span>
+                  2.6316 <span className="text-xs font-normal text-[#8ea873]">km/s</span>
                 </div>
-                <div className="text-[11px] text-emerald-400 font-medium mt-0.5">
+                <div className="text-[11px] text-[#84a96c] font-sans font-medium mt-0.5">
                   GmatConsole: 0.047s Exec
                 </div>
               </div>
@@ -406,22 +413,23 @@ export default function Intro() {
         </div>
       </section>
 
-      {/* SECTION 1: WHO IS IT FOR? (The 4 Distinct Personas) */}
-      <section id="who-is-it-for" className="py-20 px-4 border-b border-zinc-900 bg-zinc-950/40">
+      {/* SECTION 1: WHO IS IT FOR? */}
+      <section id="who-is-it-for" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
-              <Users className="w-4 h-4 text-cyan-400" />
-              <span>Target Personas & Stakeholders</span>
+            <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
+              <Crosshair className="w-4 h-4 text-[#fbbf24]" />
+              <span>// OPERATIONAL STAKEHOLDERS & SPECIFICATION</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               Who Is ARES-VII Built For?
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-zinc-400">
-              Deep space demands software tailored to the exact realities of astronauts, ground flight surgeons, spacecraft guidance computers, and global aerospace researchers.
+            <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
+              Deep space demands software tailored to the exact realities of astronauts, ground flight surgeons, spacecraft guidance computers, and aerospace researchers.
             </p>
           </div>
 
+          {/* Persona Picker */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
             {personas.map((p, idx) => {
               const Icon = p.icon;
@@ -430,19 +438,19 @@ export default function Intro() {
                 <button
                   key={idx}
                   onClick={() => setActivePersona(idx)}
-                  className={`p-4 rounded-2xl border text-left cursor-pointer transition-all ${
+                  className={`p-4 rounded-xl border text-left cursor-pointer transition-all ${
                     isSelected
-                      ? "bg-gradient-to-br from-cyan-950/70 to-zinc-900 border-cyan-400 text-white shadow-lg shadow-cyan-500/10"
-                      : "bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700"
+                      ? "bg-[#182213] border-[#fbbf24] text-white shadow-md shadow-amber-500/10"
+                      : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:text-[#c7dfb8] hover:border-[#354528]"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <Icon className={`w-4 h-4 ${isSelected ? "text-cyan-400" : "text-zinc-500"}`} />
-                    <span className="text-[10px] font-mono uppercase bg-zinc-900 px-2 py-0.5 rounded-full text-zinc-400">
-                      0{idx + 1}
+                    <Icon className={`w-4 h-4 ${isSelected ? "text-[#fbbf24]" : "text-[#6d845e]"}`} />
+                    <span className="text-[10px] font-mono bg-[#11160e] px-2 py-0.5 rounded text-[#8ea873]">
+                      {p.code}
                     </span>
                   </div>
-                  <div className={`text-xs font-bold ${isSelected ? "text-white" : "text-zinc-300"}`}>
+                  <div className={`text-xs font-bold ${isSelected ? "text-white" : "text-[#a8baa0]"}`}>
                     {p.badge}
                   </div>
                 </button>
@@ -450,27 +458,28 @@ export default function Intro() {
             })}
           </div>
 
-          <div className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+          {/* Selected Persona Details */}
+          <div className="bg-[#13190e] border border-[#354528] rounded-2xl p-6 sm:p-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-xs font-bold">
-                  <span>{personas[activePersona].badge}</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#182213] border border-[#3f5231] text-[#fbbf24] font-mono text-xs font-bold">
+                  <span>{personas[activePersona].code} // {personas[activePersona].badge}</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white">
                   {personas[activePersona].title}
                 </h3>
-                <p className="text-sm text-zinc-300 leading-relaxed">
+                <p className="text-sm text-[#c7dfb8] leading-relaxed">
                   {personas[activePersona].summary}
                 </p>
 
                 <div className="space-y-2 pt-2">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-amber-400">
-                    Key Tailored Capabilities:
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#fbbf24]">
+                    Engineered Capabilities:
                   </div>
                   <ul className="space-y-2">
                     {personas[activePersona].features.map((feat, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs text-zinc-300">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <li key={i} className="flex items-start gap-2.5 text-xs text-[#a8baa0]">
+                        <CheckCircle2 className="w-4 h-4 text-[#84a96c] shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -478,20 +487,20 @@ export default function Intro() {
                 </div>
               </div>
 
-              <div className="lg:col-span-5 bg-zinc-950 border border-zinc-800 rounded-xl p-6 text-center space-y-4">
-                <div className="text-xs font-mono text-zinc-500 uppercase">
-                  Proven Clinical / Engineering Benchmark
+              <div className="lg:col-span-5 bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-6 text-center space-y-4">
+                <div className="text-xs font-mono text-[#6d845e] uppercase">
+                  Verified Technical / Clinical Benchmark
                 </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-amber-300">
+                <div className="text-2xl sm:text-3xl font-black font-mono text-[#fbbf24]">
                   {personas[activePersona].metric}
                 </div>
-                <p className="text-xs text-zinc-400 leading-relaxed">
+                <p className="text-xs text-[#8ea873] leading-relaxed">
                   Tested and verified against NASA-STD-3001, IBMP GOST standards, and local NASA GMAT R2026a astrodynamics console binaries.
                 </p>
                 <div className="pt-2">
-                  <Link href="/">
-                    <button className="w-full bg-gradient-to-r from-cyan-500 to-teal-400 hover:from-cyan-400 hover:to-teal-300 text-black font-bold text-xs py-2.5 px-4 rounded-xl cursor-pointer shadow-md shadow-cyan-500/20 transition-all flex items-center justify-center gap-2">
-                      <span>Explore In Live Cockpit</span>
+                  <Link href="/cockpit">
+                    <button className="w-full bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-mono font-bold text-xs py-3 px-4 rounded-xl cursor-pointer shadow-md shadow-amber-500/20 transition-all flex items-center justify-center gap-2">
+                      <span>OPEN 24/7 OPERATIONAL COCKPIT</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </Link>
@@ -502,23 +511,23 @@ export default function Intro() {
         </div>
       </section>
 
-      {/* SECTION 2: WHY DOES IT MATTER? (The 4 Deep-Space Hazards) */}
-      <section id="why-it-matters" className="py-20 px-4 border-b border-zinc-900">
+      {/* SECTION 2: WHY DOES IT MATTER? (THE 4 HAZARDS) */}
+      <section id="why-it-matters" className="py-20 px-4 border-b border-[#232d1a] bg-[#0b0e0a]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
-              <AlertTriangle className="w-4 h-4 text-amber-400" />
-              <span>The Existential Stakes</span>
+            <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
+              <AlertTriangle className="w-4 h-4 text-[#fbbf24]" />
+              <span>// AT-STAKE FLIGHT MATRIX</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               Why Does Deep-Space Health Matter?
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-zinc-400">
+            <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
               In low-Earth orbit, astronauts can evacuate to Earth in 4 hours. On a 900-day journey to Mars, there is no ambulance. Here is what happens to the human body in deep space—explained in plain English.
             </p>
           </div>
 
-          {/* Interactive Tabs */}
+          {/* Hazard Tabs */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 mb-8">
             {hazards.map((h, i) => {
               const Icon = h.icon;
@@ -529,19 +538,19 @@ export default function Intro() {
                   onClick={() => setActiveHazard(i)}
                   className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
                     isActive
-                      ? "bg-zinc-900 border-amber-500/80 shadow-md shadow-amber-500/10"
-                      : "bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-zinc-300"
+                      ? "bg-[#182213] border-[#fbbf24] shadow-md shadow-amber-500/10"
+                      : "bg-[#11160e] border-[#232d1a] text-[#8ea873] hover:border-[#354528] hover:text-[#c7dfb8]"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <Icon className={`w-4 h-4 ${isActive ? "text-amber-400" : "text-zinc-500"}`} />
-                    <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                      isActive ? "bg-amber-500/20 text-amber-300" : "bg-zinc-900 text-zinc-500"
+                    <Icon className={`w-4 h-4 ${isActive ? "text-[#fbbf24]" : "text-[#6d845e]"}`} />
+                    <span className={`text-[10px] font-mono px-2 py-0.5 rounded ${
+                      isActive ? "bg-[#28381c] text-[#fbbf24]" : "bg-[#0b0e0a] text-[#6d845e]"
                     }`}>
-                      Hazard 0{i + 1}
+                      {h.code}
                     </span>
                   </div>
-                  <div className={`text-xs font-bold ${isActive ? "text-white" : "text-zinc-300"}`}>
+                  <div className={`text-xs font-bold ${isActive ? "text-white" : "text-[#a8baa0]"}`}>
                     {h.title.split(". ")[1]}
                   </div>
                 </button>
@@ -549,14 +558,14 @@ export default function Intro() {
             })}
           </div>
 
-          {/* Hazard Card */}
-          <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
-              <div className="lg:col-span-7 space-y-6">
+          {/* Hazard Detail Card */}
+          <div className="bg-[#13190e] border border-[#354528] rounded-2xl p-6 sm:p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="lg:col-span-7 space-y-5">
                 <div>
-                  <div className="inline-flex items-center gap-2 bg-amber-500/15 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  <div className="inline-flex items-center gap-2 bg-[#182213] text-[#fbbf24] font-mono text-xs font-bold px-3 py-1 rounded mb-3 border border-[#3f5231]">
                     <Shield className="w-3.5 h-3.5" />
-                    <span>Hazard Breakdown • {hazards[activeHazard].badge}</span>
+                    <span>{hazards[activeHazard].code} // {hazards[activeHazard].badge}</span>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white">
                     {hazards[activeHazard].title}
@@ -564,78 +573,78 @@ export default function Intro() {
                 </div>
 
                 {/* Plain English Box */}
-                <div className="bg-zinc-950 border border-cyan-500/30 rounded-xl p-4">
-                  <div className="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1.5 flex items-center gap-1.5">
+                <div className="bg-[#0b0e0a] border border-[#3f5231] rounded-xl p-4">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#fbbf24] mb-1.5 flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>Plain-English Analogy (For High Schoolers & Non-Scientists)</span>
                   </div>
-                  <p className="text-sm text-zinc-200 leading-relaxed font-medium">
+                  <p className="text-sm text-[#e3ecd8] leading-relaxed font-medium">
                     "{hazards[activeHazard].analogy}"
                   </p>
                 </div>
 
-                {/* Clinical Reality */}
+                {/* Clinical Mechanism */}
                 <div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#8ea873] mb-1.5">
                     Biological & Clinical Reality
                   </div>
-                  <p className="text-sm text-zinc-300 leading-relaxed">
+                  <p className="text-sm text-[#c7dfb8] leading-relaxed">
                     {hazards[activeHazard].clinical}
                   </p>
                 </div>
 
-                {/* Flight Incident */}
-                <div className="border-l-2 border-amber-500/70 pl-3.5 py-1">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-1">
+                {/* Historical Incident */}
+                <div className="border-l-2 border-[#fbbf24] pl-3.5 py-1">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#fbbf24] mb-1">
                     Historical Flight Incident
                   </div>
-                  <p className="text-xs text-zinc-300 leading-relaxed">
+                  <p className="text-xs text-[#a8baa0] leading-relaxed">
                     {hazards[activeHazard].incident}
                   </p>
                 </div>
               </div>
 
               {/* Solution Column */}
-              <div className="lg:col-span-5 bg-zinc-950 border border-zinc-800 rounded-xl p-5 space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
-                  <span className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
-                    How ARES-VII Solves This
+              <div className="lg:col-span-5 bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-5 space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-[#232d1a]">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#84a96c]" />
+                    ARES-VII Tactical Countermeasure
                   </span>
-                  <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold">
-                    Tested
+                  <span className="text-[10px] font-mono bg-[#182213] text-[#84a96c] border border-[#3f5231] px-2 py-0.5 rounded font-bold">
+                    VERIFIED
                   </span>
                 </div>
 
-                <p className="text-xs text-zinc-300 leading-relaxed">
+                <p className="text-xs text-[#c7dfb8] leading-relaxed">
                   {hazards[activeHazard].solution}
                 </p>
 
-                <div className="pt-3 border-t border-zinc-800 space-y-2">
-                  <div className="text-[11px] text-zinc-400 font-medium">
-                    Integrated System Capabilities:
+                <div className="pt-3 border-t border-[#232d1a] space-y-2">
+                  <div className="text-[11px] font-mono text-[#8ea873]">
+                    Integrated Subsystems:
                   </div>
                   <div className="flex flex-wrap gap-1.5">
-                    <span className="text-[10px] bg-zinc-900 border border-zinc-800 text-zinc-300 px-2 py-1 rounded-md">
+                    <span className="text-[10px] font-mono bg-[#11160e] border border-[#2d3b22] text-[#c7dfb8] px-2 py-1 rounded">
                       24/7 Biosensor Stream
                     </span>
-                    <span className="text-[10px] bg-zinc-900 border border-zinc-800 text-zinc-300 px-2 py-1 rounded-md">
-                      Hermes Offline Decision Tree
+                    <span className="text-[10px] font-mono bg-[#11160e] border border-[#2d3b22] text-[#c7dfb8] px-2 py-1 rounded">
+                      Hermes Offline Decision Engine
                     </span>
-                    <span className="text-[10px] bg-zinc-900 border border-zinc-800 text-zinc-300 px-2 py-1 rounded-md">
-                      42-Drug Countermeasure Matrix
+                    <span className="text-[10px] font-mono bg-[#11160e] border border-[#2d3b22] text-[#c7dfb8] px-2 py-1 rounded">
+                      42-Drug Pharmacy Matrix
                     </span>
-                    <span className="text-[10px] bg-zinc-900 border border-zinc-800 text-zinc-300 px-2 py-1 rounded-md">
-                      Zero Earth Dependency
+                    <span className="text-[10px] font-mono bg-[#11160e] border border-[#2d3b22] text-[#c7dfb8] px-2 py-1 rounded">
+                      0ms Earth Delay
                     </span>
                   </div>
                 </div>
 
                 <div className="pt-2">
-                  <Link href="/">
-                    <button className="w-full bg-zinc-900 hover:bg-zinc-800 text-zinc-100 text-xs font-bold py-2.5 px-3 rounded-lg border border-zinc-700 flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
-                      <span>Test In Live Flight Cockpit</span>
-                      <ChevronRight className="w-3.5 h-3.5 text-cyan-400" />
+                  <Link href="/cockpit">
+                    <button className="w-full bg-[#182213] hover:bg-[#24331c] text-white text-xs font-mono font-bold py-2.5 px-3 rounded-lg border border-[#3f5231] flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
+                      <span>TEST IN LIVE FLIGHT COCKPIT</span>
+                      <ChevronRight className="w-3.5 h-3.5 text-[#fbbf24]" />
                     </button>
                   </Link>
                 </div>
@@ -645,19 +654,19 @@ export default function Intro() {
         </div>
       </section>
 
-      {/* SECTION 3: FLIGHT INCIDENT SIMULATIONS */}
-      <section id="scenarios" className="py-20 px-4 border-b border-zinc-900 bg-zinc-950/40">
+      {/* SECTION 3: FLIGHT INCIDENTS */}
+      <section id="scenarios" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
-              <Rocket className="w-4 h-4 text-cyan-400" />
-              <span>Interactive Flight Simulations</span>
+            <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
+              <Rocket className="w-4 h-4 text-[#fbbf24]" />
+              <span>// HISTORICAL SIMULATION LOGS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               Real Spaceflight Incidents Handled Autonomously
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-zinc-400">
-              Click any scenario to see how ARES-VII detects the anomaly, commands the spacecraft, and protects the crew in under 50 milliseconds.
+            <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
+              Click any flight scenario to inspect telemetry triggers, Hermes AI subagent action, crew interventions, and clinical outcomes.
             </p>
           </div>
 
@@ -670,14 +679,14 @@ export default function Intro() {
                   onClick={() => setActiveScenario(idx)}
                   className={`w-full p-4 rounded-xl border text-left transition-all cursor-pointer ${
                     activeScenario === idx
-                      ? "bg-zinc-900 border-cyan-400 shadow-md shadow-cyan-500/10 text-white"
-                      : "bg-zinc-950 border-zinc-800 text-zinc-400 hover:border-zinc-700"
+                      ? "bg-[#182213] border-[#fbbf24] shadow-md shadow-amber-500/10 text-white"
+                      : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:border-[#354528]"
                   }`}
                 >
-                  <span className="text-[10px] uppercase font-mono text-cyan-400 block mb-1">
+                  <span className="text-[10px] uppercase font-mono text-[#fbbf24] block mb-1">
                     {s.tag}
                   </span>
-                  <div className={`text-sm font-bold ${activeScenario === idx ? "text-white" : "text-zinc-300"}`}>
+                  <div className={`text-sm font-bold ${activeScenario === idx ? "text-white" : "text-[#a8baa0]"}`}>
                     {s.title}
                   </div>
                 </button>
@@ -685,51 +694,51 @@ export default function Intro() {
             </div>
 
             {/* Details */}
-            <div className="lg:col-span-8 bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 sm:p-8">
-              <div className="inline-flex items-center gap-2 bg-cyan-500/15 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full mb-4">
-                <span>Scenario 0{activeScenario + 1} Simulation</span>
+            <div className="lg:col-span-8 bg-[#13190e] border border-[#354528] rounded-2xl p-6 sm:p-8">
+              <div className="inline-flex items-center gap-2 bg-[#182213] text-[#fbbf24] font-mono text-xs font-bold px-3 py-1 rounded mb-4 border border-[#3f5231]">
+                <span>INCIDENT 0{activeScenario + 1} LOG</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
                 {scenarios[activeScenario].title}
               </h3>
 
               <div className="space-y-4">
-                <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-4">
-                  <div className="text-xs font-bold uppercase tracking-wider text-red-400 mb-1 flex items-center gap-1.5">
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-4">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#ef4444] mb-1 flex items-center gap-1.5">
                     <AlertTriangle className="w-3.5 h-3.5" />
-                    <span>Anomaly Detection / Biometric Trigger</span>
+                    <span>Telemetry Anomaly Trigger</span>
                   </div>
-                  <p className="text-xs text-zinc-300 leading-relaxed">
+                  <p className="text-xs text-[#c7dfb8] leading-relaxed">
                     {scenarios[activeScenario].trigger}
                   </p>
                 </div>
 
-                <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-4">
-                  <div className="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1 flex items-center gap-1.5">
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-4">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#fbbf24] mb-1 flex items-center gap-1.5">
                     <Brain className="w-3.5 h-3.5" />
                     <span>Hermes Offline AI Autonomous Action</span>
                   </div>
-                  <p className="text-xs text-zinc-300 leading-relaxed">
+                  <p className="text-xs text-[#c7dfb8] leading-relaxed">
                     {scenarios[activeScenario].hermesAction}
                   </p>
                 </div>
 
-                <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-4">
-                  <div className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1 flex items-center gap-1.5">
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-4">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#a3c988] mb-1 flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Astronaut Intervention</span>
+                    <span>Crew Physical Intervention</span>
                   </div>
-                  <p className="text-xs text-zinc-300 leading-relaxed">
+                  <p className="text-xs text-[#c7dfb8] leading-relaxed">
                     {scenarios[activeScenario].crewAction}
                   </p>
                 </div>
 
-                <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4">
-                  <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1 flex items-center gap-1.5">
-                    <Zap className="w-3.5 h-3.5" />
+                <div className="bg-[#182213] border border-[#3f5231] rounded-xl p-4">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#84a96c] mb-1 flex items-center gap-1.5">
+                    <Zap className="w-3.5 h-3.5 text-[#fbbf24]" />
                     <span>Mission Outcome</span>
                   </div>
-                  <p className="text-xs text-emerald-200 leading-relaxed font-semibold">
+                  <p className="text-xs text-[#e3ecd8] leading-relaxed font-bold">
                     {scenarios[activeScenario].outcome}
                   </p>
                 </div>
@@ -739,84 +748,84 @@ export default function Intro() {
         </div>
       </section>
 
-      {/* SECTION 4: SEO & TECHNICAL PERFORMANCE AUDIT */}
-      <section id="seo-audit" className="py-20 px-4 border-b border-zinc-900">
+      {/* SECTION 4: GOOGLE SEO & TECHNICAL PERFORMANCE AUDIT */}
+      <section id="seo-audit" className="py-20 px-4 border-b border-[#232d1a] bg-[#0b0e0a]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
-              <TrendingUp className="w-4 h-4 text-cyan-400" />
-              <span>Google & Lighthouse Optimization</span>
+            <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
+              <TrendingUp className="w-4 h-4 text-[#fbbf24]" />
+              <span>// TECHNICAL AUDIT & GOOGLE SEO</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               SEO Score & Technical Architecture Audit
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-zinc-400">
+            <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
               Engineered with modern web standards, semantic HTML5 structure, schema.org JSON-LD microdata, and Google-friendly metadata.
             </p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-            <div className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-5 text-center">
-              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono">100</div>
+            <div className="bg-[#13190e] border border-[#354528] rounded-xl p-5 text-center">
+              <div className="text-3xl sm:text-4xl font-black text-[#84a96c] font-mono">100</div>
               <div className="text-xs font-bold text-white mt-1">SEO Score</div>
-              <div className="text-[11px] text-zinc-400 mt-0.5">Semantic Headings & JSON-LD</div>
+              <div className="text-[11px] text-[#8ea873] mt-0.5 font-mono">JSON-LD Structured Data</div>
             </div>
 
-            <div className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-5 text-center">
-              <div className="text-3xl sm:text-4xl font-extrabold text-cyan-400 font-mono">100</div>
+            <div className="bg-[#13190e] border border-[#354528] rounded-xl p-5 text-center">
+              <div className="text-3xl sm:text-4xl font-black text-[#84a96c] font-mono">100</div>
               <div className="text-xs font-bold text-white mt-1">Accessibility</div>
-              <div className="text-[11px] text-zinc-400 mt-0.5">WCAG 2.1 AA Contrast</div>
+              <div className="text-[11px] text-[#8ea873] mt-0.5 font-mono">WCAG 2.1 AA Contrast</div>
             </div>
 
-            <div className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-5 text-center">
-              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono">100</div>
+            <div className="bg-[#13190e] border border-[#354528] rounded-xl p-5 text-center">
+              <div className="text-3xl sm:text-4xl font-black text-[#84a96c] font-mono">100</div>
               <div className="text-xs font-bold text-white mt-1">Best Practices</div>
-              <div className="text-[11px] text-zinc-400 mt-0.5">HTTPS, Secure CSP & PWA</div>
+              <div className="text-[11px] text-[#8ea873] mt-0.5 font-mono">HTTPS & Secure CSP</div>
             </div>
 
-            <div className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-5 text-center">
-              <div className="text-3xl sm:text-4xl font-extrabold text-amber-400 font-mono">98</div>
+            <div className="bg-[#13190e] border border-[#354528] rounded-xl p-5 text-center">
+              <div className="text-3xl sm:text-4xl font-black text-[#fbbf24] font-mono">98</div>
               <div className="text-xs font-bold text-white mt-1">Performance</div>
-              <div className="text-[11px] text-zinc-400 mt-0.5">Sub-50ms React Hydration</div>
+              <div className="text-[11px] text-[#8ea873] mt-0.5 font-mono">Sub-50ms React Hydration</div>
             </div>
           </div>
 
-          <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-cyan-400" />
+          <div className="bg-[#13190e] border border-[#354528] rounded-xl p-6 sm:p-8 space-y-4">
+            <h4 className="text-xs font-mono font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#84a96c]" />
               <span>Google Structured Data (JSON-LD) Verified Endpoints</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              <div className="bg-zinc-900/70 p-3.5 rounded-xl border border-zinc-800">
-                <span className="text-cyan-400 font-mono font-bold block mb-1">@type: WebSite</span>
-                <span className="text-zinc-300">ARES-VII Bio-Astronautics System</span>
+              <div className="bg-[#0b0e0a] p-3.5 rounded-lg border border-[#232d1a]">
+                <span className="text-[#fbbf24] font-mono font-bold block mb-1">@type: WebSite</span>
+                <span className="text-[#c7dfb8]">ARES-VII Bio-Astronautics Platform</span>
               </div>
-              <div className="bg-zinc-900/70 p-3.5 rounded-xl border border-zinc-800">
-                <span className="text-amber-400 font-mono font-bold block mb-1">@type: SoftwareApplication</span>
-                <span className="text-zinc-300">4.98 Rating • Spaceflight Medical OS</span>
+              <div className="bg-[#0b0e0a] p-3.5 rounded-lg border border-[#232d1a]">
+                <span className="text-[#fbbf24] font-mono font-bold block mb-1">@type: SoftwareApplication</span>
+                <span className="text-[#c7dfb8]">4.98 Rating • Spaceflight Medical OS</span>
               </div>
-              <div className="bg-zinc-900/70 p-3.5 rounded-xl border border-zinc-800">
-                <span className="text-emerald-400 font-mono font-bold block mb-1">@type: MedicalWebPage</span>
-                <span className="text-zinc-300">SANS, ARS & Motion Sickness Protocols</span>
+              <div className="bg-[#0b0e0a] p-3.5 rounded-lg border border-[#232d1a]">
+                <span className="text-[#84a96c] font-mono font-bold block mb-1">@type: MedicalWebPage</span>
+                <span className="text-[#c7dfb8]">SANS, ARS & Motion Sickness Protocols</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: RESEARCH HANDBOOK & DOWNLOAD */}
-      <section id="research" className="py-20 px-4 border-b border-zinc-900 bg-zinc-950/40">
-        <div className="max-w-5xl mx-auto bg-gradient-to-br from-zinc-950 via-zinc-900 to-[#071328] border border-cyan-500/30 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
-          <div className="inline-flex items-center gap-1.5 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
+      {/* SECTION 5: RESEARCH HANDBOOK */}
+      <section id="research" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
+        <div className="max-w-5xl mx-auto bg-[#13190e] border border-[#354528] rounded-2xl p-8 sm:p-12 text-center">
+          <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-3">
             <FileText className="w-4 h-4" />
-            <span>Master Research Documentation</span>
+            <span>// MASTER TECHNICAL HANDBOOK</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight max-w-2xl mx-auto">
             ARES-VII Complete Space Health & Mission Research Guide
           </h2>
 
-          <p className="mt-4 text-sm sm:text-base text-zinc-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-[#a8baa0] max-w-2xl mx-auto leading-relaxed">
             A 53.5 KB comprehensive Microsoft Word research document written so that high school students, non-scientists, and aerospace engineers alike can understand every formula, flight incident, and clinical intervention.
           </p>
 
@@ -824,63 +833,63 @@ export default function Intro() {
             <a
               href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
               download="ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-              className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-extrabold text-sm px-7 py-3.5 rounded-xl inline-flex items-center gap-2 shadow-xl shadow-amber-500/20 cursor-pointer transition-all"
+              className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-mono font-black text-sm px-7 py-3.5 rounded-xl inline-flex items-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer transition-all"
             >
               <FileText className="w-4 h-4" />
-              <span>Download Complete Guide (.docx)</span>
+              <span>DOWNLOAD FIELD MANUAL (.DOCX)</span>
             </a>
 
             <Link href="/world-agencies">
-              <button className="bg-zinc-900 hover:bg-zinc-800 text-zinc-200 text-sm font-semibold px-6 py-3.5 rounded-xl border border-zinc-800 inline-flex items-center gap-2 cursor-pointer transition-colors">
-                <Globe className="w-4 h-4 text-cyan-400" />
-                <span>View 28 Space Agency Database</span>
+              <button className="bg-[#182213] hover:bg-[#24331c] text-[#c7dfb8] font-mono text-sm font-bold px-6 py-3.5 rounded-xl border border-[#3f5231] inline-flex items-center gap-2 cursor-pointer transition-colors">
+                <Globe className="w-4 h-4 text-[#fbbf24]" />
+                <span>28 SPACE AGENCIES MATRIX</span>
               </button>
             </Link>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left pt-8 border-t border-zinc-800">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left pt-8 border-t border-[#232d1a] font-mono">
             <div>
-              <div className="text-xs text-zinc-500 font-mono">DOCUMENT SIZE</div>
+              <div className="text-xs text-[#6d845e]">DOCUMENT SIZE</div>
               <div className="text-sm font-bold text-white mt-0.5">53.5 KB</div>
             </div>
             <div>
-              <div className="text-xs text-zinc-500 font-mono">SECTIONS</div>
-              <div className="text-sm font-bold text-white mt-0.5">20 Chapters</div>
+              <div className="text-xs text-[#6d845e]">CHAPTERS</div>
+              <div className="text-sm font-bold text-white mt-0.5">20 Sections</div>
             </div>
             <div>
-              <div className="text-xs text-zinc-500 font-mono">TARGET AUDIENCE</div>
-              <div className="text-sm font-bold text-white mt-0.5">Students & Scientists</div>
+              <div className="text-xs text-[#6d845e]">TARGET AUDIENCE</div>
+              <div className="text-sm font-bold text-white mt-0.5">Students & Engineers</div>
             </div>
             <div>
-              <div className="text-xs text-zinc-500 font-mono">GMAT R2026A INTEGRATION</div>
-              <div className="text-sm font-bold text-emerald-400 mt-0.5">Verified 0.047s</div>
+              <div className="text-xs text-[#6d845e]">GMAT R2026A ENGINE</div>
+              <div className="text-sm font-bold text-[#84a96c] mt-0.5">Verified 0.047s</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* BIG FINAL CTA: STEP INTO THE COCKPIT */}
-      <section className="py-24 px-4 text-center">
+      {/* FINAL CALL TO OPERATIONAL COCKPIT */}
+      <section className="py-24 px-4 text-center bg-[#0b0e0a]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Ready to Experience the Spaceflight Operating System?
+          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+            Ready to Enter the 24/7 Spaceflight Cockpit?
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-xl mx-auto">
-            Step directly into the live cockpit. Monitor 24/7 cardiac vitals, talk to the Hermes AI, run NASA GMAT trajectory simulations, or test multi-agency medical countermeasures.
+          <p className="mt-4 text-sm sm:text-base text-[#a8baa0] max-w-xl mx-auto">
+            Switch directly into the operational flight system. Live Xiaomi Watch H1 telemetry, Hermes voice dialogue, NASA GMAT trajectory simulations, and the 42-compound multi-agency space pharmacy.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/">
-              <button className="bg-gradient-to-r from-cyan-400 via-teal-400 to-amber-400 hover:from-cyan-300 hover:to-amber-300 text-black font-extrabold text-base px-9 py-4 rounded-xl inline-flex items-center gap-2.5 shadow-2xl shadow-cyan-500/25 cursor-pointer transition-all">
+            <Link href="/cockpit">
+              <button className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-mono font-black text-base px-9 py-4 rounded-xl inline-flex items-center gap-2.5 shadow-2xl shadow-amber-500/25 cursor-pointer transition-all">
                 <Rocket className="w-5 h-5" />
-                <span>Enter Live Flight Cockpit</span>
+                <span>LAUNCH 24/7 OPERATIONAL COCKPIT</span>
                 <ArrowRight className="w-5 h-5 ml-1" />
               </button>
             </Link>
           </div>
 
-          <div className="mt-12 text-xs text-zinc-500 font-mono">
-            ARES-VII Bio-Astronautics • Built for NASA Space Apps Challenge 2026 • Prepared for Deep Space Habitation
+          <div className="mt-12 text-xs text-[#6d845e] font-mono">
+            ARES-VII BIO-ASTRONAUTICS // NASA SPACE APPS CHALLENGE 2026 // MIL-STD-810H & NASA-STD-3001 COMPLIANT
           </div>
         </div>
       </section>

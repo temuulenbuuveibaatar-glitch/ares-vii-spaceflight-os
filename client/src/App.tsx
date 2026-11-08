@@ -20,8 +20,17 @@ function Router() {
   return (
     <Layout>
       <Switch>
-        <Route path="/" component={Home} />
+        {/* PORTAL 1: Public Mission Specification, Why It Matters & SEO Information */}
+        <Route path="/" component={Intro} />
         <Route path="/intro" component={Intro} />
+        <Route path="/info" component={Intro} />
+
+        {/* PORTAL 2: 24/7 Operational Spaceflight Health OS & Flight Cockpit */}
+        <Route path="/cockpit" component={Home} />
+        <Route path="/app" component={Home} />
+        <Route path="/flight-os" component={Home} />
+        <Route path="/monitor" component={Home} />
+
         <Route path="/hermes" component={HermesCommand} />
         <Route path="/world-agencies" component={WorldSpaceAgenciesHub} />
         <Route path="/gmat-orbiter" component={GmatOrbiterBridge} />

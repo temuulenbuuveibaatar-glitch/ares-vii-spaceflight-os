@@ -16,6 +16,7 @@ import {
   Sparkles,
   ArrowRight,
   Zap,
+  Crosshair,
 } from "lucide-react";
 
 const REGIONS: { id: GlobalRegionCategory; label: string }[] = [
@@ -82,43 +83,40 @@ export default function WorldSpaceAgenciesHub() {
     GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX[0];
 
   return (
-    <div className="min-h-screen bg-[#050814] text-zinc-100 py-10 selection:bg-cyan-500/20 selection:text-cyan-300">
+    <div className="min-h-screen bg-[#0b0e0a] text-[#e3ecd8] py-10 selection:bg-[#4d633b] selection:text-[#fbbf24]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
-        {/* HEADER SECTION WITH ELECTRIC VIBRANT AESTHETIC */}
-        <section className="relative overflow-hidden rounded-3xl p-8 sm:p-12 border border-cyan-500/30 bg-gradient-to-br from-zinc-950 via-zinc-900 to-[#071328]">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
+        {/* TACTICAL HEADER SECTION */}
+        <section className="relative overflow-hidden rounded-3xl p-8 sm:p-12 border border-[#354528] bg-gradient-to-br from-[#11160e] via-[#0e120b] to-[#141a10]">
           <div className="relative z-10 max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-xs font-semibold tracking-wide">
-              <Globe className="w-3.5 h-3.5 text-cyan-400" />
-              <span>28 Spacefaring Nations • Complete Bio-Astronautics Directory</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#182213] border border-[#3f5231] text-[#a3c988] font-mono text-xs font-bold tracking-wide">
+              <Crosshair className="w-3.5 h-3.5 text-[#fbbf24]" />
+              <span>MIL-STD-810H // 28 SPACEFARING NATIONS DOSSIER</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-black font-sans tracking-tight text-white leading-tight">
               Global Space Agencies & Biomedical Breakthroughs
             </h1>
 
-            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-[#a8baa0] leading-relaxed">
               Explore how 28 spacefaring countries—from Soviet & Mongolian Salyut-6 impedance rheography to China’s Tiangong acupoint stimulation, NASA’s Apollo dosimetry, and ISRO’s autonomic Yoga bio-telemetry—unite in ARES-VII to protect deep-space crews.
             </p>
           </div>
         </section>
 
         {/* INTERACTIVE 3-TIER SURVIVAL BENCHMARK SIMULATOR */}
-        <section className="rounded-2xl border border-zinc-800 bg-zinc-950/80 p-6 sm:p-8 backdrop-blur-md">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-zinc-800">
+        <section className="rounded-2xl border border-[#354528] bg-[#13190e] p-6 sm:p-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#232d1a]">
             <div>
-              <div className="text-xs font-semibold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5 mb-1">
-                <Zap className="w-4 h-4 text-amber-400" />
-                <span>Cross-Agency Countermeasure Synergy Calculator</span>
+              <div className="text-xs font-mono font-bold text-[#fbbf24] uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                <Zap className="w-4 h-4 text-[#fbbf24]" />
+                <span>// CROSS-AGENCY SURVIVAL CALCULATOR</span>
               </div>
-              <h2 className="text-xl font-bold text-white">
+              <h2 className="text-xl font-black text-white">
                 How Combined World Technologies Suppress Deep-Space Hazards
               </h2>
             </div>
-            <span className="text-xs font-mono text-zinc-400">
-              Interactive Physiological Predictor
+            <span className="text-xs font-mono text-[#8ea873]">
+              INTERACTIVE PHYSIOLOGICAL PREDICTOR
             </span>
           </div>
 
@@ -126,8 +124,8 @@ export default function WorldSpaceAgenciesHub() {
             {/* Controls */}
             <div className="lg:col-span-5 space-y-5">
               <div>
-                <label className="text-xs font-medium text-zinc-300 block mb-2">
-                  Destination & Orbital Environment:
+                <label className="text-xs font-mono font-bold text-[#c7dfb8] block mb-2">
+                  DESTINATION & ORBITAL ENVIRONMENT:
                 </label>
                 <div className="grid grid-cols-3 gap-2">
                   {(
@@ -140,10 +138,10 @@ export default function WorldSpaceAgenciesHub() {
                     <button
                       key={env.id}
                       onClick={() => setEnvironment(env.id)}
-                      className={`py-2 px-3 rounded-xl text-xs font-medium border cursor-pointer transition-all ${
+                      className={`py-2 px-3 rounded-xl font-mono text-xs font-bold border cursor-pointer transition-all ${
                         environment === env.id
-                          ? "bg-cyan-500/20 border-cyan-400 text-cyan-200 shadow-sm shadow-cyan-500/20"
-                          : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white"
+                          ? "bg-[#182213] border-[#fbbf24] text-[#fbbf24] shadow-sm shadow-amber-500/10"
+                          : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:text-white"
                       }`}
                     >
                       {env.label}
@@ -153,9 +151,9 @@ export default function WorldSpaceAgenciesHub() {
               </div>
 
               <div>
-                <div className="flex justify-between text-xs text-zinc-300 mb-1.5">
-                  <span>Mission Duration:</span>
-                  <span className="font-mono text-amber-400 font-bold">{missionDays} Days</span>
+                <div className="flex justify-between text-xs font-mono text-[#c7dfb8] mb-1.5">
+                  <span>MISSION DURATION:</span>
+                  <span className="text-[#fbbf24] font-bold">{missionDays} Days</span>
                 </div>
                 <input
                   type="range"
@@ -164,9 +162,9 @@ export default function WorldSpaceAgenciesHub() {
                   step="30"
                   value={missionDays}
                   onChange={(e) => setMissionDays(Number(e.target.value))}
-                  className="w-full accent-cyan-400 cursor-pointer"
+                  className="w-full accent-[#fbbf24] cursor-pointer"
                 />
-                <div className="flex justify-between text-[11px] text-zinc-500 font-mono mt-1">
+                <div className="flex justify-between text-[11px] text-[#6d845e] font-mono mt-1">
                   <span>1 Mo (Soyuz)</span>
                   <span>6 Mo (ISS)</span>
                   <span>2.5 Yrs (Mars)</span>
@@ -175,52 +173,52 @@ export default function WorldSpaceAgenciesHub() {
 
               {/* Toggles */}
               <div className="space-y-2.5 pt-2">
-                <label className="flex items-center gap-3 p-3 rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer hover:border-zinc-700">
+                <label className="flex items-center gap-3 p-3 rounded-xl bg-[#0b0e0a] border border-[#232d1a] cursor-pointer hover:border-[#354528]">
                   <input
                     type="checkbox"
                     checked={useCollarAndSuit}
                     onChange={(e) => setUseCollarAndSuit(e.target.checked)}
-                    className="accent-cyan-400 w-4 h-4 rounded"
+                    className="accent-[#fbbf24] w-4 h-4 rounded"
                   />
                   <div className="text-xs">
-                    <span className="font-semibold text-white block">
+                    <span className="font-bold text-white block">
                       Mongolia/USSR Vorotnik Collar & Chibis LBNP
                     </span>
-                    <span className="text-zinc-400 text-[11px]">
+                    <span className="text-[#8ea873] text-[11px]">
                       Restricts headward fluid shift; curbs space motion sickness by 64%
                     </span>
                   </div>
                 </label>
 
-                <label className="flex items-center gap-3 p-3 rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer hover:border-zinc-700">
+                <label className="flex items-center gap-3 p-3 rounded-xl bg-[#0b0e0a] border border-[#232d1a] cursor-pointer hover:border-[#354528]">
                   <input
                     type="checkbox"
                     checked={useRadiationShield}
                     onChange={(e) => setUseRadiationShield(e.target.checked)}
-                    className="accent-cyan-400 w-4 h-4 rounded"
+                    className="accent-[#fbbf24] w-4 h-4 rounded"
                   />
                   <div className="text-xs">
-                    <span className="font-semibold text-white block">
+                    <span className="font-bold text-white block">
                       Soviet Indralin B-190 + Water Wall Storm Shelter
                     </span>
-                    <span className="text-zinc-400 text-[11px]">
+                    <span className="text-[#8ea873] text-[11px]">
                       Dose Reduction Factor 1.45; blocks secondary neutron scatter
                     </span>
                   </div>
                 </label>
 
-                <label className="flex items-center gap-3 p-3 rounded-xl bg-zinc-900 border border-zinc-800 cursor-pointer hover:border-zinc-700">
+                <label className="flex items-center gap-3 p-3 rounded-xl bg-[#0b0e0a] border border-[#232d1a] cursor-pointer hover:border-[#354528]">
                   <input
                     type="checkbox"
                     checked={useBoneAndHeartMeds}
                     onChange={(e) => setUseBoneAndHeartMeds(e.target.checked)}
-                    className="accent-cyan-400 w-4 h-4 rounded"
+                    className="accent-[#fbbf24] w-4 h-4 rounded"
                   />
                   <div className="text-xs">
-                    <span className="font-semibold text-white block">
+                    <span className="font-bold text-white block">
                       JAXA Bisphosphonate + CMSA Neiguan TEAS
                     </span>
-                    <span className="text-zinc-400 text-[11px]">
+                    <span className="text-[#8ea873] text-[11px]">
                       Halts monthly bone calcium decay and stabilizes autonomic tone
                     </span>
                   </div>
@@ -229,66 +227,66 @@ export default function WorldSpaceAgenciesHub() {
             </div>
 
             {/* Calculated Results */}
-            <div className="lg:col-span-7 bg-zinc-900/60 border border-zinc-800/90 rounded-2xl p-6 flex flex-col justify-between">
+            <div className="lg:col-span-7 bg-[#0e120b] border border-[#232d1a] rounded-2xl p-6 flex flex-col justify-between">
               <div>
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-                  <Activity className="w-4 h-4 text-cyan-400" />
-                  <span>Calculated Deep-Space Survival Metrics</span>
+                <h3 className="text-xs font-mono font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <Activity className="w-4 h-4 text-[#fbbf24]" />
+                  <span>CALCULATED DEEP-SPACE SURVIVAL TELEMETRY</span>
                 </h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
-                    <div className="text-xs text-zinc-400">Total Radiation Dose</div>
-                    <div className="text-2xl font-bold text-cyan-300 font-mono mt-1 tabular-nums">
-                      {protectedDoseMsv.toFixed(1)} <span className="text-xs text-zinc-500 font-sans">mSv</span>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono">
+                  <div className="p-4 rounded-xl bg-[#0b0e0a] border border-[#232d1a]">
+                    <div className="text-xs text-[#8ea873]">TOTAL RADIATION</div>
+                    <div className="text-2xl font-bold text-[#fbbf24] mt-1 tabular-nums">
+                      {protectedDoseMsv.toFixed(1)} <span className="text-xs text-[#8ea873]">mSv</span>
                     </div>
-                    <div className="text-[11px] text-zinc-400 mt-1">
+                    <div className="text-[11px] text-[#8ea873] mt-1">
                       {safetyLimitPct}% of 600 mSv Limit
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
-                    <div className="text-xs text-zinc-400">Motion Sickness Risk</div>
-                    <div className={`text-2xl font-bold font-mono mt-1 tabular-nums ${
-                      motionSicknessRiskPct > 40 ? "text-red-400" : "text-emerald-400"
+                  <div className="p-4 rounded-xl bg-[#0b0e0a] border border-[#232d1a]">
+                    <div className="text-xs text-[#8ea873]">MOTION SICKNESS</div>
+                    <div className={`text-2xl font-bold mt-1 tabular-nums ${
+                      motionSicknessRiskPct > 40 ? "text-[#ef4444]" : "text-[#84a96c]"
                     }`}>
                       {motionSicknessRiskPct}%
                     </div>
-                    <div className="text-[11px] text-zinc-400 mt-1">
-                      {useCollarAndSuit ? "Suppressed via Collar" : "Uncontrolled 0G Nausea"}
+                    <div className="text-[11px] text-[#8ea873] mt-1 font-sans">
+                      {useCollarAndSuit ? "Suppressed via Collar" : "Uncontrolled Nausea"}
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
-                    <div className="text-xs text-zinc-400">Monthly Bone Loss</div>
-                    <div className={`text-2xl font-bold font-mono mt-1 tabular-nums ${
-                      monthlyBoneLossPct > 0.5 ? "text-amber-400" : "text-emerald-400"
+                  <div className="p-4 rounded-xl bg-[#0b0e0a] border border-[#232d1a]">
+                    <div className="text-xs text-[#8ea873]">MONTHLY BONE LOSS</div>
+                    <div className={`text-2xl font-bold mt-1 tabular-nums ${
+                      monthlyBoneLossPct > 0.5 ? "text-[#fbbf24]" : "text-[#84a96c]"
                     }`}>
                       -{monthlyBoneLossPct}%
                     </div>
-                    <div className="text-[11px] text-zinc-400 mt-1">
-                      {useBoneAndHeartMeds ? "Suppressed by JAXA Protocol" : "Severe Osteopenia Risk"}
+                    <div className="text-[11px] text-[#8ea873] mt-1 font-sans">
+                      {useBoneAndHeartMeds ? "Suppressed by JAXA" : "Severe Bone Loss"}
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-5 p-4 rounded-xl bg-zinc-950/70 border border-zinc-800/80 text-xs text-zinc-300 leading-relaxed">
-                  <strong className="text-cyan-400">Survival Summary: </strong>
+                <div className="mt-5 p-4 rounded-xl bg-[#0b0e0a] border border-[#232d1a] text-xs text-[#c7dfb8] leading-relaxed">
+                  <strong className="text-[#fbbf24] font-mono">SURVIVAL SUMMARY: </strong>
                   {useRadiationShield && useCollarAndSuit && useBoneAndHeartMeds ? (
                     <span>
                       Full multi-agency protocol active. Astronaut bone density preserved (90% suppression of osteoclast decay), vestibular nausea controlled, and lifetime REID cancer risk stays safely within NASA and Roscosmos flight limits.
                     </span>
                   ) : (
-                    <span className="text-amber-300">
+                    <span className="text-[#fbbf24]">
                       Warning: Missing countermeasures will accelerate physiological decline. Unshielded radiation or lack of cervical restriction dramatically increases emergency abort risk.
                     </span>
                   )}
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-zinc-800 mt-4 flex items-center justify-between text-xs text-zinc-400 font-mono">
+              <div className="pt-4 border-t border-[#232d1a] mt-4 flex items-center justify-between text-xs text-[#8ea873] font-mono">
                 <span>BENCHMARK DATA: NASA-STD-3001 & IBMP GOST</span>
-                <span className="text-cyan-400">Coupled with ARES-VII Engine</span>
+                <span className="text-[#fbbf24]">Coupled with ARES-VII Engine</span>
               </div>
             </div>
           </div>
@@ -298,25 +296,25 @@ export default function WorldSpaceAgenciesHub() {
         <section className="space-y-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="relative w-full sm:w-80">
-              <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-[#8ea873] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 placeholder="Search country, acronym, or astronaut..."
                 value={countrySearch}
                 onChange={(e) => setCountrySearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#13190e] border border-[#354528] text-xs text-white placeholder-[#6d845e] focus:outline-none focus:border-[#fbbf24] transition-colors"
               />
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto font-mono">
               {REGIONS.map((reg) => (
                 <button
                   key={reg.id}
                   onClick={() => setSelectedRegion(reg.id)}
-                  className={`text-xs px-3 py-1.5 rounded-lg border font-medium cursor-pointer transition-all ${
+                  className={`text-xs px-3 py-1.5 rounded-lg border font-bold cursor-pointer transition-all ${
                     selectedRegion === reg.id
-                      ? "bg-cyan-500/20 border-cyan-400 text-cyan-200"
-                      : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white"
+                      ? "bg-[#182213] border-[#fbbf24] text-[#fbbf24]"
+                      : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:text-white"
                   }`}
                 >
                   {reg.label.split(" (")[0]}
@@ -325,12 +323,12 @@ export default function WorldSpaceAgenciesHub() {
             </div>
           </div>
 
-          {/* MAIN 2-COLUMN VIEW */}
+          {/* MAIN 2-COLUMN DOSSIER VIEW */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             {/* Country Selector (Left 4 cols) */}
-            <div className="lg:col-span-4 rounded-2xl border border-zinc-800 bg-zinc-950 p-3 max-h-[700px] overflow-y-auto space-y-1.5">
-              <div className="text-[11px] font-mono text-zinc-500 px-2 py-1 uppercase tracking-wider">
-                {filteredCountries.length} Countries Found
+            <div className="lg:col-span-4 rounded-2xl border border-[#354528] bg-[#13190e] p-3 max-h-[700px] overflow-y-auto space-y-1.5">
+              <div className="text-[11px] font-mono text-[#8ea873] px-2 py-1 uppercase tracking-wider">
+                {filteredCountries.length} Nations Identified
               </div>
               {filteredCountries.map((c) => {
                 const isSelected = c.id === activeCountry.id;
@@ -340,8 +338,8 @@ export default function WorldSpaceAgenciesHub() {
                     onClick={() => setSelectedCountryId(c.id)}
                     className={`w-full text-left p-3.5 rounded-xl border cursor-pointer transition-all ${
                       isSelected
-                        ? "bg-gradient-to-r from-cyan-950/60 to-zinc-900 border-cyan-500/60 text-white shadow-sm shadow-cyan-500/10"
-                        : "bg-zinc-900/60 border-zinc-800/80 text-zinc-400 hover:bg-zinc-900 hover:text-zinc-200"
+                        ? "bg-[#182213] border-[#fbbf24] text-white shadow-sm shadow-amber-500/10"
+                        : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:bg-[#11160e] hover:text-[#c7dfb8]"
                     }`}
                   >
                     <div className="flex items-center justify-between text-xs">
@@ -349,11 +347,11 @@ export default function WorldSpaceAgenciesHub() {
                         <span>{c.flagEmoji}</span>
                         <span>{c.country}</span>
                       </span>
-                      <span className="font-mono text-cyan-400 text-[11px]">
+                      <span className="font-mono text-[#fbbf24] text-[11px]">
                         {c.agencyAcronym}
                       </span>
                     </div>
-                    <div className="text-xs text-zinc-400 mt-1 truncate">
+                    <div className="text-xs text-[#8ea873] mt-1 truncate font-sans">
                       {c.agencyFullName}
                     </div>
                   </button>
@@ -362,66 +360,66 @@ export default function WorldSpaceAgenciesHub() {
             </div>
 
             {/* Selected Country Dossier (Right 8 cols) */}
-            <div className="lg:col-span-8 rounded-2xl border border-zinc-800 bg-zinc-950 p-6 sm:p-8 space-y-6">
+            <div className="lg:col-span-8 rounded-2xl border border-[#354528] bg-[#13190e] p-6 sm:p-8 space-y-6">
               {/* Header Info */}
-              <div className="border-b border-zinc-800 pb-5 space-y-3">
+              <div className="border-b border-[#232d1a] pb-5 space-y-3">
                 <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
                   <div className="inline-flex items-center gap-2">
                     <span className="text-2xl">{activeCountry.flagEmoji}</span>
-                    <span className="font-mono text-cyan-400 font-bold uppercase tracking-wider">
+                    <span className="font-mono text-[#fbbf24] font-bold uppercase tracking-wider">
                       {activeCountry.country} • {activeCountry.agencyAcronym}
                     </span>
                   </div>
-                  <span className="text-zinc-400 font-mono text-[11px]">
+                  <span className="text-[#8ea873] font-mono text-[11px]">
                     Founded: {activeCountry.foundedYear}
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className="text-2xl font-black text-white">
                   {activeCountry.agencyFullName}
                 </h3>
-                <div className="text-xs text-zinc-400 font-medium">
+                <div className="text-xs text-[#a8baa0] font-medium font-sans">
                   {activeCountry.nativeAgencyName}
                 </div>
 
                 {activeCountry.notableAstronautsOrCosmonauts?.length > 0 && (
-                  <div className="p-3 rounded-xl bg-zinc-900/70 border border-zinc-800/80 text-xs text-zinc-300">
-                    <strong className="text-amber-400">Pioneering Astronauts & Cosmonauts: </strong>
-                    <span>{activeCountry.notableAstronautsOrCosmonauts.join("; ")}</span>
+                  <div className="p-3 rounded-xl bg-[#0b0e0a] border border-[#232d1a] text-xs text-[#c7dfb8]">
+                    <strong className="text-[#fbbf24] font-mono">PIONEERING ASTRONAUTS / COSMONAUTS: </strong>
+                    <span className="font-sans">{activeCountry.notableAstronautsOrCosmonauts.join("; ")}</span>
                   </div>
                 )}
               </div>
 
               {/* Research & Scientific Discoveries */}
               <div className="space-y-4">
-                <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                  <Activity className="w-4 h-4 text-cyan-400" />
-                  <span>Key Space Medicine & Radiation Research</span>
+                <h4 className="text-xs font-mono font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                  <Activity className="w-4 h-4 text-[#fbbf24]" />
+                  <span>KEY SPACE MEDICINE & RADIATION RESEARCH</span>
                 </h4>
 
                 <div className="space-y-3">
                   {(activeCountry.biomedicalAndRadiationResearch || []).map((res, i) => (
                     <div
                       key={i}
-                      className="bg-zinc-900/60 border border-zinc-800 rounded-xl p-4 space-y-2"
+                      className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-4 space-y-2"
                     >
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <span className="text-sm font-bold text-white">
                           {res.experimentOrProgram}
                         </span>
-                        <span className="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-md">
+                        <span className="text-xs font-mono text-[#fbbf24] bg-[#182213] border border-[#3f5231] px-2 py-0.5 rounded">
                           {res.scientificFocus}
                         </span>
                       </div>
 
-                      <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-[#a8baa0] leading-relaxed">
                         {res.summary}
                       </p>
 
                       {res.empiricalFormulaOrMetric && (
-                        <div className="text-xs bg-zinc-950 border border-zinc-800/80 rounded-lg p-2.5 text-zinc-300">
-                          <strong className="text-amber-400">Measured Formula / Metric: </strong>
-                          <span className="font-mono text-cyan-300">
+                        <div className="text-xs bg-[#11160e] border border-[#232d1a] rounded-lg p-2.5 text-[#c7dfb8]">
+                          <strong className="text-[#fbbf24] font-mono">MEASURED FORMULA / METRIC: </strong>
+                          <span className="font-mono text-[#a3c988]">
                             {res.empiricalFormulaOrMetric}
                           </span>
                         </div>
@@ -432,31 +430,31 @@ export default function WorldSpaceAgenciesHub() {
               </div>
 
               {/* Hardware & Platforms */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-zinc-800">
-                <div className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 space-y-2">
-                  <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                    <Cpu className="w-4 h-4 text-cyan-400" />
-                    <span>Flagship Flight Hardware & Sensors</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[#232d1a]">
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-4 space-y-2">
+                  <div className="text-xs font-mono font-bold text-white flex items-center gap-1.5">
+                    <Cpu className="w-4 h-4 text-[#fbbf24]" />
+                    <span>FLAGSHIP FLIGHT HARDWARE</span>
                   </div>
-                  <ul className="space-y-1.5 text-xs text-zinc-300">
+                  <ul className="space-y-1.5 text-xs text-[#a8baa0]">
                     {(activeCountry.flagshipHardwareAndDosimeters || []).map((hw, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <span className="text-cyan-400">•</span>
+                        <span className="text-[#fbbf24]">•</span>
                         <span>{hw}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 space-y-2">
-                  <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                    <Layers className="w-4 h-4 text-amber-400" />
-                    <span>Key Missions & Orbital Platforms</span>
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-4 space-y-2">
+                  <div className="text-xs font-mono font-bold text-white flex items-center gap-1.5">
+                    <Layers className="w-4 h-4 text-[#84a96c]" />
+                    <span>MISSIONS & PLATFORMS</span>
                   </div>
-                  <ul className="space-y-1.5 text-xs text-zinc-300">
+                  <ul className="space-y-1.5 text-xs text-[#a8baa0]">
                     {(activeCountry.keyMissionsAndPlatforms || []).map((mp, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <span className="text-amber-400">•</span>
+                        <span className="text-[#84a96c]">•</span>
                         <span>{mp}</span>
                       </li>
                     ))}
@@ -466,14 +464,14 @@ export default function WorldSpaceAgenciesHub() {
 
               {/* Watch H1 Integration Callout */}
               {activeCountry.watchH1Synergy && (
-                <div className="p-4 rounded-xl bg-gradient-to-r from-cyan-950/40 to-zinc-900 border border-cyan-500/30 text-xs text-zinc-200 flex items-center justify-between gap-4">
+                <div className="p-4 rounded-xl bg-[#182213] border border-[#3f5231] text-xs text-[#c7dfb8] flex items-center justify-between gap-4 font-mono">
                   <div>
-                    <span className="text-cyan-400 font-bold block mb-0.5">
-                      ARES-VII & Watch H1 Algorithmic Synergy:
+                    <span className="text-[#fbbf24] font-bold block mb-0.5">
+                      ARES-VII & WATCH H1 ALGORITHMIC COUPLING:
                     </span>
-                    <span>{activeCountry.watchH1Synergy}</span>
+                    <span className="font-sans text-[#a8baa0]">{activeCountry.watchH1Synergy}</span>
                   </div>
-                  <Sparkles className="w-5 h-5 text-cyan-400 shrink-0" />
+                  <Sparkles className="w-5 h-5 text-[#fbbf24] shrink-0" />
                 </div>
               )}
             </div>

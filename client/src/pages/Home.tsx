@@ -231,25 +231,25 @@ export default function Home() {
   return (
     <div className="bg-zinc-950 text-zinc-100 min-h-screen">
       <div className="container mx-auto px-4 py-8 space-y-10">
-        {/* FRAMER PRESENTATION BANNER */}
-        <div className="bg-gradient-to-r from-orange-500/15 via-zinc-900 to-zinc-900 border border-orange-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        {/* TACTICAL PORTAL 1 LINK BANNER */}
+        <div className="bg-[#13190e] border border-[#354528] rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-orange-500/20 text-orange-400 rounded-xl">
+            <div className="p-2 bg-[#182213] text-[#fbbf24] border border-[#3f5231] rounded-xl">
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs font-semibold text-white flex items-center gap-2">
-                <span>ARES-VII Interactive Mission Presentation & Framework</span>
-                <span className="text-[10px] bg-orange-500/20 text-orange-300 px-2 py-0.5 rounded-full font-mono">Framer Style</span>
+              <div className="text-xs font-bold text-white flex items-center gap-2">
+                <span>PORTAL 1: MISSION & SCIENCE SPECIFICATION</span>
+                <span className="text-[10px] bg-[#243319] text-[#a3c988] border border-[#3f5231] px-2 py-0.5 rounded font-mono">TACTICAL SPEC</span>
               </div>
-              <p className="text-xs text-zinc-400 mt-0.5">
-                Explore the 4 deep-space hazards in plain English, architecture pipeline, real flight incidents (Apollo SPE, Salyut-6), and research guide.
+              <p className="text-xs text-[#a8baa0] font-sans mt-0.5">
+                Who is it for? Why does it matter? 4 deep-space hazards in plain English, real Apollo/Salyut flight data, and research handbook.
               </p>
             </div>
           </div>
-          <Link href="/intro">
-            <button className="bg-orange-500 hover:bg-orange-600 text-black font-semibold text-xs px-4 py-2 rounded-lg inline-flex items-center gap-1.5 cursor-pointer shrink-0 transition-colors">
-              <span>View Interactive Presentation</span>
+          <Link href="/">
+            <button className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-bold text-xs px-4 py-2 rounded-lg inline-flex items-center gap-1.5 cursor-pointer shrink-0 transition-colors">
+              <span>EXPLORE PORTAL 1 SPEC</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </Link>
