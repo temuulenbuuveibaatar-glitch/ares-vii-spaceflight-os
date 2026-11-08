@@ -2,15 +2,15 @@ import { Link } from "wouter";
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-950 text-zinc-400 border-t border-zinc-800/80 py-10 text-xs">
+    <footer className="bg-[#0b0e0a] text-[#8ea873] border-t border-[#232d1a] py-10 text-xs">
       <div className="container mx-auto px-4 space-y-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-white font-semibold text-sm">
-              <span className="w-2 h-2 rounded-full bg-orange-500" />
-              <span>ARES-VII</span>
+            <div className="flex items-center gap-2 text-white font-bold text-sm font-mono">
+              <span className="w-2 h-2 rounded-full bg-[#fbbf24]" />
+              <span>ARES-VII SPACE HEALTH OS</span>
             </div>
-            <p className="text-zinc-400 leading-relaxed">
+            <p className="text-[#8ea873] leading-relaxed">
               Real-time space weather, historical mission failure analysis,
               28-nation biomedical countermeasures, Xiaomi Watch H1 telemetry,
               and NASA GMAT / Orbiter flight simulation.
@@ -18,12 +18,12 @@ export default function Footer() {
           </div>
 
           <div className="space-y-2">
-            <div className="font-medium text-zinc-200">Core Modules</div>
-            <ul className="space-y-1.5 text-zinc-400">
+            <div className="font-bold text-[#c7dfb8] font-mono text-xs">CORE FLIGHT STATIONS</div>
+            <ul className="space-y-1.5 text-[#8ea873]">
               <li>
-                <Link href="/">
+                <Link href="/app">
                   <span className="hover:text-white cursor-pointer">
-                    Mission Incidents & Prevention
+                    Mission Cockpit & Telemetry
                   </span>
                 </Link>
               </li>
@@ -52,8 +52,8 @@ export default function Footer() {
           </div>
 
           <div className="space-y-2">
-            <div className="font-medium text-zinc-200">Agency Standards</div>
-            <ul className="space-y-1.5 text-zinc-400">
+            <div className="font-bold text-[#c7dfb8] font-mono text-xs">AGENCY STANDARDS</div>
+            <ul className="space-y-1.5 text-[#8ea873]">
               <li>NASA-STD-3001 (Apollo, Skylab, ISS, Artemis)</li>
               <li>USSR / Roscosmos IBMP (Salyut, Mir, Chibis, Indralin)</li>
               <li>Mongolia Interkosmos (Soyuz-39 / Salyut-6 J. Gürragchaa)</li>
@@ -63,8 +63,8 @@ export default function Footer() {
           </div>
 
           <div className="space-y-2">
-            <div className="font-medium text-zinc-200">Runtime Stack</div>
-            <ul className="space-y-1.5 text-zinc-400">
+            <div className="font-bold text-[#c7dfb8] font-mono text-xs">RUNTIME STACK</div>
+            <ul className="space-y-1.5 text-[#8ea873]">
               <li>NOAA SWPC & NORAD 25544 Live Orbital Feeds</li>
               <li>GMAT R2026a & Orbiter 2016/2024 Native Export</li>
               <li>Rust 64-bit RK4/J2 Propagator & Tauri Desktop</li>
@@ -73,9 +73,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-zinc-900 flex flex-wrap items-center justify-between gap-4 text-zinc-500">
+        <div className="pt-6 border-t border-[#1a2313] flex flex-wrap items-center justify-between gap-4 text-[#556947] font-mono text-[11px]">
           <span>ARES-VII Spaceflight Health & Mission Prevention</span>
-          <span className="font-mono">GMAT R2026a Plugin Fix Verified</span>
+          <span>Tactical Olive & Flight Amber · Emil Kowalski 20 UI Polish Rules</span>
         </div>
       </div>
     </footer>

@@ -650,7 +650,7 @@ REF_FRAME      = EME2000
                         <div className="font-semibold text-white truncate">
                           {res.label}
                         </div>
-                        <div className="text-[11px] font-mono text-zinc-400 truncate mt-0.5">
+                        <div className="text-[11px] font-mono text-[#8ea873] truncate mt-0.5">
                           {res.summary}
                         </div>
                       </button>
@@ -688,12 +688,12 @@ REF_FRAME      = EME2000
                     <div
                       key={i}
                       onClick={() => setSelectedResource("seq_mission")}
-                      className="p-2.5 rounded-lg bg-zinc-900/70 border border-zinc-800 cursor-pointer hover:border-orange-500/50"
+                      className="p-2.5 rounded-lg bg-[#13190e]/70 border border-[#2e3b23] cursor-pointer hover:border-[#fbbf24]/50"
                     >
-                      <div className="text-orange-400 font-semibold">
+                      <div className="text-[#fbbf24] font-semibold">
                         {step.cmd}
                       </div>
-                      <div className="text-[11px] text-zinc-400 mt-0.5">
+                      <div className="text-[11px] text-[#8ea873] mt-0.5">
                         {step.desc}
                       </div>
                     </div>
@@ -706,13 +706,13 @@ REF_FRAME      = EME2000
           {/* CENTER PANE (5 Cols): Live EME2000 OrbitView & Maneuver Deck */}
           <div className="lg:col-span-5 card-outer">
             <div className="card-inner p-5 space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800/80 pb-3">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#2e3b23]/80 pb-3">
                 <div>
                   <h2 className="font-semibold text-sm text-white flex items-center gap-2">
-                    <Compass className="w-4 h-4 text-orange-500" />
+                    <Compass className="w-4 h-4 text-[#fbbf24]" />
                     <span>GMAT OrbitView (EarthMJ2000Eq Trajectory)</span>
                   </h2>
-                  <p className="text-[11px] text-zinc-400 font-mono tabular-nums">
+                  <p className="text-[11px] text-[#8ea873] font-mono tabular-nums">
                     RK89 + JGM-2 ({jgm2Degree}x{jgm2Degree}) · T+
                     {simElapsedSec.toFixed(1)}s
                   </p>
@@ -721,16 +721,16 @@ REF_FRAME      = EME2000
                 <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => setIsRunning(!isRunning)}
-                    className="bg-zinc-900 hover:bg-zinc-800 text-zinc-100 px-2.5 py-1 rounded-md text-xs font-medium flex items-center gap-1 border border-zinc-800 cursor-pointer"
+                    className="bg-[#13190e] hover:bg-zinc-800 text-zinc-100 px-2.5 py-1 rounded-md text-xs font-medium flex items-center gap-1 border border-[#2e3b23] cursor-pointer"
                   >
                     {isRunning ? (
                       <>
-                        <Pause className="w-3 h-3 text-orange-500" />
+                        <Pause className="w-3 h-3 text-[#fbbf24]" />
                         <span>Pause</span>
                       </>
                     ) : (
                       <>
-                        <Play className="w-3 h-3 text-orange-500" />
+                        <Play className="w-3 h-3 text-[#fbbf24]" />
                         <span>Play</span>
                       </>
                     )}
@@ -738,7 +738,7 @@ REF_FRAME      = EME2000
                   <select
                     value={timeWarp}
                     onChange={(e) => setTimeWarp(Number(e.target.value))}
-                    className="bg-zinc-900 text-xs font-mono text-zinc-100 border border-zinc-800 rounded-md px-2 py-1"
+                    className="bg-[#13190e] text-xs font-mono text-zinc-100 border border-[#2e3b23] rounded-md px-2 py-1"
                   >
                     <option value={1}>1x</option>
                     <option value={10}>10x</option>
@@ -758,7 +758,7 @@ REF_FRAME      = EME2000
                       setTrail([]);
                       setSimElapsedSec(0);
                     }}
-                    className="p-1 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 rounded-md border border-zinc-800 cursor-pointer"
+                    className="p-1 bg-[#13190e] hover:bg-zinc-800 text-[#a8baa0] rounded-md border border-[#2e3b23] cursor-pointer"
                     title="Reset Epoch State Vector"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
@@ -767,7 +767,7 @@ REF_FRAME      = EME2000
               </div>
 
               {/* SVG Orbital Plot */}
-              <div className="relative bg-zinc-950 rounded-lg border border-zinc-800/80 overflow-hidden h-[320px] flex items-center justify-center">
+              <div className="relative bg-[#0b0e0a] rounded-lg border border-[#2e3b23]/80 overflow-hidden h-[320px] flex items-center justify-center">
                 <svg viewBox="-220 -150 440 300" className="w-full h-full">
                   <line
                     x1="-220"
@@ -911,11 +911,11 @@ REF_FRAME      = EME2000
                   })()}
                 </svg>
 
-                <div className="absolute bottom-2.5 left-2.5 right-2.5 flex flex-wrap items-center justify-between text-[11px] font-mono bg-zinc-900/95 px-3 py-1.5 rounded-md border border-zinc-800 text-zinc-300 tabular-nums">
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 flex flex-wrap items-center justify-between text-[11px] font-mono bg-[#13190e]/95 px-3 py-1.5 rounded-md border border-[#2e3b23] text-[#a8baa0] tabular-nums">
                   <span>r = {rMag.toFixed(0)} km</span>
                   <span>SMA = {smaKm.toFixed(0)} km</span>
                   <span>ECC = {ecc.toFixed(4)}</span>
-                  <span className="text-orange-400">
+                  <span className="text-[#fbbf24]">
                     Bio-Cap: {medicalCapG.toFixed(2)}G
                   </span>
                 </div>
@@ -938,12 +938,12 @@ REF_FRAME      = EME2000
                   <button
                     key={m.id}
                     onClick={() => maneuverMutation.mutate(m.id)}
-                    className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-orange-500/50 text-left p-2.5 rounded-lg cursor-pointer"
+                    className="bg-[#13190e] hover:bg-zinc-800 border border-[#2e3b23] hover:border-[#fbbf24]/50 text-left p-2.5 rounded-lg cursor-pointer"
                   >
                     <div className="text-xs font-semibold text-white">
                       {m.title}
                     </div>
-                    <div className="text-[11px] font-mono text-zinc-400">
+                    <div className="text-[11px] font-mono text-[#8ea873]">
                       {m.sub}
                     </div>
                   </button>
@@ -955,24 +955,24 @@ REF_FRAME      = EME2000
           {/* RIGHT PANE (4 Cols): GMAT Resource Property Inspector & Editor */}
           <div className="lg:col-span-4 card-outer">
             <div className="card-inner p-5 space-y-4">
-              <div className="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+              <div className="flex items-center justify-between border-b border-[#2e3b23]/80 pb-3">
                 <div className="flex items-center gap-2 text-sm font-semibold text-white">
-                  <Sliders className="w-4 h-4 text-orange-500" />
+                  <Sliders className="w-4 h-4 text-[#fbbf24]" />
                   <span>GMAT Resource Inspector</span>
                 </div>
-                <span className="text-[11px] font-mono text-orange-400">
+                <span className="text-[11px] font-mono text-[#fbbf24]">
                   {selectedResource.toUpperCase()}
                 </span>
               </div>
 
               {selectedResource === "sc_ares_vii" && (
                 <div className="space-y-3 text-xs">
-                  <div className="text-zinc-300 font-medium">
+                  <div className="text-[#a8baa0] font-medium">
                     Spacecraft: <code>ARES_VII</code> (EarthMJ2000Eq)
                   </div>
                   <div className="grid grid-cols-2 gap-2 font-mono">
                     <label className="space-y-1">
-                      <span className="text-zinc-400 text-[11px]">X (km)</span>
+                      <span className="text-[#8ea873] text-[11px]">X (km)</span>
                       <input
                         type="number"
                         value={Number(stateVec.x.toFixed(2))}
@@ -982,11 +982,11 @@ REF_FRAME      = EME2000
                             x: Number(e.target.value),
                           }))
                         }
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1.5 text-white"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2 py-1.5 text-white"
                       />
                     </label>
                     <label className="space-y-1">
-                      <span className="text-zinc-400 text-[11px]">
+                      <span className="text-[#8ea873] text-[11px]">
                         VX (km/s)
                       </span>
                       <input
@@ -999,11 +999,11 @@ REF_FRAME      = EME2000
                             vx: Number(e.target.value),
                           }))
                         }
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1.5 text-orange-400"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2 py-1.5 text-[#fbbf24]"
                       />
                     </label>
                     <label className="space-y-1">
-                      <span className="text-zinc-400 text-[11px]">Y (km)</span>
+                      <span className="text-[#8ea873] text-[11px]">Y (km)</span>
                       <input
                         type="number"
                         value={Number(stateVec.y.toFixed(2))}
@@ -1013,11 +1013,11 @@ REF_FRAME      = EME2000
                             y: Number(e.target.value),
                           }))
                         }
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1.5 text-white"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2 py-1.5 text-white"
                       />
                     </label>
                     <label className="space-y-1">
-                      <span className="text-zinc-400 text-[11px]">
+                      <span className="text-[#8ea873] text-[11px]">
                         VY (km/s)
                       </span>
                       <input
@@ -1030,22 +1030,22 @@ REF_FRAME      = EME2000
                             vy: Number(e.target.value),
                           }))
                         }
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1.5 text-orange-400"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2 py-1.5 text-[#fbbf24]"
                       />
                     </label>
                     <label className="space-y-1">
-                      <span className="text-zinc-400 text-[11px]">
+                      <span className="text-[#8ea873] text-[11px]">
                         DryMass (kg)
                       </span>
                       <input
                         type="number"
                         value={dryMassKg}
                         onChange={(e) => setDryMassKg(Number(e.target.value))}
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1.5 text-white"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2 py-1.5 text-white"
                       />
                     </label>
                     <label className="space-y-1">
-                      <span className="text-zinc-400 text-[11px]">
+                      <span className="text-[#8ea873] text-[11px]">
                         Drag Cd / SRP Cr
                       </span>
                       <input
@@ -1053,7 +1053,7 @@ REF_FRAME      = EME2000
                         step="0.1"
                         value={dragCoeffCd}
                         onChange={(e) => setDragCoeffCd(Number(e.target.value))}
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2 py-1.5 text-white"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2 py-1.5 text-white"
                       />
                     </label>
                   </div>
@@ -1062,12 +1062,12 @@ REF_FRAME      = EME2000
 
               {selectedResource === "burn_hermes" && (
                 <div className="space-y-3 text-xs">
-                  <div className="text-zinc-300 font-medium">
+                  <div className="text-[#a8baa0] font-medium">
                     ImpulsiveBurn: <code>HermesEmergencyBurn</code> (VNB Axes)
                   </div>
                   <div className="space-y-2 font-mono">
                     <label className="block space-y-1">
-                      <span className="text-zinc-400 text-[11px]">
+                      <span className="text-[#8ea873] text-[11px]">
                         Element1 (Velocity V-Axis Δv, km/s)
                       </span>
                       <input
@@ -1077,11 +1077,11 @@ REF_FRAME      = EME2000
                         onChange={(e) =>
                           setBurnElement1KmS(Number(e.target.value))
                         }
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2.5 py-1.5 text-orange-400"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2.5 py-1.5 text-[#fbbf24]"
                       />
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-zinc-400 text-[11px]">
+                      <span className="text-[#8ea873] text-[11px]">
                         Element2 (Normal N-Axis Δv, km/s)
                       </span>
                       <input
@@ -1091,11 +1091,11 @@ REF_FRAME      = EME2000
                         onChange={(e) =>
                           setBurnElement2KmS(Number(e.target.value))
                         }
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2.5 py-1.5 text-white"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2.5 py-1.5 text-white"
                       />
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-zinc-400 text-[11px]">
+                      <span className="text-[#8ea873] text-[11px]">
                         Element3 (Binormal B-Axis Δv, km/s)
                       </span>
                       <input
@@ -1105,18 +1105,18 @@ REF_FRAME      = EME2000
                         onChange={(e) =>
                           setBurnElement3KmS(Number(e.target.value))
                         }
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2.5 py-1.5 text-white"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2.5 py-1.5 text-white"
                       />
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-zinc-400 text-[11px]">
+                      <span className="text-[#8ea873] text-[11px]">
                         Specific Impulse Isp (s)
                       </span>
                       <input
                         type="number"
                         value={burnIspSec}
                         onChange={(e) => setBurnIspSec(Number(e.target.value))}
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2.5 py-1.5 text-white"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2.5 py-1.5 text-white"
                       />
                     </label>
                   </div>
@@ -1126,12 +1126,12 @@ REF_FRAME      = EME2000
               {(selectedResource === "fm_deepspace" ||
                 selectedResource === "prop_rk89") && (
                 <div className="space-y-3 text-xs">
-                  <div className="text-zinc-300 font-medium">
+                  <div className="text-[#a8baa0] font-medium">
                     ForceModel & RungeKutta89 Propagator
                   </div>
                   <div className="space-y-2.5 font-mono">
                     <label className="block space-y-1">
-                      <span className="text-zinc-400 text-[11px]">
+                      <span className="text-[#8ea873] text-[11px]">
                         Earth JGM-2 Harmonic Degree & Order ({jgm2Degree}x
                         {jgm2Degree})
                       </span>
@@ -1141,11 +1141,11 @@ REF_FRAME      = EME2000
                         max={36}
                         value={jgm2Degree}
                         onChange={(e) => setJgm2Degree(Number(e.target.value))}
-                        className="w-full accent-orange-500"
+                        className="w-full accent-[#fbbf24]"
                       />
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-zinc-400 text-[11px]">
+                      <span className="text-[#8ea873] text-[11px]">
                         RK89 Initial Step Size (sec)
                       </span>
                       <input
@@ -1154,18 +1154,18 @@ REF_FRAME      = EME2000
                         onChange={(e) =>
                           setRk89StepSize(Number(e.target.value))
                         }
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded px-2.5 py-1.5 text-white"
+                        className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2.5 py-1.5 text-white"
                       />
                     </label>
-                    <label className="flex items-center justify-between bg-zinc-900 p-2.5 rounded border border-zinc-800">
-                      <span className="text-zinc-300">
+                    <label className="flex items-center justify-between bg-[#13190e] p-2.5 rounded border border-[#2e3b23]">
+                      <span className="text-[#a8baa0]">
                         Solar Radiation Pressure (SRP)
                       </span>
                       <input
                         type="checkbox"
                         checked={srpEnabled}
                         onChange={(e) => setSrpEnabled(e.target.checked)}
-                        className="accent-orange-500"
+                        className="accent-[#fbbf24]"
                       />
                     </label>
                   </div>
@@ -1178,11 +1178,11 @@ REF_FRAME      = EME2000
                 selectedResource === "sub_orbitview" ||
                 selectedResource === "seq_mission") && (
                 <div className="space-y-3 text-xs">
-                  <div className="bg-zinc-900/70 border border-zinc-800 rounded-lg p-3 space-y-2">
-                    <div className="font-semibold text-orange-400">
+                  <div className="bg-[#13190e]/70 border border-[#2e3b23] rounded-lg p-3 space-y-2">
+                    <div className="font-semibold text-[#fbbf24]">
                       Xiaomi Watch H1 Bio-Feedback Thruster Limiter
                     </div>
-                    <div className="text-zinc-300 leading-relaxed">
+                    <div className="text-[#a8baa0] leading-relaxed">
                       Couples astronaut Heart Rate ({hr} BPM), SpO₂ ({spo2}%),
                       and Mean Arterial Pressure ({mapMmHg.toFixed(0)} mmHg)
                       directly to the GMAT finite/impulsive burn solver so entry
@@ -1194,7 +1194,7 @@ REF_FRAME      = EME2000
                     </div>
                   </div>
                   <label className="block space-y-1 font-mono">
-                    <span className="text-zinc-400 text-[11px]">
+                    <span className="text-[#8ea873] text-[11px]">
                       Target Safe Entry Perigee Altitude (km)
                     </span>
                     <input
@@ -1204,17 +1204,17 @@ REF_FRAME      = EME2000
                       onChange={(e) =>
                         setTargetPerigeeKm(Number(e.target.value))
                       }
-                      className="w-full bg-zinc-900 border border-zinc-800 rounded px-2.5 py-1.5 text-orange-400"
+                      className="w-full bg-[#13190e] border border-[#2e3b23] rounded px-2.5 py-1.5 text-[#fbbf24]"
                     />
                   </label>
                 </div>
               )}
 
-              <div className="pt-2 border-t border-zinc-800/80">
+              <div className="pt-2 border-t border-[#2e3b23]/80">
                 <button
                   onClick={() => executeGmatMutation.mutate()}
                   disabled={executeGmatMutation.isPending}
-                  className="w-full bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold py-2 rounded-lg text-xs inline-flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full bg-[#fbbf24] hover:bg-[#fbbf24] text-zinc-950 font-semibold py-2 rounded-lg text-xs inline-flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Flame className="w-3.5 h-3.5" />
                   <span>
@@ -1233,9 +1233,9 @@ REF_FRAME      = EME2000
           {/* Left 5 Cols: Real GmatConsole.exe Execution Output */}
           <div className="lg:col-span-5 card-outer">
             <div className="card-inner p-5 space-y-3">
-              <div className="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+              <div className="flex items-center justify-between border-b border-[#2e3b23]/80 pb-3">
                 <div className="flex items-center gap-2 text-sm font-semibold text-white">
-                  <Terminal className="w-4 h-4 text-orange-500" />
+                  <Terminal className="w-4 h-4 text-[#fbbf24]" />
                   <span>Native GmatConsole.exe Output Log</span>
                 </div>
                 {lastNativeRunMeta && (
@@ -1247,10 +1247,10 @@ REF_FRAME      = EME2000
               </div>
 
               {lastNativeRunMeta && (
-                <div className="bg-zinc-900/70 border border-zinc-800 rounded-lg p-2.5 text-[11px] font-mono text-zinc-300 space-y-0.5">
+                <div className="bg-[#13190e]/70 border border-[#2e3b23] rounded-lg p-2.5 text-[11px] font-mono text-[#a8baa0] space-y-0.5">
                   <div>
                     <span className="text-zinc-500">Binary:</span>{" "}
-                    <span className="text-orange-400">
+                    <span className="text-[#fbbf24]">
                       {lastNativeRunMeta.binaryPath}
                     </span>
                   </div>
@@ -1261,7 +1261,7 @@ REF_FRAME      = EME2000
                 </div>
               )}
 
-              <pre className="bg-zinc-950 text-zinc-200 p-3.5 rounded-lg border border-zinc-800/90 text-xs font-mono overflow-x-auto max-h-[360px] leading-relaxed whitespace-pre-wrap">
+              <pre className="bg-[#0b0e0a] text-[#c7dfb8] p-3.5 rounded-lg border border-[#2e3b23]/90 text-xs font-mono overflow-x-auto max-h-[360px] leading-relaxed whitespace-pre-wrap">
                 {gmatConsoleLog}
               </pre>
             </div>
@@ -1270,7 +1270,7 @@ REF_FRAME      = EME2000
           {/* Right 7 Cols: Live GMAT Script & Orbiter Scenario/Lua Generator */}
           <div className="lg:col-span-7 card-outer">
             <div className="card-inner p-5 space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-800/80 pb-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#2e3b23]/80 pb-3">
                 <div className="flex flex-wrap gap-1.5">
                   {[
                     { id: "gmat", label: "NASA GMAT (.script)" },
@@ -1283,8 +1283,8 @@ REF_FRAME      = EME2000
                       onClick={() => setActiveCodeTab(t.id as any)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer border ${
                         activeCodeTab === t.id
-                          ? "bg-orange-500 text-zinc-950 border-orange-500 font-semibold"
-                          : "bg-zinc-900 text-zinc-300 border-zinc-800 hover:text-white"
+                          ? "bg-[#fbbf24] text-zinc-950 border-[#fbbf24] font-semibold"
+                          : "bg-[#13190e] text-[#a8baa0] border-[#2e3b23] hover:text-white"
                       }`}
                     >
                       {t.label}
@@ -1295,7 +1295,7 @@ REF_FRAME      = EME2000
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handleCopy}
-                    className="bg-zinc-900 hover:bg-zinc-800 text-zinc-100 px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 border border-zinc-800 cursor-pointer"
+                    className="bg-[#13190e] hover:bg-zinc-800 text-zinc-100 px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 border border-[#2e3b23] cursor-pointer"
                   >
                     {copied ? (
                       <>
@@ -1304,14 +1304,14 @@ REF_FRAME      = EME2000
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3.5 h-3.5 text-orange-500" />
+                        <Copy className="w-3.5 h-3.5 text-[#fbbf24]" />
                         <span>Copy</span>
                       </>
                     )}
                   </button>
                   <button
                     onClick={handleDownload}
-                    className="bg-orange-500 hover:bg-orange-400 text-zinc-950 px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+                    className="bg-[#fbbf24] hover:bg-[#fbbf24] text-zinc-950 px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Download {activeFilename}</span>
@@ -1319,7 +1319,7 @@ REF_FRAME      = EME2000
                 </div>
               </div>
 
-              <pre className="bg-zinc-950 text-zinc-200 p-4 rounded-lg border border-zinc-800/90 text-xs font-mono overflow-x-auto max-h-[360px] leading-relaxed">
+              <pre className="bg-[#0b0e0a] text-[#c7dfb8] p-4 rounded-lg border border-[#2e3b23]/90 text-xs font-mono overflow-x-auto max-h-[360px] leading-relaxed">
                 {activeText}
               </pre>
             </div>
@@ -1329,3 +1329,4 @@ REF_FRAME      = EME2000
     </div>
   );
 }
+

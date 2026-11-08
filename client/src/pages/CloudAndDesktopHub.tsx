@@ -147,8 +147,8 @@ export default function CloudAndDesktopHub() {
           <div className="card-outer">
             <div className="card-inner p-6 space-y-5 h-full flex flex-col justify-between">
               <div className="space-y-3">
-                <div className="flex items-center justify-between text-xs text-zinc-400">
-                  <span className="font-semibold text-orange-400 flex items-center gap-1.5">
+                <div className="flex items-center justify-between text-xs text-[#8ea873]">
+                  <span className="font-semibold text-[#fbbf24] flex items-center gap-1.5">
                     <Monitor className="w-4 h-4" />
                     <span>1. Cross-Platform Desktop</span>
                   </span>
@@ -157,65 +157,65 @@ export default function CloudAndDesktopHub() {
                 <h2 className="text-base font-semibold text-white">
                   Portable Auto-Setup Launchers & Tauri v2 Binary
                 </h2>
-                <p className="text-xs text-zinc-300 leading-relaxed">
+                <p className="text-xs text-[#a8baa0] leading-relaxed">
                   Automatically verifies Node.js, dependencies, and skills when
                   copied to any computer, or compiles to a native ~8 MB Rust
                   installer via <code>src-tauri/Cargo.toml</code>.
                 </p>
 
                 <div className="grid grid-cols-3 gap-2 pt-1 text-xs text-center">
-                  <div className="bg-zinc-900/70 p-3 rounded-lg border border-zinc-800/90">
-                    <Monitor className="w-4 h-4 text-orange-500 mx-auto mb-1" />
+                  <div className="bg-[#13190e] p-3 rounded-lg border border-[#2e3b23]">
+                    <Monitor className="w-4 h-4 text-[#fbbf24] mx-auto mb-1" />
                     <div className="font-semibold text-white">Windows</div>
-                    <div className="text-[11px] font-mono text-zinc-400">
+                    <div className="text-[11px] font-mono text-[#8ea873]">
                       .bat / .msi
                     </div>
                   </div>
-                  <div className="bg-zinc-900/70 p-3 rounded-lg border border-zinc-800/90">
-                    <Apple className="w-4 h-4 text-orange-500 mx-auto mb-1" />
+                  <div className="bg-[#13190e] p-3 rounded-lg border border-[#2e3b23]">
+                    <Apple className="w-4 h-4 text-[#fbbf24] mx-auto mb-1" />
                     <div className="font-semibold text-white">macOS</div>
-                    <div className="text-[11px] font-mono text-zinc-400">
+                    <div className="text-[11px] font-mono text-[#8ea873]">
                       .command / .dmg
                     </div>
                   </div>
-                  <div className="bg-zinc-900/70 p-3 rounded-lg border border-zinc-800/90">
-                    <Terminal className="w-4 h-4 text-orange-500 mx-auto mb-1" />
+                  <div className="bg-[#13190e] p-3 rounded-lg border border-[#2e3b23]">
+                    <Terminal className="w-4 h-4 text-[#fbbf24] mx-auto mb-1" />
                     <div className="font-semibold text-white">Linux</div>
-                    <div className="text-[11px] font-mono text-zinc-400">
+                    <div className="text-[11px] font-mono text-[#8ea873]">
                       .sh / .deb
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-2 pt-4 border-t border-zinc-800/80">
-                <div className="bg-zinc-900 p-2.5 rounded-lg border border-zinc-800 font-mono text-xs text-zinc-200 flex items-center justify-between">
+              <div className="space-y-2 pt-4 border-t border-[#232d1a]">
+                <div className="bg-[#13190e] p-2.5 rounded-lg border border-[#2e3b23] font-mono text-xs text-[#c7dfb8] flex items-center justify-between">
                   <span>.\Launch-ARES-VII-Desktop.bat</span>
                   <button
                     onClick={() =>
                       copyText("win-bat", ".\\Launch-ARES-VII-Desktop.bat")
                     }
-                    className="text-zinc-400 hover:text-white cursor-pointer"
+                    className="text-[#8ea873] hover:text-white cursor-pointer"
                   >
                     {copiedId === "win-bat" ? (
                       <Check className="w-3.5 h-3.5 text-emerald-400" />
                     ) : (
-                      <Copy className="w-3.5 h-3.5 text-orange-500" />
+                      <Copy className="w-3.5 h-3.5 text-[#fbbf24]" />
                     )}
                   </button>
                 </div>
-                <div className="bg-zinc-900 p-2.5 rounded-lg border border-zinc-800 font-mono text-xs text-zinc-200 flex items-center justify-between">
+                <div className="bg-[#13190e] p-2.5 rounded-lg border border-[#2e3b23] font-mono text-xs text-[#c7dfb8] flex items-center justify-between">
                   <span>npx @tauri-apps/cli build</span>
                   <button
                     onClick={() =>
                       copyText("tauri-build", "npx @tauri-apps/cli build")
                     }
-                    className="text-zinc-400 hover:text-white cursor-pointer"
+                    className="text-[#8ea873] hover:text-white cursor-pointer"
                   >
                     {copiedId === "tauri-build" ? (
                       <Check className="w-3.5 h-3.5 text-emerald-400" />
                     ) : (
-                      <Copy className="w-3.5 h-3.5 text-orange-500" />
+                      <Copy className="w-3.5 h-3.5 text-[#fbbf24]" />
                     )}
                   </button>
                 </div>
@@ -227,8 +227,8 @@ export default function CloudAndDesktopHub() {
           <div className="card-outer">
             <div className="card-inner p-6 space-y-5 h-full flex flex-col justify-between">
               <div className="space-y-3">
-                <div className="flex items-center justify-between text-xs text-zinc-400">
-                  <span className="font-semibold text-orange-400 flex items-center gap-1.5">
+                <div className="flex items-center justify-between text-xs text-[#8ea873]">
+                  <span className="font-semibold text-[#fbbf24] flex items-center gap-1.5">
                     <Server className="w-4 h-4" />
                     <span>2. AWS EC2 Cloud Node</span>
                   </span>
@@ -237,7 +237,7 @@ export default function CloudAndDesktopHub() {
                 <h2 className="text-base font-semibold text-white">
                   Zero-Touch AWS EC2 Bootstrap
                 </h2>
-                <ol className="text-xs text-zinc-300 space-y-2 list-decimal list-inside leading-relaxed">
+                <ol className="text-xs text-[#a8baa0] space-y-2 list-decimal list-inside leading-relaxed">
                   <li>
                     Select <code>Amazon Linux 2023</code> or{" "}
                     <code>Ubuntu</code> on <code>t3.micro</code>.
@@ -257,7 +257,7 @@ export default function CloudAndDesktopHub() {
                 </ol>
               </div>
 
-              <div className="space-y-2.5 pt-4 border-t border-zinc-800/80">
+              <div className="space-y-2.5 pt-4 border-t border-[#232d1a]">
                 <input
                   type="text"
                   value={ec2Host}
@@ -266,11 +266,11 @@ export default function CloudAndDesktopHub() {
                     localStorage.setItem("ARES_EC2_ENDPOINT", e.target.value);
                   }}
                   placeholder="http://ec2-xx-xx-xx-xx.eu-north-1.compute.amazonaws.com"
-                  className="w-full bg-zinc-900 text-xs font-mono text-zinc-100 px-3 py-2 rounded-lg border border-zinc-800 focus:outline-none focus:border-orange-500"
+                  className="w-full bg-[#13190e] text-xs font-mono text-zinc-100 px-3 py-2 rounded-lg border border-[#2e3b23] focus:outline-none focus:border-[#fbbf24]"
                 />
                 <button
                   onClick={() => copyText("ec2-userdata", AWS_EC2_USER_DATA)}
-                  className="w-full bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold py-2 rounded-lg text-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full bg-[#fbbf24] hover:bg-[#fbbf24] text-zinc-950 font-semibold py-2 rounded-lg text-xs flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   {copiedId === "ec2-userdata" ? (
                     <>
@@ -292,8 +292,8 @@ export default function CloudAndDesktopHub() {
           <div className="card-outer">
             <div className="card-inner p-6 space-y-5 h-full flex flex-col justify-between">
               <div className="space-y-3">
-                <div className="flex items-center justify-between text-xs text-zinc-400">
-                  <span className="font-semibold text-orange-400 flex items-center gap-1.5">
+                <div className="flex items-center justify-between text-xs text-[#8ea873]">
+                  <span className="font-semibold text-[#fbbf24] flex items-center gap-1.5">
                     <Cloud className="w-4 h-4" />
                     <span>3. Vercel Serverless</span>
                   </span>
@@ -302,31 +302,31 @@ export default function CloudAndDesktopHub() {
                 <h2 className="text-base font-semibold text-white">
                   Global Edge & Express Serverless Adapter
                 </h2>
-                <p className="text-xs text-zinc-300 leading-relaxed">
+                <p className="text-xs text-[#a8baa0] leading-relaxed">
                   Configured via <code>vercel.json</code> and{" "}
                   <code>api/index.ts</code> so all <code>/api/*</code> routes
                   (live NOAA SWPC, ISS NORAD 25544, Hermes AI, and GMAT/Orbiter)
                   run on Vercel Serverless Functions.
                 </p>
 
-                <div className="bg-zinc-900/70 p-3 rounded-lg border border-zinc-800/90 space-y-1.5 text-xs font-mono text-zinc-300">
+                <div className="bg-[#13190e] p-3 rounded-lg border border-[#2e3b23] space-y-1.5 text-xs font-mono text-[#a8baa0]">
                   <div>✓ vercel.json</div>
                   <div>✓ api/index.ts</div>
                   <div>✓ .github/workflows/build-desktop-and-cloud.yml</div>
                 </div>
               </div>
 
-              <div className="space-y-2 pt-4 border-t border-zinc-800/80">
-                <div className="bg-zinc-900 p-2.5 rounded-lg border border-zinc-800 font-mono text-xs text-zinc-200 flex items-center justify-between">
+              <div className="space-y-2 pt-4 border-t border-[#232d1a]">
+                <div className="bg-[#13190e] p-2.5 rounded-lg border border-[#2e3b23] font-mono text-xs text-[#c7dfb8] flex items-center justify-between">
                   <span>npx vercel --prod</span>
                   <button
                     onClick={() => copyText("vercel-cmd", "npx vercel --prod")}
-                    className="text-zinc-400 hover:text-white cursor-pointer"
+                    className="text-[#8ea873] hover:text-white cursor-pointer"
                   >
                     {copiedId === "vercel-cmd" ? (
                       <Check className="w-3.5 h-3.5 text-emerald-400" />
                     ) : (
-                      <Copy className="w-3.5 h-3.5 text-orange-500" />
+                      <Copy className="w-3.5 h-3.5 text-[#fbbf24]" />
                     )}
                   </button>
                 </div>
@@ -345,7 +345,7 @@ export default function CloudAndDesktopHub() {
                 </span>
                 <button
                   onClick={() => copyText("ec2-box", AWS_EC2_USER_DATA)}
-                  className="text-orange-400 hover:text-orange-300 font-medium flex items-center gap-1 cursor-pointer"
+                  className="text-[#fbbf24] hover:text-[#f59e0b] font-medium flex items-center gap-1 cursor-pointer"
                 >
                   {copiedId === "ec2-box" ? (
                     <Check className="w-3.5 h-3.5 text-emerald-400" />
@@ -355,7 +355,7 @@ export default function CloudAndDesktopHub() {
                   <span>Copy</span>
                 </button>
               </div>
-              <pre className="bg-zinc-950 text-zinc-300 p-4 rounded-lg border border-zinc-800/90 text-xs font-mono overflow-x-auto max-h-[260px]">
+              <pre className="bg-[#0b0e0a] text-[#a8baa0] p-4 rounded-lg border border-[#2e3b23] text-xs font-mono overflow-x-auto max-h-[260px]">
                 {AWS_EC2_USER_DATA}
               </pre>
             </div>
@@ -367,12 +367,12 @@ export default function CloudAndDesktopHub() {
                 <span className="font-semibold text-white">
                   src-tauri/src/main.rs
                 </span>
-                <span className="font-mono text-orange-400 tabular-nums">
+                <span className="font-mono text-[#fbbf24] tabular-nums">
                   {rustBenchRuns.toLocaleString()} steps · {rustBenchLatencyUs}{" "}
                   µs/step
                 </span>
               </div>
-              <pre className="bg-zinc-950 text-zinc-300 p-4 rounded-lg border border-zinc-800/90 text-xs font-mono overflow-x-auto max-h-[260px]">
+              <pre className="bg-[#0b0e0a] text-[#a8baa0] p-4 rounded-lg border border-[#2e3b23] text-xs font-mono overflow-x-auto max-h-[260px]">
                 {RUST_ENGINE_SNIPPET}
               </pre>
             </div>
@@ -382,3 +382,4 @@ export default function CloudAndDesktopHub() {
     </div>
   );
 }
+

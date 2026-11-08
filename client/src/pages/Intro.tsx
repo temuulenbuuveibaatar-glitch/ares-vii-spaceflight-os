@@ -655,6 +655,154 @@ export default function Intro() {
         </div>
       </section>
 
+      {/* SECTION 2.5: WHAT SPACE HEALTH & MEDICAL APPS LACK — AND HOW ARES-VII SOLVES THEM */}
+      <section className="py-20 px-4 border-b border-[#232d1a] bg-[#11160e]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
+              <ShieldAlert className="w-4 h-4 text-[#fbbf24]" />
+              <span>// ARCHITECTURAL GAP ANALYSIS</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+              What Space Health & Medical Apps Lack Today
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
+              Why current ISS and terrestrial health software cannot keep astronauts alive on long-duration lunar and Mars voyages, and how ARES-VII delivers true clinical autonomy.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold text-[#ef4444] bg-[#221010] border border-[#4a1c1c] px-2 py-0.5 rounded">
+                  CRITICAL DEFICIENCY 01
+                </span>
+                <span className="text-[10px] font-mono text-[#8ea873]">CLINICAL AUTONOMY</span>
+              </div>
+              <h3 className="text-base font-bold text-white">
+                Zero Real-Time Diagnostic Automation
+              </h3>
+              <div className="space-y-2 text-xs leading-relaxed text-[#a8baa0]">
+                <p>
+                  <strong className="text-[#e3ecd8]">The Status Quo:</strong> Current space medicine apps are merely "data conduits." NASA streams raw telemetry (ECG, ultrasound, blood panels) to flight surgeons back in Houston. When AI is discussed, fear of "hallucinations" keeps software frozen in passive reporting.
+                </p>
+                <p>
+                  <strong className="text-[#fbbf24]">The ARES-VII Breakthrough:</strong> Hermes runs deterministic, verified clinical state machines and 4 isolated offline subagents (Med-Sentinel, Rad-Guard, Psy-Oracle, Nav-Pilot). It evaluates Glasgow-derivative ECG arrhythmias in under 50ms without internet access.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold text-[#ef4444] bg-[#221010] border border-[#4a1c1c] px-2 py-0.5 rounded">
+                  CRITICAL DEFICIENCY 02
+                </span>
+                <span className="text-[10px] font-mono text-[#8ea873]">BEHAVIORAL PRIVACY</span>
+              </div>
+              <h3 className="text-base font-bold text-white">
+                Rigid Surveys & Zero True Privacy
+              </h3>
+              <div className="space-y-2 text-xs leading-relaxed text-[#a8baa0]">
+                <p>
+                  <strong className="text-[#e3ecd8]">The Status Quo:</strong> Astronauts complete basic digital questionnaires. Because every answer is monitored by mission control, crew members mask burnout, fear, or friction to avoid being medically grounded from future flights.
+                </p>
+                <p>
+                  <strong className="text-[#fbbf24]">The ARES-VII Breakthrough:</strong> 100% confidential, on-device AI cognitive-behavioral voice therapy. Audio sentiment and pitch cadence are evaluated locally without ever transmitting recordings to Earth. Mission control only sees an aggregated, anonymized readiness index.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold text-[#ef4444] bg-[#221010] border border-[#4a1c1c] px-2 py-0.5 rounded">
+                  CRITICAL DEFICIENCY 03
+                </span>
+                <span className="text-[10px] font-mono text-[#8ea873]">SYSTEM SILOS</span>
+              </div>
+              <h3 className="text-base font-bold text-white">
+                The "Hardware Silo" Nightmare
+              </h3>
+              <div className="space-y-2 text-xs leading-relaxed text-[#a8baa0]">
+                <p>
+                  <strong className="text-[#e3ecd8]">The Status Quo:</strong> Ultrasound devices, ergometers, blood analyzers, and radiation dosimeters operate on proprietary, isolated software packages that do not talk to each other. There is no unified Electronic Health Record (EHR).
+                </p>
+                <p>
+                  <strong className="text-[#fbbf24]">The ARES-VII Breakthrough:</strong> Bridges Xiaomi Watch H1 continuous vitals, GOES-18 / Bulgarian Lyulin dosimeters, and 28-nation countermeasures into a synchronized, delay-tolerant EHR timeline linked directly to flight propulsion.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold text-[#ef4444] bg-[#221010] border border-[#4a1c1c] px-2 py-0.5 rounded">
+                  CRITICAL DEFICIENCY 04
+                </span>
+                <span className="text-[10px] font-mono text-[#8ea873]">OFFLINE PHARMACOLOGY</span>
+              </div>
+              <h3 className="text-base font-bold text-white">
+                Missing Global Medical Databases
+              </h3>
+              <div className="space-y-2 text-xs leading-relaxed text-[#a8baa0]">
+                <p>
+                  <strong className="text-[#e3ecd8]">The Status Quo:</strong> Terrestrial medical apps query massive cloud databases. In deep space, with zero internet or a 22-minute lag, crew members lack comprehensive clinical step-by-step guidance for surgical or radiation crises.
+                </p>
+                <p>
+                  <strong className="text-[#fbbf24]">The ARES-VII Breakthrough:</strong> 42 verified spaceflight pharmaceuticals from NASA, Soviet/IBMP (Indralin B-190, Mexidol), China CMSA (Taikong Yangxin), Japan JAXA, India ISRO, and Mongolia Interkosmos cached 100% offline with zero-G dosage calculators.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold text-[#ef4444] bg-[#221010] border border-[#4a1c1c] px-2 py-0.5 rounded">
+                  CRITICAL DEFICIENCY 05
+                </span>
+                <span className="text-[10px] font-mono text-[#8ea873]">OUTDATED UX</span>
+              </div>
+              <h3 className="text-base font-bold text-white">
+                Windows 95 Era Interfaces & Fragility
+              </h3>
+              <div className="space-y-2 text-xs leading-relaxed text-[#a8baa0]">
+                <p>
+                  <strong className="text-[#e3ecd8]">The Status Quo:</strong> Many ISS operational displays look like 1995 military terminal text dumps. Every UI change takes years of certification, leaving astronauts with unintuitive, fatigue-inducing screens that assume low-Earth orbit connectivity.
+                </p>
+                <p>
+                  <strong className="text-[#fbbf24]">The ARES-VII Breakthrough:</strong> Emil Kowalski 20 UI Polish Rules, Tactical Olive & Amber high-contrast ergonomics, concentric card radii, active tactile feedback, voice guidance, and cross-platform desktop/mobile support.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 6: CTA to Experience */}
+            <div className="bg-gradient-to-br from-[#182213] to-[#0e140b] border border-[#3f5231] rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#fbbf24]">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>THE LIVING PROOF</span>
+                </div>
+                <h3 className="text-base font-bold text-white">
+                  Experience The Full Operational Cockpit
+                </h3>
+                <p className="text-xs text-[#c7dfb8] leading-relaxed">
+                  Switch from this presentation portal directly into the live ARES-VII aerospace cockpit OS. Test the Hermes voice agent, interact with 28 space agencies, run GMAT trajectory burns, and monitor real-time biometrics.
+                </p>
+              </div>
+
+              <Link href="/app">
+                <button className="w-full bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-mono font-black text-xs py-3 px-4 rounded-xl cursor-pointer shadow-lg shadow-amber-500/20 transition-all flex items-center justify-center gap-2 active:scale-95">
+                  <Rocket className="w-4 h-4 text-[#0b0e0a]" />
+                  <span>LAUNCH OPERATIONAL COCKPIT</span>
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 3: FLIGHT INCIDENTS */}
       <section id="real-flight-data" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
         <div className="max-w-6xl mx-auto">

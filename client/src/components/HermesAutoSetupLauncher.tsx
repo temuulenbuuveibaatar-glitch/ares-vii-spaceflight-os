@@ -79,17 +79,17 @@ export default function HermesAutoSetupLauncher({
 
   return (
     <div className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-xs flex items-center justify-center p-4">
-      <div className="surface-enter max-w-xl w-full bg-zinc-950 border border-zinc-800 rounded-xl shadow-2xl overflow-hidden text-zinc-100">
-        <div className="px-5 py-4 border-b border-zinc-800 flex items-center justify-between">
+      <div className="surface-enter max-w-xl w-full bg-[#0b0e0a] border border-[#2e3b23] rounded-xl shadow-2xl overflow-hidden text-zinc-100">
+        <div className="px-5 py-4 border-b border-[#2e3b23] flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <Cpu className="w-4 h-4 text-zinc-300" />
+            <Cpu className="w-4 h-4 text-[#a8baa0]" />
             <h2 className="text-sm font-semibold text-white">
               ARES-VII System Diagnostics & Tool Verification
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1 text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 cursor-pointer"
+            className="p-1 text-[#8ea873] hover:text-white rounded-md hover:bg-[#13190e] cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -102,9 +102,9 @@ export default function HermesAutoSetupLauncher({
             return (
               <div
                 key={step.id}
-                className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/90 flex items-start gap-3"
+                className="p-3 rounded-lg bg-[#13190e]/60 border border-[#2e3b23]/90 flex items-start gap-3"
               >
-                <div className="mt-0.5 text-zinc-300">
+                <div className="mt-0.5 text-[#a8baa0]">
                   {isDone ? (
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                   ) : (
@@ -116,11 +116,11 @@ export default function HermesAutoSetupLauncher({
                     <div className="text-xs font-medium text-white">
                       {step.title}
                     </div>
-                    <span className="text-[10px] font-mono text-zinc-400">
+                    <span className="text-[10px] font-mono text-[#8ea873]">
                       {isDone ? "VERIFIED" : "CHECKING"}
                     </span>
                   </div>
-                  <p className="text-[11px] text-zinc-400 mt-0.5 leading-relaxed">
+                  <p className="text-[11px] text-[#8ea873] mt-0.5 leading-relaxed">
                     {step.detail}
                   </p>
                 </div>
@@ -129,7 +129,7 @@ export default function HermesAutoSetupLauncher({
           })}
         </div>
 
-        <div className="px-5 py-3 bg-zinc-900/50 border-t border-zinc-800 flex items-center justify-end">
+        <div className="px-5 py-3 bg-[#13190e]/50 border-t border-[#2e3b23] flex items-center justify-end">
           <button
             onClick={onClose}
             className="bg-zinc-100 hover:bg-white text-zinc-950 font-medium px-4 py-1.5 rounded-md text-xs cursor-pointer"
@@ -141,3 +141,4 @@ export default function HermesAutoSetupLauncher({
     </div>
   );
 }
+

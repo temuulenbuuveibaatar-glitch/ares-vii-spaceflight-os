@@ -31,9 +31,9 @@ export default function EmergencyBanner() {
           </span>
         </div>
         <Link href="/hermes">
-          <button className="bg-orange-500 hover:bg-orange-400 text-zinc-950 font-semibold px-3 py-1 rounded-md cursor-pointer inline-flex items-center gap-1.5">
+          <button className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-bold px-3 py-1 rounded-lg cursor-pointer inline-flex items-center gap-1.5 active:scale-95 transition-all font-mono">
             <span>Manage Flight Control</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 text-[#0b0e0a]" />
           </button>
         </Link>
       </div>
