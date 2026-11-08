@@ -631,7 +631,7 @@ export default function Intro() {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION: WHO WE ARE (THE REAL BUILDERS: TEMUULEN, ALESSIA & AZJARGAL)     */}
+      {/* SECTION: WHO WE ARE (THREE HIGH SCHOOL STUDENTS & NASA SPACE APPS)        */}
       {/* ========================================================================= */}
       <section id="who-we-are" className="py-20 px-4 border-b border-[#232d1a] bg-[#11160e]">
         <div className="max-w-6xl mx-auto space-y-14">
@@ -639,13 +639,13 @@ export default function Intro() {
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold tracking-wider">
               <Users className="w-3.5 h-3.5 text-[#fbbf24]" />
-              <span>THE BUILDERS • THREE INDEPENDENT DEVELOPERS</span>
+              <span>NASA SPACE APPS CHALLENGE • THREE HIGH SCHOOL STUDENTS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               Who We Are
             </h2>
             <p className="text-base sm:text-lg text-[#c7dfb8] leading-relaxed">
-              We are three young developers and close friends from Germany, Italy, and Mongolia who decided to build solutions for real human survival, show other kids that anything is possible, and prove that humanity still has hope for a brighter future.
+              We are not engineers or college graduates. We are three high school students and NASA Space Apps Challenge participants from Germany, Italy, and Mongolia who decided to build solutions for real human survival, show other kids that anything is possible, and prove that humanity still has hope for a brighter future.
             </p>
           </div>
 
@@ -667,19 +667,19 @@ export default function Intro() {
                     Temuulen Buuveibaatar
                   </h3>
                   <div className="text-xs font-mono text-[#fbbf24] mt-0.5">
-                    Lead Systems Architect & Full-Stack Developer
+                    High School Student • Systems & Rust Core
                   </div>
                 </div>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  Based in Berlin, Germany. Started coding with the conviction to tackle hard problems, help people in need, and lessen the financial burden on his parents. Named the project <em>Sonnenblume</em> (German for Sunflower) from Berlin. Architected the complete mission OS, Rust native engine, Hermes consensus logic, and NASA GMAT trajectory bridge.
+                  Living in Berlin, Germany. Has not graduated high school yet, but started coding to tackle real-world crises, help anyone he can, and lessen the financial burden on his parents. Architected the complete mission OS core, Rust native astrodynamics engine, Hermes AI subagent consensus, and NASA GMAT trajectory bridge with his own hands.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
-                Role: Architecture • Rust Engine • NASA GMAT
+                Role: Core Systems • Rust Engine • NASA GMAT
               </div>
             </div>
 
-            {/* Member 2: Alessia */}
+            {/* Member 2: Alessia (Creator of Sonnenblume) */}
             <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="flex items-center justify-between pb-3 border-b border-[#1f2818]">
@@ -695,15 +695,15 @@ export default function Intro() {
                     Alessia
                   </h3>
                   <div className="text-xs font-mono text-[#fbbf24] mt-0.5">
-                    Human Systems & Clinical Interface Developer
+                    Creator of Sonnenblume • High School Student
                   </div>
                 </div>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  Collaborating from Italy. Passionate about human dignity, clinical accessibility, and stress-resilient user interfaces. Designed the crew physiological workflows, cognitive fatigue sentiment models, and medical ergonomics so that any astronaut under extreme hypoxia or stress can act with instant clarity.
+                  Living in Italy. Alessia created the entire concept and name <em>Sonnenblume</em> (German for Sunflower). Passionate about human dignity, clinical accessibility, and psychological resilience. Designed the crew physiological workflows, cognitive fatigue sentiment models, and medical ergonomics so that any astronaut in crisis can act with instant clarity.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
-                Role: Human Systems • Clinical UX • Psychology
+                Role: Created Sonnenblume • Clinical UX • Psychology
               </div>
             </div>
 
@@ -723,15 +723,15 @@ export default function Intro() {
                     Azjargal
                   </h3>
                   <div className="text-xs font-mono text-[#fbbf24] mt-0.5">
-                    Data Engineering & Hardware Telemetry Specialist
+                    High School Student • Hardware & Telemetry
                   </div>
                 </div>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  Building from Mongolia. Focused on hardware edge interfacing, high-frequency biosensor telemetry, and network fault tolerance. Engineered the Xiaomi Watch H1 micro-cuff blood pressure and ECG data bridge, ensuring zero packet loss across delay-tolerant space and terrestrial networks.
+                  Building from Mongolia. Also a high school student who has not graduated yet, driven by hardware interfacing, sensor streams, and network fault tolerance. Connected the Xiaomi Watch H1 micro-cuff blood pressure, ECG waveforms, and telemetry ingestion to ensure zero packet loss across delay-tolerant networks.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
-                Role: Telemetry Pipelines • Wearables • Ingestion
+                Role: Hardware Interfacing • Xiaomi Watch H1 • Sensors
               </div>
             </div>
           </div>
@@ -740,7 +740,7 @@ export default function Intro() {
           <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-8 sm:p-10 space-y-6">
             <div className="flex items-center gap-2 font-mono text-xs text-[#fbbf24]">
               <Sparkles className="w-4 h-4 text-[#fbbf24]" />
-              <span className="font-bold uppercase tracking-wider">Our Manifesto: Why We Build</span>
+              <span className="font-bold uppercase tracking-wider">Our Manifesto: Why Three High Schoolers Built This</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -750,17 +750,17 @@ export default function Intro() {
                   Lessening the Burden on Our Parents
                 </h4>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  We started this because we wanted to help anyone we can, and work tirelessly so we become a source of pride rather than a financial burden to our families. We code through the night with our own resources and grit.
+                  We started this because we wanted to help anyone we can, and work tirelessly so we become a source of pride rather than a financial burden to our families. We code late into the night with our own computers and relentless grit.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h4 className="text-lg font-bold text-white flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#84a96c]" />
-                  Showing Kids What Is Possible
+                  Showing Other Kids It Is Possible
                 </h4>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  We entered global hackathons to show other young people and kids everywhere that you do not need permission from giant corporations or wealthy institutions to solve real problems. If three friends across Berlin, Italy, and Mongolia can build an autonomous health OS, you can build your dreams too.
+                  We entered the NASA Space Apps Challenge to show teenagers, students, and young kids everywhere that you do not need permission from giant corporations or wealthy universities to solve real problems. We haven't graduated high school yet, but we built this. You can build your dreams too.
                 </p>
               </div>
 
@@ -770,7 +770,7 @@ export default function Intro() {
                   Humanity Still Has Hope
                 </h4>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  Instead of corrupt governments, ongoing wars, and preventable diseases, we believe humanity has a better future. When young minds unite across different countries, share knowledge openly, and build tools to save lives, hope becomes real.
+                  Instead of corrupt governments, ongoing wars, and preventable diseases, we believe humanity has a better future. When young minds unite across different countries (Germany, Italy, Mongolia), share knowledge openly, and build tools to save lives, hope becomes real.
                 </p>
               </div>
             </div>
@@ -804,9 +804,9 @@ export default function Intro() {
 
               <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-6 space-y-2">
                 <div className="text-xs font-mono text-[#fbbf24]">SUNFLOWER PRINCIPLE</div>
-                <h4 className="text-base font-bold text-white">Autonomous Offline Survival</h4>
+                <h4 className="text-base font-bold text-white">Created by Alessia (Italy)</h4>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  Named <em>Sonnenblume</em> from Berlin. Just as a sunflower tracks the sun while shielding its seeds, our software tracks solar cosmic radiation storms, steers active storm shielding, and provides instant medical decisions when Earth is 22 light-minutes away.
+                  Created and named <em>Sonnenblume</em> (German for Sunflower) by our Italian teammate Alessia. Just as a sunflower tracks the sun while shielding its seeds, our software tracks solar cosmic radiation storms, steers active storm shielding, and provides instant medical decisions when Earth is 22 light-minutes away.
                 </p>
               </div>
             </div>
