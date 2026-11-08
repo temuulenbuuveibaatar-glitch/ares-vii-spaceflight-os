@@ -316,10 +316,10 @@ export default function Intro() {
 
           {/* Action Row */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5 font-mono text-xs">
-            <Link href="/cockpit">
-              <button className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-black text-sm px-7 py-3.5 rounded-xl inline-flex items-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer transition-all">
-                <Rocket className="w-4 h-4" />
-                <span>LAUNCH 24/7 OPERATIONAL COCKPIT</span>
+            <Link href="/app">
+              <button className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-black text-sm px-7 py-3.5 rounded-xl inline-flex items-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer active:scale-[0.97] transition-all">
+                <Rocket className="w-4 h-4 text-[#0b0e0a]" />
+                <span>LAUNCH 24/7 OPERATIONAL OS</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
             </Link>
@@ -415,7 +415,7 @@ export default function Intro() {
       </section>
 
       {/* SECTION 1: WHO IS IT FOR? */}
-      <section id="who-is-it-for" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
+      <section id="who-its-for" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
@@ -514,7 +514,7 @@ export default function Intro() {
 
       {/* SECTION 2: WHY DOES IT MATTER? (THE 4 HAZARDS) */}
       <section id="why-it-matters" className="py-20 px-4 border-b border-[#232d1a] bg-[#0b0e0a]">
-        <div className="max-w-6xl mx-auto">
+        <div id="four-hazards" className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
               <AlertTriangle className="w-4 h-4 text-[#fbbf24]" />
@@ -656,7 +656,7 @@ export default function Intro() {
       </section>
 
       {/* SECTION 3: FLIGHT INCIDENTS */}
-      <section id="scenarios" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
+      <section id="real-flight-data" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
@@ -750,7 +750,7 @@ export default function Intro() {
       </section>
 
       {/* SECTION 4: GOOGLE SEO & TECHNICAL PERFORMANCE AUDIT */}
-      <section id="seo-audit" className="py-20 px-4 border-b border-[#232d1a] bg-[#0b0e0a]">
+      <section id="seo-verification" className="py-20 px-4 border-b border-[#232d1a] bg-[#0b0e0a]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
@@ -880,10 +880,10 @@ export default function Intro() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/cockpit">
-              <button className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-mono font-black text-base px-9 py-4 rounded-xl inline-flex items-center gap-2.5 shadow-2xl shadow-amber-500/25 cursor-pointer transition-all">
-                <Rocket className="w-5 h-5" />
-                <span>LAUNCH 24/7 OPERATIONAL COCKPIT</span>
+            <Link href="/app">
+              <button className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-mono font-black text-base px-9 py-4 rounded-xl inline-flex items-center gap-2.5 shadow-2xl shadow-amber-500/25 cursor-pointer active:scale-[0.97] transition-all">
+                <Rocket className="w-5 h-5 text-[#0b0e0a]" />
+                <span>LAUNCH OPERATIONAL OS</span>
                 <ArrowRight className="w-5 h-5 ml-1" />
               </button>
             </Link>

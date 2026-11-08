@@ -4,7 +4,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { queryClient } from "./lib/queryClient";
-import Layout from "./components/Layout";
+import MarketingLayout from "./components/MarketingLayout";
+import CockpitLayout from "./components/CockpitLayout";
 import NotFound from "@/pages/not-found";
 import Home from "./pages/Home";
 import HermesCommand from "./pages/HermesCommand";
@@ -18,29 +19,99 @@ import Intro from "./pages/Intro";
 
 function Router() {
   return (
-    <Layout>
-      <Switch>
-        {/* PORTAL 1: Public Mission Specification, Why It Matters & SEO Information */}
-        <Route path="/" component={Intro} />
-        <Route path="/intro" component={Intro} />
-        <Route path="/info" component={Intro} />
+    <Switch>
+      {/* SITE 1: STANDALONE WINNER-GRADE MARKETING, DEMO & RESEARCH SHOWCASE */}
+      <Route path="/">
+        <MarketingLayout>
+          <Intro />
+        </MarketingLayout>
+      </Route>
+      <Route path="/intro">
+        <MarketingLayout>
+          <Intro />
+        </MarketingLayout>
+      </Route>
+      <Route path="/info">
+        <MarketingLayout>
+          <Intro />
+        </MarketingLayout>
+      </Route>
+      <Route path="/demo">
+        <MarketingLayout>
+          <Intro />
+        </MarketingLayout>
+      </Route>
+      <Route path="/marketing">
+        <MarketingLayout>
+          <Intro />
+        </MarketingLayout>
+      </Route>
 
-        {/* PORTAL 2: 24/7 Operational Spaceflight Health OS & Flight Cockpit */}
-        <Route path="/cockpit" component={Home} />
-        <Route path="/app" component={Home} />
-        <Route path="/flight-os" component={Home} />
-        <Route path="/monitor" component={Home} />
+      {/* SITE 2: 24/7 OPERATIONAL SPACEFLIGHT HEALTH OS & FLIGHT COCKPIT */}
+      <Route path="/app">
+        <CockpitLayout>
+          <Home />
+        </CockpitLayout>
+      </Route>
+      <Route path="/cockpit">
+        <CockpitLayout>
+          <Home />
+        </CockpitLayout>
+      </Route>
+      <Route path="/flight-os">
+        <CockpitLayout>
+          <Home />
+        </CockpitLayout>
+      </Route>
+      <Route path="/monitor">
+        <CockpitLayout>
+          <Home />
+        </CockpitLayout>
+      </Route>
 
-        <Route path="/hermes" component={HermesCommand} />
-        <Route path="/world-agencies" component={WorldSpaceAgenciesHub} />
-        <Route path="/gmat-orbiter" component={GmatOrbiterBridge} />
-        <Route path="/xiaomi-watch" component={XiaomiWatchHub} />
-        <Route path="/space-encyclopedia" component={SpaceRadiationAndMeds} />
-        <Route path="/cloud-desktop" component={CloudAndDesktopHub} />
-        <Route path="/emergency" component={EmergencyProtocols} />
-        <Route component={NotFound} />
-      </Switch>
-    </Layout>
+      {/* OPERATIONAL FLIGHT STATIONS */}
+      <Route path="/hermes">
+        <CockpitLayout>
+          <HermesCommand />
+        </CockpitLayout>
+      </Route>
+      <Route path="/world-agencies">
+        <CockpitLayout>
+          <WorldSpaceAgenciesHub />
+        </CockpitLayout>
+      </Route>
+      <Route path="/gmat-orbiter">
+        <CockpitLayout>
+          <GmatOrbiterBridge />
+        </CockpitLayout>
+      </Route>
+      <Route path="/xiaomi-watch">
+        <CockpitLayout>
+          <XiaomiWatchHub />
+        </CockpitLayout>
+      </Route>
+      <Route path="/space-encyclopedia">
+        <CockpitLayout>
+          <SpaceRadiationAndMeds />
+        </CockpitLayout>
+      </Route>
+      <Route path="/cloud-desktop">
+        <CockpitLayout>
+          <CloudAndDesktopHub />
+        </CockpitLayout>
+      </Route>
+      <Route path="/emergency">
+        <CockpitLayout>
+          <EmergencyProtocols />
+        </CockpitLayout>
+      </Route>
+
+      <Route>
+        <CockpitLayout>
+          <NotFound />
+        </CockpitLayout>
+      </Route>
+    </Switch>
   );
 }
 
