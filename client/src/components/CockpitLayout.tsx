@@ -101,11 +101,11 @@ export default function CockpitLayout({ children }: CockpitLayoutProps) {
           <div className="flex items-center gap-3">
             <Link href="/app">
               <div className="flex items-center gap-2.5 cursor-pointer">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#fbbf24] animate-pulse" />
+                <span className="text-lg">🌻</span>
                 <div className="font-mono font-bold text-sm tracking-tight text-white flex items-center gap-2">
-                  <span>ARES-VII</span>
-                  <span className="text-[10px] bg-[#182213] text-[#a3c988] border border-[#3f5231] px-1.5 py-0.2 rounded">
-                    FLIGHT OS
+                  <span>Sonnenblume</span>
+                  <span className="text-[10px] bg-[#182213] text-[#fbbf24] border border-[#3f5231] px-1.5 py-0.2 rounded font-mono font-bold">
+                    TOOL
                   </span>
                 </div>
               </div>
@@ -150,14 +150,15 @@ export default function CockpitLayout({ children }: CockpitLayoutProps) {
               </button>
             </div>
 
-            {/* EXIT TO MARKETING DEMO */}
-            <Link href="/">
-              <button className="bg-[#182213] hover:bg-[#24331c] text-[#a3c988] hover:text-white border border-[#3f5231] px-3 py-1.5 rounded-xl font-bold inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97] transition-colors">
-                <ArrowLeft className="w-3.5 h-3.5 text-[#fbbf24]" />
-                <span className="hidden sm:inline">Marketing Site</span>
-                <span className="sm:hidden">Exit</span>
-              </button>
-            </Link>
+            {/* EXIT TO MARKETING SITE */}
+            <a
+              href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/" : "https://sonnenblume-marketing.vercel.app"}
+              className="bg-[#182213] hover:bg-[#24331c] text-[#a3c988] hover:text-white border border-[#3f5231] px-3 py-1.5 rounded-xl font-bold inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97] transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5 text-[#fbbf24]" />
+              <span className="hidden sm:inline">Marketing Site ↗</span>
+              <span className="sm:hidden">Exit</span>
+            </a>
 
             <button
               onClick={() => setMobileNavOpen(!mobileNavOpen)}

@@ -16,16 +16,35 @@ import GmatOrbiterBridge from "./pages/GmatOrbiterBridge";
 import CloudAndDesktopHub from "./pages/CloudAndDesktopHub";
 import EmergencyProtocols from "./pages/EmergencyProtocols";
 import Intro from "./pages/Intro";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+
+function RootDispatcher() {
+  const isToolHost =
+    typeof window !== "undefined" &&
+    window.location.hostname.toLowerCase().includes("tool");
+
+  if (isToolHost) {
+    return (
+      <CockpitLayout>
+        <Home />
+      </CockpitLayout>
+    );
+  }
+
+  return (
+    <MarketingLayout>
+      <Intro />
+    </MarketingLayout>
+  );
+}
 
 function Router() {
   return (
     <Switch>
-      {/* SITE 1: STANDALONE WINNER-GRADE MARKETING, DEMO & RESEARCH SHOWCASE */}
-      <Route path="/">
-        <MarketingLayout>
-          <Intro />
-        </MarketingLayout>
-      </Route>
+      {/* ROOT ROUTE: DYNAMIC DISPATCH BY HOSTNAME */}
+      <Route path="/" component={RootDispatcher} />
+
+      {/* MARKETING PORTAL (sonnenblume-marketing.vercel.app) */}
       <Route path="/intro">
         <MarketingLayout>
           <Intro />
@@ -44,6 +63,11 @@ function Router() {
       <Route path="/marketing">
         <MarketingLayout>
           <Intro />
+        </MarketingLayout>
+      </Route>
+      <Route path="/privacy">
+        <MarketingLayout>
+          <PrivacyPolicy />
         </MarketingLayout>
       </Route>
 

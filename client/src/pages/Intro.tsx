@@ -233,111 +233,55 @@ export default function Intro() {
 
   return (
     <div className="min-h-screen bg-[#0b0e0a] text-[#e3ecd8] selection:bg-[#4d633b] selection:text-[#fbbf24]">
-      {/* TACTICAL TOP HUD STRIP */}
-      <div className="sticky top-0 z-50 bg-[#11160e]/95 backdrop-blur-md border-b border-[#2d3b22] px-4 py-2.5">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          {/* Dual Website Switcher */}
-          <div className="flex items-center gap-1.5 p-1 bg-[#0b0e0a] border border-[#2d3b22] rounded-xl">
-            <span className="px-3 py-1 rounded-lg bg-[#27351c] text-[#a3c988] border border-[#485f34] font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm">
-              <Crosshair className="w-3.5 h-3.5 text-[#fbbf24]" />
-              <span>PORTAL 1: MISSION & SCIENCE SPECIFICATION</span>
-            </span>
-            <Link href="/cockpit">
-              <button className="px-3 py-1 rounded-lg text-[#8ea873] hover:text-[#fbbf24] font-mono text-xs font-semibold flex items-center gap-1.5 cursor-pointer transition-colors">
-                <Rocket className="w-3.5 h-3.5 text-[#fbbf24]" />
-                <span>PORTAL 2: 24/7 OPERATIONAL COCKPIT</span>
-              </button>
-            </Link>
-          </div>
-
-          {/* Quick HUD Jump Links */}
-          <div className="hidden lg:flex items-center gap-6 font-mono text-xs text-[#8ea873]">
-            <a href="#who-is-it-for" className="hover:text-[#fbbf24] transition-colors">
-              // WHO IS IT FOR
-            </a>
-            <a href="#why-it-matters" className="hover:text-[#fbbf24] transition-colors">
-              // 4 HAZARDS
-            </a>
-            <a href="#scenarios" className="hover:text-[#fbbf24] transition-colors">
-              // FLIGHT INCIDENTS
-            </a>
-            <a href="#seo-audit" className="hover:text-[#fbbf24] transition-colors">
-              // SEO & AUDIT
-            </a>
-            <a href="#research" className="hover:text-[#fbbf24] transition-colors">
-              // RESEARCH DOCS
-            </a>
-          </div>
-
-          {/* Primary Action Button */}
-          <div className="flex items-center gap-2.5">
-            <a
-              href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-              download="ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-              className="text-xs font-mono bg-[#182012] hover:bg-[#222d19] text-[#c2dcb0] px-3 py-1.5 rounded-lg border border-[#354528] inline-flex items-center gap-1.5 transition-colors"
-            >
-              <FileText className="w-3.5 h-3.5 text-[#fbbf24]" />
-              <span>Guide (.docx)</span>
-            </a>
-
-            <Link href="/cockpit">
-              <button className="text-xs font-mono font-bold bg-[#d97706] hover:bg-[#b45309] text-[#0b0e0a] px-4 py-1.5 rounded-lg cursor-pointer inline-flex items-center gap-1.5 shadow-md shadow-amber-500/20 transition-all">
-                <Rocket className="w-3.5 h-3.5" />
-                <span>ENTER COCKPIT</span>
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* HERO SECTION: TACTICAL OLIVE & SOLAR AMBER */}
+      {/* HERO SECTION: TACTICAL OLIVE & SUNFLOWER GOLD */}
       <section className="relative pt-16 pb-20 px-4 border-b border-[#232d1a] bg-gradient-to-b from-[#11160e] via-[#0e120b] to-[#0b0e0a]">
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          {/* Tactical Stencil Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#182213] border border-[#3f5231] font-mono text-xs text-[#a3c988] mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#fbbf24]" />
-            <span className="font-bold text-[#fbbf24]">NASA SPACE APPS CHALLENGE 2026</span>
+          {/* Tactical Sunflower Stencil Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#182213] border border-[#3f5231] font-mono text-sm text-[#a3c988] mb-6 shadow-sm">
+            <span className="text-base">🌻</span>
+            <span className="font-bold text-[#fbbf24]">SONNENBLUME (SUNFLOWER)</span>
             <span className="text-[#4d633b]">//</span>
-            <span>SPEC: BIO-ASTRONAUTICS & HABITATION</span>
+            <span className="text-[#c7dfb8]">DEEP-SPACE HEALTH & AUTONOMY OS</span>
           </div>
 
-          {/* Bold Military/Aerospace Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-sans tracking-tight text-white leading-tight max-w-5xl mx-auto">
-            Autonomous Spaceflight Health &{" "}
+          {/* Bold Headline */}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-sans tracking-tight text-white leading-tight max-w-5xl mx-auto">
+            Autonomous Space Health &{" "}
             <span className="text-[#fbbf24] underline decoration-[#4d633b] underline-offset-8">
-              Mission Preservation OS
+              Helio-Protection OS
             </span>
           </h1>
 
-          {/* Subhead */}
-          <p className="mt-6 text-sm sm:text-base text-[#a8baa0] max-w-3xl mx-auto leading-relaxed">
-            Engineered for deep-space missions beyond Low-Earth Orbit. Uniting continuous 24/7 Xiaomi Watch H1 biometric telemetry, 42 Soviet, Chinese, and NASA spaceflight countermeasures, and offline Hermes AI with NASA GMAT R2026a astrodynamics to guarantee crew survival across 22-minute communication blackouts.
+          {/* Subhead with Larger, Highly Readable Font */}
+          <p className="mt-6 text-lg sm:text-xl text-[#c7dfb8] max-w-3xl mx-auto leading-relaxed font-normal">
+            Like a sunflower tracking the sun, <strong>Sonnenblume</strong> shields astronauts from deep-space cosmic radiation storms and provides 24/7 clinical medical autonomy when Earth is 22 light-minutes away.
           </p>
 
           {/* Action Row */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5 font-mono text-xs">
-            <Link href="/app">
-              <button className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-black text-sm px-7 py-3.5 rounded-xl inline-flex items-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer active:scale-[0.97] transition-all">
-                <Rocket className="w-4 h-4 text-[#0b0e0a]" />
-                <span>LAUNCH 24/7 OPERATIONAL OS</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </button>
-            </Link>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-base font-bold">
+            <a
+              href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+              className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-black text-base px-8 py-4 rounded-xl inline-flex items-center gap-2.5 shadow-xl shadow-amber-500/20 cursor-pointer active:scale-95 transition-all"
+            >
+              <Rocket className="w-5 h-5 text-[#0b0e0a]" />
+              <span>LAUNCH SONNENBLUME TOOL ↗</span>
+              <ArrowRight className="w-5 h-5 ml-1" />
+            </a>
 
             <a
               href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-              download="ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-              className="bg-[#182213] hover:bg-[#24331c] text-[#c7dfb8] font-bold text-sm px-6 py-3.5 rounded-xl border border-[#3f5231] inline-flex items-center gap-2 cursor-pointer transition-colors"
+              download="Sonnenblume_Space_Health_Research_Guide.docx"
+              className="bg-[#182213] hover:bg-[#24331c] text-[#c7dfb8] text-base px-7 py-4 rounded-xl border border-[#3f5231] inline-flex items-center gap-2 cursor-pointer transition-colors"
             >
-              <FileText className="w-4 h-4 text-[#fbbf24]" />
-              <span>DOWNLOAD RESEARCH HANDBOOK (.DOCX)</span>
+              <FileText className="w-5 h-5 text-[#fbbf24]" />
+              <span>DOWNLOAD RESEARCH GUIDE (.DOCX)</span>
             </a>
 
-            <Link href="/world-agencies">
-              <button className="bg-[#182213] hover:bg-[#24331c] text-[#8ea873] font-bold text-sm px-5 py-3.5 rounded-xl border border-[#3f5231] inline-flex items-center gap-1.5 cursor-pointer transition-colors">
-                <Globe className="w-4 h-4 text-[#fbbf24]" />
-                <span>28 SPACE AGENCIES MATRIX</span>
-              </button>
+            <Link href="/privacy">
+              <span className="bg-[#13190e] hover:bg-[#1f2917] text-[#8ea873] hover:text-[#fbbf24] text-base px-6 py-4 rounded-xl border border-[#2e3b23] inline-flex items-center gap-2 cursor-pointer transition-colors">
+                <Lock className="w-4 h-4 text-[#fbbf24]" />
+                <span>PRIVACY CHARTER</span>
+              </span>
             </Link>
           </div>
 
@@ -414,16 +358,59 @@ export default function Intro() {
         </div>
       </section>
 
+      {/* SECTION: WHO WE ARE */}
+      <section id="who-we-are" className="py-20 px-4 border-b border-[#232d1a] bg-[#11160e]">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold">
+              <span>🌻 OUR MISSION & PHILOSOPHY</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+              Who We Are
+            </h2>
+            <p className="text-lg text-[#c7dfb8] leading-relaxed">
+              We are bio-astronautics engineers, software architects, and clinicians building for humanity’s next frontier: deep space beyond Earth's protective magnetosphere.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-3">
+              <div className="text-2xl mb-1">🌻</div>
+              <h3 className="text-xl font-bold text-white">Why "Sonnenblume"?</h3>
+              <p className="text-base text-[#a8baa0] leading-relaxed">
+                In German, <em>Sonnenblume</em> means sunflower. Just as a sunflower turns toward the sun to harness energy while shielding its delicate seeds, our software tracks solar cosmic radiation storms, steers storm-shelter shielding, and protects the human genome.
+              </p>
+            </div>
+
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-3">
+              <div className="text-2xl mb-1">🛰️</div>
+              <h3 className="text-xl font-bold text-white">The Autonomy Imperative</h3>
+              <p className="text-base text-[#a8baa0] leading-relaxed">
+                When an astronaut suffers cardiac arrest or cranial hypertension on the way to Mars, waiting 22 minutes for an Earth doctor to respond is a death sentence. We build offline, deterministic clinical intelligence that guides crew members in seconds.
+              </p>
+            </div>
+
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-3">
+              <div className="text-2xl mb-1">🛡️</div>
+              <h3 className="text-xl font-bold text-white">Crew Dignity & Privacy</h3>
+              <p className="text-base text-[#a8baa0] leading-relaxed">
+                Astronauts deserve private mental health care. Sonnenblume runs 100% on-device voice therapy without broadcasting intimate reflections back to Houston, preserving mental wellness without fear of medical grounding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 1: WHO IS IT FOR? */}
       <section id="who-its-for" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
               <Crosshair className="w-4 h-4 text-[#fbbf24]" />
-              <span>// OPERATIONAL STAKEHOLDERS & SPECIFICATION</span>
+              <span>// OPERATIONAL STAKEHOLDERS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Who Is ARES-VII Built For?
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+              Who Is Sonnenblume Built For?
             </h2>
             <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
               Deep space demands software tailored to the exact realities of astronauts, ground flight surgeons, spacecraft guidance computers, and aerospace researchers.
@@ -962,83 +949,236 @@ export default function Intro() {
         </div>
       </section>
 
+      {/* SECTION: HOW TO DOWNLOAD AND USE */}
+      <section id="how-to-use" className="py-20 px-4 border-b border-[#232d1a] bg-[#11160e]">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold">
+              <span>🚀 DEPLOYMENT & USAGE GUIDE</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+              How to Download & Use Sonnenblume
+            </h2>
+            <p className="text-lg text-[#c7dfb8] leading-relaxed">
+              Run Sonnenblume anywhere: directly in your browser, or installed as a high-performance native desktop app for Windows, macOS, and Linux.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Step 1 */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <span className="text-xs font-mono font-bold text-[#fbbf24] bg-[#182213] px-3 py-1 rounded-lg inline-block">
+                  OPTION 1 · ZERO INSTALL
+                </span>
+                <h3 className="text-xl font-bold text-white">Instant Cloud & Web App</h3>
+                <p className="text-base text-[#a8baa0] leading-relaxed">
+                  Open the full spaceflight cockpit instantly on any browser, tablet, or phone without installing anything.
+                </p>
+              </div>
+              <a
+                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+                className="w-full bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-bold text-center py-3.5 px-4 rounded-xl shadow-md transition-all block"
+              >
+                Open Web Tool Now ↗
+              </a>
+            </div>
+
+            {/* Step 2 */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <span className="text-xs font-mono font-bold text-[#84a96c] bg-[#182213] px-3 py-1 rounded-lg inline-block">
+                  OPTION 2 · NATIVE DESKTOP
+                </span>
+                <h3 className="text-xl font-bold text-white">1-Click Auto-Setup Launchers</h3>
+                <p className="text-base text-[#a8baa0] leading-relaxed">
+                  Clone the repository or download the package. Run the auto-launcher script for your operating system:
+                </p>
+                <div className="space-y-1.5 font-mono text-xs text-[#c7dfb8] bg-[#13190e] p-3 rounded-xl border border-[#232d1a]">
+                  <div>🪟 Windows: <code>.\Launch-ARES-VII-Desktop.bat</code></div>
+                  <div>🍎 macOS: <code>./Launch-ARES-VII-macOS.command</code></div>
+                  <div>🐧 Linux: <code>./Launch-ARES-VII-Linux.sh</code></div>
+                </div>
+              </div>
+              <a
+                href="https://github.com/temuulenbuuveibaatar-glitch/ares-vii-spaceflight-os"
+                target="_blank"
+                rel="noreferrer"
+                className="w-full bg-[#182213] hover:bg-[#28381c] text-[#fbbf24] border border-[#3f5231] font-bold text-center py-3.5 px-4 rounded-xl transition-all block"
+              >
+                GitHub Repository & Release ↗
+              </a>
+            </div>
+
+            {/* Step 3 */}
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <span className="text-xs font-mono font-bold text-[#fbbf24] bg-[#182213] px-3 py-1 rounded-lg inline-block">
+                  OPTION 3 · WEARABLE LINK
+                </span>
+                <h3 className="text-xl font-bold text-white">Connect Wearable Telemetry</h3>
+                <p className="text-base text-[#a8baa0] leading-relaxed">
+                  Pair your Xiaomi Watch H1 via Bluetooth Low Energy (BLE) or toggle our realistic NASA-tested biometric simulator inside the tool.
+                </p>
+              </div>
+              <a
+                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/xiaomi-watch" : "https://sonnenblume-tool.vercel.app/xiaomi-watch"}
+                className="w-full bg-[#182213] hover:bg-[#28381c] text-white border border-[#3f5231] font-bold text-center py-3.5 px-4 rounded-xl transition-all block"
+              >
+                Wearable Telemetry Hub ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: INTERACTIVE LIVE DEMO PREVIEW */}
+      <section id="demo" className="py-20 px-4 border-b border-[#232d1a] bg-[#0b0e0a]">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold">
+              <span>⚡ INTERACTIVE PREVIEW</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+              Test the Live Bio-Flight Engine
+            </h2>
+            <p className="text-lg text-[#c7dfb8] leading-relaxed">
+              Experience how Sonnenblume monitors vital signs, calculates radiation thresholds, and prepares instant medical countermeasures in real time.
+            </p>
+          </div>
+
+          {/* Interactive Demo Workbench */}
+          <div className="bg-[#13190e] border border-[#354528] rounded-3xl p-8 sm:p-12 space-y-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#232d1a]">
+              <div>
+                <span className="text-xs font-mono font-bold text-[#fbbf24] block mb-1">
+                  DEMO TELEMETRY ENGINE
+                </span>
+                <h3 className="text-2xl font-bold text-white">
+                  Real-Time Biometric & Radiation Simulator
+                </h3>
+              </div>
+              <a
+                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+                className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-black text-sm px-6 py-3 rounded-xl shadow-md transition-all self-start sm:self-auto"
+              >
+                Launch Full Cockpit ↗
+              </a>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-2xl p-6 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-[#8ea873]">Heart Rate (ECG)</span>
+                  <span className="text-xl font-bold text-[#fbbf24] font-mono">{liveHeartRate} BPM</span>
+                </div>
+                <div className="text-xs text-[#a8baa0]">
+                  Monitored via Lead-I ECG on Xiaomi Watch H1. Arrhythmia detection runs locally.
+                </div>
+              </div>
+
+              <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-2xl p-6 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-[#8ea873]">Blood Pressure</span>
+                  <span className="text-xl font-bold text-[#84a96c] font-mono">{liveBpSys}/{liveBpDia} mmHg</span>
+                </div>
+                <div className="text-xs text-[#a8baa0]">
+                  Micro-cuff physical pressure measurement detects cranial blood shift early.
+                </div>
+              </div>
+
+              <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-2xl p-6 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-[#8ea873]">Deep-Space Radiation</span>
+                  <span className="text-xl font-bold text-[#fbbf24] font-mono">{liveGcrFlux} µSv/h</span>
+                </div>
+                <div className="text-xs text-[#a8baa0]">
+                  GOES-18 & Bulgarian Lyulin dosimeter link flags solar proton storms immediately.
+                </div>
+              </div>
+            </div>
+
+            {/* Banner Inside Demo */}
+            <div className="p-6 rounded-2xl bg-[#182213] border border-[#3f5231] flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-1">
+                <h4 className="text-lg font-bold text-white">
+                  Want to speak directly to Hermes Voice AI?
+                </h4>
+                <p className="text-sm text-[#c7dfb8]">
+                  Open the operational tool to talk with Hermes, test human manual overrides, and explore 42 spaceflight medications.
+                </p>
+              </div>
+
+              <a
+                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+                className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-bold text-base px-8 py-3.5 rounded-xl cursor-pointer shadow-lg shadow-amber-500/20 active:scale-95 transition-all text-center shrink-0"
+              >
+                Launch Sonnenblume Tool ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 5: RESEARCH HANDBOOK */}
       <section id="research" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
-        <div className="max-w-5xl mx-auto bg-[#13190e] border border-[#354528] rounded-2xl p-8 sm:p-12 text-center">
+        <div className="max-w-5xl mx-auto bg-[#13190e] border border-[#354528] rounded-3xl p-8 sm:p-12 text-center">
           <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-3">
             <FileText className="w-4 h-4" />
             <span>// MASTER TECHNICAL HANDBOOK</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight max-w-2xl mx-auto">
-            ARES-VII Complete Space Health & Mission Research Guide
+            Sonnenblume Space Health & Mission Research Guide
           </h2>
 
-          <p className="mt-4 text-sm sm:text-base text-[#a8baa0] max-w-2xl mx-auto leading-relaxed">
-            A 53.5 KB comprehensive Microsoft Word research document written so that high school students, non-scientists, and aerospace engineers alike can understand every formula, flight incident, and clinical intervention.
+          <p className="mt-4 text-base text-[#c7dfb8] max-w-2xl mx-auto leading-relaxed">
+            A comprehensive Microsoft Word research document written so that high school students, non-scientists, and aerospace engineers alike can understand every formula, flight incident, and clinical intervention.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-              download="ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-              className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-mono font-black text-sm px-7 py-3.5 rounded-xl inline-flex items-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer transition-all"
+              download="Sonnenblume_Space_Health_Research_Guide.docx"
+              className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-black text-base px-8 py-4 rounded-xl inline-flex items-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer transition-all"
             >
-              <FileText className="w-4 h-4" />
+              <FileText className="w-5 h-5" />
               <span>DOWNLOAD FIELD MANUAL (.DOCX)</span>
             </a>
 
-            <Link href="/world-agencies">
-              <button className="bg-[#182213] hover:bg-[#24331c] text-[#c7dfb8] font-mono text-sm font-bold px-6 py-3.5 rounded-xl border border-[#3f5231] inline-flex items-center gap-2 cursor-pointer transition-colors">
-                <Globe className="w-4 h-4 text-[#fbbf24]" />
-                <span>28 SPACE AGENCIES MATRIX</span>
-              </button>
+            <Link href="/privacy">
+              <span className="bg-[#182213] hover:bg-[#24331c] text-[#c7dfb8] text-base font-bold px-7 py-4 rounded-xl border border-[#3f5231] inline-flex items-center gap-2 cursor-pointer transition-colors">
+                <Lock className="w-5 h-5 text-[#fbbf24]" />
+                <span>PRIVACY CHARTER</span>
+              </span>
             </Link>
-          </div>
-
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left pt-8 border-t border-[#232d1a] font-mono">
-            <div>
-              <div className="text-xs text-[#6d845e]">DOCUMENT SIZE</div>
-              <div className="text-sm font-bold text-white mt-0.5">53.5 KB</div>
-            </div>
-            <div>
-              <div className="text-xs text-[#6d845e]">CHAPTERS</div>
-              <div className="text-sm font-bold text-white mt-0.5">20 Sections</div>
-            </div>
-            <div>
-              <div className="text-xs text-[#6d845e]">TARGET AUDIENCE</div>
-              <div className="text-sm font-bold text-white mt-0.5">Students & Engineers</div>
-            </div>
-            <div>
-              <div className="text-xs text-[#6d845e]">GMAT R2026A ENGINE</div>
-              <div className="text-sm font-bold text-[#84a96c] mt-0.5">Verified 0.047s</div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* FINAL CALL TO OPERATIONAL COCKPIT */}
       <section className="py-24 px-4 text-center bg-[#0b0e0a]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Ready to Enter the 24/7 Spaceflight Cockpit?
+        <div className="max-w-4xl mx-auto space-y-6">
+          <h2 className="text-3xl sm:text-6xl font-black text-white tracking-tight">
+            Ready to Enter the Spaceflight Cockpit?
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-[#a8baa0] max-w-xl mx-auto">
+          <p className="text-lg text-[#c7dfb8] max-w-2xl mx-auto leading-relaxed">
             Switch directly into the operational flight system. Live Xiaomi Watch H1 telemetry, Hermes voice dialogue, NASA GMAT trajectory simulations, and the 42-compound multi-agency space pharmacy.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/app">
-              <button className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-mono font-black text-base px-9 py-4 rounded-xl inline-flex items-center gap-2.5 shadow-2xl shadow-amber-500/25 cursor-pointer active:scale-[0.97] transition-all">
-                <Rocket className="w-5 h-5 text-[#0b0e0a]" />
-                <span>LAUNCH OPERATIONAL OS</span>
-                <ArrowRight className="w-5 h-5 ml-1" />
-              </button>
-            </Link>
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+              className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-black text-lg px-10 py-5 rounded-2xl inline-flex items-center gap-3 shadow-2xl shadow-amber-500/25 cursor-pointer active:scale-95 transition-all"
+            >
+              <Rocket className="w-6 h-6 text-[#0b0e0a]" />
+              <span>LAUNCH SONNENBLUME TOOL ↗</span>
+              <ArrowRight className="w-6 h-6 ml-1" />
+            </a>
           </div>
 
-          <div className="mt-12 text-xs text-[#6d845e] font-mono">
-            ARES-VII BIO-ASTRONAUTICS // NASA SPACE APPS CHALLENGE 2026 // MIL-STD-810H & NASA-STD-3001 COMPLIANT
+          <div className="pt-8 text-sm text-[#8ea873] font-mono">
+            🌻 SONNENBLUME (SUNFLOWER) // SPACE HEALTH & AUTONOMOUS MISSION PRESERVATION
           </div>
         </div>
       </section>
