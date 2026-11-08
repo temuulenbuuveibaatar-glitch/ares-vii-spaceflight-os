@@ -1,0 +1,45 @@
+{
+  "name": "ARES-VII • Hermes Autonomous Bio-Astro & Spacecraft Control OS",
+  "short_name": "ARES-VII Hermes",
+  "description": "Deep-Space Astronaut Health Monitoring, Xiaomi Watch H1 Telemetry, Multi-Agency Space Medicine (NASA, Soviet/Roscosmos IBMP, Mongolia Interkosmos Soyuz-39, China CMSA, ESA, JAXA) & NASA GMAT/Orbiter Autonomous Flight Control",
+  "theme_color": "#020617",
+  "background_color": "#020617",
+  "display": "standalone",
+  "orientation": "any",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Hermes AI & Ship Autopilot",
+      "short_name": "Hermes AI",
+      "description": "Open Hermes Autonomous AI & Manual Override Bridge",
+      "url": "/hermes"
+    },
+    {
+      "name": "Xiaomi Watch H1 Telemetry Lab",
+      "short_name": "Watch H1",
+      "description": "Live Xiaomi Watch H1 Biometrics & Anomaly Simulator",
+      "url": "/xiaomi-watch"
+    },
+    {
+      "name": "World Space Agencies Archive",
+      "short_name": "Agencies",
+      "description": "NASA, Soviet/Roscosmos, Mongolia Soyuz-39, China CMSA, ESA & JAXA Data",
+      "url": "/world-agencies"
+    }
+  ]
+}

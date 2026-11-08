@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Emil Kowalski, Jakub Krehel & Jhey Tompkins (motionprinciples.com) + 21st.dev Tokens */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-fast: 160ms;
+  --duration-polish: 220ms;
+  --accent-orange: #f97316;
+  --radius-outer: 16px;
+  --radius-inner: 10px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: #09090b;
+    color: #fafafa;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Rule 4 & 18: Mono only where needed + Tabular nums */
+  code,
+  pre,
+  .font-mono,
+  .tabular-nums {
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Rule 20: Animate useful feedback (160ms custom ease-out, never bare ease or transition: all) */
+  button,
+  [role="button"] {
+    transition: transform var(--duration-fast) var(--ease-out),
+      background-color 150ms var(--ease-out),
+      border-color 150ms var(--ease-out),
+      color 150ms var(--ease-out),
+      opacity 150ms var(--ease-out);
+  }
+
+  button:active:not(:disabled),
+  [role="button"]:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+}
+
+/* Rule 14: Concentric Radius System (Inner radius = Outer - Padding) */
+.card-outer {
+  border-radius: 16px;
+  padding: 6px;
+  background-color: rgba(24, 24, 27, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-inner {
+  border-radius: 10px;
+  background-color: #09090b;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Jakub Krehel Enter Recipe: Opacity (0->1) + TranslateY (8px->0) + Blur (4px->0px) */
+.surface-enter {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: blur(0px);
+  transition:
+    opacity var(--duration-polish) var(--ease-out),
+    transform var(--duration-polish) var(--ease-out),
+    filter var(--duration-polish) var(--ease-out);
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+    filter: blur(4px);
+  }
+}
+
+/* Jakub Krehel Subtler Exit Recipe */
+.surface-exit {
+  opacity: 0;
+  transform: translateY(-4px);
+  filter: blur(3px);
+  transition:
+    opacity 150ms var(--ease-out),
+    transform 150ms var(--ease-out),
+    filter 150ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .interactive-card {
+    transition:
+      border-color 160ms var(--ease-out),
+      background-color 160ms var(--ease-out);
+  }
+  .interactive-card:hover {
+    border-color: rgba(249, 115, 22, 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

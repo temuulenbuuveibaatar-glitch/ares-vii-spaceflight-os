@@ -1,0 +1,135 @@
+{
+  "header": {
+    "title": "International Emergency Guide",
+    "subtitle": "Your Complete Resource for Medical Emergencies"
+  },
+  "nav": {
+    "home": "Home",
+    "emergency": "Emergency Protocols",
+    "treatment": "Treatment Guidelines",
+    "medications": "Medications",
+    "symptoms": "Symptom Checker",
+    "hospitals": "Nearby Hospitals",
+    "contacts": "Emergency Numbers",
+    "fireSafety": "Fire Safety Equipment"
+  },
+  "emergency": {
+    "title": "Emergency? Call",
+    "number": "103"
+  },
+  "home": {
+    "title": "International Emergency Guide",
+    "subtitle": "Your trusted source for emergency medical information",
+    "description": "Access step-by-step emergency procedures, treatment guidelines, medication information, and locate nearby hospitals - all in one place.",
+    "emergencyButton": "Emergency Protocols",
+    "findHospital": "Find Hospitals"
+  },
+  "emergencyNumbers": {
+    "title": "International Emergency Numbers",
+    "description": "Find emergency contact information for different countries. In case of emergency, always call the appropriate emergency service for your location.",
+    "mongolia": "Mongolia",
+    "ambulance": "Ambulance",
+    "fire": "Fire Emergency",
+    "police": "Police",
+    "emergency": "Emergency Service",
+    "redcross": "Medical Support Team",
+    "hospital": "Hospital",
+    "rescue": "Search & Rescue",
+    "gas": "Gas Emergency",
+    "children": "Child Protection",
+    "nonEmergency": "Non-Emergency",
+    "selectCountry": "Please select a country to view emergency numbers",
+    "noData": "No emergency numbers data available for this country"
+  },
+  "hospitals": {
+    "title": "Find Nearby Hospitals",
+    "description": "Locate the nearest hospitals and medical facilities to get emergency care when needed.",
+    "location": "Location",
+    "enterLocation": "Enter your location",
+    "radius": "Search Radius",
+    "search": "Search",
+    "results": "Results",
+    "call": "Call",
+    "useCurrentLocation": "Use current location",
+    "noResults": "No hospitals found in this area"
+  },
+  "protocols": {
+    "title": "Emergency Protocols",
+    "description": "Step-by-step emergency protocols for critical situations that require immediate medical attention.",
+    "viewDetails": "View Details",
+    "viewAll": "View All Emergency Protocols"
+  },
+  "treatment": {
+    "title": "Treatment Guidelines",
+    "description": "Comprehensive treatment guidelines for various medical conditions.",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "We are working on adding detailed treatment guidelines. Please check back later."
+  },
+  "medications": {
+    "title": "Medication Database",
+    "description": "Comprehensive information about medications including dosage, usage, and precautions.",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "Our medication database is under development. Please check back later for comprehensive medication information."
+  },
+  "symptoms": {
+    "title": "Symptom Checker",
+    "description": "Identify potential medical conditions based on your symptoms.",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "Our interactive symptom checker is currently under development. Please check back soon."
+  },
+  "offline": {
+    "title": "Offline Access",
+    "savePrompt": "Save for offline use",
+    "description": "Save emergency information for offline use - access critical protocols, phone numbers, and medication information even without internet.",
+    "syncNow": "Sync Now",
+    "syncing": "Syncing...",
+    "lastSynced": "Last synced",
+    "syncComplete": "Data synced successfully",
+    "syncFailed": "Sync failed",
+    "syncCompleteMessage": "Emergency information is now available offline",
+    "syncFailedMessage": "There was a problem saving data for offline use",
+    "offlineMessage": "You're offline",
+    "connectPrompt": "Please connect to the internet to sync data",
+    "offlineMode": "Offline Mode",
+    "online": "Online",
+    "offline": "Offline",
+    "storageAvailable": "Available storage"
+  },
+  "showMore": "Show details",
+  "showLess": "Hide details",
+  "footer": {
+    "title": "International Emergency Guide",
+    "description": "Providing emergency medical information and resources to help save lives.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "phone": "99291221",
+    "instagram": "youtuber_temka",
+    "address": "Mongolia",
+    "rights": "All rights reserved."
+  },
+  "countries": {
+    "kr": "Korea",
+    "de": "Germany",
+    "cn": "China",
+    "jp": "Japan",
+    "es": "Spain",
+    "us": "USA",
+    "uk": "UK",
+    "ru": "Russia"
+  },
+  "promotion": {
+    "title": "Promote Your Emergency Readiness",
+    "description": "Upgrade your emergency response skills by signing up for our certification program.",
+    "benefits": "Benefits include:",
+    "benefit1": "Internationally recognized certification",
+    "benefit2": "Advanced training in all emergency protocols",
+    "benefit3": "Special access to professional medical resources",
+    "benefit4": "Connection with emergency response networks worldwide",
+    "signUp": "Sign Up for Promotion",
+    "subscribe": "Subscribe to Updates",
+    "emailPlaceholder": "Enter your email address",
+    "namePlaceholder": "Enter your full name",
+    "successMessage": "Thank you for your interest! We will contact you soon with more information.",
+    "errorMessage": "Please provide a valid email address."
+  }
+}

@@ -1,0 +1,64 @@
+name: Build Rust Desktop Apps (Windows, macOS, Linux) & Deploy
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build-tauri-rust-desktop:
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows-latest
+            args: ""
+            os_name: "Windows-x64-MSI-EXE"
+          - platform: macos-latest
+            args: "--target aarch64-apple-darwin"
+            os_name: "macOS-AppleSilicon-DMG"
+          - platform: macos-latest
+            args: "--target x86_64-apple-darwin"
+            os_name: "macOS-Intel-DMG"
+          - platform: ubuntu-22.04
+            args: ""
+            os_name: "Linux-x64-AppImage-DEB"
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Linux webkit2gtk dependencies
+        if: matrix.platform == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Rust Stable Toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
+
+      - name: Install Frontend Dependencies & Build Vite Bundle
+        run: |
+          npm install
+          npx vite build
+
+      - name: Build Native Rust Tauri Desktop Application
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: v1.0.0
+          releaseName: "ARES-VII Hermes Bio-Astro Desktop v1.0.0 (Windows / macOS / Linux)"
+          releaseBody: "Cross-platform native Rust + Tauri desktop application for ARES-VII Deep-Space Astronaut Health, Xiaomi Watch H1, and NASA GMAT/Orbiter Autopilot."
+          releaseDraft: false
+          prerelease: false
+          args: ${{ matrix.args }}

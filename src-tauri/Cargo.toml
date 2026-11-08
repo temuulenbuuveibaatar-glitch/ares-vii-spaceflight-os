@@ -1,0 +1,22 @@
+[package]
+name = "ares-vii-hermes-desktop"
+version = "1.0.0"
+description = "ARES-VII NASA Deep-Space Astronaut Health, Xiaomi Watch H1 & Hermes Autonomous Ship Control (Rust + Tauri Desktop App for Windows, macOS, and Linux)"
+authors = ["ARES-VII Mission Systems"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2.0.0", features = [] }
+
+[dependencies]
+tauri = { version = "2.0.0", features = [] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.38", features = ["full"] }
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = 3
+strip = true
