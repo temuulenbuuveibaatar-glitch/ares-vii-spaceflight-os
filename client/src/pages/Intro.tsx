@@ -34,6 +34,7 @@ import {
   ShieldCheck,
   Gauge,
   Crosshair,
+  BookOpen,
 } from "lucide-react";
 
 export default function Intro() {
@@ -135,7 +136,7 @@ export default function Intro() {
       incident:
         "August 1972 SPE: Between Apollo 16 and 17, an extreme solar storm generated a 4,000 mSv prompt dose. If astronauts had been in transit or on the lunar surface, it would have been lethal within 48 hours without immediate prompt shielding.",
       solution:
-        "ARES-VII couples real-time GOES-18 proton flux alerts with Soviet Indralin B-190 radioprotectant (DRF 1.45), autonomous polyethylene/water-wall storm shelter routing, and Bulgarian Lyulin-6 dosimetric depth profiling.",
+        "Sonnenblume couples real-time GOES-18 proton flux alerts with Soviet Indralin B-190 radioprotectant (DRF 1.45), autonomous polyethylene/water-wall storm shelter routing, and Bulgarian Lyulin-6 dosimetric depth profiling.",
     },
     {
       id: "isolation",
@@ -165,7 +166,7 @@ export default function Intro() {
       incident:
         "Salyut-6 / Soyuz-39 (1981): Mongolian Cosmonaut J. Gurragchaa and Soviet crews experienced severe cephalad fluid shifts and acute space motion sickness during orbital insertion, threatening emergency piloting readiness.",
       solution:
-        "ARES-VII combines the Soviet Vorotnik cervical collar (30 mmHg jugular venous restriction) with Chibis-M Lower Body Negative Pressure (-25 mmHg to draw 320 mL caudal fluid), JAXA bisphosphonates, and CMSA Neiguan (PC6) electro-stimulation.",
+        "Sonnenblume combines the Soviet Vorotnik cervical collar (30 mmHg jugular venous restriction) with Chibis-M Lower Body Negative Pressure (-25 mmHg to draw 320 mL caudal fluid), JAXA bisphosphonates, and CMSA Neiguan (PC6) electro-stimulation.",
     },
     {
       id: "distance",
@@ -269,7 +270,7 @@ export default function Intro() {
             </a>
 
             <a
-              href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
+              href="/Sonnenblume_Complete_Space_Health_and_Mission_Research_Guide.docx"
               download="Sonnenblume_Space_Health_Research_Guide.docx"
               className="bg-[#182213] hover:bg-[#24331c] text-[#c7dfb8] text-base px-7 py-4 rounded-xl border border-[#3f5231] inline-flex items-center gap-2 cursor-pointer transition-colors"
             >
@@ -291,7 +292,7 @@ export default function Intro() {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#84a96c]" />
                 <span className="font-bold text-[#c7dfb8] uppercase tracking-wider">
-                  TELEMETRY COUPLING: XIAOMI WATCH H1 // NASA GMAT R2026A
+                  TELEMETRY COUPLING: XIAOMI WATCH H1 • NASA GMAT R2026A
                 </span>
               </div>
               <span className="text-[#6d845e]">DSN X-BAND: 8.4 GHz LOCKED</span>
@@ -405,14 +406,10 @@ export default function Intro() {
       <section id="who-its-for" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
-              <Crosshair className="w-4 h-4 text-[#fbbf24]" />
-              <span>// OPERATIONAL STAKEHOLDERS</span>
-            </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               Who Is Sonnenblume Built For?
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
+            <p className="mt-3 text-base sm:text-lg text-[#c7dfb8]">
               Deep space demands software tailored to the exact realities of astronauts, ground flight surgeons, spacecraft guidance computers, and aerospace researchers.
             </p>
           </div>
@@ -434,11 +431,11 @@ export default function Intro() {
                 >
                   <div className="flex items-center justify-between mb-2">
                     <Icon className={`w-4 h-4 ${isSelected ? "text-[#fbbf24]" : "text-[#6d845e]"}`} />
-                    <span className="text-[10px] font-mono bg-[#11160e] px-2 py-0.5 rounded text-[#8ea873]">
+                    <span className="text-xs font-mono bg-[#11160e] px-2 py-0.5 rounded text-[#8ea873]">
                       {p.code}
                     </span>
                   </div>
-                  <div className={`text-xs font-bold ${isSelected ? "text-white" : "text-[#a8baa0]"}`}>
+                  <div className={`text-sm font-bold ${isSelected ? "text-white" : "text-[#a8baa0]"}`}>
                     {p.badge}
                   </div>
                 </button>
@@ -450,13 +447,13 @@ export default function Intro() {
           <div className="bg-[#13190e] border border-[#354528] rounded-2xl p-6 sm:p-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#182213] border border-[#3f5231] text-[#fbbf24] font-mono text-xs font-bold">
-                  <span>{personas[activePersona].code} // {personas[activePersona].badge}</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#182213] border border-[#3f5231] text-[#fbbf24] font-semibold text-xs">
+                  <span>{personas[activePersona].badge}</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white">
                   {personas[activePersona].title}
                 </h3>
-                <p className="text-sm text-[#c7dfb8] leading-relaxed">
+                <p className="text-base text-[#c7dfb8] leading-relaxed">
                   {personas[activePersona].summary}
                 </p>
 
@@ -466,7 +463,7 @@ export default function Intro() {
                   </div>
                   <ul className="space-y-2">
                     {personas[activePersona].features.map((feat, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs text-[#a8baa0]">
+                      <li key={i} className="flex items-start gap-2.5 text-sm text-[#c7dfb8]">
                         <CheckCircle2 className="w-4 h-4 text-[#84a96c] shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
@@ -477,19 +474,19 @@ export default function Intro() {
 
               <div className="lg:col-span-5 bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-6 text-center space-y-4">
                 <div className="text-xs font-mono text-[#6d845e] uppercase">
-                  Verified Technical / Clinical Benchmark
+                  Verified Technical and Clinical Benchmark
                 </div>
                 <div className="text-2xl sm:text-3xl font-black font-mono text-[#fbbf24]">
                   {personas[activePersona].metric}
                 </div>
                 <p className="text-xs text-[#8ea873] leading-relaxed">
-                  Tested and verified against NASA-STD-3001, IBMP GOST standards, and local NASA GMAT R2026a astrodynamics console binaries.
+                  Tested and verified against NASA-STD-3001, IBMP standards, and NASA GMAT astrodynamics console binaries.
                 </p>
                 <div className="pt-2">
                   <Link href="/cockpit">
-                    <button className="w-full bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-mono font-bold text-xs py-3 px-4 rounded-xl cursor-pointer shadow-md shadow-amber-500/20 transition-all flex items-center justify-center gap-2">
-                      <span>OPEN 24/7 OPERATIONAL COCKPIT</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                    <button className="w-full bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-bold text-sm py-3 px-4 rounded-xl cursor-pointer shadow-md shadow-amber-500/20 transition-all flex items-center justify-center gap-2">
+                      <span>Open Operational Cockpit</span>
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </Link>
                 </div>
@@ -503,15 +500,11 @@ export default function Intro() {
       <section id="why-it-matters" className="py-20 px-4 border-b border-[#232d1a] bg-[#0b0e0a]">
         <div id="four-hazards" className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
-              <AlertTriangle className="w-4 h-4 text-[#fbbf24]" />
-              <span>// AT-STAKE FLIGHT MATRIX</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               Why Does Deep-Space Health Matter?
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
-              In low-Earth orbit, astronauts can evacuate to Earth in 4 hours. On a 900-day journey to Mars, there is no ambulance. Here is what happens to the human body in deep space—explained in plain English.
+            <p className="mt-3 text-base sm:text-lg text-[#c7dfb8]">
+              In low-Earth orbit, astronauts can evacuate to Earth in 4 hours. On a 900-day journey to Mars, there is no ambulance. Here is what happens to the human body in deep space: explained in plain English.
             </p>
           </div>
 
@@ -551,22 +544,22 @@ export default function Intro() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               <div className="lg:col-span-7 space-y-5">
                 <div>
-                  <div className="inline-flex items-center gap-2 bg-[#182213] text-[#fbbf24] font-mono text-xs font-bold px-3 py-1 rounded mb-3 border border-[#3f5231]">
+                  <div className="inline-flex items-center gap-2 bg-[#182213] text-[#fbbf24] text-xs font-semibold px-3 py-1 rounded-lg mb-3 border border-[#3f5231]">
                     <Shield className="w-3.5 h-3.5" />
-                    <span>{hazards[activeHazard].code} // {hazards[activeHazard].badge}</span>
+                    <span>{hazards[activeHazard].badge}</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                  <h3 className="text-2xl font-bold text-white">
                     {hazards[activeHazard].title}
                   </h3>
                 </div>
 
                 {/* Plain English Box */}
-                <div className="bg-[#0b0e0a] border border-[#3f5231] rounded-xl p-4">
-                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#fbbf24] mb-1.5 flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Plain-English Analogy (For High Schoolers & Non-Scientists)</span>
+                <div className="bg-[#0b0e0a] border border-[#3f5231] rounded-xl p-5">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#fbbf24] mb-2 flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-[#fbbf24]" />
+                    <span>Plain-English Analogy</span>
                   </div>
-                  <p className="text-sm text-[#e3ecd8] leading-relaxed font-medium">
+                  <p className="text-base text-[#e3ecd8] leading-relaxed font-medium">
                     "{hazards[activeHazard].analogy}"
                   </p>
                 </div>
@@ -576,30 +569,30 @@ export default function Intro() {
                   <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#8ea873] mb-1.5">
                     Biological & Clinical Reality
                   </div>
-                  <p className="text-sm text-[#c7dfb8] leading-relaxed">
+                  <p className="text-base text-[#c7dfb8] leading-relaxed">
                     {hazards[activeHazard].clinical}
                   </p>
                 </div>
 
                 {/* Historical Incident */}
-                <div className="border-l-2 border-[#fbbf24] pl-3.5 py-1">
+                <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-4">
                   <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#fbbf24] mb-1">
                     Historical Flight Incident
                   </div>
-                  <p className="text-xs text-[#a8baa0] leading-relaxed">
+                  <p className="text-sm text-[#c7dfb8] leading-relaxed">
                     {hazards[activeHazard].incident}
                   </p>
                 </div>
               </div>
 
               {/* Solution Column */}
-              <div className="lg:col-span-5 bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-5 space-y-4">
+              <div className="lg:col-span-5 bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-6 space-y-4">
                 <div className="flex items-center justify-between pb-3 border-b border-[#232d1a]">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#84a96c]" />
-                    ARES-VII Tactical Countermeasure
+                  <span className="text-sm font-bold text-white flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#84a96c]" />
+                    Sonnenblume Countermeasure
                   </span>
-                  <span className="text-[10px] font-mono bg-[#182213] text-[#84a96c] border border-[#3f5231] px-2 py-0.5 rounded font-bold">
+                  <span className="text-xs font-mono bg-[#182213] text-[#84a96c] border border-[#3f5231] px-2.5 py-0.5 rounded-lg font-bold">
                     VERIFIED
                   </span>
                 </div>
@@ -642,149 +635,140 @@ export default function Intro() {
         </div>
       </section>
 
-      {/* SECTION 2.5: WHAT SPACE HEALTH & MEDICAL APPS LACK — AND HOW ARES-VII SOLVES THEM */}
+      {/* SECTION 2.5: WHAT SPACE HEALTH & MEDICAL APPS LACK */}
       <section className="py-20 px-4 border-b border-[#232d1a] bg-[#11160e]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
-              <ShieldAlert className="w-4 h-4 text-[#fbbf24]" />
-              <span>// ARCHITECTURAL GAP ANALYSIS</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              What Space Health & Medical Apps Lack Today
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+              What Space Health Apps Lack Today
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
-              Why current ISS and terrestrial health software cannot keep astronauts alive on long-duration lunar and Mars voyages, and how ARES-VII delivers true clinical autonomy.
+            <p className="mt-3 text-base sm:text-lg text-[#c7dfb8]">
+              Why current ISS and ground health software cannot keep astronauts alive on long-duration lunar and Mars voyages, and how Sonnenblume delivers true clinical autonomy.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-colors">
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 hover:border-[#fbbf24] transition-colors">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold text-[#ef4444] bg-[#221010] border border-[#4a1c1c] px-2 py-0.5 rounded">
-                  CRITICAL DEFICIENCY 01
+                <span className="text-xs font-semibold text-[#fbbf24] bg-[#182213] border border-[#3f5231] px-2.5 py-1 rounded-lg">
+                  Clinical Autonomy
                 </span>
-                <span className="text-[10px] font-mono text-[#8ea873]">CLINICAL AUTONOMY</span>
               </div>
-              <h3 className="text-base font-bold text-white">
+              <h3 className="text-xl font-bold text-white">
                 Zero Real-Time Diagnostic Automation
               </h3>
-              <div className="space-y-2 text-xs leading-relaxed text-[#a8baa0]">
+              <div className="space-y-2 text-sm leading-relaxed text-[#c7dfb8]">
                 <p>
-                  <strong className="text-[#e3ecd8]">The Status Quo:</strong> Current space medicine apps are merely "data conduits." NASA streams raw telemetry (ECG, ultrasound, blood panels) to flight surgeons back in Houston. When AI is discussed, fear of "hallucinations" keeps software frozen in passive reporting.
+                  <strong className="text-white">The Status Quo:</strong> Current space medicine apps are merely data conduits. NASA streams raw telemetry (ECG, ultrasound, blood panels) to flight surgeons back in Houston. Fear of AI errors keeps software frozen in passive reporting.
                 </p>
                 <p>
-                  <strong className="text-[#fbbf24]">The ARES-VII Breakthrough:</strong> Hermes runs deterministic, verified clinical state machines and 4 isolated offline subagents (Med-Sentinel, Rad-Guard, Psy-Oracle, Nav-Pilot). It evaluates Glasgow-derivative ECG arrhythmias in under 50ms without internet access.
+                  <strong className="text-[#fbbf24]">Sonnenblume Solution:</strong> Hermes runs deterministic, verified clinical state machines and 4 isolated offline subagents. It evaluates ECG arrhythmias in under 50ms without internet access.
                 </p>
               </div>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-colors">
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 hover:border-[#fbbf24] transition-colors">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold text-[#ef4444] bg-[#221010] border border-[#4a1c1c] px-2 py-0.5 rounded">
-                  CRITICAL DEFICIENCY 02
+                <span className="text-xs font-semibold text-[#84a96c] bg-[#182213] border border-[#3f5231] px-2.5 py-1 rounded-lg">
+                  Behavioral Privacy
                 </span>
-                <span className="text-[10px] font-mono text-[#8ea873]">BEHAVIORAL PRIVACY</span>
               </div>
-              <h3 className="text-base font-bold text-white">
-                Rigid Surveys & Zero True Privacy
+              <h3 className="text-xl font-bold text-white">
+                Rigid Surveys and Zero True Privacy
               </h3>
-              <div className="space-y-2 text-xs leading-relaxed text-[#a8baa0]">
+              <div className="space-y-2 text-sm leading-relaxed text-[#c7dfb8]">
                 <p>
-                  <strong className="text-[#e3ecd8]">The Status Quo:</strong> Astronauts complete basic digital questionnaires. Because every answer is monitored by mission control, crew members mask burnout, fear, or friction to avoid being medically grounded from future flights.
+                  <strong className="text-white">The Status Quo:</strong> Astronauts complete basic digital questionnaires. Because every answer is monitored by mission control, crew members mask burnout, fear, or friction to avoid being medically grounded from future flights.
                 </p>
                 <p>
-                  <strong className="text-[#fbbf24]">The ARES-VII Breakthrough:</strong> 100% confidential, on-device AI cognitive-behavioral voice therapy. Audio sentiment and pitch cadence are evaluated locally without ever transmitting recordings to Earth. Mission control only sees an aggregated, anonymized readiness index.
+                  <strong className="text-[#fbbf24]">Sonnenblume Solution:</strong> 100% confidential, on-device AI cognitive-behavioral voice therapy. Audio sentiment and pitch cadence are evaluated locally without ever transmitting recordings to Earth. Mission control only sees an aggregated, anonymized readiness index.
                 </p>
               </div>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-colors">
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 hover:border-[#fbbf24] transition-colors">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold text-[#ef4444] bg-[#221010] border border-[#4a1c1c] px-2 py-0.5 rounded">
-                  CRITICAL DEFICIENCY 03
+                <span className="text-xs font-semibold text-[#fbbf24] bg-[#182213] border border-[#3f5231] px-2.5 py-1 rounded-lg">
+                  System Interoperability
                 </span>
-                <span className="text-[10px] font-mono text-[#8ea873]">SYSTEM SILOS</span>
               </div>
-              <h3 className="text-base font-bold text-white">
-                The "Hardware Silo" Nightmare
+              <h3 className="text-xl font-bold text-white">
+                The Hardware Silo Problem
               </h3>
-              <div className="space-y-2 text-xs leading-relaxed text-[#a8baa0]">
+              <div className="space-y-2 text-sm leading-relaxed text-[#c7dfb8]">
                 <p>
-                  <strong className="text-[#e3ecd8]">The Status Quo:</strong> Ultrasound devices, ergometers, blood analyzers, and radiation dosimeters operate on proprietary, isolated software packages that do not talk to each other. There is no unified Electronic Health Record (EHR).
+                  <strong className="text-white">The Status Quo:</strong> Ultrasound devices, ergometers, blood analyzers, and radiation dosimeters operate on proprietary, isolated software packages that do not talk to each other. There is no unified Electronic Health Record.
                 </p>
                 <p>
-                  <strong className="text-[#fbbf24]">The ARES-VII Breakthrough:</strong> Bridges Xiaomi Watch H1 continuous vitals, GOES-18 / Bulgarian Lyulin dosimeters, and 28-nation countermeasures into a synchronized, delay-tolerant EHR timeline linked directly to flight propulsion.
+                  <strong className="text-[#fbbf24]">Sonnenblume Solution:</strong> Bridges Xiaomi Watch H1 continuous vitals, dosimeters, and 28-nation countermeasures into a synchronized, delay-tolerant EHR timeline linked directly to flight propulsion.
                 </p>
               </div>
             </div>
 
             {/* Card 4 */}
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-colors">
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 hover:border-[#fbbf24] transition-colors">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold text-[#ef4444] bg-[#221010] border border-[#4a1c1c] px-2 py-0.5 rounded">
-                  CRITICAL DEFICIENCY 04
+                <span className="text-xs font-semibold text-[#84a96c] bg-[#182213] border border-[#3f5231] px-2.5 py-1 rounded-lg">
+                  Offline Pharmacology
                 </span>
-                <span className="text-[10px] font-mono text-[#8ea873]">OFFLINE PHARMACOLOGY</span>
               </div>
-              <h3 className="text-base font-bold text-white">
+              <h3 className="text-xl font-bold text-white">
                 Missing Global Medical Databases
               </h3>
-              <div className="space-y-2 text-xs leading-relaxed text-[#a8baa0]">
+              <div className="space-y-2 text-sm leading-relaxed text-[#c7dfb8]">
                 <p>
-                  <strong className="text-[#e3ecd8]">The Status Quo:</strong> Terrestrial medical apps query massive cloud databases. In deep space, with zero internet or a 22-minute lag, crew members lack comprehensive clinical step-by-step guidance for surgical or radiation crises.
+                  <strong className="text-white">The Status Quo:</strong> Terrestrial medical apps query massive cloud databases. In deep space, with zero internet or a 22-minute lag, crew members lack comprehensive clinical step-by-step guidance for surgical or radiation crises.
                 </p>
                 <p>
-                  <strong className="text-[#fbbf24]">The ARES-VII Breakthrough:</strong> 42 verified spaceflight pharmaceuticals from NASA, Soviet/IBMP (Indralin B-190, Mexidol), China CMSA (Taikong Yangxin), Japan JAXA, India ISRO, and Mongolia Interkosmos cached 100% offline with zero-G dosage calculators.
+                  <strong className="text-[#fbbf24]">Sonnenblume Solution:</strong> 42 verified spaceflight pharmaceuticals from NASA, Soviet/IBMP (Indralin B-190, Mexidol), China CMSA (Taikong Yangxin), Japan JAXA, India ISRO, and Mongolia Interkosmos cached 100% offline with zero-G dosage calculators.
                 </p>
               </div>
             </div>
 
             {/* Card 5 */}
-            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-colors">
+            <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-7 space-y-4 hover:border-[#fbbf24] transition-colors">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold text-[#ef4444] bg-[#221010] border border-[#4a1c1c] px-2 py-0.5 rounded">
-                  CRITICAL DEFICIENCY 05
+                <span className="text-xs font-semibold text-[#fbbf24] bg-[#182213] border border-[#3f5231] px-2.5 py-1 rounded-lg">
+                  Modern Human UX
                 </span>
-                <span className="text-[10px] font-mono text-[#8ea873]">OUTDATED UX</span>
               </div>
-              <h3 className="text-base font-bold text-white">
-                Windows 95 Era Interfaces & Fragility
+              <h3 className="text-xl font-bold text-white">
+                Windows 95 Era Interfaces
               </h3>
-              <div className="space-y-2 text-xs leading-relaxed text-[#a8baa0]">
+              <div className="space-y-2 text-sm leading-relaxed text-[#c7dfb8]">
                 <p>
-                  <strong className="text-[#e3ecd8]">The Status Quo:</strong> Many ISS operational displays look like 1995 military terminal text dumps. Every UI change takes years of certification, leaving astronauts with unintuitive, fatigue-inducing screens that assume low-Earth orbit connectivity.
+                  <strong className="text-white">The Status Quo:</strong> Many ISS operational displays look like 1995 military terminal text dumps. Every UI change takes years of certification, leaving astronauts with unintuitive, fatigue-inducing screens that assume low-Earth orbit connectivity.
                 </p>
                 <p>
-                  <strong className="text-[#fbbf24]">The ARES-VII Breakthrough:</strong> Emil Kowalski 20 UI Polish Rules, Tactical Olive & Amber high-contrast ergonomics, concentric card radii, active tactile feedback, voice guidance, and cross-platform desktop/mobile support.
+                  <strong className="text-[#fbbf24]">Sonnenblume Solution:</strong> High-contrast ergonomics, concentric card radii, active tactile feedback, voice guidance, and cross-platform desktop/mobile support.
                 </p>
               </div>
             </div>
 
-            {/* Card 6: CTA to Experience */}
-            <div className="bg-gradient-to-br from-[#182213] to-[#0e140b] border border-[#3f5231] rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+            {/* Card 6: Direct Tool Entry */}
+            <div className="bg-[#182213] border border-[#3f5231] rounded-2xl p-7 space-y-4 flex flex-col justify-between">
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#fbbf24]">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>THE LIVING PROOF</span>
-                </div>
-                <h3 className="text-base font-bold text-white">
-                  Experience The Full Operational Cockpit
+                <span className="text-xs font-semibold text-[#fbbf24] bg-[#0b0e0a] border border-[#2e3b23] px-2.5 py-1 rounded-lg inline-block">
+                  Live Cockpit Experience
+                </span>
+                <h3 className="text-xl font-bold text-white">
+                  Experience The Operational Tool
                 </h3>
-                <p className="text-xs text-[#c7dfb8] leading-relaxed">
-                  Switch from this presentation portal directly into the live ARES-VII aerospace cockpit OS. Test the Hermes voice agent, interact with 28 space agencies, run GMAT trajectory burns, and monitor real-time biometrics.
+                <p className="text-sm text-[#c7dfb8] leading-relaxed">
+                  Switch from this documentation portal directly into the live Sonnenblume cockpit. Speak with Hermes AI, test human manual overrides, run GMAT trajectory burns, and monitor real-time biometrics.
                 </p>
               </div>
 
-              <Link href="/app">
-                <button className="w-full bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-mono font-black text-xs py-3 px-4 rounded-xl cursor-pointer shadow-lg shadow-amber-500/20 transition-all flex items-center justify-center gap-2 active:scale-95">
-                  <Rocket className="w-4 h-4 text-[#0b0e0a]" />
-                  <span>LAUNCH OPERATIONAL COCKPIT</span>
-                </button>
-              </Link>
+              <a
+                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+                className="w-full bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-bold text-sm py-3.5 px-4 rounded-xl shadow-lg shadow-amber-500/20 active:scale-95 transition-all text-center flex items-center justify-center gap-2"
+              >
+                <Rocket className="w-4 h-4 text-[#0b0e0a]" />
+                <span>Launch Operational Cockpit ↗</span>
+              </a>
             </div>
           </div>
         </div>
@@ -794,15 +778,11 @@ export default function Intro() {
       <section id="real-flight-data" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
-              <Rocket className="w-4 h-4 text-[#fbbf24]" />
-              <span>// HISTORICAL SIMULATION LOGS</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               Real Spaceflight Incidents Handled Autonomously
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
-              Click any flight scenario to inspect telemetry triggers, Hermes AI subagent action, crew interventions, and clinical outcomes.
+            <p className="mt-3 text-base sm:text-lg text-[#c7dfb8]">
+              Inspect how telemetry triggers, Hermes AI clinical state machines, and crew interventions saved missions during genuine deep-space crises.
             </p>
           </div>
 
@@ -819,7 +799,7 @@ export default function Intro() {
                       : "bg-[#0b0e0a] border-[#232d1a] text-[#8ea873] hover:border-[#354528]"
                   }`}
                 >
-                  <span className="text-[10px] uppercase font-mono text-[#fbbf24] block mb-1">
+                  <span className="text-xs uppercase font-mono text-[#fbbf24] block mb-1">
                     {s.tag}
                   </span>
                   <div className={`text-sm font-bold ${activeScenario === idx ? "text-white" : "text-[#a8baa0]"}`}>
@@ -831,8 +811,8 @@ export default function Intro() {
 
             {/* Details */}
             <div className="lg:col-span-8 bg-[#13190e] border border-[#354528] rounded-2xl p-6 sm:p-8">
-              <div className="inline-flex items-center gap-2 bg-[#182213] text-[#fbbf24] font-mono text-xs font-bold px-3 py-1 rounded mb-4 border border-[#3f5231]">
-                <span>INCIDENT 0{activeScenario + 1} LOG</span>
+              <div className="inline-flex items-center gap-2 bg-[#182213] text-[#fbbf24] font-semibold text-xs px-3 py-1 rounded-lg mb-4 border border-[#3f5231]">
+                <span>Incident Case Study {activeScenario + 1}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
                 {scenarios[activeScenario].title}
@@ -844,7 +824,7 @@ export default function Intro() {
                     <AlertTriangle className="w-3.5 h-3.5" />
                     <span>Telemetry Anomaly Trigger</span>
                   </div>
-                  <p className="text-xs text-[#c7dfb8] leading-relaxed">
+                  <p className="text-sm text-[#c7dfb8] leading-relaxed">
                     {scenarios[activeScenario].trigger}
                   </p>
                 </div>
@@ -854,7 +834,7 @@ export default function Intro() {
                     <Brain className="w-3.5 h-3.5" />
                     <span>Hermes Offline AI Autonomous Action</span>
                   </div>
-                  <p className="text-xs text-[#c7dfb8] leading-relaxed">
+                  <p className="text-sm text-[#c7dfb8] leading-relaxed">
                     {scenarios[activeScenario].hermesAction}
                   </p>
                 </div>
@@ -864,7 +844,7 @@ export default function Intro() {
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     <span>Crew Physical Intervention</span>
                   </div>
-                  <p className="text-xs text-[#c7dfb8] leading-relaxed">
+                  <p className="text-sm text-[#c7dfb8] leading-relaxed">
                     {scenarios[activeScenario].crewAction}
                   </p>
                 </div>
@@ -874,7 +854,7 @@ export default function Intro() {
                     <Zap className="w-3.5 h-3.5 text-[#fbbf24]" />
                     <span>Mission Outcome</span>
                   </div>
-                  <p className="text-xs text-[#e3ecd8] leading-relaxed font-bold">
+                  <p className="text-sm text-[#e3ecd8] leading-relaxed font-bold">
                     {scenarios[activeScenario].outcome}
                   </p>
                 </div>
@@ -888,14 +868,10 @@ export default function Intro() {
       <section id="seo-verification" className="py-20 px-4 border-b border-[#232d1a] bg-[#0b0e0a]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-2">
-              <TrendingUp className="w-4 h-4 text-[#fbbf24]" />
-              <span>// TECHNICAL AUDIT & GOOGLE SEO</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               SEO Score & Technical Architecture Audit
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#a8baa0]">
+            <p className="mt-3 text-base sm:text-lg text-[#c7dfb8]">
               Engineered with modern web standards, semantic HTML5 structure, schema.org JSON-LD microdata, and Google-friendly metadata.
             </p>
           </div>
@@ -934,7 +910,7 @@ export default function Intro() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
               <div className="bg-[#0b0e0a] p-3.5 rounded-lg border border-[#232d1a]">
                 <span className="text-[#fbbf24] font-mono font-bold block mb-1">@type: WebSite</span>
-                <span className="text-[#c7dfb8]">ARES-VII Bio-Astronautics Platform</span>
+                <span className="text-[#c7dfb8]">Sonnenblume Space Health Platform</span>
               </div>
               <div className="bg-[#0b0e0a] p-3.5 rounded-lg border border-[#232d1a]">
                 <span className="text-[#fbbf24] font-mono font-bold block mb-1">@type: SoftwareApplication</span>
@@ -954,7 +930,7 @@ export default function Intro() {
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold">
-              <span>🚀 DEPLOYMENT & USAGE GUIDE</span>
+              <span>DEPLOYMENT & USAGE GUIDE</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               How to Download & Use Sonnenblume
@@ -995,9 +971,9 @@ export default function Intro() {
                   Clone the repository or download the package. Run the auto-launcher script for your operating system:
                 </p>
                 <div className="space-y-1.5 font-mono text-xs text-[#c7dfb8] bg-[#13190e] p-3 rounded-xl border border-[#232d1a]">
-                  <div>🪟 Windows: <code>.\Launch-ARES-VII-Desktop.bat</code></div>
-                  <div>🍎 macOS: <code>./Launch-ARES-VII-macOS.command</code></div>
-                  <div>🐧 Linux: <code>./Launch-ARES-VII-Linux.sh</code></div>
+                  <div>Windows: <code>.\Launch-Sonnenblume-Desktop.bat</code></div>
+                  <div>macOS: <code>./Launch-Sonnenblume-macOS.command</code></div>
+                  <div>Linux: <code>./Launch-Sonnenblume-Linux.sh</code></div>
                 </div>
               </div>
               <a
@@ -1037,7 +1013,7 @@ export default function Intro() {
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold">
-              <span>⚡ INTERACTIVE PREVIEW</span>
+              <span>INTERACTIVE PREVIEW</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               Test the Live Bio-Flight Engine
@@ -1123,11 +1099,6 @@ export default function Intro() {
       {/* SECTION 5: RESEARCH HANDBOOK */}
       <section id="research" className="py-20 px-4 border-b border-[#232d1a] bg-[#0e120b]">
         <div className="max-w-5xl mx-auto bg-[#13190e] border border-[#354528] rounded-3xl p-8 sm:p-12 text-center">
-          <div className="inline-flex items-center gap-1.5 text-[#fbbf24] font-mono text-xs font-bold uppercase tracking-wider mb-3">
-            <FileText className="w-4 h-4" />
-            <span>// MASTER TECHNICAL HANDBOOK</span>
-          </div>
-
           <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight max-w-2xl mx-auto">
             Sonnenblume Space Health & Mission Research Guide
           </h2>
@@ -1138,7 +1109,7 @@ export default function Intro() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
+              href="/Sonnenblume_Complete_Space_Health_and_Mission_Research_Guide.docx"
               download="Sonnenblume_Space_Health_Research_Guide.docx"
               className="bg-[#f59e0b] hover:bg-[#d97706] text-[#0b0e0a] font-black text-base px-8 py-4 rounded-xl inline-flex items-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer transition-all"
             >
@@ -1178,7 +1149,7 @@ export default function Intro() {
           </div>
 
           <div className="pt-8 text-sm text-[#8ea873] font-mono">
-            🌻 SONNENBLUME (SUNFLOWER) // SPACE HEALTH & AUTONOMOUS MISSION PRESERVATION
+            SONNENBLUME (SUNFLOWER) • SPACE HEALTH & AUTONOMOUS MISSION PRESERVATION
           </div>
         </div>
       </section>

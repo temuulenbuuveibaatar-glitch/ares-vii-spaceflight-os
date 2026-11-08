@@ -98,7 +98,7 @@ export default function WorldSpaceAgenciesHub() {
             </h1>
 
             <p className="text-sm sm:text-base text-[#a8baa0] leading-relaxed">
-              Explore how 28 spacefaring countries—from Soviet & Mongolian Salyut-6 impedance rheography to China’s Tiangong acupoint stimulation, NASA’s Apollo dosimetry, and ISRO’s autonomic Yoga bio-telemetry—unite in ARES-VII to protect deep-space crews.
+              Explore how 28 spacefaring countries, from Soviet & Mongolian Salyut-6 impedance rheography to China’s Tiangong acupoint stimulation, NASA’s Apollo dosimetry, and ISRO’s autonomic Yoga bio-telemetry, unite in Sonnenblume to protect deep-space crews.
             </p>
           </div>
         </section>
@@ -286,7 +286,7 @@ export default function WorldSpaceAgenciesHub() {
 
               <div className="pt-4 border-t border-[#232d1a] mt-4 flex items-center justify-between text-xs text-[#8ea873] font-mono">
                 <span>BENCHMARK DATA: NASA-STD-3001 & IBMP GOST</span>
-                <span className="text-[#fbbf24]">Coupled with ARES-VII Engine</span>
+                <span className="text-[#fbbf24]">Coupled with Sonnenblume Engine</span>
               </div>
             </div>
           </div>
@@ -467,7 +467,7 @@ export default function WorldSpaceAgenciesHub() {
                 <div className="p-4 rounded-xl bg-[#182213] border border-[#3f5231] text-xs text-[#c7dfb8] flex items-center justify-between gap-4 font-mono">
                   <div>
                     <span className="text-[#fbbf24] font-bold block mb-0.5">
-                      ARES-VII & WATCH H1 ALGORITHMIC COUPLING:
+                      SONNENBLUME & WATCH H1 ALGORITHMIC COUPLING:
                     </span>
                     <span className="font-sans text-[#a8baa0]">{activeCountry.watchH1Synergy}</span>
                   </div>

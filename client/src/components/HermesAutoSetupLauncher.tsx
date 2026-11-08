@@ -84,7 +84,7 @@ export default function HermesAutoSetupLauncher({
           <div className="flex items-center gap-2.5">
             <Cpu className="w-4 h-4 text-[#a8baa0]" />
             <h2 className="text-sm font-semibold text-white">
-              ARES-VII System Diagnostics & Tool Verification
+              Sonnenblume System Diagnostics & Tool Verification
             </h2>
           </div>
           <button

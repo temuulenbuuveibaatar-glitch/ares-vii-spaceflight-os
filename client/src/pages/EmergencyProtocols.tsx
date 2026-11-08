@@ -111,7 +111,7 @@ export default function EmergencyProtocols() {
           </div>
         </div>
 
-        {/* Protocols List — Rule 14 Concentric Cards */}
+        {/* Protocols List - Concentric Cards */}
         <div className="space-y-3">
           {filteredSpace.map((proto: SpaceEmergencyProtocol) => {
             const isExpanded = expandedSpaceId === proto.id;
@@ -183,7 +183,7 @@ export default function EmergencyProtocols() {
                                   </span>
                                 </div>
                                 <div className="text-xs text-[#8ea873] mt-0.5">
-                                  {trig.sensorSource} — {trig.clinicalMeaning}
+                                  {trig.sensorSource} • {trig.clinicalMeaning}
                                 </div>
                               </div>
                             ))}
@@ -262,7 +262,7 @@ export default function EmergencyProtocols() {
                                 <span className="font-medium text-white">
                                   {med.name}
                                 </span>{" "}
-                                —{" "}
+                                :{" "}
                                 <span className="text-[#fbbf24] font-mono">
                                   {med.dosage} ({med.route})
                                 </span>

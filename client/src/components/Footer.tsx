@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-white font-bold text-sm font-mono">
               <span className="w-2 h-2 rounded-full bg-[#fbbf24]" />
-              <span>ARES-VII SPACE HEALTH OS</span>
+              <span>SONNENBLUME SPACE HEALTH OS</span>
             </div>
             <p className="text-[#8ea873] leading-relaxed">
               Real-time space weather, historical mission failure analysis,
@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 border-t border-[#1a2313] flex flex-wrap items-center justify-between gap-4 text-[#556947] font-mono text-[11px]">
-          <span>ARES-VII Spaceflight Health & Mission Prevention</span>
+          <span>Sonnenblume Spaceflight Health & Mission Preservation</span>
           <span>Tactical Olive & Flight Amber · Emil Kowalski 20 UI Polish Rules</span>
         </div>
       </div>

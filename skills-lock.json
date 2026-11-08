@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "anti-ai-slop-design": {
+      "source": "local",
+      "sourceType": "local",
+      "skillPath": "skills/anti-ai-slop-design/SKILL.md",
+      "computedHash": "local"
+    },
     "animate": {
       "source": "emilkowalski/skills",
       "sourceType": "github",

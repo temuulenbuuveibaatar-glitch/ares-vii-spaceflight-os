@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 const AWS_EC2_USER_DATA = `#!/bin/bash
-# ARES-VII Hermes AI + Rust Engine — AWS EC2 Auto-Bootstrap (Amazon Linux 2023 & Ubuntu)
+# Sonnenblume Hermes AI + Rust Engine - AWS EC2 Auto-Bootstrap (Amazon Linux 2023 & Ubuntu)
 # Paste into AWS EC2 -> Launch instance -> Advanced details -> User data
 set -e
 if command -v dnf >/dev/null 2>&1; then
@@ -46,7 +46,7 @@ server {
 EOF
 systemctl enable nginx && systemctl restart nginx`;
 
-const RUST_ENGINE_SNIPPET = `// src-tauri/src/main.rs — Native Rust 64-bit RK4 + J2 Orbital & Biometric Engine
+const RUST_ENGINE_SNIPPET = `// src-tauri/src/main.rs - Native Rust 64-bit RK4 + J2 Orbital & Biometric Engine
 #[tauri::command]
 pub fn rust_propagate_and_evaluate(
     state: StateVectorJ2000,
@@ -141,7 +141,7 @@ export default function CloudAndDesktopHub() {
           </button>
         </div>
 
-        {/* 3-Pillar Architecture Cards — Rule 14 Concentric Radius */}
+        {/* 3-Pillar Architecture Cards - Concentric Radius */}
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Pillar 1: Cross-Platform Desktop App */}
           <div className="card-outer">
@@ -190,10 +190,10 @@ export default function CloudAndDesktopHub() {
 
               <div className="space-y-2 pt-4 border-t border-[#232d1a]">
                 <div className="bg-[#13190e] p-2.5 rounded-lg border border-[#2e3b23] font-mono text-xs text-[#c7dfb8] flex items-center justify-between">
-                  <span>.\Launch-ARES-VII-Desktop.bat</span>
+                  <span>.\Launch-Sonnenblume-Desktop.bat</span>
                   <button
                     onClick={() =>
-                      copyText("win-bat", ".\\Launch-ARES-VII-Desktop.bat")
+                      copyText("win-bat", ".\\Launch-Sonnenblume-Desktop.bat")
                     }
                     className="text-[#8ea873] hover:text-white cursor-pointer"
                   >

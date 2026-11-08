@@ -308,7 +308,7 @@ export default function GmatOrbiterBridge() {
 
   // Live Generated NASA GMAT R2026a .script file
   const gmatScriptContent = `%------------------------------------------------------------------------------
-% NASA GMAT R2026a (General Mission Analysis Tool) Script — Rebuilt In-App IDE
+% NASA GMAT R2026a (General Mission Analysis Tool) Script - Rebuilt In-App IDE
 % Native Engine: F:\\gmat-win-R2026a\\bin\\GmatConsole.exe
 % Autonomous Flight Controller: HERMES AI (Subagent: NAV-PILOT)
 % Medical G-Load Constraint (Xiaomi Watch H1 HR=${hr} BPM, SpO2=${spo2}%): ${medicalCapG.toFixed(2)} G
@@ -317,7 +317,7 @@ export default function GmatOrbiterBridge() {
 %----------------------------------------
 %---------- Spacecraft
 %----------------------------------------
-Create Spacecraft ARES_VII;
+Create Spacecraft SONNENBLUME;
 GMAT ARES_VII.DateFormat = UTCGregorian;
 GMAT ARES_VII.Epoch = '08 Nov 2026 15:10:00.000';
 GMAT ARES_VII.CoordinateSystem = EarthMJ2000Eq;
@@ -380,7 +380,7 @@ Propagate 'PropagatePostBurnTrajectory' RK89_Propagator(ARES_VII) {ARES_VII.Elap
 `;
 
   const orbiterScnContent = `BEGIN_DESC
-ARES-VII Deep Space Medical & Radiation Contingency Scenario
+Sonnenblume Deep Space Medical & Radiation Contingency Scenario
 Generated live by HERMES Autonomous AI & Xiaomi Watch H1 Bio-Telemetry System.
 Current Autopilot Mode: ${autopilot?.mode || "HERMES_AUTONOMOUS_TAKEOVER"}
 Astronaut Vitals (Cmdr. Vance): HR ${hr} BPM | SpO2 ${spo2}% | Max Safe G-Load: ${medicalCapG.toFixed(2)}G
@@ -392,11 +392,11 @@ BEGIN_ENVIRONMENT
 END_ENVIRONMENT
 
 BEGIN_FOCUS
-  Ship ARES_VII
+  Ship SONNENBLUME
 END_FOCUS
 
 BEGIN_SHIPS
-ARES_VII:DeltaGlider
+SONNENBLUME:DeltaGlider
   STATUS Orbiting Earth
   RPOS ${(stateVec.x * 1000).toFixed(1)} ${(stateVec.y * 1000).toFixed(1)} ${(stateVec.z * 1000).toFixed(1)}
   RVEL ${(stateVec.vx * 1000).toFixed(2)} ${(stateVec.vy * 1000).toFixed(2)} ${(stateVec.vz * 1000).toFixed(2)}
@@ -425,8 +425,8 @@ end)`;
 
   const ccsdsOemContent = `CCSDS_OEM_VERS = 2.0
 CREATION_DATE  = ${new Date().toISOString()}
-ORIGINATOR     = NASA_ARES_VII_HERMES_AI
-OBJECT_NAME    = ARES-VII
+ORIGINATOR     = NASA_SONNENBLUME_HERMES_AI
+OBJECT_NAME    = SONNENBLUME
 REF_FRAME      = EME2000
 2026-11-08T15:10:00.000  ${stateVec.x.toFixed(4)}  ${stateVec.y.toFixed(4)}  ${stateVec.z.toFixed(4)}  ${stateVec.vx.toFixed(6)}  ${stateVec.vy.toFixed(6)}  ${stateVec.vz.toFixed(6)}`;
 
@@ -565,8 +565,8 @@ REF_FRAME      = EME2000
             <p className="text-sm text-[#a8baa0] leading-relaxed">
               Full interactive rebuild of NASA&apos;s open-source General Mission
               Analysis Tool (<code>F:\gmat-win-R2026a</code>) directly inside
-              ARES-VII. Inspect and edit the GMAT Resource Tree, Mission
-              Sequence, and Runge-Kutta 8(9) propagator—and execute missions in
+              Sonnenblume. Inspect and edit the GMAT Resource Tree, Mission
+              Sequence, and Runge-Kutta 8(9) propagator, and execute missions in
               the native <code>GmatConsole.exe</code> binary with one click.
             </p>
           </div>

@@ -59,7 +59,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
           {/* Right Action Button */}
           <div className="flex items-center gap-3">
             <a
-              href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
+              href="/Sonnenblume_Complete_Space_Health_and_Mission_Research_Guide.docx"
               download="Sonnenblume_Space_Health_Research_Guide.docx"
               className="hidden sm:inline-flex items-center gap-1.5 bg-[#13190e] hover:bg-[#1a2313] text-[#c7dfb8] border border-[#2e3b23] px-4 py-2.5 rounded-xl font-semibold text-xs transition-colors active:scale-95"
             >

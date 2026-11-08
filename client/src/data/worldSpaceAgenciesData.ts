@@ -3,11 +3,11 @@
 // & REAL-TIME MULTI-AGENCY BIO-ASTRONAUTICS CALCULATION LIBRARY
 // ============================================================================
 // Covers:
-// 1. MONGOLIA / INTERKOSMOS (MAS-INTERKOSMOS — Soyuz 39 / Salyut 6, March 22–30, 1981 & Modern MAS)
-// 2. SOVIET UNION / RUSSIA (SSSR-ROSCOSMOS-IBMP — Vostok, Voskhod, Salyut 1–7, Almaz, Mir 437.7d, ISS RS)
-// 3. CHINA (CMSA-ACC — Shenzhou 5–19, Tiangong-1/2, Tiangong Station, Chang'e-4 LND)
-// 4. UNITED STATES (NASA-JSC — Mercury, Gemini, Apollo 7–17, Skylab 2–4, Shuttle, ISS, Artemis, MSL RAD)
-// 5. EUROPE & JAPAN (ESA-EAC & JAXA-KIBO — Columbus, Kibo, Matroshka Phantom, JAXA Bisphosphonate Study)
+// 1. MONGOLIA / INTERKOSMOS (MAS-INTERKOSMOS  •  Soyuz 39 / Salyut 6, March 22–30, 1981 & Modern MAS)
+// 2. SOVIET UNION / RUSSIA (SSSR-ROSCOSMOS-IBMP  •  Vostok, Voskhod, Salyut 1–7, Almaz, Mir 437.7d, ISS RS)
+// 3. CHINA (CMSA-ACC  •  Shenzhou 5–19, Tiangong-1/2, Tiangong Station, Chang'e-4 LND)
+// 4. UNITED STATES (NASA-JSC  •  Mercury, Gemini, Apollo 7–17, Skylab 2–4, Shuttle, ISS, Artemis, MSL RAD)
+// 5. EUROPE & JAPAN (ESA-EAC & JAXA-KIBO  •  Columbus, Kibo, Matroshka Phantom, JAXA Bisphosphonate Study)
 // ============================================================================
 
 export type WorldAgencyId =
@@ -162,7 +162,7 @@ export const SPACE_ENVIRONMENTS: SpaceEnvironmentSpec[] = [
     id: "lunar_surface_change4_artemis",
     name: "Lunar Surface (Chang'e-4 Von Kármán Crater / Artemis South Pole)",
     agencyBenchmark: "Chang'e-4 LND Silicon Detector (57.0 µSv/hr = 1,369 µSv/day)",
-    altitudeOrRegime: "Lunar Surface (384,400 km — Unmagnetized Regolith Backscatter)",
+    altitudeOrRegime: "Lunar Surface (384,400 km  •  Unmagnetized Regolith Backscatter)",
     inclinationDeg: "Far-Side South Pole-Aitken Basin / Shackleton Rim",
     nominalDoseRateUSvH: 57.0,
     dailyDoseMSv: 1.369,
@@ -210,7 +210,7 @@ export const WORLD_SPACE_AGENCIES: WorldSpaceAgencyProfile[] = [
     id: "MAS-INTERKOSMOS",
     code: "MAS-INTERKOSMOS",
     name: "Mongolia / Interkosmos Space Program & MAS",
-    nativeName: "Монгол Улсын Шинжлэх Ухааны Академи — Интеркосмос (Союз-39 / Салют-6)",
+    nativeName: "Монгол Улсын Шинжлэх Ухааны Академи  •  Интеркосмос (Союз-39 / Салют-6)",
     countryOrCoalition: "Mongolia (Mongolian Academy of Sciences & Interkosmos Council)",
     flagEmoji: "🇲🇳",
     foundedYear: "1961 (MAS) / March 22, 1981 (Soyuz-39)",
@@ -222,7 +222,7 @@ export const WORLD_SPACE_AGENCIES: WorldSpaceAgencyProfile[] = [
     heroSummary:
       "During the historic March 22–30, 1981 Soyuz-39 / Salyut-6 mission, Mongolian cosmonaut Jügderdemidiin Gürragchaa and Commander Vladimir Dzhanibekov executed 25+ landmark biomedical, neuro-vestibular, rheological, optical, and thermoluminescent dosimetry experiments ('Vorotnik', 'Krovoobrashcheniye', 'Biorhythm', 'Vremya', 'Neptune', 'Contrast', 'Solongo', 'Erdenet', 'Altai'). Today, Mongolia bridges this heritage with Mazaalai (2017), Temuulel, and GMIT wearable space telemetry.",
     signaturePrograms: [
-      "Soyuz 39 / Salyut 6 (March 22–30, 1981 — 124 orbits, 7d 20h 42m 03s)",
+      "Soyuz 39 / Salyut 6 (March 22–30, 1981  •  124 orbits, 7d 20h 42m 03s)",
       "'Vorotnik' (Воротник) Pneumatic Cervical Counter-Pressure SMS Prevention",
       "'Krovoobrashcheniye' (Кровообращение) 0G Tetrapolar Impedance Rheography",
       "'Biorhythm' & 'Vremya' Circadian Desynchrony & Psychomotor Time-Perception",
@@ -246,12 +246,12 @@ export const WORLD_SPACE_AGENCIES: WorldSpaceAgencyProfile[] = [
     id: "SSSR-ROSCOSMOS-IBMP",
     code: "SSSR-ROSCOSMOS-IBMP",
     name: "Soviet Union & Russia (Roscosmos / IBMP RAS)",
-    nativeName: "СССР / Роскосмос — ИМБП РАН (Институт медико-биологических проблем)",
+    nativeName: "СССР / Роскосмос  •  ИМБП РАН (Институт медико-биологических проблем)",
     countryOrCoalition: "USSR / Russian Federation",
     flagEmoji: "🇷🇺",
     foundedYear: "1961 (Vostok 1) / 1963 (IBMP RAS Founded by Academician Oleg Gazenko)",
     leadBiomedicalInstitute:
-      "State Scientific Center of the Russian Federation — Institute of Biomedical Problems (IBMP RAS / ГНЦ РФ ИМБП РАН)",
+      "State Scientific Center of the Russian Federation  •  Institute of Biomedical Problems (IBMP RAS / ГНЦ РФ ИМБП РАН)",
     accentColor: "#f43f5e",
     badgeClass: "bg-rose-950/90 text-rose-300 border-rose-500/40",
     borderClass: "border-rose-500/40",
@@ -260,7 +260,7 @@ export const WORLD_SPACE_AGENCIES: WorldSpaceAgencyProfile[] = [
     signaturePrograms: [
       "Vostok 1–6 & Voskhod 1–2 (First Human Spaceflight & First EVA with Cystamine Radioprotection)",
       "Salyut 1–7 & Almaz Orbital Stations (1971–1991)",
-      "Mir Orbital Complex — Dr. Valeri Polyakov 437d 17h 58m Record (1994–1995, ~312 mSv)",
+      "Mir Orbital Complex  •  Dr. Valeri Polyakov 437d 17h 58m Record (1994–1995, ~312 mSv)",
       "Chibis (Чибис) LBNP Suit, Pingvin (Пингвин) 40 kgf Axial Suit & Braslet-M (Браслет-М) Cuffs",
       "Indralin (Б-190 / B-190) Emergency Radioprotectant (DRF = 1.45) & Phenibut (Фенибут) Space Anxiolytic",
       "Matryoshka-R Spherical Tissue-Equivalent Phantom on ISS Zvezda Service Module",
@@ -295,9 +295,9 @@ export const WORLD_SPACE_AGENCIES: WorldSpaceAgencyProfile[] = [
       "Combines modern aerospace bio-engineering with Space Traditional Chinese Medicine (Space TCM / 航天中医药) across Shenzhou 5–19, Tiangong-1/2, and the modular Tiangong Space Station (Tianhe, Wentian, Mengtian). ACC developed 'Taikong Yangxin Wan' (太空养心丸) to preserve endothelial eNOS and baroreflex sensitivity, non-invasive PC6/ST36 Transcutaneous Electrical Acupoint Stimulation (TEAS), and delivered humanity's first time-resolved silicon detector dose rate on the lunar surface via Chang'e-4 LND (1,369 µSv/day).",
     signaturePrograms: [
       "Shenzhou 5–19 Crewed Missions & 6-Month Tiangong Space StationRotations",
-      "Taikong Yangxin Wan (太空养心丸 — 12-Herb Space Heart-Nourishing Pill)",
+      "Taikong Yangxin Wan (太空养心丸  •  12-Herb Space Heart-Nourishing Pill)",
       "Neiguan (PC6) & Zusanli (ST36) 2/100 Hz TEAS Autonomic & Anti-SMS Stimulation",
-      "Chang'e-4 Lunar Neutron & Dosimetry (LND) — Exact 1,369 µSv/day (57.0 µSv/hr) Measurement",
+      "Chang'e-4 Lunar Neutron & Dosimetry (LND)  •  Exact 1,369 µSv/day (57.0 µSv/hr) Measurement",
       "Wentian Lab Module Stem Cell, Cardiomyocyte & Microgravity Vascular Organoid Cabinets",
     ],
     radiationStandard: {
@@ -317,7 +317,7 @@ export const WORLD_SPACE_AGENCIES: WorldSpaceAgencyProfile[] = [
     id: "NASA-JSC",
     code: "NASA-JSC",
     name: "United States (NASA Johnson Space Center / ExMC)",
-    nativeName: "National Aeronautics and Space Administration — Human Health & Performance (JSC)",
+    nativeName: "National Aeronautics and Space Administration  •  Human Health & Performance (JSC)",
     countryOrCoalition: "United States of America",
     flagEmoji: "🇺🇸",
     foundedYear: "1958 (NASA) / 1961 (Manned Spacecraft Center, Houston)",
@@ -338,7 +338,7 @@ export const WORLD_SPACE_AGENCIES: WorldSpaceAgencyProfile[] = [
     radiationStandard: {
       agencyId: "NASA-JSC",
       agencyShortName: "NASA JSC / HRP",
-      standardCode: "NASA-STD-3001 Vol. 1 (Rev C — Universal 600 mSv Career PEL)",
+      standardCode: "NASA-STD-3001 Vol. 1 (Rev C  •  Universal 600 mSv Career PEL)",
       careerLimitMSv: 600,
       annualLimitMSv: 500,
       thirtyDayBfoLimitMSv: 250,
@@ -352,7 +352,7 @@ export const WORLD_SPACE_AGENCIES: WorldSpaceAgencyProfile[] = [
     id: "ESA-JAXA",
     code: "ESA-JAXA",
     name: "Europe & Japan (ESA EAC Cologne & JAXA Kibo)",
-    nativeName: "European Space Agency (EAC) & 宇宙航空研究開発機構 (JAXA — きぼう)",
+    nativeName: "European Space Agency (EAC) & 宇宙航空研究開発機構 (JAXA  •  きぼう)",
     countryOrCoalition: "European Union (22 Member States) & Japan",
     flagEmoji: "🇪🇺🇯🇵",
     foundedYear: "1975 (ESA) / 2003 (JAXA, merging NASDA/ISAS/NAL)",
@@ -395,15 +395,15 @@ export const WORLD_HISTORICAL_MISSIONS: HistoricalSpaceMission[] = [
     id: "soyuz-39-salyut-6-mongolia",
     agencyId: "MAS-INTERKOSMOS",
     missionName: "Soyuz 39 / Salyut 6 (Joint Soviet-Mongolian Interkosmos Flight)",
-    nativeTitle: "Союз-39 / Салют-6 — Монгол-Зөвлөлтийн хамтарсан сансрын нислэг",
+    nativeTitle: "Союз-39 / Салют-6  •  Монгол-Зөвлөлтийн хамтарсан сансрын нислэг",
     launchAndLandingDates: "March 22, 1981 (14:58:55 UTC) – March 30, 1981 (11:40:58 UTC)",
     durationDisplay: "7 days, 20 hours, 42 minutes, 03 seconds (124 orbits)",
     durationDays: 7.86,
     spacecraftAndStation: "Soyuz 39 (7K-T #55) docked to Salyut 6 (DOS-5) with main crew EO-5 (Kovalyonok & Savinykh)",
     crew: [
-      "Jügderdemidiin Gürragchaa (Жүгдэрдэмидийн Гүррагчаа — Research Cosmonaut, Mongolia, 101st human in space)",
-      "Vladimir Dzhanibekov (Владимир Джанибеков — Commander, USSR)",
-      "Maidarjavyn Ganzorig (Майдаржавын Ганзориг — Backup Research Cosmonaut & Lead Scientist of 'Solongo')",
+      "Jügderdemidiin Gürragchaa (Жүгдэрдэмидийн Гүррагчаа  •  Research Cosmonaut, Mongolia, 101st human in space)",
+      "Vladimir Dzhanibekov (Владимир Джанибеков  •  Commander, USSR)",
+      "Maidarjavyn Ganzorig (Майдаржавын Ганзориг  •  Backup Research Cosmonaut & Lead Scientist of 'Solongo')",
     ],
     orbitalParameters: "Perigee: 197.5 km → 298 km | Apogee: 311 km | Inclination: 51.6° | Period: 89.0 → 90.4 min",
     measuredTotalDoseMSv: 1.48,
@@ -468,13 +468,13 @@ export const WORLD_HISTORICAL_MISSIONS: HistoricalSpaceMission[] = [
     id: "mir-eo15-17-valeri-polyakov-437d",
     agencyId: "SSSR-ROSCOSMOS-IBMP",
     missionName: "Mir EO-15 / EO-16 / EO-17 (Dr. Valeri Polyakov 437.7-Day Record Flight)",
-    nativeTitle: "Орбитальный комплекс «Мир» — Рекордный 437,7-суточный полёт врача-космонавта В. В. Полякова",
+    nativeTitle: "Орбитальный комплекс «Мир»  •  Рекордный 437,7-суточный полёт врача-космонавта В. В. Полякова",
     launchAndLandingDates: "January 8, 1994 (Soyuz TM-18) – March 22, 1995 (Soyuz TM-20)",
-    durationDisplay: "437 days, 17 hours, 58 minutes, 16 seconds (6,871 orbits — All-Time Single-Flight Record)",
+    durationDisplay: "437 days, 17 hours, 58 minutes, 16 seconds (6,871 orbits  •  All-Time Single-Flight Record)",
     durationDays: 437.75,
     spacecraftAndStation: "Soyuz TM-18 / Mir Orbital Complex (Core, Kvant-1, Kvant-2, Kristall) / Soyuz TM-20",
     crew: [
-      "Dr. Valeri Vladimirovich Polyakov, MD (В. В. Поляков — Physician-Cosmonaut & Deputy Director of IBMP RAS)",
+      "Dr. Valeri Vladimirovich Polyakov, MD (В. В. Поляков  •  Physician-Cosmonaut & Deputy Director of IBMP RAS)",
       "Viktor Afanasyev & Yuri Usachov (EO-15), Yuri Malenchenko & Talgat Musabayev (EO-16), Aleksandr Viktorenko & Elena Kondakova (EO-17)",
     ],
     orbitalParameters: "Perigee: 389 km | Apogee: 398 km | Inclination: 51.6° | Period: 92.4 min",
@@ -530,8 +530,8 @@ export const WORLD_HISTORICAL_MISSIONS: HistoricalSpaceMission[] = [
     durationDays: 183.0,
     spacecraftAndStation: "Tiangong Space Station (Tianhe Core, Wentian & Mengtian Labs) & Chang'e-4 Lander (Von Kármán Crater)",
     crew: [
-      "Zhai Zhigang, Wang Yaping, Ye Guangfu (Shenzhou-13 — 182d)",
-      "Ye Guangfu, Li Cong, Li Guangsu (Shenzhou-18 — 192d Chinese Record)",
+      "Zhai Zhigang, Wang Yaping, Ye Guangfu (Shenzhou-13  •  182d)",
+      "Ye Guangfu, Li Cong, Li Guangsu (Shenzhou-18  •  192d Chinese Record)",
       "Cai Xuzhe, Song Lingdong, Wang Haoze (Shenzhou-19)",
     ],
     orbitalParameters: "Tiangong: 389 × 395 km, 41.5° incl. | Chang'e-4: 45.45° S, 177.59° E Lunar Far Side",
@@ -540,7 +540,7 @@ export const WORLD_HISTORICAL_MISSIONS: HistoricalSpaceMission[] = [
     dosimeterHardware: "Chang'e-4 LND (10-element Silicon Solid-State Telescope) & Tiangong Active TEPC",
     keyBiomedicalFindings: [
       "Chang'e-4 LND measured the first time-resolved radiation dose equivalent on the Moon's surface: 57.0 ± 5.9 µSv/hr (1,369 µSv/day), which is 2.6x higher than inside the ISS and ~200x higher than Earth's surface.",
-      "Taikong Yangxin Wan (太空养心丸 — 12-herb Space Heart-Nourishing Pill) administered across 180-day Shenzhou missions preserved brachial artery flow-mediated dilation (eNOS NO bioavailability) and increased HRV RMSSD by +22% compared to untreated bedrest/flight controls.",
+      "Taikong Yangxin Wan (太空养心丸  •  12-herb Space Heart-Nourishing Pill) administered across 180-day Shenzhou missions preserved brachial artery flow-mediated dilation (eNOS NO bioavailability) and increased HRV RMSSD by +22% compared to untreated bedrest/flight controls.",
       "Bilateral Neiguan (PC6) and Zusanli (ST36) 2/100 Hz Transcutaneous Electrical Acupoint Stimulation (TEAS) reduced space motion sickness incidence during Days 1–4 and accelerated gastrointestinal peristalsis recovery.",
     ],
     scientificExperiments: [
@@ -586,8 +586,8 @@ export const WORLD_HISTORICAL_MISSIONS: HistoricalSpaceMission[] = [
     durationDays: 340.0,
     spacecraftAndStation: "Apollo 14 Kitty Hawk/Antares | Skylab Orbital Workshop | ISS USOS",
     crew: [
-      "Alan Shepard, Stuart Roosa, Edgar Mitchell (Apollo 14 — Highest Apollo Crew Dose: 11.4 mGy)",
-      "Gerald Carr, Edward Gibson, William Pogue (Skylab 4 — 84-Day Calcium & Bone Balance)",
+      "Alan Shepard, Stuart Roosa, Edgar Mitchell (Apollo 14  •  Highest Apollo Crew Dose: 11.4 mGy)",
+      "Gerald Carr, Edward Gibson, William Pogue (Skylab 4  •  84-Day Calcium & Bone Balance)",
       "Scott Kelly (340d ISS) & Mark Kelly (1G Monozygotic Twin Ground Control)",
     ],
     orbitalParameters: "Apollo 14: High-Core Van Allen Belt Transit to Fra Mauro | Skylab: 440 km, 50° | ISS: 408 km, 51.6°",
@@ -684,7 +684,7 @@ export const WORLD_BIOMEDICAL_HARDWARE: AgencyBiomedicalHardware[] = [
   {
     id: "vorotnik-cervical-collar",
     agencyId: "MAS-INTERKOSMOS",
-    name: "Vorotnik (Воротник — Pneumatic Cervical Counter-Pressure Apparatus)",
+    name: "Vorotnik (Воротник  •  Pneumatic Cervical Counter-Pressure Apparatus)",
     nativeName: "Пневматический шейный амортизатор «Воротник» (Хүзүүвч)",
     category: "Counter-Pressure & Fluid Shift",
     missionsFlown: "Soyuz 39 / Salyut 6 (J. Gürragchaa & V. Dzhanibekov, March 1981) & Salyut-6/7 Interkosmos flights",
@@ -699,7 +699,7 @@ export const WORLD_BIOMEDICAL_HARDWARE: AgencyBiomedicalHardware[] = [
   {
     id: "krovoobrashcheniye-rheograph",
     agencyId: "MAS-INTERKOSMOS",
-    name: "Krovoobrashcheniye (Кровообращение — Salyut-6 Impedance Rheograph)",
+    name: "Krovoobrashcheniye (Кровообращение  •  Salyut-6 Impedance Rheograph)",
     nativeName: "Реограф «Кровообращение» / Левкой (Цусны эргэлт судлах төхөөрөмж)",
     category: "Impedance Rheography & Hemodynamics",
     missionsFlown: "Soyuz 39 / Salyut 6 (1981)",
@@ -714,8 +714,8 @@ export const WORLD_BIOMEDICAL_HARDWARE: AgencyBiomedicalHardware[] = [
   {
     id: "chibis-lbnp-suit",
     agencyId: "SSSR-ROSCOSMOS-IBMP",
-    name: "Chibis-M (Чибис-М — Lower Body Negative Pressure Pneumatic Suit)",
-    nativeName: "Пневмовакуумный костюм «Чибис-М» (ОДНТ — Отрицательное давление на нижнюю половину тела)",
+    name: "Chibis-M (Чибис-М  •  Lower Body Negative Pressure Pneumatic Suit)",
+    nativeName: "Пневмовакуумный костюм «Чибис-М» (ОДНТ  •  Отрицательное давление на нижнюю половину тела)",
     category: "Counter-Pressure & Fluid Shift",
     missionsFlown: "Salyut 1–7, Mir (Valeri Polyakov 437.7d), ISS Zvezda Service Module",
     operatingPrinciple:
@@ -729,7 +729,7 @@ export const WORLD_BIOMEDICAL_HARDWARE: AgencyBiomedicalHardware[] = [
   {
     id: "pingvin-axial-suit",
     agencyId: "SSSR-ROSCOSMOS-IBMP",
-    name: "Pingvin-3 (Пингвин-3 — Axial Musculoskeletal Loading Suit)",
+    name: "Pingvin-3 (Пингвин-3  •  Axial Musculoskeletal Loading Suit)",
     nativeName: "Нагрузочный костюм «Пингвин-3»",
     category: "Axial Musculoskeletal Loading",
     missionsFlown: "Salyut 6 (including Soyuz-39), Salyut 7, Mir, ISS Russian Segment",
@@ -744,7 +744,7 @@ export const WORLD_BIOMEDICAL_HARDWARE: AgencyBiomedicalHardware[] = [
   {
     id: "braslet-m-cuffs",
     agencyId: "SSSR-ROSCOSMOS-IBMP",
-    name: "Braslet-M (Браслет-М — Femoral Venous Occlusion Cuffs)",
+    name: "Braslet-M (Браслет-М  •  Femoral Venous Occlusion Cuffs)",
     nativeName: "Устройство «Браслет-М»",
     category: "Counter-Pressure & Fluid Shift",
     missionsFlown: "Mir, Space Shuttle, ISS (Russian & US crews)",
@@ -796,7 +796,7 @@ export const WORLD_SPACE_PHARMACEUTICALS: AgencySpacePharmaceutical[] = [
     id: "indralin-b190",
     agencyId: "SSSR-ROSCOSMOS-IBMP",
     name: "Indralin (Б-190 / B-190 Emergency Radioprotectant)",
-    nativeName: "Индралин (Препарат Б-190 — Экстренный радиопротектор аптечки АИ-Космос)",
+    nativeName: "Индралин (Препарат Б-190  •  Экстренный радиопротектор аптечки АИ-Космос)",
     codenameOrStandard: "Препарат Б-190 (IBMP RAS / Farmzaschita)",
     pharmacologicalClass: "Direct α1-Adrenomimetic Vasoconstrictive Radioprotectant",
     missionsFlown: "Salyut 7, Mir Orbital Station, Soyuz-TM/TMA/MS Descent Modules, ISS Zvezda Radiation Kit",
@@ -809,7 +809,7 @@ export const WORLD_SPACE_PHARMACEUTICALS: AgencySpacePharmaceutical[] = [
     doseReductionFactorOrGain: "DRF = 1.45 (Effective BFO Dose = Raw_BFO_Dose / 1.45)",
     microgravityNotes:
       "Causes a transient +15 to +25 mmHg rise in systolic blood pressure and mild reflex bradycardia for 45 minutes; Xiaomi Watch H1 micro-pump cuff must monitor BP every 10 minutes post-ingestion.",
-    kitAssignment: "Soyuz/Zvezda Emergency Radiation Kit (Укладка противорадиационная — Б-190)",
+    kitAssignment: "Soyuz/Zvezda Emergency Radiation Kit (Укладка противорадиационная  •  Б-190)",
   },
   {
     id: "cystamine-rs1",
@@ -833,7 +833,7 @@ export const WORLD_SPACE_PHARMACEUTICALS: AgencySpacePharmaceutical[] = [
   {
     id: "phenibut-noofen",
     agencyId: "SSSR-ROSCOSMOS-IBMP",
-    name: "Phenibut (Фенибут — β-Phenyl-γ-Aminobutyric Acid)",
+    name: "Phenibut (Фенибут  •  β-Phenyl-γ-Aminobutyric Acid)",
     nativeName: "Фенибут (β-фенил-ГАМК)",
     codenameOrStandard: "Synthesized at Herzen Pedagogical Institute & IBMP for Soviet Cosmonauts",
     pharmacologicalClass: "GABAB Receptor Agonist & Phenethylamine Nootropic Anxiolytic",
@@ -871,7 +871,7 @@ export const WORLD_SPACE_PHARMACEUTICALS: AgencySpacePharmaceutical[] = [
   {
     id: "taikong-yangxin-wan",
     agencyId: "CMSA-ACC",
-    name: "Taikong Yangxin Wan (太空养心丸 — 'Space Heart-Nourishing Pill')",
+    name: "Taikong Yangxin Wan (太空养心丸  •  'Space Heart-Nourishing Pill')",
     nativeName: "太空养心丸 (中国航天员科研训练中心研制)",
     codenameOrStandard: "ACC Space TCM Formulary #1 (Shenzhou 7–19 & Tiangong)",
     pharmacologicalClass: "Multi-Target Endothelial eNOS, Baroreflex & Microcirculatory Cardioprotectant",
@@ -909,7 +909,7 @@ export const WORLD_SPACE_PHARMACEUTICALS: AgencySpacePharmaceutical[] = [
   {
     id: "inmas-rp1-podophyllum",
     agencyId: "NASA-JSC",
-    name: "INMAS RP-1 (Podophyllum hexandrum Himalayan Radioprotectant — India ISRO/DRDO)",
+    name: "INMAS RP-1 (Podophyllum hexandrum Himalayan Radioprotectant  •  India ISRO/DRDO)",
     nativeName: "हिमालयी पोडोफाइलम हेक्सेंड्रम रेडियोप्रोटेक्टेंट (INMAS RP-1 / गगनयान)",
     codenameOrStandard: "DRDO-INMAS RP-1 (Institute of Nuclear Medicine & Allied Sciences, Delhi)",
     pharmacologicalClass: "Lignan / Flavonoid DNA-Repair Enhancer & Free-Radical Scavenger Radioprotectant",
@@ -972,12 +972,12 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "1961 (MAS) / 1981 (Soyuz 39)",
     biomedicalInstitute: "MAS Institute of Physics & Technology, Aviation Medical Center, & GMIT Nalaikh",
     notableAstronautsOrCosmonauts: [
-      "Jügderdemidiin Gürragchaa (Жүгдэрдэмидийн Гүррагчаа — Soyuz 39 / Salyut 6, March 22–30, 1981)",
-      "Maidarjavyn Ganzorig (Майдаржавын Ганзориг — Backup Cosmonaut & Principal Investigator)",
+      "Jügderdemidiin Gürragchaa (Жүгдэрдэмидийн Гүррагчаа  •  Soyuz 39 / Salyut 6, March 22–30, 1981)",
+      "Maidarjavyn Ganzorig (Майдаржавын Ганзориг  •  Backup Cosmonaut & Principal Investigator)",
     ],
     keyMissionsAndPlatforms: [
-      "Soyuz 39 / Salyut 6 (1981 — 7d 20h 42m, 124 orbits)",
-      "Mazaalai (2017 First Mongolian CubeSat — Cosmic Ray & Ionospheric Sensor)",
+      "Soyuz 39 / Salyut 6 (1981  •  7d 20h 42m, 124 orbits)",
+      "Mazaalai (2017 First Mongolian CubeSat  •  Cosmic Ray & Ionospheric Sensor)",
       "Chinggis Sat (2023) & GMIT Nalaikh Deep-Space Telemetry Ground Station",
     ],
     flagshipHardwareAndDosimeters: [
@@ -1014,11 +1014,11 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "1969 (ISRO) / 1961 (INMAS) / 1984 (Soyuz T-11)",
     biomedicalInstitute: "IAM (Institute of Aerospace Medicine, Bengaluru) & DRDO-INMAS (New Delhi)",
     notableAstronautsOrCosmonauts: [
-      "Wing Cmdr. Rakesh Sharma (Soyuz T-11 / Salyut 7, April 3–11, 1984 — 7d 21h 40m)",
+      "Wing Cmdr. Rakesh Sharma (Soyuz T-11 / Salyut 7, April 3–11, 1984  •  7d 21h 40m)",
       "Group Capt. Shubhanshu Shukla, Prasanth Balakrishnan Nair, Ajit Krishnan, Angad Pratap (Gaganyaan / Axiom-4)",
     ],
     keyMissionsAndPlatforms: [
-      "Soyuz T-11 / Salyut 7 (1984 — 'Yoga in Space' & Vectorcardiography)",
+      "Soyuz T-11 / Salyut 7 (1984  •  'Yoga in Space' & Vectorcardiography)",
       "Gaganyaan Crewed Orbital Program & Vyommitra Humanoid Dosimetry Robot",
       "Chandrayaan-1 RADOM (with Bulgarian Liulin) & Aditya-L1 Solar Particle Monitor",
     ],
@@ -1058,8 +1058,8 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "1989 (CSA) / 1984 (First Canadian Astronaut Marc Garneau on STS-41-G)",
     biomedicalInstitute: "CSA Operational Space Medicine (Saint-Hubert) & University of Waterloo / Calgary Bone Labs",
     notableAstronautsOrCosmonauts: [
-      "Dr. Roberta Bondar (STS-42 Neurologist — First Space Transcranial Doppler)",
-      "Dr. Robert Thirsk, MD (ISS Expedition 20/21 — 187d Bisphosphonate & Vascular Study)",
+      "Dr. Roberta Bondar (STS-42 Neurologist  •  First Space Transcranial Doppler)",
+      "Dr. Robert Thirsk, MD (ISS Expedition 20/21  •  187d Bisphosphonate & Vascular Study)",
       "Chris Hadfield (ISS Commander Exp 35), David Saint-Jacques, MD (Exp 58/59), Jeremy Hansen (Artemis II)",
     ],
     keyMissionsAndPlatforms: [
@@ -1082,7 +1082,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
           "Demonstrated that 6 months on the ISS increases carotid artery stiffness by an amount equivalent to 10–20 years of normal terrestrial aging and induces transient insulin resistance (HOMA-IR +38%).",
       },
       {
-        experimentOrProgram: "TBone (Prof. Steven Boyd — HR-pQCT Trabecular Microarchitecture)",
+        experimentOrProgram: "TBone (Prof. Steven Boyd  •  HR-pQCT Trabecular Microarchitecture)",
         scientificFocus: "Irreversible Trabecular Rod/Plate Perforation Post-Flight",
         empiricalFormulaOrMetric: "Tb.Sp(1yr_post) = +8.4% permanent trabecular separation if unprotected",
         summary:
@@ -1104,7 +1104,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "1969 (DFVLR/DLR) / 1978 (Sigmund Jähn Soyuz 31 / Salyut 6)",
     biomedicalInstitute: "DLR Institute of Aerospace Medicine & :envihab Research Facility (Cologne)",
     notableAstronautsOrCosmonauts: [
-      "Sigmund Jähn (Soyuz 31 / Salyut 6, Aug 1978 — First German in Space, 'Audio' & 'Zeit' experiments)",
+      "Sigmund Jähn (Soyuz 31 / Salyut 6, Aug 1978  •  First German in Space, 'Audio' & 'Zeit' experiments)",
       "Ulf Merbold (Spacelab-1 & Mir Euromir-94), Reinhold Ewald (Mir), Thomas Reiter, Alexander Gerst, Matthias Maurer",
     ],
     keyMissionsAndPlatforms: [
@@ -1127,7 +1127,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
           "30 minutes/day of short-arm centrifugation generating 1.0G at the heart and 2.0G at the feet reverses cephalad venous pooling, suppresses optic nerve sheath distension (SANS), and preserves orthostatic tolerance.",
       },
       {
-        experimentOrProgram: "Artemis I MARE (Matroshka AstroRad Radiation Experiment — Helga & Zohar)",
+        experimentOrProgram: "Artemis I MARE (Matroshka AstroRad Radiation Experiment  •  Helga & Zohar)",
         scientificFocus: "Female Breast, Ovary & Bone-Marrow Cislunar Radiation Shielding",
         empiricalFormulaOrMetric: "D_marrow_Zohar = D_marrow_Helga * (1 - 0.34) with AstroRad vest",
         summary:
@@ -1144,16 +1144,16 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     flagEmoji: "🇧🇬",
     region: "Europe & Interkosmos",
     agencyAcronym: "SRTI-BAS (BASA)",
-    agencyFullName: "Space Research and Technology Institute — Bulgarian Academy of Sciences",
-    nativeAgencyName: "Институт за космически изследвания и технологии — БАН (ИКИТ-БАН)",
+    agencyFullName: "Space Research and Technology Institute  •  Bulgarian Academy of Sciences",
+    nativeAgencyName: "Институт за космически изследвания и технологии  •  БАН (ИКИТ-БАН)",
     foundedYear: "1969 (BAS Space Group) / 1979 (Soyuz 33) / 1988 (Mir Soyuz TM-5)",
     biomedicalInstitute: "SRTI-BAS Solar-Terrestrial Influences & Space Biotechnology Department (Sofia)",
     notableAstronautsOrCosmonauts: [
-      "Georgi Ivanov (Георги Иванов — Soyuz 33, April 1979)",
-      "Aleksandar Panayotov Aleksandrov (Александър Александров — Soyuz TM-5 / Mir, June 1988, 'Lyulin' & 'Svet')",
+      "Georgi Ivanov (Георги Иванов  •  Soyuz 33, April 1979)",
+      "Aleksandar Panayotov Aleksandrov (Александър Александров  •  Soyuz TM-5 / Mir, June 1988, 'Lyulin' & 'Svet')",
     ],
     keyMissionsAndPlatforms: [
-      "Soyuz TM-5 / Mir ('Shipka' Program — First flight of the Lyulin dosimeter)",
+      "Soyuz TM-5 / Mir ('Shipka' Program  •  First flight of the Lyulin dosimeter)",
       "Liulin-4 / Liulin-5 (Inside ESA Matroshka-R spherical phantom on ISS)",
       "Liulin-MO (ExoMars Trace Gas Orbiter Mars Orbit Dosimeter) & RADOM (Chandrayaan-1)",
       "Svet (Свет) Automated Microgravity Plant Greenhouse on Mir (First wheat seed-to-seed in space)",
@@ -1194,8 +1194,8 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "1972 (Interkosmos) / May 26, 1980 (Soyuz 36 / Salyut 6)",
     biomedicalInstitute: "KFKI Space Dosimetry Lab & Semmelweis University Aerospace Medicine (Budapest)",
     notableAstronautsOrCosmonauts: [
-      "Bertalan Farkas (Soyuz 36 / Soyuz 35 / Salyut 6, May 26–June 3, 1980 — 7d 20h 45m)",
-      "Tibor Kapu & Gyula Cserényi (HUNOR Program — Axiom-4 ISS Mission)",
+      "Bertalan Farkas (Soyuz 36 / Soyuz 35 / Salyut 6, May 26–June 3, 1980  •  7d 20h 45m)",
+      "Tibor Kapu & Gyula Cserényi (HUNOR Program  •  Axiom-4 ISS Mission)",
     ],
     keyMissionsAndPlatforms: [
       "Soyuz 36 / Salyut 6 ('Pille-80' Dosimeter & 'Interferon' Immune Experiment)",
@@ -1203,7 +1203,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
       "Balaton Psychomotor & Cognitive Work Capacity Analyzer",
     ],
     flagshipHardwareAndDosimeters: [
-      "Pille (Пилле — 'Butterfly') Portable CaSO4:Dy Thermoluminescent Dosimeter (TLD) Reader System",
+      "Pille (Пилле  •  'Butterfly') Portable CaSO4:Dy Thermoluminescent Dosimeter (TLD) Reader System",
       "Balaton Microprocessor Skin Galvanic Response & Reaction Time Tester",
     ],
     biomedicalAndRadiationResearch: [
@@ -1212,7 +1212,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
         scientificFocus: "High-Precision EVA & Orbital SAA Pass Personal Dosimetry",
         empiricalFormulaOrMetric: "D_TLD = k_cal * ∫ I_glow(T) dT (Resolution: 1 µGy to 10 Gy)",
         summary:
-          "Invented by Ferenc Szabó and István Fehér at KFKI Budapest, Pille was the first portable onboard TLD reader in spaceflight history—used by Bertalan Farkas (1980), Mongolia's J. Gürragchaa (1981, logging 1.48 mSv), Sally Ride (1984), and still operating on the ISS.",
+          "Invented by Ferenc Szabó and István Fehér at KFKI Budapest, Pille was the first portable onboard TLD reader in spaceflight history • used by Bertalan Farkas (1980), Mongolia's J. Gürragchaa (1981, logging 1.48 mSv), Sally Ride (1984), and still operating on the ISS.",
       },
       {
         experimentOrProgram: "Interferon (Salyut-6 Human Leukocyte Antiviral Immunity)",
@@ -1237,12 +1237,12 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "1961 (CNES) / 1982 (Soyuz T-6 Jean-Loup Chrétien)",
     biomedicalInstitute: "MEDES (Institut de Médecine et de Physiologie Spatiales, Toulouse)",
     notableAstronautsOrCosmonauts: [
-      "Jean-Loup Chrétien (Soyuz T-6 / Salyut 7 1982, Mir Aragatz 1988 — First Western European in Space & EVA)",
-      "Dr. Claudie Haigneré, MD/PhD (Mir Cassiopée 1996, ISS Andromède 2001 — Rheumatologist & Neuroscientist)",
+      "Jean-Loup Chrétien (Soyuz T-6 / Salyut 7 1982, Mir Aragatz 1988  •  First Western European in Space & EVA)",
+      "Dr. Claudie Haigneré, MD/PhD (Mir Cassiopée 1996, ISS Andromède 2001  •  Rheumatologist & Neuroscientist)",
       "Thomas Pesquet (ISS Expeditions 50/51 & 65/66 Commander), Sophie Adenot",
     ],
     keyMissionsAndPlatforms: [
-      "Soyuz T-6 / Salyut 7 ('Échographie' — First Cardiovascular & Cerebral Ultrasound in Space, 1982)",
+      "Soyuz T-6 / Salyut 7 ('Échographie'  •  First Cardiovascular & Cerebral Ultrasound in Space, 1982)",
       "Mir Altair / Cassiopée / Pégase ('Cognilab' & 'Physiolab')",
       "Toulouse 60-Day Head-Down Tilt Bedrest & Dry Immersion Clinics (MEDES)",
     ],
@@ -1283,11 +1283,11 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     ],
     flagshipHardwareAndDosimeters: [
       "ALTEA Helmet (6 Silicon Particle Telescopes + 32-Channel Synchronous EEG + Visual Phosphene Button)",
-      "LIDAL (Light Ion Detector for ALTEA — Time-of-Flight HZE Cosmic Ray Spectrometer)",
+      "LIDAL (Light Ion Detector for ALTEA  •  Time-of-Flight HZE Cosmic Ray Spectrometer)",
     ],
     biomedicalAndRadiationResearch: [
       {
-        experimentOrProgram: "ALTEA & LIDAL (Prof. Livio Narici — Retinal & Cortical HZE Phosphenes)",
+        experimentOrProgram: "ALTEA & LIDAL (Prof. Livio Narici  •  Retinal & Cortical HZE Phosphenes)",
         scientificFocus: "Real-Time Correlation of Heavy-Ion Traversals Through Visual Cortex with EEG & Light Flashes",
         empiricalFormulaOrMetric: "Phosphene_Rate = 0.18 to 0.45 flashes/min in dark-adapted SAA/polar transit (LET > 15 keV/µm)",
         summary:
@@ -1309,8 +1309,8 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "1969 (NASDA) / 2003 (JAXA) / 1990 (Toyohiro Akiyama Mir / 1992 Mamoru Mohri STS-47)",
     biomedicalInstitute: "JAXA Tsukuba Space Center Space Biomedical Research Group",
     notableAstronautsOrCosmonauts: [
-      "Dr. Chiaki Mukai, MD/PhD (Cardiovascular Surgeon — STS-65 & STS-95)",
-      "Dr. Satoshi Furukawa, MD/PhD (Surgeon — ISS Exp 28/29 & Exp 69/70)",
+      "Dr. Chiaki Mukai, MD/PhD (Cardiovascular Surgeon  •  STS-65 & STS-95)",
+      "Dr. Satoshi Furukawa, MD/PhD (Surgeon  •  ISS Exp 28/29 & Exp 69/70)",
       "Koichi Wakata, Soichi Noguchi, Akihiko Hoshide, Kimiya Yui, Norishige Kanai (MD)",
     ],
     keyMissionsAndPlatforms: [
@@ -1353,16 +1353,16 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "1989 (KARI) / 2024 (KASA) / April 8, 2008 (Soyuz TMA-12)",
     biomedicalInstitute: "KARI Space Bio-Medicine Team & Republic of Korea Air Force Aerospace Medical Center",
     notableAstronautsOrCosmonauts: [
-      "Dr. Yi So-yeon, PhD (이소연 — Soyuz TMA-12 / ISS, April 8–19, 2008 — 10d 21h, 18 Korean Experiments)",
+      "Dr. Yi So-yeon, PhD (이소연  •  Soyuz TMA-12 / ISS, April 8–19, 2008  •  10d 21h, 18 Korean Experiments)",
     ],
     keyMissionsAndPlatforms: [
       "Soyuz TMA-12 / ISS Korean Astronaut Program (18 Bio/Microgravity Experiments)",
-      "Danuri (KPLO — Korea Pathfinder Lunar Orbiter Gamma-Ray Spectrometer, 2022–Present)",
+      "Danuri (KPLO  •  Korea Pathfinder Lunar Orbiter Gamma-Ray Spectrometer, 2022–Present)",
       "LUSEM (Lunar Space Environment Monitor on CLPS Lunar Lander)",
     ],
     flagshipHardwareAndDosimeters: [
       "MEMS Non-Contact Intraocular Pressure (IOP) Tonometer & 3D Facial Edema Scanner",
-      "KPLO Lunar Gamma-Ray Spectrometer (KGRS — 30 keV to 12 MeV Lunar Surface Radiation Mapping)",
+      "KPLO Lunar Gamma-Ray Spectrometer (KGRS  •  30 keV to 12 MeV Lunar Surface Radiation Mapping)",
     ],
     biomedicalAndRadiationResearch: [
       {
@@ -1395,12 +1395,12 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "2006 (EIAST) / 2014 (UAESA) / 2019 (Soyuz MS-15) / 2023 (Crew-6 186d)",
     biomedicalInstitute: "MBRSC Astronaut Programme & Mohammed Bin Rashid University of Medicine and Health Sciences (MBRU)",
     notableAstronautsOrCosmonauts: [
-      "Hazzaa AlMansoori (Soyuz MS-15 / ISS, Sept 2019 — First Emirati in Space)",
-      "Dr. Sultan AlNeyadi (SpaceX Crew-6 / ISS Exp 69, March–Sept 2023 — 186 Days & First Arab EVA)",
+      "Hazzaa AlMansoori (Soyuz MS-15 / ISS, Sept 2019  •  First Emirati in Space)",
+      "Dr. Sultan AlNeyadi (SpaceX Crew-6 / ISS Exp 69, March–Sept 2023  •  186 Days & First Arab EVA)",
       "Nora AlMatrooshi & Mohammad AlMulla",
     ],
     keyMissionsAndPlatforms: [
-      "UAE Astronaut Programme (ISS Expedition 69 — 186-Day Long-Duration Mission)",
+      "UAE Astronaut Programme (ISS Expedition 69  •  186-Day Long-Duration Mission)",
       "Emirates Lunar Mission (Rashid Rover) & Gateway Emirates Airlock (lunar radiation monitoring)",
     ],
     flagshipHardwareAndDosimeters: [
@@ -1430,8 +1430,8 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "1985 (STS-51-G) / 2018 (SSA) / May 2023 (Axiom-2 ISS)",
     biomedicalInstitute: "King Faisal Specialist Hospital & Research Centre (KFSHRC) Space Biomedicine Division",
     notableAstronautsOrCosmonauts: [
-      "Prince Sultan bin Salman Al Saud (STS-51-G Discovery, June 1985 — First Arab & Muslim in Space)",
-      "Rayyanah Barnawi (Biomedical Stem-Cell Researcher — Axiom-2 ISS, May 2023)",
+      "Prince Sultan bin Salman Al Saud (STS-51-G Discovery, June 1985  •  First Arab & Muslim in Space)",
+      "Rayyanah Barnawi (Biomedical Stem-Cell Researcher  •  Axiom-2 ISS, May 2023)",
       "Ali AlQarni (Axiom-2 ISS, May 2023)",
     ],
     keyMissionsAndPlatforms: [
@@ -1466,7 +1466,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     biomedicalInstitute: "Sheba Medical Center ARC Space Lab & StemRad / Soreq NRC",
     notableAstronautsOrCosmonauts: [
       "Col. Ilan Ramon (STS-107 Space Shuttle Columbia, Jan–Feb 2003)",
-      "Eytan Stibbe (Axiom-1 'Rakia' Mission on ISS, April 2022 — 35 Israeli Experiments)",
+      "Eytan Stibbe (Axiom-1 'Rakia' Mission on ISS, April 2022  •  35 Israeli Experiments)",
     ],
     keyMissionsAndPlatforms: [
       "AstroRad Selective Organ Radiation Shielding Vest (ISS & Artemis I Orion MARE)",
@@ -1499,11 +1499,11 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "2018 (TUA) / Jan 2024 (Axiom-3 ISS) / June 2024 (Suborbital)",
     biomedicalInstitute: "University of Health Sciences (SBÜ) Aerospace Medicine & TÜBİTAK",
     notableAstronautsOrCosmonauts: [
-      "Col. Alper Gezeravcı (Axiom-3 / ISS, Jan–Feb 2024 — 21d, 13 Turkish Scientific Experiments)",
-      "Tuva Cihangir Atasever (Virgin Galactic Unity 26 Suborbital — Cerebral NIRS & Insulin Pen Study, 2024)",
+      "Col. Alper Gezeravcı (Axiom-3 / ISS, Jan–Feb 2024  •  21d, 13 Turkish Scientific Experiments)",
+      "Tuva Cihangir Atasever (Virgin Galactic Unity 26 Suborbital  •  Cerebral NIRS & Insulin Pen Study, 2024)",
     ],
     keyMissionsAndPlatforms: [
-      "Turkish National Space Program Horizon Mission (Axiom-3 ISS — 13 Experiments)",
+      "Turkish National Space Program Horizon Mission (Axiom-3 ISS  •  13 Experiments)",
     ],
     flagshipHardwareAndDosimeters: [
       "Vokalkord Acoustic Formant AI Analyzer & fNIRS Prefrontal Cerebral Oximeter",
@@ -1529,30 +1529,30 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     agencyAcronym: "Czech Space Office / CAS",
     agencyFullName: "Czech Space Office & Czech Academy of Sciences Nuclear Physics Institute",
     nativeAgencyName: "Česká kosmická kancelář / Ústav jaderné fyziky AV ČR",
-    foundedYear: "1978 (March 2, 1978 — Soyuz 28 / Salyut 6, First Non-Soviet/Non-US Astronaut in History)",
+    foundedYear: "1978 (March 2, 1978  •  Soyuz 28 / Salyut 6, First Non-Soviet/Non-US Astronaut in History)",
     biomedicalInstitute: "Institute of Aviation Medicine Prague (ÚLZ) & NPI CAS Department of Radiation Dosimetry",
     notableAstronautsOrCosmonauts: [
-      "Vladimír Remek (Soyuz 28 / Salyut 6, March 2–10, 1978 — 7d 22h 17m, 87th Human & 1st International Cosmonaut)",
+      "Vladimír Remek (Soyuz 28 / Salyut 6, March 2–10, 1978  •  7d 22h 17m, 87th Human & 1st International Cosmonaut)",
       "Aleš Svoboda (ESA Reserve Astronaut)",
     ],
     keyMissionsAndPlatforms: [
-      "Soyuz 28 / Salyut 6 (1978 — First Interkosmos Crewed Mission)",
+      "Soyuz 28 / Salyut 6 (1978  •  First Interkosmos Crewed Mission)",
       "Timepix / Medipix Hybrid Pixel Silicon Radiation Cameras on ISS, Orion & Satellites",
     ],
     flagshipHardwareAndDosimeters: [
-      "Oxymeter-M (Оксиметр — Polarographic Subcutaneous Tissue Oxygen Tension Electrode)",
+      "Oxymeter-M (Оксиметр  •  Polarographic Subcutaneous Tissue Oxygen Tension Electrode)",
       "Timepix / MiniPIX (CERN/Czech Hybrid Pixel Particle Tracker resolving individual α, β, p+, HZE tracks)",
     ],
     biomedicalAndRadiationResearch: [
       {
-        experimentOrProgram: "Kislorod / Oxymeter (Кислород — Subcutaneous Tissue pO2 in 0G)",
+        experimentOrProgram: "Kislorod / Oxymeter (Кислород  •  Subcutaneous Tissue pO2 in 0G)",
         scientificFocus: "Peripheral Microvascular Oxygen Utilisation & Hyperoxic EVA Pre-Breathe",
         empiricalFormulaOrMetric: "pO2_tissue(0G) = pO2_1G * 0.87 (-13% peripheral tissue oxygenation)",
         summary:
           "Vladimír Remek used the Czechoslovak 'Oxymeter' polarographic needle sensor on Salyut-6 to prove that microgravity microvascular redistribution lowers peripheral subcutaneous tissue oxygen tension by 13%.",
       },
       {
-        experimentOrProgram: "Chlorella (Хлорелла — Microalgae Bioregenerative O2/CO2 Loop)",
+        experimentOrProgram: "Chlorella (Хлорелла  •  Microalgae Bioregenerative O2/CO2 Loop)",
         scientificFocus: "Autotrophic/Heterotrophic Growth Rate of Chlorella Algae in Microgravity",
         empiricalFormulaOrMetric: "μ_growth(0G) = 0.98 * μ_growth(1G)",
         summary: "Proved Chlorella microalgae maintain full photosynthetic oxygen regeneration efficiency in 0G.",
@@ -1570,11 +1570,11 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     agencyAcronym: "POLSA / WIML",
     agencyFullName: "Polish Space Agency & Military Institute of Aviation Medicine (Warsaw)",
     nativeAgencyName: "Polska Agencja Kosmiczna (POLSA) / Wojskowy Instytut Medycyny Lotniczej (WIML)",
-    foundedYear: "1978 (June 27, 1978 — Soyuz 30 / Salyut 6) / 2014 (POLSA)",
+    foundedYear: "1978 (June 27, 1978  •  Soyuz 30 / Salyut 6) / 2014 (POLSA)",
     biomedicalInstitute: "Military Institute of Aviation Medicine (WIML, Warsaw) & IFJ PAN Kraków (TLD Dosimetry)",
     notableAstronautsOrCosmonauts: [
-      "Gen. Mirosław Hermaszewski (Soyuz 30 / Salyut 6, June 27–July 5, 1978 — 7d 22h 02m)",
-      "Dr. Sławosz Uznański-Wiśniewski (ESA/POLSA Ignis Mission — Axiom-4 ISS)",
+      "Gen. Mirosław Hermaszewski (Soyuz 30 / Salyut 6, June 27–July 5, 1978  •  7d 22h 02m)",
+      "Dr. Sławosz Uznański-Wiśniewski (ESA/POLSA Ignis Mission  •  Axiom-4 ISS)",
     ],
     keyMissionsAndPlatforms: [
       "Soyuz 30 / Salyut 6 ('Kardiolider', 'Smak', 'Zdrowie', 'Relaks')",
@@ -1582,7 +1582,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     ],
     flagshipHardwareAndDosimeters: [
       "Kardiolider (Кардиолидер) Acoustic Heart-Rate Biofeedback Exercise Pacer",
-      "Smak (Смак — 'Taste') High-Precision Electrogustometer (0–300 µA Tongue Taste Threshold Meter)",
+      "Smak (Смак  •  'Taste') High-Precision Electrogustometer (0–300 µA Tongue Taste Threshold Meter)",
     ],
     biomedicalAndRadiationResearch: [
       {
@@ -1593,7 +1593,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
           "Developed at WIML Warsaw, 'Kardiolider' was the precursor to modern smartwatch HR-zone alarms, pacing cosmonaut physical workload on the Salyut-6 bicycle ergometer.",
       },
       {
-        experimentOrProgram: "Smak ('Taste' — Microgravity Electrogustometry)",
+        experimentOrProgram: "Smak ('Taste'  •  Microgravity Electrogustometry)",
         scientificFocus: "Cephalad Mucosal Congestion & Blunting of Gustatory Receptor Thresholds",
         empiricalFormulaOrMetric: "I_taste_threshold(0G) = +42% µA current required for sour/salty detection",
         summary:
@@ -1610,12 +1610,12 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     flagEmoji: "🇻🇳",
     region: "Asia-Pacific",
     agencyAcronym: "VNSC / VAST",
-    agencyFullName: "Vietnam National Space Center — Vietnam Academy of Science and Technology",
-    nativeAgencyName: "Trung tâm Vũ trụ Việt Nam (VNSC) — Viện Hàn lâm Khoa học và Công nghệ Việt Nam",
-    foundedYear: "1980 (July 23, 1980 — Soyuz 37 / Salyut 6, First Asian in Space)",
+    agencyFullName: "Vietnam National Space Center  •  Vietnam Academy of Science and Technology",
+    nativeAgencyName: "Trung tâm Vũ trụ Việt Nam (VNSC)  •  Viện Hàn lâm Khoa học và Công nghệ Việt Nam",
+    foundedYear: "1980 (July 23, 1980  •  Soyuz 37 / Salyut 6, First Asian in Space)",
     biomedicalInstitute: "Vietnam Academy of Science and Technology (VAST) & Air Force Medical Institute (Hanoi)",
     notableAstronautsOrCosmonauts: [
-      "Lt. Gen. Phạm Tuân (Soyuz 37 / Soyuz 36 / Salyut 6, July 23–31, 1980 — 7d 20h 42m, First Asian Cosmonaut)",
+      "Lt. Gen. Phạm Tuân (Soyuz 37 / Soyuz 36 / Salyut 6, July 23–31, 1980  •  7d 20h 42m, First Asian Cosmonaut)",
       "Bùi Thanh Liêm (Backup Cosmonaut)",
     ],
     keyMissionsAndPlatforms: [
@@ -1652,10 +1652,10 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     agencyAcronym: "CITMA / ICIMAF",
     agencyFullName: "Cuban Academy of Sciences & Cuban Neurosciences Center (CNEURO)",
     nativeAgencyName: "Academia de Ciencias de Cuba / Centro de Neurociencias de Cuba (CNEURO)",
-    foundedYear: "1980 (Sept 18, 1980 — Soyuz 38 / Salyut 6, First Latin American & First Person of African Descent in Space)",
+    foundedYear: "1980 (Sept 18, 1980  •  Soyuz 38 / Salyut 6, First Latin American & First Person of African Descent in Space)",
     biomedicalInstitute: "Cuban Neurosciences Center (CNEURO, Havana) & Hospital Militar Dr. Carlos J. Finlay",
     notableAstronautsOrCosmonauts: [
-      "Gen. Arnaldo Tamayo Méndez (Soyuz 38 / Salyut 6, Sept 18–26, 1980 — 7d 20h 43m)",
+      "Gen. Arnaldo Tamayo Méndez (Soyuz 38 / Salyut 6, Sept 18–26, 1980  •  7d 20h 43m)",
       "José Armando López Falcón (Backup Cosmonaut)",
     ],
     keyMissionsAndPlatforms: [
@@ -1663,7 +1663,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     ],
     flagshipHardwareAndDosimeters: [
       "Medicor-Cuba 'Cortex' Digital EEG Visual/Auditory Evoked Potential Analyzer",
-      "Suporte (Супорте — 'Support') Plantar Mechanoreceptor Pressure-Arch Footwear",
+      "Suporte (Супорте  •  'Support') Plantar Mechanoreceptor Pressure-Arch Footwear",
     ],
     biomedicalAndRadiationResearch: [
       {
@@ -1693,10 +1693,10 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     agencyAcronym: "ROSA & ISS Bucharest",
     agencyFullName: "Romanian Space Agency & Institute of Space Science (Măgurele)",
     nativeAgencyName: "Agenția Spațială Română (ROSA) / Institutul de Științe Spațiale",
-    foundedYear: "1981 (May 14, 1981 — Soyuz 40 / Salyut 6) / 1991 (ROSA)",
+    foundedYear: "1981 (May 14, 1981  •  Soyuz 40 / Salyut 6) / 1991 (ROSA)",
     biomedicalInstitute: "National Institute of Aerospace Medicine 'Gen. Dr. Aviator Victor Anastasiu' (INMAS Bucharest)",
     notableAstronautsOrCosmonauts: [
-      "Lt. Gen. Dr. Ing. Dumitru-Dorin Prunariu (Soyuz 40 / Salyut 6, May 14–22, 1981 — 7d 20h 42m, immediately following Mongolia's Soyuz-39)",
+      "Lt. Gen. Dr. Ing. Dumitru-Dorin Prunariu (Soyuz 40 / Salyut 6, May 14–22, 1981  •  7d 20h 42m, immediately following Mongolia's Soyuz-39)",
       "Dumitru Dediu (Backup Cosmonaut)",
     ],
     keyMissionsAndPlatforms: [
@@ -1734,15 +1734,15 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     agencyAcronym: "UKSA",
     agencyFullName: "United Kingdom Space Agency",
     nativeAgencyName: "UK Space Agency (UKSA)",
-    foundedYear: "1991 (Project Juno Mir — Helen Sharman) / 2010 (UKSA)",
+    foundedYear: "1991 (Project Juno Mir  •  Helen Sharman) / 2010 (UKSA)",
     biomedicalInstitute: "King's College London Centre for Human & Applied Physiological Sciences & Univ. of Nottingham",
     notableAstronautsOrCosmonauts: [
-      "Dr. Helen Sharman, OBE (Soyuz TM-12 / Mir Project Juno, May 1991 — First Briton in Space)",
-      "Tim Peake (ISS Expedition 46/47 Principia Mission, 2015–2016 — 186d)",
-      "John McFall, MD (ESA Fly! Feasibility Study — First Paralympic Surgeon-Astronaut) & Rosemary Coogan",
+      "Dr. Helen Sharman, OBE (Soyuz TM-12 / Mir Project Juno, May 1991  •  First Briton in Space)",
+      "Tim Peake (ISS Expedition 46/47 Principia Mission, 2015–2016  •  186d)",
+      "John McFall, MD (ESA Fly! Feasibility Study  •  First Paralympic Surgeon-Astronaut) & Rosemary Coogan",
     ],
     keyMissionsAndPlatforms: [
-      "Molecular Muscle Experiment (MME-1 & MME-2 on ISS — C. elegans Insulin/Integrin Atrophy Pathways)",
+      "Molecular Muscle Experiment (MME-1 & MME-2 on ISS  •  C. elegans Insulin/Integrin Atrophy Pathways)",
       "MicroAge (Lab-Grown Human Skeletal Muscle Organoids Electrically Stimulated on ISS)",
       "Skinsuit (Gravity-Loading Elastic Countermeasure Garment developed with KCL/MIT/ESA)",
     ],
@@ -1771,9 +1771,9 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     agencyFullName: "Brazilian Space Agency & National Institute for Space Research",
     nativeAgencyName: "Agência Espacial Brasileira (AEB) / Instituto Nacional de Pesquisas Espaciais (INPE)",
     foundedYear: "1961 (INPE) / 1994 (AEB) / March 30, 2006 (Soyuz TMA-8 / ISS)",
-    biomedicalInstitute: "Microgravity Center (MicroG — PUCRS, Porto Alegre) & INPE South Atlantic Anomaly Lab",
+    biomedicalInstitute: "Microgravity Center (MicroG  •  PUCRS, Porto Alegre) & INPE South Atlantic Anomaly Lab",
     notableAstronautsOrCosmonauts: [
-      "Lt. Col. Marcos Cesar Pontes (Soyuz TMA-8 / ISS 'Centenário Mission', March–April 2006 — 9d 21h)",
+      "Lt. Col. Marcos Cesar Pontes (Soyuz TMA-8 / ISS 'Centenário Mission', March–April 2006  •  9d 21h)",
     ],
     keyMissionsAndPlatforms: [
       "Missão Centenário on ISS ('DNA' Repair & 'NIP' Luminescence Experiments)",
@@ -1836,11 +1836,11 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     region: "Middle East & Africa",
     agencyAcronym: "SANSA",
     agencyFullName: "South African National Space Agency",
-    nativeAgencyName: "South African National Space Agency (SANSA — Hermanus Space Weather Centre)",
+    nativeAgencyName: "South African National Space Agency (SANSA  •  Hermanus Space Weather Centre)",
     foundedYear: "2002 (Mark Shuttleworth Soyuz TM-34) / 2010 (SANSA)",
     biomedicalInstitute: "SANSA Space Weather Regional Warning Centre (Hermanus) & Univ. of Cape Town / Pretoria",
     notableAstronautsOrCosmonauts: [
-      "Mark Shuttleworth (Soyuz TM-34 / ISS 'First African in Space' Mission, April–May 2002 — 9d 21h)",
+      "Mark Shuttleworth (Soyuz TM-34 / ISS 'First African in Space' Mission, April–May 2002  •  9d 21h)",
     ],
     keyMissionsAndPlatforms: [
       "Soyuz TM-34 / ISS ('ECCS' Energy Expenditure & Cardiovascular Conditioning, 'SPC' Stem Cell Proliferation)",
@@ -1873,7 +1873,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     foundedYear: "1985 (STS-61-B Rodolfo Neri Vela) / 2010 (AEM)",
     biomedicalInstitute: "UNAM Programa Espacial Universitario (PEU) & Instituto Nacional de Neurología",
     notableAstronautsOrCosmonauts: [
-      "Dr. Rodolfo Neri Vela (STS-61-B Atlantis, Nov–Dec 1985 — 6d 21h, First Mexican Astronaut)",
+      "Dr. Rodolfo Neri Vela (STS-61-B Atlantis, Nov–Dec 1985  •  6d 21h, First Mexican Astronaut)",
       "José Hernández (STS-128), Katya Echazarreta",
     ],
     keyMissionsAndPlatforms: [
@@ -1910,17 +1910,17 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
       "Pedro Duque & Pablo Álvarez (Spain), Christer Fuglesang & Marcus Wandt (Sweden), Andreas Mogensen (Denmark)",
     ],
     keyMissionsAndPlatforms: [
-      "Belgium SCK CEN MELiSSA (Micro-Ecological Life Support System Alternative — Spirulina O2 Bioreactor)",
+      "Belgium SCK CEN MELiSSA (Micro-Ecological Life Support System Alternative  •  Spirulina O2 Bioreactor)",
       "Sweden Karolinska / Christer Fuglesang 'ALTEA-Shield' & Exhaled Nitric Oxide (FeNO) Airway Inflammation",
       "Denmark Andreas Mogensen 'Skinsuit' & 'Thor-Davis' Upper-Atmosphere Radiation Lightning",
     ],
     flagshipHardwareAndDosimeters: [
-      "NIOX MINO Exhaled Nitric Oxide (FeNO) Analyzer (Karolinska Institutet, Sweden — Lunar Dust Airway Inflammation)",
+      "NIOX MINO Exhaled Nitric Oxide (FeNO) Analyzer (Karolinska Institutet, Sweden  •  Lunar Dust Airway Inflammation)",
       "MELiSSA Arthrospira (Spirulina) Photobioreactor (SCK CEN Belgium)",
     ],
     biomedicalAndRadiationResearch: [
       {
-        experimentOrProgram: "Airway Monitoring (Karolinska Institutet, Sweden — Prof. Dag Linnarsson)",
+        experimentOrProgram: "Airway Monitoring (Karolinska Institutet, Sweden  •  Prof. Dag Linnarsson)",
         scientificFocus: "Exhaled Nitric Oxide (FeNO) in Reduced-Pressure Hypoxic EVA & Lunar Dust Environments",
         empiricalFormulaOrMetric: "FeNO_0G = -27% reduction in bronchial nitric oxide due to uniform 0G lung perfusion",
         summary:
@@ -1948,7 +1948,7 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     keyMissionsAndPlatforms: [
       "Baikonur Cosmodrome Launch & Post-Landing Search-and-Rescue Medical Field Hospital (Kazakhstan)",
       "Kazakh Dastarkhan-6 Lyophilized Probiotic Mare's Milk (Shubat/Kumis) Space Nutrition",
-      "STS-87 Collaborative Ukrainian Experiment (CUE — Brassica rapa Space Pollination by Leonid Kadenyuk)",
+      "STS-87 Collaborative Ukrainian Experiment (CUE  •  Brassica rapa Space Pollination by Leonid Kadenyuk)",
     ],
     flagshipHardwareAndDosimeters: [
       "Baikonur Mobile Inflatable Orthostatic Reanimation Tent & Soyuz Descent Telemetry Relay",
@@ -2007,11 +2007,11 @@ export const GLOBAL_COUNTRY_SPACE_AGENCIES_MATRIX: GlobalCountrySpaceAgencyEntry
     agencyAcronym: "CONAE & CNEA",
     agencyFullName: "Comisión Nacional de Actividades Espaciales & National Atomic Energy Commission",
     nativeAgencyName: "Comisión Nacional de Actividades Espaciales (CONAE) / CNEA",
-    foundedYear: "1960 (CNIE — Juan el Mono Suborbital Bio-Flight, 1969) / 1991 (CONAE)",
+    foundedYear: "1960 (CNIE  •  Juan el Mono Suborbital Bio-Flight, 1969) / 1991 (CONAE)",
     biomedicalInstitute: "Instituto Nacional de Medicina Aeronáutica y Espacial (INMAE) & CNEA Radiobiology Lab (Buenos Aires)",
     notableAstronautsOrCosmonauts: [
-      "Fernando Caldeiro (NASA Astronaut Group 16 — STS-124/ISS Support)",
-      "Bio-Primates 'Belisario' (1967 Yarará rocket) & 'Juan' (1969 Canopus II rocket — 4th nation in history to launch & recover a living mammal from space trajectory)",
+      "Fernando Caldeiro (NASA Astronaut Group 16  •  STS-124/ISS Support)",
+      "Bio-Primates 'Belisario' (1967 Yarará rocket) & 'Juan' (1969 Canopus II rocket  •  4th nation in history to launch & recover a living mammal from space trajectory)",
     ],
     keyMissionsAndPlatforms: [
       "Operación Navidad (1969 Canopus II Suborbital Primate ECG/Respiration Telemetry)",

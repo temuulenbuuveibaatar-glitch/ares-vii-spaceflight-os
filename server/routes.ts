@@ -18,7 +18,7 @@ import {
 } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // 1. GET /api/mission/overview — Full real-time state of Crew, Xiaomi Watch H1, Hermes 4 Subagents, Ship Autopilot, GMIT/DSN Earth Comms & Supabase
+  // 1. GET /api/mission/overview - Full real-time state of Crew, Xiaomi Watch H1, Hermes 4 Subagents, Ship Autopilot, GMIT/DSN Earth Comms & Supabase
   app.get("/api/mission/overview", async (_req: Request, res: Response) => {
     try {
       const overview = await storage.getMissionOverview();
@@ -30,7 +30,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 2. POST /api/telemetry/xiaomi-h1 — Ingest live Xiaomi Watch H1 packet & run Hermes 4-subagent evaluation
+  // 2. POST /api/telemetry/xiaomi-h1 - Ingest live Xiaomi Watch H1 packet & run Hermes 4-subagent evaluation
   app.post("/api/telemetry/xiaomi-h1", async (req: Request, res: Response) => {
     try {
       const parsed = insertXiaomiTelemetrySchema.safeParse(req.body);
@@ -54,7 +54,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 3. POST /api/telemetry/simulate-scenario — Trigger realistic deep-space emergency or nominal test scenario
+  // 3. POST /api/telemetry/simulate-scenario - Trigger realistic deep-space emergency or nominal test scenario
   app.post(
     "/api/telemetry/simulate-scenario",
     async (req: Request, res: Response) => {
@@ -80,7 +80,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     },
   );
 
-  // 4. POST /api/ship/override — Engage or disengage Human Manual Override of Hermes Autopilot
+  // 4. POST /api/ship/override - Engage or disengage Human Manual Override of Hermes Autopilot
   app.post("/api/ship/override", async (req: Request, res: Response) => {
     try {
       const parsed = humanOverrideSchema.safeParse(req.body);
@@ -105,7 +105,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 5. POST /api/ship/maneuver — Execute manual or Hermes-triggered orbital maneuver
+  // 5. POST /api/ship/maneuver - Execute manual or Hermes-triggered orbital maneuver
   app.post("/api/ship/maneuver", async (req: Request, res: Response) => {
     try {
       const parsed = shipManeuverSchema.safeParse(req.body);
@@ -129,7 +129,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 6. POST /api/hermes/command — Interactive Hermes AI Agent natural-language command & subagent execution
+  // 6. POST /api/hermes/command - Interactive Hermes AI Agent natural-language command & subagent execution
   app.post("/api/hermes/command", async (req: Request, res: Response) => {
     try {
       const parsed = hermesCommandSchema.safeParse(req.body);
@@ -180,7 +180,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 7. POST /api/earth-comm/send — Downlink telemetry/message to NASA DSN + GMIT Nalaikh Ground Station
+  // 7. POST /api/earth-comm/send - Downlink telemetry/message to NASA DSN + GMIT Nalaikh Ground Station
   app.post("/api/earth-comm/send", async (req: Request, res: Response) => {
     try {
       const parsed = earthCommSendSchema.safeParse(req.body);
@@ -209,7 +209,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 8. GET /api/supabase/status & POST /api/supabase/config — Dynamic runtime Supabase connection & sync
+  // 8. GET /api/supabase/status & POST /api/supabase/config - Dynamic runtime Supabase connection & sync
   app.get("/api/supabase/status", async (_req: Request, res: Response) => {
     await supabaseManager.verifyConnection();
     res.json(supabaseManager.getStatus());
@@ -250,7 +250,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 9. GET /api/gmat-orbiter/state — Live NASA GMAT & Orbiter Space Flight Simulator J2000 State Vector & Autopilot Bridge
+  // 9. GET /api/gmat-orbiter/state - Live NASA GMAT & Orbiter Space Flight Simulator J2000 State Vector & Autopilot Bridge
   app.get("/api/gmat-orbiter/state", async (_req: Request, res: Response) => {
     try {
       const overview = await storage.getMissionOverview();
@@ -287,7 +287,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 10. GET /api/space-data/live — Gathers real live space weather, GOES radiation flux, solar wind & ISS orbital telemetry
+  // 10. GET /api/space-data/live - Gathers real live space weather, GOES radiation flux, solar wind & ISS orbital telemetry
   app.get("/api/space-data/live", async (_req: Request, res: Response) => {
     try {
       const liveData = await gatherLiveSpaceAgencyTelemetry();
@@ -299,7 +299,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // 11. POST /api/gmat/execute — Executes real NASA GMAT R2026a (F:\gmat-win-R2026a\bin\GmatConsole.exe) with the mission script
+  // 11. POST /api/gmat/execute - Executes real NASA GMAT R2026a (F:\gmat-win-R2026a\bin\GmatConsole.exe) with the mission script
   app.post("/api/gmat/execute", async (req: Request, res: Response) => {
     try {
       const scriptContent: string = req.body?.script || "";

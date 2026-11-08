@@ -229,8 +229,8 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
       "300 mmHg Pneumatic IV Pressure Cuff + 0.22-micron Air-Eliminating Filter",
     ],
     doNotDo: [
-      "DO NOT attempt standard unanchored terrestrial chest compressions—you will push yourself across the cabin and generate <15 mmHg coronary perfusion pressure.",
-      "DO NOT hang an IV bag without a 300 mmHg pneumatic pressure sleeve and air-eliminating filter—liquids do not drip by gravity and dissolved microbubbles do not float to the top of syringes in 0G.",
+      "DO NOT attempt standard unanchored terrestrial chest compressions • you will push yourself across the cabin and generate <15 mmHg coronary perfusion pressure.",
+      "DO NOT hang an IV bag without a 300 mmHg pneumatic pressure sleeve and air-eliminating filter • liquids do not drip by gravity and dissolved microbubbles do not float to the top of syringes in 0G.",
       "DO NOT deliver a defibrillation shock if the patient's extremities or wet clothing touch bare metallic spacecraft bulkheads.",
     ],
     nasaReferenceStandard: "NASA-STD-3001 Vol. 1 & ISS Integrated Medical Group (IMG) ACLS Checklist",
@@ -348,11 +348,11 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
       "Airlock Hyperbaric System or EVA Suit with Bends Treatment Adapter (BTA)",
     ],
     doNotDo: [
-      "DO NOT hold your breath during rapid cabin depressurization—always exhale continuously to prevent fatal alveolar rupture.",
-      "DO NOT rely on a conventional acoustic stethoscope in a noisy depressurizing spacecraft—use thoracic ultrasound to detect pneumothorax.",
+      "DO NOT hold your breath during rapid cabin depressurization • always exhale continuously to prevent fatal alveolar rupture.",
+      "DO NOT rely on a conventional acoustic stethoscope in a noisy depressurizing spacecraft • use thoracic ultrasound to detect pneumothorax.",
       "DO NOT delay hyperbaric recompression if focal neurological signs of Arterial Gas Embolism (AGE) are present.",
     ],
-    nasaReferenceStandard: "NASA-STD-3001 Vol. 2 Rev C — Decompression & Barotrauma Contingency",
+    nasaReferenceStandard: "NASA-STD-3001 Vol. 2 Rev C  •  Decompression & Barotrauma Contingency",
   },
   {
     id: "acute-radiation-spe",
@@ -467,7 +467,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
       "Point-of-Care Hematology Analyzer (for serial Absolute Lymphocyte Count)",
     ],
     doNotDo: [
-      "DO NOT shelter directly against bare aluminum or titanium pressure hulls during an SPE—secondary neutron spallation and Bremsstrahlung X-rays increase tissue dose.",
+      "DO NOT shelter directly against bare aluminum or titanium pressure hulls during an SPE • secondary neutron spallation and Bremsstrahlung X-rays increase tissue dose.",
       "DO NOT delay G-CSF (Filgrastim) past 24–48 hours if bone marrow dose exceeds 2.0 Gy.",
       "DO NOT perform elective invasive procedures or intramuscular injections during the radiation thrombocytopenia window (Days 10–28 post-SPE).",
     ],
@@ -482,7 +482,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
     shortDescription:
       "Management of Type I/II Decompression Sickness ('The Bends') from hypobaric EVA suit transition (101.3 kPa cabin to 29.6 kPa suit), plus emergency response to EVA helmet sublimator water intrusion (Luca Parmitano EVA-23 scenario).",
     spaceMechanism:
-      "NASA Extravehicular Mobility Units (EMUs) operate at 29.6 kPa (4.3 psi) pure O2 to maintain glove mobility, requiring a large decompression drop from the 101.3 kPa (14.7 psi) nitrogen-rich cabin. Supersaturated dissolved tissue nitrogen ($P_{N2}$) forms venous and arterial microbubbles in joints (Type I DCS) or spinal cord/lungs ('Chokes' / Type II DCS). Additionally, in microgravity, water leaking from the suit's Liquid Cooling and Ventilation Garment (LCVG) or sublimator does not drip downward—Instead, surface tension causes water to cling to the astronaut's scalp, creep across the eyes, and encapsulate the mouth and nostrils inside the helmet, threatening drowning in space.",
+      "NASA Extravehicular Mobility Units (EMUs) operate at 29.6 kPa (4.3 psi) pure O2 to maintain glove mobility, requiring a large decompression drop from the 101.3 kPa (14.7 psi) nitrogen-rich cabin. Supersaturated dissolved tissue nitrogen ($P_{N2}$) forms venous and arterial microbubbles in joints (Type I DCS) or spinal cord/lungs ('Chokes' / Type II DCS). Additionally, in microgravity, water leaking from the suit's Liquid Cooling and Ventilation Garment (LCVG) or sublimator does not drip downward • Instead, surface tension causes water to cling to the astronaut's scalp, creep across the eyes, and encapsulate the mouth and nostrils inside the helmet, threatening drowning in space.",
     watchTriggers: [
       {
         metric: "EVA Suit Differential Pressure & Precordial Ultrasonic Bubble Score",
@@ -511,7 +511,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
         phase: "Helmet Water Intrusion Check & Purge Valve Breathing",
         action: "If free water accumulates inside the helmet, immediately abort EVA, orient head gently to prevent surface-tension migration over nostrils, and breathe through the Suit Purge Valve.",
         clinicalDetail:
-          "Never drink from the In-Suit Drink Bag if water is accumulating—distinguish sweet/warm drink-bag water from cold, metallic-tasting cooling loop condensate. Open the helmet emergency purge valve slightly to create a directional gas stream that pushes floating water globules away from the nose and mouth while translating to the airlock.",
+          "Never drink from the In-Suit Drink Bag if water is accumulating • distinguish sweet/warm drink-bag water from cold, metallic-tasting cooling loop condensate. Open the helmet emergency purge valve slightly to create a directional gas stream that pushes floating water globules away from the nose and mouth while translating to the airlock.",
         timeTarget: "0–2 minutes",
       },
       {
@@ -519,7 +519,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
         phase: "Immediate EVA Abort & Airlock Repressurization for DCS",
         action: "At first sign of joint pain ('niggles'), cutis marmorata, paresthesias, or substernal burning ('The Chokes'), cease all upper-body exertion and return to the airlock.",
         clinicalDetail:
-          "Returning from 29.6 kPa (4.3 psi) suit pressure to 101.3 kPa (14.7 psi) cabin pressure immediately provides a +71.7 kPa (+10.4 psi) recompression gradient—often resolving mild Type I joint pain during airlock repressurization alone.",
+          "Returning from 29.6 kPa (4.3 psi) suit pressure to 101.3 kPa (14.7 psi) cabin pressure immediately provides a +71.7 kPa (+10.4 psi) recompression gradient • often resolving mild Type I joint pain during airlock repressurization alone.",
         timeTarget: "Within 10–15 minutes",
       },
       {
@@ -566,9 +566,9 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
       "Helmet Emergency Purge Valve & Absorption Pad",
     ],
     doNotDo: [
-      "DO NOT exercise or flex affected joints during DCS—muscular shear forces nucleate additional nitrogen microbubbles (tribonucleation).",
-      "DO NOT administer Entonox (Nitrous Oxide) for pain—N2O rapidly diffuses into nitrogen bubbles and expands their volume catastrophically.",
-      "DO NOT tilt your head rapidly if cooling-loop water enters the EVA helmet—surface tension will sweep the water globe across your eyes and airway.",
+      "DO NOT exercise or flex affected joints during DCS • muscular shear forces nucleate additional nitrogen microbubbles (tribonucleation).",
+      "DO NOT administer Entonox (Nitrous Oxide) for pain • N2O rapidly diffuses into nitrogen bubbles and expands their volume catastrophically.",
+      "DO NOT tilt your head rapidly if cooling-loop water enters the EVA helmet • surface tension will sweep the water globe across your eyes and airway.",
     ],
     nasaReferenceStandard: "NASA Johnson Space Center EVA DCS Treatment Protocol & Mishap Investigation Report EVA-23",
   },
@@ -634,7 +634,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
         phase: "Carbonic Anhydrase Inhibitor Therapy (Acetazolamide) & B-Vitamin One-Carbon Supplementation",
         action: "Initiate Acetazolamide (Diamox) 250–500 mg PO BID (confirming normal renal function and absence of nephrolithiasis history) plus Methylcobalamin/Folate/B6.",
         clinicalDetail:
-          "Acetazolamide inhibits choroid plexus carbonic anhydrase, reducing cerebrospinal fluid (CSF) production by 30–50%. Caution: Acetazolamide alkalinizes urine and decreases urinary citrate, which increases calcium phosphate kidney stone risk in 0G—must co-administer high fluid intake and monitor renal ultrasound. Add L-Methylfolate, Vitamin B12, and Pyridoxine (B6) for crewmembers with MTRR/SHMT1 one-carbon metabolism polymorphisms linked to SANS endothelial dysfunction.",
+          "Acetazolamide inhibits choroid plexus carbonic anhydrase, reducing cerebrospinal fluid (CSF) production by 30–50%. Caution: Acetazolamide alkalinizes urine and decreases urinary citrate, which increases calcium phosphate kidney stone risk in 0G • must co-administer high fluid intake and monitor renal ultrasound. Add L-Methylfolate, Vitamin B12, and Pyridoxine (B6) for crewmembers with MTRR/SHMT1 one-carbon metabolism polymorphisms linked to SANS endothelial dysfunction.",
         timeTarget: "Ongoing therapeutic regimen",
       },
       {
@@ -669,7 +669,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
     doNotDo: [
       "DO NOT perform a lumbar puncture in microgravity unless life-threatening meningitis or subarachnoid hemorrhage is suspected and strict CMRS restraint is established.",
       "DO NOT prescribe Acetazolamide without aggressive hydration and renal stone screening, as carbonic anhydrase inhibition precipitates calcium phosphate calculi in 0G.",
-      "DO NOT allow cabin CO2 partial pressure to exceed 3.0 mmHg—chronic hypercapnia powerfully dilates cerebral arterioles and worsens SANS.",
+      "DO NOT allow cabin CO2 partial pressure to exceed 3.0 mmHg • chronic hypercapnia powerfully dilates cerebral arterioles and worsens SANS.",
     ],
     nasaReferenceStandard: "NASA Spaceflight-Associated Neuro-ocular Syndrome (SANS) Clinical Practice Guideline",
   },
@@ -709,7 +709,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
       {
         stepNumber: 1,
         phase: "Immediate Donning of Full-Face Portable Breathing Apparatus (PBA) (0–15 sec)",
-        action: "Don the full-face Positive-Pressure Portable Breathing Apparatus (PBA) or Ammonia Respirator Cartridges within 15 seconds—protecting both eyes and lungs simultaneously.",
+        action: "Don the full-face Positive-Pressure Portable Breathing Apparatus (PBA) or Ammonia Respirator Cartridges within 15 seconds • protecting both eyes and lungs simultaneously.",
         clinicalDetail:
           "Anhydrous ammonia is highly water-soluble and reacts immediately with tear film and upper airway moisture to form caustic ammonium hydroxide ($\text{NH}_4\text{OH}$), causing rapid laryngeal edema and corneal opacification.",
         timeTarget: "0–15 seconds",
@@ -735,7 +735,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
         phase: "Management of Inhalational Bronchospasm & Non-Cardiogenic Pulmonary Edema",
         action: "Administer nebulized/MDI Albuterol (Salbutamol) 4–8 puffs via spacer, IV Dexamethasone 10 mg, and humidified 100% O2.",
         clinicalDetail:
-          "Inspect the posterior pharynx for stridor or mucosal sloughing. If progressive laryngeal edema develops, secure the airway early—delayed edema makes cricothyrotomy necessary.",
+          "Inspect the posterior pharynx for stridor or mucosal sloughing. If progressive laryngeal edema develops, secure the airway early • delayed edema makes cricothyrotomy necessary.",
         timeTarget: "10–30 minutes",
       },
       {
@@ -780,9 +780,9 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
       "Emergency Lithium Hydroxide (LiOH) CO2 Scrubbing Canisters",
     ],
     doNotDo: [
-      "DO NOT irrigate chemical eye injuries with an open squirt bottle in microgravity—floating caustic fluid spheres will contaminate the cabin and other crewmembers' eyes.",
+      "DO NOT irrigate chemical eye injuries with an open squirt bottle in microgravity • floating caustic fluid spheres will contaminate the cabin and other crewmembers' eyes.",
       "DO NOT enter a module with an active Ammonia alarm (> 300 ppm IDLH) without a sealed positive-pressure full-face mask.",
-      "DO NOT sleep in a crew berth or temporary module area without verifying active forced-air ventilation—localized CO2 pockets form within 20 minutes in 0G.",
+      "DO NOT sleep in a crew berth or temporary module area without verifying active forced-air ventilation • localized CO2 pockets form within 20 minutes in 0G.",
     ],
     nasaReferenceStandard: "ISS Toxic Spill / Ammonia Leak Emergency Book & NASA Spacecraft Maximum Allowable Concentrations (SMAC)",
   },
@@ -795,7 +795,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
     shortDescription:
       "Management of Spaceflight Venous Thrombosis (occlusive or non-occlusive Internal Jugular Vein thrombus discovered on ISS) and microgravity atrial/ventricular arrhythmias.",
     spaceMechanism:
-      "In terrestrial gravity, the Internal Jugular Vein (IJV) collapses when upright due to hydrostatic drainage toward the right atrium. In microgravity, chronic cephalad fluid shift causes persistent IJV engorgement, venous stasis, retrograde/stagnant blood flow, and endothelial stretch—creating Virchow's Triad in the neck veins of healthy astronauts. Simultaneously, spaceflight cardiac remodeling (10–12% left ventricular mass atrophy, autonomic shift, hypokalemia/hypomagnesemia, and cosmic radiation endothelial stress) predisposes crew to Atrial Fibrillation and non-sustained Ventricular Tachycardia.",
+      "In terrestrial gravity, the Internal Jugular Vein (IJV) collapses when upright due to hydrostatic drainage toward the right atrium. In microgravity, chronic cephalad fluid shift causes persistent IJV engorgement, venous stasis, retrograde/stagnant blood flow, and endothelial stretch • creating Virchow's Triad in the neck veins of healthy astronauts. Simultaneously, spaceflight cardiac remodeling (10–12% left ventricular mass atrophy, autonomic shift, hypokalemia/hypomagnesemia, and cosmic radiation endothelial stress) predisposes crew to Atrial Fibrillation and non-sustained Ventricular Tachycardia.",
     watchTriggers: [
       {
         metric: "Single-Lead ECG Rhythm & R-R Interval Irregularity",
@@ -887,7 +887,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
       "Andexanet Alfa / Protamine Sulfate Reversal Kit (for trauma/landing contingency)",
     ],
     doNotDo: [
-      "DO NOT apply aggressive manual compression over the neck when a fresh Internal Jugular Vein thrombus is visualized—risk of dislodging a fatal pulmonary embolus.",
+      "DO NOT apply aggressive manual compression over the neck when a fresh Internal Jugular Vein thrombus is visualized • risk of dislodging a fatal pulmonary embolus.",
       "DO NOT continue oral anticoagulants (Apixaban) through high-G atmospheric re-entry and landing without stopping 72–96 hours prior (or administering reversal agent).",
       "DO NOT place an internal jugular central venous catheter on the side of stagnant or thrombosed venous flow.",
     ],
@@ -994,9 +994,9 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
       "Ultrasound-Guided Percutaneous Nephrostomy Kit (8 Fr Pigtail Catheter)",
     ],
     doNotDo: [
-      "DO NOT ignore fever or chills in a crewmember with a known renal stone—infected hydronephrosis progresses to septic shock within hours.",
+      "DO NOT ignore fever or chills in a crewmember with a known renal stone • infected hydronephrosis progresses to septic shock within hours.",
       "DO NOT administer Ketorolac if solitary functional kidney obstruction or severe creatinine elevation is detected on i-STAT.",
-      "DO NOT give excessive Vitamin D3 (>2,000 IU/day) or high-dose calcium supplements in microgravity—bone resorption already causes hypercalciuria.",
+      "DO NOT give excessive Vitamin D3 (>2,000 IU/day) or high-dose calcium supplements in microgravity • bone resorption already causes hypercalciuria.",
     ],
     nasaReferenceStandard: "NASA Renal Stone Risk & Ultrasonic Propulsion Countermeasure Protocol",
   },
@@ -1108,7 +1108,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
     ],
     doNotDo: [
       "DO NOT assume acute confusion or agitation is purely psychological without first checking cabin CO2, O2, and blood glucose.",
-      "DO NOT hover physically 'above' an agitated crewmember in 0G—orient yourself in the same visual vertical plane to reduce perceived threat.",
+      "DO NOT hover physically 'above' an agitated crewmember in 0G • orient yourself in the same visual vertical plane to reduce perceived threat.",
       "DO NOT combine high-dose parenteral benzodiazepines with parenteral Olanzapine simultaneously due to risk of synergistic respiratory depression.",
     ],
     nasaReferenceStandard: "NASA Behavioral Health & Performance (BHP) Deep-Space Psychiatric Protocol",
@@ -1206,9 +1206,9 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
       "contaminant Clean-Up Filter Assembly (CCFA) & HEPA Scrubbers",
     ],
     doNotDo: [
-      "DO NOT leave cabin ventilation fans running during a fire—convective airflow is the sole oxygen supply feeding a 0G flame.",
-      "DO NOT fire a CO2 extinguisher without anchoring your feet in deck restraints—Newtonian thrust will hurl you across the module.",
-      "DO NOT rely on a 99% SpO2 reading to rule out Carbon Monoxide poisoning—COHb mimics oxyhemoglobin on standard optical sensors.",
+      "DO NOT leave cabin ventilation fans running during a fire • convective airflow is the sole oxygen supply feeding a 0G flame.",
+      "DO NOT fire a CO2 extinguisher without anchoring your feet in deck restraints • Newtonian thrust will hurl you across the module.",
+      "DO NOT rely on a 99% SpO2 reading to rule out Carbon Monoxide poisoning • COHb mimics oxyhemoglobin on standard optical sensors.",
     ],
     nasaReferenceStandard: "ISS Fire Response Generic Checklist & NASA STD-6001 Flammability/Combustion Toxicology",
   },
@@ -1221,7 +1221,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
     shortDescription:
       "Management of severe spacecraft cabin hypothermia (Apollo 13 / power loss scenario) or EVA Liquid Cooling and Ventilation Garment (LCVG) pump failure causing exertional spaceflight heatstroke.",
     spaceMechanism:
-      "In the vacuum of space, heat cannot be dissipated or absorbed by conduction or convection—only by thermal radiation. Furthermore, inside a spacecraft or EVA suit in microgravity, absence of buoyant natural convection means body heat forms a stagnant thermal boundary layer around the skin. If the EVA suit's LCVG water pump or sublimator fails during solar illumination (+120°C exterior), core temperature rises by > 1.5°C/hour (hyperthermia). Conversely, if spacecraft electrical power and ammonia/water thermal loops fail in deep shadow (-150°C exterior), cabin temperature drops toward freezing and conductive heat loss through metallic hull contact induces severe hypothermia (< 32°C) and Osborne J-wave arrhythmias.",
+      "In the vacuum of space, heat cannot be dissipated or absorbed by conduction or convection • only by thermal radiation. Furthermore, inside a spacecraft or EVA suit in microgravity, absence of buoyant natural convection means body heat forms a stagnant thermal boundary layer around the skin. If the EVA suit's LCVG water pump or sublimator fails during solar illumination (+120°C exterior), core temperature rises by > 1.5°C/hour (hyperthermia). Conversely, if spacecraft electrical power and ammonia/water thermal loops fail in deep shadow (-150°C exterior), cabin temperature drops toward freezing and conductive heat loss through metallic hull contact induces severe hypothermia (< 32°C) and Osborne J-wave arrhythmias.",
     watchTriggers: [
       {
         metric: "Wrist Skin Temperature, Core Thermal Flux Estimate & ECG Osborne J-Waves",
@@ -1252,7 +1252,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
         phase: "Scenario B (ECLSS Power Loss / Severe Hypothermia): Multi-Layer Kapton Insulation & Active Core Rewarming",
         action: "Isolate the crew in the smallest habitable volume (or return capsule), don dry Liquid Cooling/Warming Garments, and wrap in aluminized Mylar/Kapton thermal blankets.",
         clinicalDetail:
-          "Handle severely hypothermic crewmembers (< 30–32°C) with extreme gentleness when strapping onto the CMRS—rough movement or jarring can precipitate refractory Ventricular Fibrillation in a cold, irritable myocardium.",
+          "Handle severely hypothermic crewmembers (< 30–32°C) with extreme gentleness when strapping onto the CMRS • rough movement or jarring can precipitate refractory Ventricular Fibrillation in a cold, irritable myocardium.",
         timeTarget: "0–15 minutes",
       },
       {
@@ -1260,7 +1260,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
         phase: "Heated Pressurized IV Crystalloids & Humidified Oxygen",
         action: "For moderate-to-severe hypothermia, infuse 0.9% Normal Saline warmed to 40–42°C via the medical fluid warmer and 300 mmHg pressure cuff.",
         clinicalDetail:
-          "Apply chemical heat packs to the thorax, axillae, and groin only (Active Core Rewarming). Avoid warming extremities first, which dilates peripheral vasoconstricted beds and causes 'Afterdrop'—shunting cold, acidotic blood back to the heart.",
+          "Apply chemical heat packs to the thorax, axillae, and groin only (Active Core Rewarming). Avoid warming extremities first, which dilates peripheral vasoconstricted beds and causes 'Afterdrop' • shunting cold, acidotic blood back to the heart.",
         timeTarget: "15–45 minutes",
       },
     ],
@@ -1286,8 +1286,8 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
     ],
     doNotDo: [
       "DO NOT administer anti-arrhythmic drugs or repeated shocks to a severely hypothermic (< 30°C) patient beyond initial defibrillation until core temperature is warmed above 30–32°C.",
-      "DO NOT rewarm a hypothermic astronaut's arms and legs before warming the core thorax—peripheral vasodilation causes lethal core temperature Afterdrop.",
-      "DO NOT administer Acetaminophen or Ibuprofen for exertional heatstroke—antipyretics act on hypothalamic prostaglandin setpoints and are ineffective (and hepatotoxic/nephrotoxic) in environmental hyperthermia.",
+      "DO NOT rewarm a hypothermic astronaut's arms and legs before warming the core thorax • peripheral vasodilation causes lethal core temperature Afterdrop.",
+      "DO NOT administer Acetaminophen or Ibuprofen for exertional heatstroke • antipyretics act on hypothalamic prostaglandin setpoints and are ineffective (and hepatotoxic/nephrotoxic) in environmental hyperthermia.",
     ],
     nasaReferenceStandard: "NASA-STD-3001 Thermal Environment & EVA LCVG Failure Contingency",
   },
@@ -1300,7 +1300,7 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
     shortDescription:
       "Control of high-momentum crush injury, arterial/venous hemorrhage in 0G, Tranexamic Acid (TXA) administration, and fracture reduction/splinting on the CMRS without gravitational traction.",
     spaceMechanism:
-      "A 500 kg payload rack or orbital replacement unit floating at 0.5 m/s in microgravity Appears weightless, yet possesses identical inertial mass ($F = ma$) and kinetic energy ($\\frac{1}{2}mv^2$) to a 500 kg mass on Earth—capable of causing severe crush fractures and arterial lacerations. In microgravity, arterial blood spurts in linear trajectories across the cabin while venous blood pools into large expanding surface-tension domes over the wound, obscuring the bleeding vessel. Additionally, astronauts enter trauma already hypovolemic (10–15% spaceflight plasma volume contraction) and with impaired baroreceptor compensation, accelerating hemorrhagic shock.",
+      "A 500 kg payload rack or orbital replacement unit floating at 0.5 m/s in microgravity Appears weightless, yet possesses identical inertial mass ($F = ma$) and kinetic energy ($\\frac{1}{2}mv^2$) to a 500 kg mass on Earth • capable of causing severe crush fractures and arterial lacerations. In microgravity, arterial blood spurts in linear trajectories across the cabin while venous blood pools into large expanding surface-tension domes over the wound, obscuring the bleeding vessel. Additionally, astronauts enter trauma already hypovolemic (10–15% spaceflight plasma volume contraction) and with impaired baroreceptor compensation, accelerating hemorrhagic shock.",
     watchTriggers: [
       {
         metric: "Shock Index (HR / Systolic BP Estimate) & Pulse Wave Amplitude",
@@ -1378,9 +1378,9 @@ export const spaceEmergencyProtocols: SpaceEmergencyProtocol[] = [
       "300 mmHg Pneumatic IV Pressure Bag + Freeze-Dried Plasma / Crystalloid",
     ],
     doNotDo: [
-      "DO NOT irrigate an open bleeding wound without a splash-containment shield and active suction—aerosolized blood droplets float indefinitely in cabin air.",
+      "DO NOT irrigate an open bleeding wound without a splash-containment shield and active suction • aerosolized blood droplets float indefinitely in cabin air.",
       "DO NOT attempt to reduce a displaced long-bone fracture without strapping the patient's torso/proximal limb to the CMRS for counter-traction.",
-      "DO NOT underestimate blood loss volume in microgravity—surface-tension domes conceal large volumes and astronauts have 15% less baseline blood volume.",
+      "DO NOT underestimate blood loss volume in microgravity • surface-tension domes conceal large volumes and astronauts have 15% less baseline blood volume.",
     ],
     nasaReferenceStandard: "NASA Exploration Medical Capability (ExMC) Trauma & Hemorrhage Clinical Guide",
   },

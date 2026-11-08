@@ -1,6 +1,6 @@
 #!/bin/bash
 # ==============================================================================
-# ARES-VII • HERMES BIO-ASTRO & NASA GMAT/ORBITER SERVER — AWS EC2 USER DATA
+# Sonnenblume • HERMES BIO-ASTRO & NASA GMAT/ORBITER SERVER  •  AWS EC2 USER DATA
 # Compatible with: Amazon Linux 2023 (ami-0516089d963059a51 in eu-north-1) & Ubuntu 22.04/24.04
 # Paste this into AWS EC2 -> "Launch an instance" -> "Advanced details" -> "User data"
 # Make sure your EC2 Security Group allows Inbound HTTP (Port 80), HTTPS (443), and Custom TCP (5000)
@@ -8,7 +8,7 @@
 set -e
 
 exec > >(tee /var/log/ares-vii-bootstrap.log|logger -t user-data -s 2>/dev/console) 2>&1
-echo "[ARES-VII] Starting AWS EC2 Bootstrap for Hermes AI & Rust Telemetry Engine..."
+echo "[Sonnenblume] Starting AWS EC2 Bootstrap for Hermes AI & Rust Telemetry Engine..."
 
 # 1. Install System Packages, Node.js 20, Nginx, and Git
 if command -v dnf >/dev/null 2>&1; then
@@ -57,4 +57,4 @@ rm -f /etc/nginx/sites-enabled/default || true
 systemctl enable nginx
 systemctl restart nginx
 
-echo "[ARES-VII] AWS EC2 Node.js 20 + Rust + Nginx environment provisioned!"
+echo "[Sonnenblume] AWS EC2 Node.js 20 + Rust + Nginx environment provisioned!"

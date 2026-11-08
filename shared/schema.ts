@@ -17,7 +17,7 @@ export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
 // ============================================================================
-// ARES-VII DEEP SPACE MISSION & HERMES AI AUTONOMOUS SYSTEM SCHEMAS
+// SONNENBLUME DEEP SPACE MISSION & HERMES AI AUTONOMOUS SYSTEM SCHEMAS
 // ============================================================================
 
 export type AstronautStatus =

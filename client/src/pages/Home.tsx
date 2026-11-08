@@ -271,7 +271,7 @@ export default function Home() {
               <p className="text-sm text-[#a8baa0] leading-relaxed">
                 Long-duration missions expose astronauts to space radiation,
                 isolation and confinement, altered gravity, bone loss, and
-                hostile closed environments. ARES-VII continuously monitors
+                hostile closed environments. Sonnenblume continuously monitors
                 biometrics 24/7, empowers astronauts to evaluate and act on
                 health changes themselves, and keeps the spacecraft linked to
                 Earth and relay satellites at all times so both Ship AI and
@@ -300,8 +300,8 @@ export default function Home() {
                 </button>
               </Link>
               <a
-                href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-                download="ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
+                href="/Sonnenblume_Complete_Space_Health_and_Mission_Research_Guide.docx"
+                download="Sonnenblume_Space_Health_Research_Guide.docx"
                 className="bg-[#13190e] hover:bg-[#1c2615] text-[#c7dfb8] border border-[#2e3b23] px-3.5 py-2.5 rounded-xl text-xs font-medium inline-flex items-center gap-1.5 cursor-pointer active:scale-[0.97]"
               >
                 <ArrowUpRight className="w-4 h-4 text-[#fbbf24]" />

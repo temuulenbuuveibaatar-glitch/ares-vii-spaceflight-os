@@ -213,7 +213,7 @@ export function computeRealTimePhysicsTick(
     gmitLocalTime: formatGmitLocalTime(now),
     missionElapsedTime: formatMissionElapsedTime(now.getTime()),
     gmitStationStatus:
-      "GMIT_NALAIKH_MN (47.78°N, 107.26°E) — S/X-BAND TELEMETRY LOCKED",
+      "GMIT_NALAIKH_MN (47.78°N, 107.26°E) • S/X-BAND TELEMETRY LOCKED",
   };
 
   return {
@@ -223,7 +223,7 @@ export function computeRealTimePhysicsTick(
 }
 
 /**
- * Computes realistic orbital transfer & Lambert fast-return parameters for ARES-VII
+ * Computes realistic orbital transfer & Lambert fast-return parameters for Sonnenblume
  * Spacecraft dry+wet mass: 118,000 kg, Nuclear Thermal / VASIMR hybrid thrust: 420 kN, Isp: 910 s
  */
 export function calculateOrbitalManeuver(
@@ -609,7 +609,7 @@ export function evaluateTelemetryPacket(
         sender: "HERMES-AI-AUTOPILOT",
         station: currentAutopilot.dsnStation,
         priority: "PRIORITY_0_MAYDAY",
-        message: `[PRIORITY-0 AUTONOMOUS MAYDAY] ARES-VII Hermes AI has assumed flight control. Reason: ${takeoverReason}. Executing ${orbitalSolution.maneuverName} (dV=${orbitalSolution.deltaVMetersPerSec} m/s, MaxG=${orbitalSolution.maxGLoad}G, Earth Return ETA=${orbitalSolution.estimatedReturnHours} hrs). Xiaomi Watch H1 telemetry packet attached.`,
+        message: `[PRIORITY-0 AUTONOMOUS MAYDAY] Sonnenblume Hermes AI has assumed flight control. Reason: ${takeoverReason}. Executing ${orbitalSolution.maneuverName} (dV=${orbitalSolution.deltaVMetersPerSec} m/s, MaxG=${orbitalSolution.maxGLoad}G, Earth Return ETA=${orbitalSolution.estimatedReturnHours} hrs). Xiaomi Watch H1 telemetry packet attached.`,
         telemetryAttached: true,
         acknowledged: true,
       };
@@ -954,7 +954,7 @@ export function processHermesNaturalCommand(params: {
     } else if (toggleOverride === true) {
       reply = `[HERMES AI]: Гар удирдлагын горим (Human Manual Override) идэвхжлээ. Хөлгийн удирдлагыг багийн ахлагчид шилжүүллээ. Био-телеметрийн хяналт хэвийн үргэлжилнэ.`;
     } else {
-      reply = `[HERMES БҮРЭН ОНОШИЛГОО]: ARES-VII хөлгийн горим: ${autopilot.mode}. ${crewSummaryEn}. Бүх 4 дэд агент (MED-SENTINEL, RAD-GUARD, PSY-ORACLE, NAV-PILOT) Xiaomi Watch H1-ийн мэдээллийг бодит хугацаанд хянаж байна.`;
+      reply = `[HERMES БҮРЭН ОНОШИЛГОО]: Sonnenblume хөлгийн горим: ${autopilot.mode}. ${crewSummaryEn}. Бүх 4 дэд агент (MED-SENTINEL, RAD-GUARD, PSY-ORACLE, NAV-PILOT) Xiaomi Watch H1-ийн мэдээллийг бодит хугацаанд хянаж байна.`;
     }
   } else {
     if (recommendedManeuver === "fast_earth_return") {

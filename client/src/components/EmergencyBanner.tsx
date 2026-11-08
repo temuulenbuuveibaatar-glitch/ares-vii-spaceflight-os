@@ -27,7 +27,7 @@ export default function EmergencyBanner() {
               : `Active Space Biomedical Alert (${activeAlerts.length})`}
           </span>
           <span className="hidden md:inline text-zinc-300">
-            — {autopilot?.takeoverReason || activeAlerts[0]?.title}
+            : {autopilot?.takeoverReason || activeAlerts[0]?.title}
           </span>
         </div>
         <Link href="/hermes">

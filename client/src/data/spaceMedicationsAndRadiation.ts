@@ -251,7 +251,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "Initial 24 hours: Ca-DTPA 1 g IV over 30 minutes (or nebulized 1 g in 1:1 saline for inhalation exposure). Maintenance (Day 2+): Switch to Zn-DTPA 1 g IV daily to prevent depletion of endogenous zinc and manganese.",
     route: "Pressurized IV or Nebulized Inhalation",
     microgravityPharmacokinetics:
-      "Distributes exclusively in extracellular fluid (ECF volume is reduced by ~12–15% in microgravity, yielding slightly higher peak plasma chelate concentrations) and is cleared unchanged by glomerular filtration within 24 hours. Must collect all chelated radioactive urine in shielded LiOH/waste bags—DO NOT recycle through the Urine Processor Assembly (UPA)!",
+      "Distributes exclusively in extracellular fluid (ECF volume is reduced by ~12–15% in microgravity, yielding slightly higher peak plasma chelate concentrations) and is cleared unchanged by glomerular filtration within 24 hours. Must collect all chelated radioactive urine in shielded LiOH/waste bags • DO NOT recycle through the Urine Processor Assembly (UPA)!",
     radiationStability:
       "Aqueous ampoules show < 3% radiolytic chelate degradation over 36 months when shielded in polyethylene cassettes.",
     radiationStabilityRating: "Moderate (Shielded Foil Required, 18–24 mo)",
@@ -342,7 +342,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "70 mg PO once weekly upon awakening with 250 mL plain water at least 30 minutes before first food/beverage.",
     route: "Oral Tablet",
     microgravityPharmacokinetics:
-      "Oral bioavailability is low (~0.6%) and abolished by food or divalent cations. CRITICAL 0G CAVEAT: On Earth, patients must sit/stand upright for 30 minutes after taking Alendronate to prevent corrosive esophagitis. In microgravity (0G), gravity cannot hold gastric contents down in the stomach—astronauts MUST drink a full 250 mL pouch of water to propel the tablet past the lower esophageal sphincter and avoid Valsalva maneuvers or inverted exercises for 45 minutes.",
+      "Oral bioavailability is low (~0.6%) and abolished by food or divalent cations. CRITICAL 0G CAVEAT: On Earth, patients must sit/stand upright for 30 minutes after taking Alendronate to prevent corrosive esophagitis. In microgravity (0G), gravity cannot hold gastric contents down in the stomach • astronauts MUST drink a full 250 mL pouch of water to propel the tablet past the lower esophageal sphincter and avoid Valsalva maneuvers or inverted exercises for 45 minutes.",
     radiationStability:
       "Solid bisphosphonate tablet shows excellent stability (> 36 months) in spaceflight radiation testing.",
     radiationStabilityRating: "High (GCR/SPE Stable > 36 mo)",
@@ -431,7 +431,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "250 mg PO twice daily (may titrate to 500 mg BID under Flight Surgeon OCT/ultrasound monitoring).",
     route: "Oral Tablet",
     microgravityPharmacokinetics:
-      "Inhibits carbonic anhydrase (CA-II and CA-IV) in the choroid plexus, decreasing cerebrospinal fluid (CSF) secretion by 30–50% and lowering translaminar optic nerve head pressure. Dual Spaceflight Paradox: While reducing ICP, renal proximal tubular bicarbonate wasting alkalinizes urine and severely reduces urinary citrate excretion—markedly increasing calcium phosphate kidney stone risk in 0G unless paired with aggressive hydration (> 2.5 L/day).",
+      "Inhibits carbonic anhydrase (CA-II and CA-IV) in the choroid plexus, decreasing cerebrospinal fluid (CSF) secretion by 30–50% and lowering translaminar optic nerve head pressure. Dual Spaceflight Paradox: While reducing ICP, renal proximal tubular bicarbonate wasting alkalinizes urine and severely reduces urinary citrate excretion • markedly increasing calcium phosphate kidney stone risk in 0G unless paired with aggressive hydration (> 2.5 L/day).",
     radiationStability:
       "Heterocyclic sulfonamide ring is chemically stable under space radiation for > 30 months.",
     radiationStabilityRating: "High (GCR/SPE Stable > 36 mo)",
@@ -491,7 +491,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "0.4 mg Scopolamine + 5 mg Dextroamphetamine PO 1 hour prior to orbital insertion or high-coriolis maneuvers; may repeat every 6 hours for up to 48 hours.",
     route: "Oral Capsule (or Transdermal Scopolamine 1 mg/72h patch + oral Dex)",
     microgravityPharmacokinetics:
-      "Scopolamine blocks central muscarinic M1 receptors in the vestibular nuclei and area postrema, while Dextroamphetamine increases synaptic norepinephrine and dopamine in the reticular activating system—both counteracting scopolamine sedation and directly suppressing vestibular sensory conflict.",
+      "Scopolamine blocks central muscarinic M1 receptors in the vestibular nuclei and area postrema, while Dextroamphetamine increases synaptic norepinephrine and dopamine in the reticular activating system • both counteracting scopolamine sedation and directly suppressing vestibular sensory conflict.",
     radiationStability:
       "Note: NASA human spaceflight studies found that transdermal Scopolamine patches and combined capsules exhibit accelerated degradation after 18–24 months in space; must be compounded in nitrogen-flushed foil blisters.",
     radiationStabilityRating: "Moderate (Shielded Foil Required, 18–24 mo)",
@@ -621,7 +621,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "5 mg PO (or 10 mg max) immediately after strapping into the crew sleep berth with >= 7–8 hours before scheduled awakening.",
     route: "Oral Tablet / Sublingual",
     microgravityPharmacokinetics:
-      "Selective $\text{GABA}_A$ $\alpha_1$-subunit agonist with rapid onset (15–30 min) and short elimination half-life (~2.5 hours). CRITICAL SPACEFLIGHT SAFETY WARNING: Do NOT administer staggered repeat doses in the middle of the night—if an Emergency Fire or Cabin Depressurization alarm sounds 2 hours after a 10 mg dose, Zolpidem causes severe cognitive ataxia and impairs emergency egress.",
+      "Selective $\text{GABA}_A$ $\alpha_1$-subunit agonist with rapid onset (15–30 min) and short elimination half-life (~2.5 hours). CRITICAL SPACEFLIGHT SAFETY WARNING: Do NOT administer staggered repeat doses in the middle of the night • if an Emergency Fire or Cabin Depressurization alarm sounds 2 hours after a 10 mg dose, Zolpidem causes severe cognitive ataxia and impairs emergency egress.",
     radiationStability:
       "Imidazopyridine solid tablet retains > 97% potency over 36 months on ISS.",
     radiationStabilityRating: "High (GCR/SPE Stable > 36 mo)",
@@ -797,7 +797,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "1.0 mg IV/IO every 3–5 minutes (maximum total dose 3 mg).",
     route: "Pressurized IV or Intraosseous (IO)",
     microgravityPharmacokinetics:
-      "Competitive muscarinic acetylcholine receptor antagonist at the sinoatrial (SA) and atrioventricular (AV) nodes. Because spaceflight reduces vagal baroreflex gain, doses < 0.5 mg can cause paradoxical bradycardia—always administer full 1.0 mg boluses.",
+      "Competitive muscarinic acetylcholine receptor antagonist at the sinoatrial (SA) and atrioventricular (AV) nodes. Because spaceflight reduces vagal baroreflex gain, doses < 0.5 mg can cause paradoxical bradycardia • always administer full 1.0 mg boluses.",
     radiationStability:
       "Tropane ester is stable for 24–36 months in buffered pH 3.5–5.0 prefilled syringes.",
     radiationStabilityRating: "High (GCR/SPE Stable > 36 mo)",
@@ -807,7 +807,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "Anticholinergic delirium at high doses",
     ],
     contraindications: [
-      "Do not rely on Atropine in Infranodal (Mobitz Type II or 3rd-degree wide-complex) AV block—prepare transcutaneous pacing on CMRS",
+      "Do not rely on Atropine in Infranodal (Mobitz Type II or 3rd-degree wide-complex) AV block • prepare transcutaneous pacing on CMRS",
     ],
     kitLocation: "ISS Crew Medical Restraint Pack A (Red Resuscitation Sub-Pack)",
   },
@@ -831,7 +831,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
     radiationStabilityRating: "Moderate (Shielded Foil Required, 18–24 mo)",
     sideEffects: [
       "Major hemorrhage (retroperitoneal, intracranial, or abdominal wall hematoma)",
-      "Heparin-Induced Thrombocytopenia (HIT—check platelet count on Day 5)",
+      "Heparin-Induced Thrombocytopenia (HIT • check platelet count on Day 5)",
     ],
     contraindications: [
       "MUST DISCONTINUE 24–36 hours prior to high-G spacecraft atmospheric re-entry and splashdown",
@@ -881,7 +881,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "0.4 mg Sublingual tablet dissolved under tongue every 5 minutes up to 3 doses (only if systolic BP > 100 mmHg).",
     route: "Sublingual Tablet or Lingual Aerosol Spray",
     microgravityPharmacokinetics:
-      "Converted by mitochondrial aldehyde dehydrogenase (ALDH2) into Nitric Oxide ($\text{NO}$), stimulating guanylyl cyclase and causing potent venodilation and coronary vasodilation. EXTREME 0G WARNING: Because astronauts have a 10–15% contracted blood volume in microgravity, Nitroglycerin venodilation can cause sudden, severe preload collapse and syncope—always strap patient to the CMRS and have pressurized Normal Saline ready before dosing.",
+      "Converted by mitochondrial aldehyde dehydrogenase (ALDH2) into Nitric Oxide ($\text{NO}$), stimulating guanylyl cyclase and causing potent venodilation and coronary vasodilation. EXTREME 0G WARNING: Because astronauts have a 10–15% contracted blood volume in microgravity, Nitroglycerin venodilation can cause sudden, severe preload collapse and syncope • always strap patient to the CMRS and have pressurized Normal Saline ready before dosing.",
     radiationStability:
       "Volatile organic nitrate ester; highly prone to sublimation and radiolytic denitration unless sealed in tight borosilicate amber glass vials with metal screw caps.",
     radiationStabilityRating: "Sensitive (Radiolysis-Prone / Cold-Chain Required)",
@@ -953,7 +953,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "Transient tachycardia and hypertension",
     ],
     contraindications: [
-      "Severe uncontrolled hypertension or globe rupture (relative—note recent trauma studies show Ketamine does NOT dangerously spike ICP when ventilation is normal)",
+      "Severe uncontrolled hypertension or globe rupture (relative • note recent trauma studies show Ketamine does NOT dangerously spike ICP when ventilation is normal)",
     ],
     kitLocation: "ISS Crew Medical Restraint Pack A & Trauma Sub-Pack",
   },
@@ -1003,7 +1003,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "500–750 mg PO or IV once daily for 5–14 days.",
     route: "Oral Tablet or Pressurized IV (99% Bioequivalent!)",
     microgravityPharmacokinetics:
-      "Fluoroquinolone DNA gyrase and topoisomerase IV inhibitor with ~99% oral bioavailability—allowing oral tablets in space to achieve identical plasma AUC to IV infusion! Addresses the spaceflight-induced upregulation of Hfq global regulator virulence in Pseudomonas aeruginosa and Escherichia coli.",
+      "Fluoroquinolone DNA gyrase and topoisomerase IV inhibitor with ~99% oral bioavailability • allowing oral tablets in space to achieve identical plasma AUC to IV infusion! Addresses the spaceflight-induced upregulation of Hfq global regulator virulence in Pseudomonas aeruginosa and Escherichia coli.",
     radiationStability:
       "Solid tablet is stable > 36 months; protect from UV light.",
     radiationStabilityRating: "High (GCR/SPE Stable > 36 mo)",
@@ -1032,7 +1032,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "1–2 g IV or IM every 24 hours (reconstitute IM dose with 1% Lidocaine to minimize injection pain).",
     route: "Pressurized IV or Intramuscular (IM)",
     microgravityPharmacokinetics:
-      "Third-generation cephalosporin with a long elimination half-life (6–9 hours) enabling once-daily dosing. Dual renal (60%) and biliary (40%) excretion; note that high-dose Ceftriaxone can precipitate calcium-ceftriaxone biliary sludge in hypercalciuric astronauts—monitor with gallbladder ultrasound.",
+      "Third-generation cephalosporin with a long elimination half-life (6–9 hours) enabling once-daily dosing. Dual renal (60%) and biliary (40%) excretion; note that high-dose Ceftriaxone can precipitate calcium-ceftriaxone biliary sludge in hypercalciuric astronauts • monitor with gallbladder ultrasound.",
     radiationStability:
       "Dry crystalline powder in sealed vials is stable > 36 months; reconstitute in microgravity using closed Luer-lock transfer device to avoid aerosolization.",
     radiationStabilityRating: "High (GCR/SPE Stable > 36 mo)",
@@ -1169,12 +1169,12 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "5 g IV infused over 15 minutes via 300 mmHg pneumatic pressure sleeve (may repeat a second 5 g dose over 15–120 minutes for cardiac arrest or refractory lactic acidosis).",
     route: "Pressurized IV Infusion",
     microgravityPharmacokinetics:
-      "Each trivalent cobalt ion ($\\text{Co}^{3+}$) in hydroxocobalamin binds one cyanide ion ($\\text{CN}^-$) with higher affinity than mitochondrial cytochrome c oxidase ($a_3$), forming non-toxic cyanocobalamin (Vitamin B12) excreted in urine. Unlike nitrites, Hydroxocobalamin does NOT induce methemoglobinemia—preserving oxygen-carrying capacity in smoke inhalation victims who also have Carbon Monoxide (CO) poisoning!",
+      "Each trivalent cobalt ion ($\\text{Co}^{3+}$) in hydroxocobalamin binds one cyanide ion ($\\text{CN}^-$) with higher affinity than mitochondrial cytochrome c oxidase ($a_3$), forming non-toxic cyanocobalamin (Vitamin B12) excreted in urine. Unlike nitrites, Hydroxocobalamin does NOT induce methemoglobinemia • preserving oxygen-carrying capacity in smoke inhalation victims who also have Carbon Monoxide (CO) poisoning!",
     radiationStability:
       "Lyophilized dark-red crystalline powder is stable for 36 months when shielded from light and reconstituted immediately prior to infusion.",
     radiationStabilityRating: "High (GCR/SPE Stable > 36 mo)",
     sideEffects: [
-      "Transient chromaturia (deep red/burgundy urine for 14–28 days—inform ECLSS Urine Processor team!)",
+      "Transient chromaturia (deep red/burgundy urine for 14–28 days • inform ECLSS Urine Processor team!)",
       "Erythematous skin flushing and transient blood pressure elevation (NO scavenging)",
       "Interferes with colorimetric point-of-care chemistry analyzers",
     ],
@@ -1195,7 +1195,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "25 mg/kg IV (up to 5 g total) infused over 30–60 minutes; co-administer Midazolam 5 mg IN/IV if active status epilepticus is present.",
     route: "Pressurized IV",
     microgravityPharmacokinetics:
-      "Hydrazine propellant reacts with endogenous pyridoxal-5'-phosphate (active Vitamin B6), inhibiting glutamic acid decarboxylase (GAD) and acutely depleting inhibitory $\\gamma$-aminobutyric acid (GABA) in the brain—causing refractory status epilepticus, hemolysis, and hepatic necrosis. High-dose IV Pyridoxine rapidly restores GAD co-factor activity and terminates hydrazine seizures.",
+      "Hydrazine propellant reacts with endogenous pyridoxal-5'-phosphate (active Vitamin B6), inhibiting glutamic acid decarboxylase (GAD) and acutely depleting inhibitory $\\gamma$-aminobutyric acid (GABA) in the brain • causing refractory status epilepticus, hemolysis, and hepatic necrosis. High-dose IV Pyridoxine rapidly restores GAD co-factor activity and terminates hydrazine seizures.",
     radiationStability:
       "Pyridine ring hydrochloride is stable for > 30 months when protected from UV light in amber vials.",
     radiationStabilityRating: "High (GCR/SPE Stable > 36 mo)",
@@ -1220,7 +1220,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "4–8 puffs (90 mcg/actuation) via valved holding chamber (spacer) every 20 minutes for 3 doses, then every 1–4 hours as needed.",
     route: "Metered-Dose Inhalation with Valved Holding Chamber",
     microgravityPharmacokinetics:
-      "Selective $\\beta_2$-adrenergic agonist relaxing bronchial smooth muscle via cAMP elevation. In microgravity, lack of gravitational sedimentation alters aerosol droplet deposition in the lungs—using a Valved Holding Chamber (spacer) increases distal alveolar/bronchiolar delivery by > 40%.",
+      "Selective $\\beta_2$-adrenergic agonist relaxing bronchial smooth muscle via cAMP elevation. In microgravity, lack of gravitational sedimentation alters aerosol droplet deposition in the lungs • using a Valved Holding Chamber (spacer) increases distal alveolar/bronchiolar delivery by > 40%.",
     radiationStability:
       "Pressurized HFA-134a canister is stable for 24–36 months; never puncture or expose to vacuum airlock decompression without overpack.",
     radiationStabilityRating: "Moderate (Shielded Foil Required, 18–24 mo)",
@@ -1245,7 +1245,7 @@ export const spaceMedicationsDatabase: SpaceMedication[] = [
       "Airway Edema / Anaphylaxis / Cerebral Edema: 10 mg IV/IM initially, then 4 mg IV/IM/PO every 6 hours.",
     route: "Pressurized IV, IM, or Oral Tablet",
     microgravityPharmacokinetics:
-      "Long-acting fluorinated glucocorticoid (biological half-life 36–54 hours) with zero mineralocorticoid sodium-retaining activity—crucial so it does not worsen cephalad fluid congestion or SANS optic disc edema.",
+      "Long-acting fluorinated glucocorticoid (biological half-life 36–54 hours) with zero mineralocorticoid sodium-retaining activity • crucial so it does not worsen cephalad fluid congestion or SANS optic disc edema.",
     radiationStability:
       "Solid tablets are stable > 36 months; aqueous phosphate ester vials retain > 92% potency over 24 months.",
     radiationStabilityRating: "High (GCR/SPE Stable > 36 mo)",
@@ -1306,7 +1306,7 @@ export const spaceRadiationDatabase = {
       primarySource:
         "Isotropic extrasolar supernova remnants outside the solar system; flux is anti-correlated with the 11-year Solar Cycle (GCR peaks during Solar Minimum when the heliospheric magnetic field is weakest).",
       biologicalMechanism:
-        "Dense ionization cores ('Bragg track' and delta-ray penumbra) shatter both strands of the DNA helix simultaneously in clustered, complex Double-Strand Breaks (DSBs) that non-homologous end joining (NHEJ) cannot accurately repair—causing genomic chromosomal translocations, hippocampal microglial neuro-inflammation, accelerated atherosclerosis, and premature stem-cell senescence.",
+        "Dense ionization cores ('Bragg track' and delta-ray penumbra) shatter both strands of the DNA helix simultaneously in clustered, complex Double-Strand Breaks (DSBs) that non-homologous end joining (NHEJ) cannot accurately repair • causing genomic chromosomal translocations, hippocampal microglial neuro-inflammation, accelerated atherosclerosis, and premature stem-cell senescence.",
       spacecraftPenetrationAndSecondaryHazard:
         "Extremely penetrating; cannot be completely stopped by practical spacecraft hull thicknesses. Passing through thick high-Z metallic hulls (Aluminum/Titanium) causes nuclear fragmentation and secondary neutron spallation showers.",
       optimalCountermeasure:
@@ -1322,9 +1322,9 @@ export const spaceRadiationDatabase = {
       linearEnergyTransfer: "Low-to-Moderate LET (0.5 to 10 keV/µm)",
       qualityFactorQ: "Q = 1.5 to 2.0 (ICRP/NASA proton weighting)",
       primarySource:
-        "Sporadic X-class solar flares and fast Coronal Mass Ejection (CME) shockwaves from the Sun (highest probability during Solar Maximum—e.g., the August 1972 Apollo storm or October 1989 event).",
+        "Sporadic X-class solar flares and fast Coronal Mass Ejection (CME) shockwaves from the Sun (highest probability during Solar Maximum • e.g., the August 1972 Apollo storm or October 1989 event).",
       biologicalMechanism:
-        "Massive acute dose rate (up to 500–2,000 mSv/hr unshielded in deep space) causes widespread apoptosis of rapidly dividing bone marrow hematopoietic stem cells, intestinal crypt cells, and lymphocytes—triggering Acute Radiation Syndrome (ARS: prodromal vomiting, neutropenia, thrombocytopenia, sepsis).",
+        "Massive acute dose rate (up to 500–2,000 mSv/hr unshielded in deep space) causes widespread apoptosis of rapidly dividing bone marrow hematopoietic stem cells, intestinal crypt cells, and lymphocytes • triggering Acute Radiation Syndrome (ARS: prodromal vomiting, neutropenia, thrombocytopenia, sepsis).",
       spacecraftPenetrationAndSecondaryHazard:
         "Moderate penetration; protons < 150 MeV are effectively stopped by 20–35 g/cm² of hydrogen-rich mass, though high-Z outer skins generate secondary Bremsstrahlung X-rays.",
       optimalCountermeasure:
@@ -1340,7 +1340,7 @@ export const spaceRadiationDatabase = {
       linearEnergyTransfer: "Low-to-Moderate LET",
       qualityFactorQ: "Q = 1.0 (Electrons) to 2.0 (Protons)",
       primarySource:
-        "Charged particles trapped by Earth's dipole geomagnetic field. Because Earth's magnetic dipole is tilted 11° and offset from its rotational center, the Inner Proton Belt dips down to 200–450 km altitude over Brazil and the South Atlantic Ocean—the South Atlantic Anomaly (SAA).",
+        "Charged particles trapped by Earth's dipole geomagnetic field. Because Earth's magnetic dipole is tilted 11° and offset from its rotational center, the Inner Proton Belt dips down to 200–450 km altitude over Brazil and the South Atlantic Ocean • the South Atlantic Anomaly (SAA).",
       biologicalMechanism:
         "Accounts for > 50% of the daily ionizing dose absorbed by astronauts aboard the ISS (400 km LEO) during multiple daily 10-minute transits through the SAA, inducing visual phosphenes ('cosmic light flashes' in the retina) and cumulative DNA oxidative damage.",
       spacecraftPenetrationAndSecondaryHazard:
@@ -1360,7 +1360,7 @@ export const spaceRadiationDatabase = {
       primarySource:
         "Generated locally when primary GCR HZE ions or SPE protons collide with high-atomic-number ($Z$) atoms in the spacecraft's aluminum hull, or when cosmic rays strike the lunar/Martian regolith and bounce upward as 'Albedo Neutrons'.",
       biologicalMechanism:
-        "Because neutrons carry zero electric charge, they bypass Coulomb repulsion and penetrate deep into visceral organs and bone marrow before colliding elastically with hydrogen nuclei in body water—launching densely ionizing recoil protons inside cell nuclei.",
+        "Because neutrons carry zero electric charge, they bypass Coulomb repulsion and penetrate deep into visceral organs and bone marrow before colliding elastically with hydrogen nuclei in body water • launching densely ionizing recoil protons inside cell nuclei.",
       spacecraftPenetrationAndSecondaryHazard:
         "Paradoxically increases inside thick Aluminum ($Z=13$) or Lead ($Z=82$) hulls if thickness is insufficient to stop the secondary cascade (the 'Pfotzer Maximum' inside spacecraft walls).",
       optimalCountermeasure:
@@ -1434,7 +1434,7 @@ export const spaceRadiationDatabase = {
     },
     {
       id: "ars-prodromal-1gy",
-      eventOrMission: "Acute Radiation Syndrome (ARS) Threshold — Mild Prodromal & Hematopoietic",
+      eventOrMission: "Acute Radiation Syndrome (ARS) Threshold  •  Mild Prodromal & Hematopoietic",
       effectiveDosemSv: 1000,
       doseDisplay: "1,000 mSv (1.0 Gy Acute)",
       category: "ars_threshold",
@@ -1575,7 +1575,7 @@ export const spaceRadiationDatabase = {
       icrpTissueWeightingFactorWT: 0.01,
       thresholdDoseAcuteGy: "0.1–0.4 Gy HZE (Space Brain Cognitive Defect) / 10 Gy (Acute CNS ARS)",
       spaceflightManifestation:
-        "Even low-dose HZE heavy ions ($^{56}\\text{Fe}$, $^{48}\\text{Ti}$, $^{16}\\text{O}$) prune dendritic spines, ablate subgranular hippocampal neurogenesis, and activate chronic microglial neuro-inflammation—impairing executive decision-making, spatial memory, and fear extinction on Mars missions.",
+        "Even low-dose HZE heavy ions ($^{56}\\text{Fe}$, $^{48}\\text{Ti}$, $^{16}\\text{O}$) prune dendritic spines, ablate subgranular hippocampal neurogenesis, and activate chronic microglial neuro-inflammation • impairing executive decision-making, spatial memory, and fear extinction on Mars missions.",
       cellularTarget: "Dentate gyrus neural stem cells, prefrontal glutamatergic synapses, and microglia",
       medicalCountermeasure:
         "HDPE crew-berth helmet shielding, Melatonin / Amifostine free-radical scavengers, and aerobic exercise BDNF upregulation.",

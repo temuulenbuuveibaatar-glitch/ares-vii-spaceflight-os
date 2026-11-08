@@ -52,7 +52,7 @@ export interface UnifiedSpaceDrug {
 const EXTRA_AGENCY_MEDICATIONS: UnifiedSpaceDrug[] = [
   {
     id: "ussr-mexidol-emoxypine",
-    name: "Mexidol / Emoxypine Succinate (Мексидол — АИ-Космос)",
+    name: "Mexidol / Emoxypine Succinate (Мексидол • АИ-Космос)",
     nativeOrGenericName: "2-Ethyl-6-methyl-3-hydroxypyridine Succinate (IBMP RAS)",
     agencyFilter: "USSR_RUSSIA",
     agencyBadge: "Soviet Union / Russia (IBMP RAS)",
@@ -72,7 +72,7 @@ const EXTRA_AGENCY_MEDICATIONS: UnifiedSpaceDrug[] = [
   },
   {
     id: "ussr-panangin-riboxin",
-    name: "Panangin & Riboxin (Панангин + Рибоксин — Myocardial Metabolic Protocol)",
+    name: "Panangin & Riboxin (Панангин + Рибоксин • Myocardial Metabolic Protocol)",
     nativeOrGenericName: "Potassium & Magnesium Aspartate + Inosine (Purine Nucleoside)",
     agencyFilter: "USSR_RUSSIA",
     agencyFilterLabel: "USSR",
@@ -93,7 +93,7 @@ const EXTRA_AGENCY_MEDICATIONS: UnifiedSpaceDrug[] = [
   } as any,
   {
     id: "ussr-piracetam-nootropil",
-    name: "Piracetam / Fonturacetam (Пирацетам / Фенотропил — Cosmonaut Nootropic)",
+    name: "Piracetam / Fonturacetam (Пирацетам / Фенотропил • Cosmonaut Nootropic)",
     nativeOrGenericName: "2-Oxo-1-pyrrolidine Acetamide & 4-Phenylpiracetam (IBMP)",
     agencyFilter: "USSR_RUSSIA",
     agencyBadge: "Soviet Union / Russia (IBMP RAS)",
@@ -113,7 +113,7 @@ const EXTRA_AGENCY_MEDICATIONS: UnifiedSpaceDrug[] = [
   },
   {
     id: "mongolia-chacargana-salidroside",
-    name: "Chacargana & Altai Rhodiola ('Чацаргана ба Алтайн Алтан Гагнуур' — Soyuz-39 Bio-Shield)",
+    name: "Chacargana & Altai Rhodiola ('Чацаргана ба Алтайн Алтан Гагнуур' • Soyuz-39 Bio-Shield)",
     nativeOrGenericName: "Hippophae rhamnoides Flavonoid-Tocopherol Oil + Salidroside Adaptogen",
     agencyFilter: "MONGOLIA_INTERKOSMOS",
     agencyBadge: "Mongolia / Interkosmos (MAS Soyuz-39)",
@@ -133,7 +133,7 @@ const EXTRA_AGENCY_MEDICATIONS: UnifiedSpaceDrug[] = [
   },
   {
     id: "china-space-tcm-shenzhou-buqi",
-    name: "Shenzhou Space Buqi & Danhong Formula (神舟补气活血方 — CMSA Antithrombotic)",
+    name: "Shenzhou Space Buqi & Danhong Formula (神舟补气活血方 • CMSA Antithrombotic)",
     nativeOrGenericName: "Salvia miltiorrhiza (Danshen) & Carthamus tinctorius + Astragalus",
     agencyFilter: "CHINA_CMSA",
     agencyBadge: "China (CMSA / ACC Tiangong)",
@@ -302,9 +302,9 @@ export default function SpaceRadiationAndMeds() {
       dose: string;
     }) => {
       const res = await apiRequest("POST", "/api/earth-comm/send", {
-        sender: "ARES-VII Automated Pharmacy & EHR",
+        sender: "Sonnenblume Automated Pharmacy & EHR",
         priority: "HIGH",
-        message: `[MEDICATION ADMINISTERED] ${payload.crewMember} received ${payload.drugName} (${payload.agencyBadge}) — Dose: ${payload.dose}. Logged to 24/7 Astronaut EHR & synced to Hermes MED-SENTINEL.`,
+        message: `[MEDICATION ADMINISTERED] ${payload.crewMember} received ${payload.drugName} (${payload.agencyBadge}) : Dose: ${payload.dose}. Logged to 24/7 Astronaut EHR & synced to Hermes MED-SENTINEL.`,
         attachTelemetry: true,
       });
       return res.json();
@@ -386,7 +386,7 @@ export default function SpaceRadiationAndMeds() {
               </h1>
               <p className="text-sm text-[#a8baa0] leading-relaxed">
                 Complete offline space pharmacology database across every spacefaring
-                nation—including Soviet Union / Russian IBMP radioprotectants
+                nation: including Soviet Union / Russian IBMP radioprotectants
                 (Indralin B-190, Cystamine RS-1, Phenibut, Mexidol, Panangin),
                 China Space TCM (Taikong Yangxin Wan), Mongolia Interkosmos
                 adaptogens, India DRDO-INMAS RP-1, JAXA Bisphosphonates, and

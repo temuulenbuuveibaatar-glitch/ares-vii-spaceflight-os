@@ -25,7 +25,7 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
 
-  // ARES-VII Mission & Hermes Autonomous System methods
+  // Sonnenblume Mission & Hermes Autonomous System methods
   getMissionOverview(): Promise<MissionOverviewResponse>;
   getAstronauts(): Promise<Astronaut[]>;
   getAstronaut(id: string): Promise<Astronaut | undefined>;
@@ -97,7 +97,7 @@ export class MemStorage implements IStorage {
     const now = new Date();
     const nowIso = now.toISOString();
 
-    // 1. Seed 4 Astronauts on ARES-VII Deep Space Mission
+    // 1. Seed 4 Astronauts on Sonnenblume Deep Space Mission
     const initialAstronauts: Astronaut[] = [
       {
         id: "astro-1",
@@ -224,7 +224,7 @@ export class MemStorage implements IStorage {
       gmitLocalTime: formatGmitLocalTime(now),
       missionElapsedTime: formatMissionElapsedTime(now.getTime()),
       gmitStationStatus:
-        "GMIT_NALAIKH_MN (47.78°N, 107.26°E) — S/X-BAND TELEMETRY LOCKED",
+        "GMIT_NALAIKH_MN (47.78°N, 107.26°E) • S/X-BAND TELEMETRY LOCKED",
     };
 
     // 4. Seed Hermes 4 Subagent Logs
@@ -293,7 +293,7 @@ export class MemStorage implements IStorage {
         station: "GOLDSTONE_DS14 + GMIT_NALAIKH_MN",
         priority: "TELEMETRY_SYNC",
         message:
-          "ARES-VII, copy nominal Xiaomi Watch H1 bio-telemetry across all 4 crewmembers. GMIT Nalaikh Ground Station (UTC+8) and NASA Goldstone DS-14 have full carrier lock. Hermes Autonomous Flight Takeover authority verified.",
+          "Sonnenblume, copy nominal Xiaomi Watch H1 bio-telemetry across all 4 crewmembers. GMIT Nalaikh Ground Station (UTC+8) and NASA Goldstone DS-14 have full carrier lock. Hermes Autonomous Flight Takeover authority verified.",
         telemetryAttached: true,
         acknowledged: true,
       },
@@ -675,8 +675,8 @@ export class MemStorage implements IStorage {
       message:
         params.priority === "PRIORITY_0_MAYDAY" ||
         params.priority === "URGENT_MEDICAL"
-          ? `[ACK PRIORITY-0] ARES-VII, Houston Flight Surgeon & GMIT Nalaikh Station copy your emergency telemetry packet (one-way light latency ${this.autopilotState.signalLatencySec}s). We concur with Hermes MED-SENTINEL & NAV-PILOT Fast Earth Return trajectory (ETA ${this.autopilotState.estimatedReturnHours}h). Recovery forces alerted.`
-          : `[ACK TELEMETRY] ARES-VII, Houston & GMIT Nalaikh Ground Station copy message and Xiaomi Watch H1 biometric frame. Orbital state vector and crew dosimetry verified nominal.`,
+          ? `[ACK PRIORITY-0] Sonnenblume, Houston Flight Surgeon & GMIT Nalaikh Station copy your emergency telemetry packet (one-way light latency ${this.autopilotState.signalLatencySec}s). We concur with Hermes MED-SENTINEL & NAV-PILOT Fast Earth Return trajectory (ETA ${this.autopilotState.estimatedReturnHours}h). Recovery forces alerted.`
+          : `[ACK TELEMETRY] Sonnenblume, Houston & GMIT Nalaikh Ground Station copy message and Xiaomi Watch H1 biometric frame. Orbital state vector and crew dosimetry verified nominal.`,
       telemetryAttached: false,
       acknowledged: true,
     };

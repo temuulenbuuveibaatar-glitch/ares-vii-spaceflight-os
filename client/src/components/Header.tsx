@@ -51,7 +51,7 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
               <div className="flex items-center gap-2.5 cursor-pointer">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#fbbf24]" />
                 <span className="font-bold text-sm tracking-tight text-white font-mono">
-                  ARES-VII
+                  Sonnenblume
                 </span>
                 <span className="text-xs text-[#8ea873] hidden sm:inline">
                   Deep-Space Astronaut Health OS
@@ -111,8 +111,8 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
               </div>
 
               <a
-                href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
-                download="ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
+                href="/Sonnenblume_Complete_Space_Health_and_Mission_Research_Guide.docx"
+                download="Sonnenblume_Complete_Space_Health_and_Mission_Research_Guide.docx"
                 className="hidden lg:flex items-center gap-1.5 bg-[#13190e] hover:bg-[#1a2313] border border-[#2e3b23] px-3 py-1.5 rounded-xl text-xs text-[#c7dfb8] font-medium cursor-pointer transition-colors active:scale-[0.97]"
                 title="Download Complete Plain-English & Scientific Research Guide (.docx)"
               >

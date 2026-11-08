@@ -236,7 +236,7 @@ export default function CockpitLayout({ children }: CockpitLayoutProps) {
       <footer className="bg-[#080b07] border-t border-[#1f2817] py-4 text-xs font-mono text-[#6d845e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-4">
-            <span>ARES-VII Bio-Astronautics OS v2.0.0</span>
+            <span>Sonnenblume Space Health OS v2.0.0</span>
             <span>•</span>
             <span>Subagents: MED-SENTINEL · RAD-GUARD · PSY-ORACLE · NAV-PILOT</span>
           </div>

@@ -31,7 +31,7 @@ export interface HistoricalMissionIncident {
 export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
   {
     id: "soyuz-11-depressurization-1971",
-    missionName: "Soyuz 11 / Salyut 1 — Orbital Undocking Cabin Depressurization",
+    missionName: "Soyuz 11 / Salyut 1  •  Orbital Undocking Cabin Depressurization",
     date: "30 June 1971",
     agency: "Soviet Space Program (TsKBEM / IBMP)",
     countryCode: "USSR / RU",
@@ -69,7 +69,7 @@ export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
   },
   {
     id: "soyuz-39-salyut-6-mongolia-1981",
-    missionName: "Soyuz 39 / Salyut 6 — Cephalad Fluid Shift & Neuro-Vestibular Adaptation",
+    missionName: "Soyuz 39 / Salyut 6  •  Cephalad Fluid Shift & Neuro-Vestibular Adaptation",
     date: "22–30 March 1981",
     agency: "Mongolian Academy of Sciences (MAS) & Soviet Interkosmos",
     countryCode: "MN / USSR",
@@ -106,7 +106,7 @@ export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
   },
   {
     id: "apollo-13-cryo-rupture-1970",
-    missionName: "Apollo 13 — Service Module O2 Tank Explosion, CO2 Toxicity & Hypothermia",
+    missionName: "Apollo 13  •  Service Module O2 Tank Explosion, CO2 Toxicity & Hypothermia",
     date: "13–17 April 1970",
     agency: "NASA (Johnson Space Center)",
     countryCode: "USA",
@@ -144,7 +144,7 @@ export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
   },
   {
     id: "mir-eo23-fire-1997",
-    missionName: "Mir EO-23 — Solid-Fuel Oxygen Generator (Vika TGK) Blowtorch Fire",
+    missionName: "Mir EO-23  •  Solid-Fuel Oxygen Generator (Vika TGK) Blowtorch Fire",
     date: "23 February 1997",
     agency: "Roscosmos & NASA (Phase 1 Shuttle-Mir)",
     countryCode: "RU / USA",
@@ -167,7 +167,7 @@ export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
     whatHappened:
       "With 6 crewmembers aboard Mir, a lithium perchlorate (LiClO4) 'Vika' oxygen-generating cartridge in the Kvant-1 module contaminated with a shred of rubber glove erupted into a violent, self-oxidizing 600°C blowtorch flame. Because the cartridge generates its own oxygen, water-based extinguishers could not smother it immediately. Dense, toxic smoke filled the entire station for 14 minutes, blocking the Kvant-1 docking port to one of the two Soyuz return capsules.",
     scientificMechanism:
-      "In microgravity, buoyancy convection does not exist, so hot smoke and toxic combustion gases (CO, HCl, metal particulates) do not rise to the ceiling—they form stationary, expanding spheres pushed directly into crew breathing zones by station ventilation fans. Self-oxidizing perchlorate fires cannot be starved of external O2.",
+      "In microgravity, buoyancy convection does not exist, so hot smoke and toxic combustion gases (CO, HCl, metal particulates) do not rise to the ceiling • they form stationary, expanding spheres pushed directly into crew breathing zones by station ventilation fans. Self-oxidizing perchlorate fires cannot be starved of external O2.",
     howToPreventAndSurvive: {
       beforeMissionOrInOrbit: [
         "Store and operate solid-fuel oxygen generators inside fireproof, vacuum-ventable containment housings away from Soyuz/Dragon escape hatches.",
@@ -189,7 +189,7 @@ export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
   },
   {
     id: "iss-eva23-parmitano-water-2013",
-    missionName: "ISS Expedition 36 (EVA-23) — Spacesuit Helmet Water Intrusion",
+    missionName: "ISS Expedition 36 (EVA-23)  •  Spacesuit Helmet Water Intrusion",
     date: "16 July 2013",
     agency: "ESA (Italy ASI) & NASA",
     countryCode: "ESA / IT / USA",
@@ -241,7 +241,7 @@ export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
       { label: "Proton Flux (≥10 MeV)", value: "> 60,000 PFU" },
     ],
     whatHappened:
-      "Just 14 weeks after Apollo 16 returned from the Moon and 4 months before Apollo 17 launched, solar active region McMath 11976 unleashed the fastest Coronal Mass Ejection (14.6 hours Sun-to-Earth) and highest-energy solar proton storm of the space age. Dosimetric reconstruction showed that an astronaut caught on a lunar surface EVA or in a lightly shielded Lunar Module would have absorbed ~4,000 mSv to the skin and >400–1,000 mSv to bone marrow within 16 hours—inducing acute radiation vomiting, severe hematopoietic neutropenia, and potentially fatal Acute Radiation Syndrome (ARS).",
+      "Just 14 weeks after Apollo 16 returned from the Moon and 4 months before Apollo 17 launched, solar active region McMath 11976 unleashed the fastest Coronal Mass Ejection (14.6 hours Sun-to-Earth) and highest-energy solar proton storm of the space age. Dosimetric reconstruction showed that an astronaut caught on a lunar surface EVA or in a lightly shielded Lunar Module would have absorbed ~4,000 mSv to the skin and >400–1,000 mSv to bone marrow within 16 hours • inducing acute radiation vomiting, severe hematopoietic neutropenia, and potentially fatal Acute Radiation Syndrome (ARS).",
     scientificMechanism:
       "High-energy solar protons (30–200 MeV) penetrate thin aluminum hulls (2–7 g/cm²), causing dense ionization tracks that shatter DNA double strands in rapidly dividing hematopoietic stem cells and intestinal crypt cells, with lymphocyte counts plummeting 50–80% within 24–48 hours (Andrews nomogram).",
     howToPreventAndSurvive: {
@@ -255,7 +255,7 @@ export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
         "Pharmacological Prophylaxis: Take Soviet/Roscosmos Indralin B-190 (450 mg PO, DRF = 1.45) + Ondansetron (8 mg ODT) before peak proton arrival; start Filgrastim G-CSF (300 µg SC daily) if blood-forming organ dose exceeds 500 mSv.",
       ],
       medicationsAndHardware: [
-        "Indralin B-190 (450 mg PO — Soviet/Roscosmos α1-adrenomimetic radioprotectant)",
+        "Indralin B-190 (450 mg PO  •  Soviet/Roscosmos α1-adrenomimetic radioprotectant)",
         "Filgrastim / Neupogen (G-CSF 300 µg SC) + Ondansetron 8 mg ODT",
         "AstroRad Selective Bone-Marrow Vest + Water-Wall Storm Shelter (>35 g/cm²)",
       ],
@@ -265,7 +265,7 @@ export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
   },
   {
     id: "soyuz-33-bulgaria-ballistic-1979",
-    missionName: "Soyuz 33 — Main Engine Burn-Through & 9G Ballistic Re-Entry",
+    missionName: "Soyuz 33  •  Main Engine Burn-Through & 9G Ballistic Re-Entry",
     date: "10–12 April 1979",
     agency: "Bulgarian Academy of Sciences & Soviet Interkosmos",
     countryCode: "BG / USSR",
@@ -302,7 +302,7 @@ export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
   },
   {
     id: "iss-jugular-thrombosis-2019",
-    missionName: "ISS Expedition — Zero-G Internal Jugular Venous Thrombosis (JVT)",
+    missionName: "ISS Expedition  •  Zero-G Internal Jugular Venous Thrombosis (JVT)",
     date: "2019 (Published NEJM 2020)",
     agency: "NASA, ESA & Canadian Space Agency",
     countryCode: "USA / ESA / CA",
@@ -316,7 +316,7 @@ export const HISTORICAL_MISSION_INCIDENTS: HistoricalMissionIncident[] = [
       { label: "Pre-Landing Hold Window", value: "96 Hours Before Re-entry" },
     ],
     whatHappened:
-      "During a routine vascular ultrasound examination on Flight Day 50 aboard the ISS, a healthy astronaut with no prior clotting history was found to have an occlusive deep vein thrombosis (blood clot) in the left internal jugular vein, accompanied by stagnant/retrograde venous flow in 6 of 11 other astronauts studied—revealing a previously unrecognized life-threatening risk of pulmonary embolism and cerebral venous thrombosis in microgravity.",
+      "During a routine vascular ultrasound examination on Flight Day 50 aboard the ISS, a healthy astronaut with no prior clotting history was found to have an occlusive deep vein thrombosis (blood clot) in the left internal jugular vein, accompanied by stagnant/retrograde venous flow in 6 of 11 other astronauts studied • revealing a previously unrecognized life-threatening risk of pulmonary embolism and cerebral venous thrombosis in microgravity.",
     scientificMechanism:
       "Without gravity to drain blood from the head to the heart, internal jugular vein pressure doubles while flow velocity becomes sluggish, bidirectional, or stagnant. Combined with microgravity-induced plasma volume contraction (hemoconcentration) and endothelial activation, this completes Virchow's triad in the neck veins.",
     howToPreventAndSurvive: {
