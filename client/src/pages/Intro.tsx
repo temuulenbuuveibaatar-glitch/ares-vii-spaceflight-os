@@ -68,10 +68,10 @@ export default function Intro() {
       code: "CREW-SPEC-01",
       icon: Users,
       summary:
-        "Complete self-reliance when Earth is 22 light-minutes away. Flight crews can evaluate their own symptoms, receive step-by-step countermeasure protocols, consult confidential on-device AI therapy, and administer life-saving zero-G clinical procedures without an MD on board.",
+        "Complete self-reliance when Earth is 22 light-minutes away. Flight crews can evaluate their own symptoms, receive step-by-step countermeasure protocols, consult confidential on-device cognitive support, and administer life-saving zero-G clinical procedures without an MD on board.",
       features: [
         "24/7 continuous Lead-I ECG & oscillometric micro-cuff BP via radiation-hardened wrist telemetry",
-        "100% confidential on-device offline voice sentiment & cognitive fatigue therapy (zero ground logging)",
+        "100% confidential on-device acoustic stress analysis & guided recovery (zero ground logging)",
         "Zero-G surgical and pharmacological step-by-step guidance manuals with dosage calculator",
         "Tactical manual flight authority interlock with physical status indicators",
       ],
@@ -602,7 +602,7 @@ export default function Intro() {
             <div className="space-y-1.5 max-w-3xl">
               <div className="flex items-center gap-2">
                 <Cpu className="w-4 h-4 text-[#fbbf24]" />
-                <span className="font-bold text-white uppercase tracking-wider">HERMES AUTONOMOUS AI CONSENSUS TRIAGE:</span>
+                <span className="font-bold text-white uppercase tracking-wider">HERMES DETERMINISTIC MISSION CONSENSUS:</span>
                 <span className="px-2 py-0.5 rounded bg-[#1f2917] text-[#84a96c] border border-[#2e3b23] text-[10px]">
                   50 ms OFFLINE LATENCY
                 </span>
@@ -631,7 +631,7 @@ export default function Intro() {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION: WHO WE ARE (THREE HIGH SCHOOL STUDENTS & NASA SPACE APPS)        */}
+      {/* SECTION: WHO WE ARE (THREE UNDERGRAD STUDENTS & NASA SPACE APPS)           */}
       {/* ========================================================================= */}
       <section id="who-we-are" className="py-20 px-4 border-b border-[#232d1a] bg-[#11160e]">
         <div className="max-w-6xl mx-auto space-y-14">
@@ -639,13 +639,13 @@ export default function Intro() {
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#182213] border border-[#2e3b23] text-[#fbbf24] font-mono text-xs font-bold tracking-wider">
               <Users className="w-3.5 h-3.5 text-[#fbbf24]" />
-              <span>NASA SPACE APPS CHALLENGE • THREE HIGH SCHOOL STUDENTS</span>
+              <span>NASA SPACE APPS CHALLENGE • THREE UNDERGRAD STUDENTS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               Who We Are
             </h2>
             <p className="text-base sm:text-lg text-[#c7dfb8] leading-relaxed">
-              We are not engineers or college graduates. We are three high school students and NASA Space Apps Challenge participants from Germany, Italy, and Mongolia who decided to build solutions for real human survival, show other kids that anything is possible, and prove that humanity still has hope for a brighter future.
+              We are not credentialed scientists or senior aerospace engineers yet. We are three undergraduate students from Germany, Italy, and Mongolia who met through the NASA Space Apps Challenge. We build real, deterministic software to protect human life in extreme spaceflight, prove what young students can achieve with discipline, and work relentlessly so we can earn an income, support our parents, and fund our aerospace dreams.
             </p>
           </div>
 
@@ -667,15 +667,15 @@ export default function Intro() {
                     Temuulen Buuveibaatar
                   </h3>
                   <div className="text-xs font-mono text-[#fbbf24] mt-0.5">
-                    High School Student • Systems & Rust Core
+                    Undergraduate • Aspiring Aerospace Engineer
                   </div>
                 </div>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  Living in Berlin, Germany. Has not graduated high school yet, but started coding to tackle real-world crises, help anyone he can, and lessen the financial burden on his parents. Architected the complete mission OS core, Rust native astrodynamics engine, Hermes AI subagent consensus, and NASA GMAT trajectory bridge with his own hands.
+                  Half German and half Mongolian, based in Berlin. Currently an undergraduate student working toward an Aerospace Engineering major. Driven to lessen the financial burden on his parents and generate an income to support them. Architected the complete Sonnenblume core, Rust native astrodynamics computations, deterministic multi-agent state machines, and the live NASA GMAT trajectory bridge.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
-                Role: Core Systems • Rust Engine • NASA GMAT
+                Focus: Core Architecture • Rust Engine • Orbit Mechanics
               </div>
             </div>
 
@@ -695,15 +695,15 @@ export default function Intro() {
                     Alessia
                   </h3>
                   <div className="text-xs font-mono text-[#fbbf24] mt-0.5">
-                    Creator of Sonnenblume • High School Student
+                    Creator of Sonnenblume • Undergraduate
                   </div>
                 </div>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  Living in Italy. Alessia created the entire concept and name <em>Sonnenblume</em> (German for Sunflower). Passionate about human dignity, clinical accessibility, and psychological resilience. Designed the crew physiological workflows, cognitive fatigue sentiment models, and medical ergonomics so that any astronaut in crisis can act with instant clarity.
+                  Living in Italy. Alessia created the entire concept and name <em>Sonnenblume</em> (German for Sunflower). Sharing the exact same drive to become self-reliant and help her family, she focuses on human clinical accessibility, cognitive fatigue resilience, and stress-adapted ergonomics so any crew member facing hypoxia or crisis can make instant, life-saving decisions.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
-                Role: Created Sonnenblume • Clinical UX • Psychology
+                Focus: Created Sonnenblume • Clinical UX • Psychology
               </div>
             </div>
 
@@ -723,54 +723,54 @@ export default function Intro() {
                     Azjargal
                   </h3>
                   <div className="text-xs font-mono text-[#fbbf24] mt-0.5">
-                    High School Student • Hardware & Telemetry
+                    Undergraduate • Aspiring Aerospace Engineer
                   </div>
                 </div>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  Building from Mongolia. Also a high school student who has not graduated yet, driven by hardware interfacing, sensor streams, and network fault tolerance. Connected the Xiaomi Watch H1 micro-cuff blood pressure, ECG waveforms, and telemetry ingestion to ensure zero packet loss across delay-tolerant networks.
+                  Building from Mongolia. Also an undergraduate student aiming for an Aerospace Engineering major, dedicated to supporting his parents back home. Engineered the hardware telemetry pipelines and wearable sensor bridges (Xiaomi Watch H1 micro-cuff blood pressure, continuous ECG, and biosensors) ensuring zero packet loss across delay-tolerant space networks.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#1a2313] font-mono text-xs text-[#8ea873]">
-                Role: Hardware Interfacing • Xiaomi Watch H1 • Sensors
+                Focus: Telemetry Pipelines • Wearables • Ingestion
               </div>
             </div>
           </div>
 
-          {/* Why We Build Manifesto (The Core Drive) */}
+          {/* Why We Build Manifesto (The Core Drive & Funding Vision) */}
           <div className="bg-[#0b0e0a] border border-[#2e3b23] rounded-2xl p-8 sm:p-10 space-y-6">
             <div className="flex items-center gap-2 font-mono text-xs text-[#fbbf24]">
               <Sparkles className="w-4 h-4 text-[#fbbf24]" />
-              <span className="font-bold uppercase tracking-wider">Our Manifesto: Why Three High Schoolers Built This</span>
+              <span className="font-bold uppercase tracking-wider">Our Manifesto: Why Three Undergrads Built This</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="space-y-2">
                 <h4 className="text-lg font-bold text-white flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#fbbf24]" />
-                  Lessening the Burden on Our Parents
+                  Supporting Our Families
                 </h4>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  We started this because we wanted to help anyone we can, and work tirelessly so we become a source of pride rather than a financial burden to our families. We code late into the night with our own computers and relentless grit.
+                  We are undergraduates who want to be a source of strength, pride, and income for our parents rather than a financial burden. We work late into the night with our own computers, teaching ourselves aerospace mechanics, Rust, and clinical protocols from scratch.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h4 className="text-lg font-bold text-white flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#84a96c]" />
-                  Showing Other Kids It Is Possible
+                  Zero AI Hallucinations
                 </h4>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  We entered the NASA Space Apps Challenge to show teenagers, students, and young kids everywhere that you do not need permission from giant corporations or wealthy universities to solve real problems. We haven't graduated high school yet, but we built this. You can build your dreams too.
+                  In human spaceflight, generative AI hallucinations are catastrophic. We designed Sonnenblume around deterministic state machines, verified NASA flight medical databases, and strict mathematical physics. Every clinical action is auditable, deterministic, and grounded in peer-reviewed science.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h4 className="text-lg font-bold text-white flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#38bdf8]" />
-                  Humanity Still Has Hope
+                  Building Our Circle & Seeking Funding
                 </h4>
                 <p className="text-sm text-[#a8baa0] leading-relaxed">
-                  Instead of corrupt governments, ongoing wars, and preventable diseases, we believe humanity has a better future. When young minds unite across different countries (Germany, Italy, Mongolia), share knowledge openly, and build tools to save lives, hope becomes real.
+                  To take Sonnenblume from this working prototype to analog habitat trials and hardware flight testbeds, we are actively seeking aerospace mentors, grants, and early backing. We have the hunger, the work ethic, and the technical foundation to make our aerospace dreams real.
                 </p>
               </div>
             </div>
@@ -1072,10 +1072,10 @@ export default function Intro() {
               </h3>
               <div className="space-y-2 text-sm leading-relaxed text-[#c7dfb8]">
                 <p>
-                  <strong className="text-white">The Status Quo:</strong> Current space medicine apps are merely data conduits. NASA streams raw telemetry (ECG, ultrasound, blood panels) to flight surgeons back in Houston. Fear of AI errors keeps software frozen in passive reporting.
+                  <strong className="text-white">The Status Quo:</strong> Current space medicine apps are merely data conduits. NASA streams raw telemetry (ECG, ultrasound, blood panels) to flight surgeons back in Houston. Fear of unverified algorithmic errors keeps flight software frozen in passive reporting.
                 </p>
                 <p>
-                  <strong className="text-[#fbbf24]">Sonnenblume Solution:</strong> Hermes runs deterministic, verified clinical state machines and 4 isolated offline subagents. It evaluates ECG arrhythmias in under 50ms without internet access.
+                  <strong className="text-[#fbbf24]">Sonnenblume Solution:</strong> Hermes runs deterministic, verified clinical state machines and 4 isolated offline subagents. It evaluates ECG arrhythmias in under 50ms without internet access or hallucinations.
                 </p>
               </div>
             </div>
@@ -1095,7 +1095,7 @@ export default function Intro() {
                   <strong className="text-white">The Status Quo:</strong> Astronauts complete basic digital questionnaires. Because every answer is monitored by mission control, crew members mask burnout, fear, or friction to avoid being medically grounded from future flights.
                 </p>
                 <p>
-                  <strong className="text-[#fbbf24]">Sonnenblume Solution:</strong> 100% confidential, on-device AI cognitive-behavioral voice therapy. Audio sentiment and pitch cadence are evaluated locally without ever transmitting recordings to Earth. Mission control only sees an aggregated, anonymized readiness index.
+                  <strong className="text-[#fbbf24]">Sonnenblume Solution:</strong> 100% confidential, on-device acoustic stress analysis and guided respiration. Audio sentiment and pitch cadence are evaluated locally without ever transmitting recordings to Earth. Mission control only sees an aggregated, anonymized readiness index.
                 </p>
               </div>
             </div>
@@ -1170,7 +1170,7 @@ export default function Intro() {
                   Experience The Operational Tool
                 </h3>
                 <p className="text-sm text-[#c7dfb8] leading-relaxed">
-                  Switch from this documentation portal directly into the live Sonnenblume cockpit. Speak with Hermes AI, test human manual overrides, run GMAT trajectory burns, and monitor real-time biometrics.
+                  Switch from this documentation portal directly into the live Sonnenblume cockpit. Test Hermes autonomous flight controllers, verify human manual overrides, run GMAT trajectory burns, and monitor real-time biometrics.
                 </p>
               </div>
 
@@ -1194,7 +1194,7 @@ export default function Intro() {
               Real Spaceflight Incidents Handled Autonomously
             </h2>
             <p className="mt-3 text-base sm:text-lg text-[#c7dfb8]">
-              Inspect how telemetry triggers, Hermes AI clinical state machines, and crew interventions saved missions during genuine deep-space crises.
+              Inspect how telemetry triggers, Hermes deterministic clinical state machines, and crew interventions saved missions during genuine deep-space crises.
             </p>
           </div>
 
@@ -1244,7 +1244,7 @@ export default function Intro() {
                 <div className="bg-[#0b0e0a] border border-[#232d1a] rounded-xl p-4">
                   <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#fbbf24] mb-1 flex items-center gap-1.5">
                     <Brain className="w-3.5 h-3.5" />
-                    <span>Hermes Offline AI Autonomous Action</span>
+                    <span>Hermes Deterministic Protocol Action</span>
                   </div>
                   <p className="text-sm text-[#c7dfb8] leading-relaxed">
                     {scenarios[activeScenario].hermesAction}
@@ -1516,7 +1516,7 @@ export default function Intro() {
           </h2>
 
           <p className="mt-4 text-base text-[#c7dfb8] max-w-2xl mx-auto leading-relaxed">
-            A comprehensive Microsoft Word research document written so that high school students, non-scientists, and aerospace engineers alike can understand every formula, flight incident, and clinical intervention.
+            A comprehensive Microsoft Word research document written so that undergraduate students, space medicine researchers, and aerospace engineers alike can understand every formula, flight incident, and clinical intervention.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
