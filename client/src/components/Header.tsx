@@ -4,7 +4,7 @@ import LanguageSelector from "./LanguageSelector";
 import HermesAutoSetupLauncher from "./HermesAutoSetupLauncher";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
-import { Cpu, Hand, Menu, FileText, Sparkles } from "lucide-react";
+import { Cpu, Hand, Menu, FileText, Sparkles, Rocket } from "lucide-react";
 
 interface HeaderProps {
   toggleMobileMenu: () => void;
@@ -93,12 +93,21 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
                 </button>
               </div>
 
-              <Link href="/intro">
-                <span className="flex items-center gap-1.5 bg-orange-500/10 hover:bg-orange-500/20 text-orange-400 border border-orange-500/30 px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-colors">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Overview & Intro</span>
-                </span>
-              </Link>
+              <div className="flex items-center gap-1.5 p-1 bg-zinc-900 border border-zinc-800 rounded-xl">
+                <Link href="/intro">
+                  <span className="flex items-center gap-1.5 bg-gradient-to-r from-cyan-500/20 to-teal-500/20 hover:from-cyan-500/30 hover:to-teal-500/30 text-cyan-300 border border-cyan-500/40 px-2.5 py-1 rounded-lg text-xs font-bold cursor-pointer transition-all">
+                    <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>1. Public Showcase</span>
+                  </span>
+                </Link>
+
+                <Link href="/">
+                  <span className="flex items-center gap-1.5 bg-zinc-950 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 px-2.5 py-1 rounded-lg text-xs font-semibold cursor-pointer transition-all">
+                    <Rocket className="w-3.5 h-3.5 text-amber-400" />
+                    <span>2. Live OS Cockpit</span>
+                  </span>
+                </Link>
+              </div>
 
               <a
                 href="/ARES-VII_Complete_Space_Health_and_Mission_Research_Guide.docx"
