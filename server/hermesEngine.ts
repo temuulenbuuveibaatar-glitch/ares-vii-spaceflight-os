@@ -338,7 +338,7 @@ export function evaluateTelemetryPacket(
   const newAlerts: AnomalyAlert[] = [];
   const newSubagentLogs: HermesSubagentLog[] = [];
 
-  const escalate = (sev: AnomalySeverity) => {
+  const escalate = (current: AnomalySeverity, next: AnomalySeverity): AnomalySeverity => {
     const order: AnomalySeverity[] = [
       "NONE",
       "LOW",
@@ -346,9 +346,7 @@ export function evaluateTelemetryPacket(
       "HIGH",
       "CRITICAL",
     ];
-    if (order.indexOf(sev) > order.indexOf(maxSeverity)) {
-      maxSeverity = sev;
-    }
+    return order.indexOf(next) > order.indexOf(current) ? next : current;
   };
 
   // =========================================================================
@@ -364,7 +362,7 @@ export function evaluateTelemetryPacket(
     input.ecgRhythm === "VTACH_ALERT" ||
     input.ecgRhythm === "ATRIAL_FIBRILLATION"
   ) {
-    escalate("CRITICAL");
+    maxSeverity = escalate(maxSeverity, "CRITICAL");
     medAnomaly = true;
     cardiacCritical = true;
     const reason = `Acute Cardiac Emergency on Xiaomi Watch H1: HR ${input.heartRate} BPM, ECG ${input.ecgRhythm}, BP ${input.bloodPressureSys}/${input.bloodPressureDia} mmHg`;
@@ -389,7 +387,7 @@ export function evaluateTelemetryPacket(
       resolved: false,
     });
   } else if (input.heartRate > 125 || input.heartRate < 50) {
-    escalate("MODERATE");
+    maxSeverity = escalate(maxSeverity, "MODERATE");
     medAnomaly = true;
     reasons.push(
       `Cardiovascular deviation: Heart Rate ${input.heartRate} BPM (${input.ecgRhythm})`,
@@ -397,7 +395,7 @@ export function evaluateTelemetryPacket(
   }
 
   if (input.spo2 < 88 || input.evaSuitPressureKpa < 22.0 || input.cabinCo2Mmhg > 6.0) {
-    escalate("CRITICAL");
+    maxSeverity = escalate(maxSeverity, "CRITICAL");
     medAnomaly = true;
     lifeSupportCritical = true;
     const reason = `Hypoxia / Barotrauma Emergency: SpO2 ${input.spo2}%, Suit Pressure ${input.evaSuitPressureKpa} kPa, Cabin CO2 ${input.cabinCo2Mmhg} mmHg`;
@@ -421,7 +419,7 @@ export function evaluateTelemetryPacket(
       resolved: false,
     });
   } else if (input.spo2 < 93) {
-    escalate("HIGH");
+    maxSeverity = escalate(maxSeverity, "HIGH");
     medAnomaly = true;
     reasons.push(`Mild Hypoxia warning: SpO2 ${input.spo2}%`);
   }
@@ -447,7 +445,7 @@ export function evaluateTelemetryPacket(
   // =========================================================================
   let radEmergency = false;
   if (input.radiationDoseRateUsvHr >= 400) {
-    escalate("CRITICAL");
+    maxSeverity = escalate(maxSeverity, "CRITICAL");
     radEmergency = true;
     const reason = `Severe Solar Particle Event (SPE / X-Class Flare): ${input.radiationDoseRateUsvHr} uSv/hr detected`;
     reasons.push(reason);
@@ -469,7 +467,7 @@ export function evaluateTelemetryPacket(
       resolved: false,
     });
   } else if (input.radiationDoseRateUsvHr >= 100) {
-    escalate("HIGH");
+    maxSeverity = escalate(maxSeverity, "HIGH");
     reasons.push(
       `Elevated Cosmic/Solar Radiation Flux: ${input.radiationDoseRateUsvHr} uSv/hr`,
     );
@@ -494,7 +492,7 @@ export function evaluateTelemetryPacket(
   // =========================================================================
   let psyCrisis = false;
   if (input.stressIndex >= 84 || (input.hrvMs <= 22 && input.sleepQualityScore < 45)) {
-    escalate(maxSeverity === "CRITICAL" ? "CRITICAL" : "HIGH");
+    maxSeverity = escalate(maxSeverity, "HIGH");
     psyCrisis = true;
     const reason = `Acute Neuro-Cognitive Stress & Autonomic Exhaustion: Stress ${input.stressIndex}/100, HRV ${input.hrvMs} ms, Sleep ${input.sleepQualityScore}%`;
     reasons.push(reason);

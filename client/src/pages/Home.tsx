@@ -24,6 +24,7 @@ import {
   CheckCircle2,
   Stethoscope,
   Pill,
+  Sparkles,
 } from "lucide-react";
 
 const CATEGORY_TABS = [
@@ -135,8 +136,10 @@ export default function Home() {
   );
 
   useEffect(() => {
-    const unsub = xiaomiWatchService.subscribeWaveform((sample) => {
-      setEcgPoints((prev) => [...prev.slice(-59), sample.ecgMv]);
+    const unsub = xiaomiWatchService.subscribeWaveform((_buf, sample) => {
+      if (sample && typeof sample.ecgMv === "number") {
+        setEcgPoints((prev) => [...prev.slice(-59), sample.ecgMv]);
+      }
     });
     return () => unsub();
   }, []);
