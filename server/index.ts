@@ -1,4 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
+import fs from "fs";
+import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
@@ -47,12 +49,13 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // Default to development if NODE_ENV is not explicitly production
-  if (process.env.NODE_ENV !== "production") {
+  // Serve compiled production build if present, otherwise start Vite development middleware
+  const publicDir = path.resolve(import.meta.dirname, "public");
+  if (process.env.NODE_ENV === "production" || fs.existsSync(publicDir)) {
+    serveStatic(app);
+  } else {
     app.set("env", "development");
     await setupVite(app, server);
-  } else {
-    serveStatic(app);
   }
 
   // Serve the app on PORT (default 5000), compatible with Windows, Linux, and GMIT LAN
