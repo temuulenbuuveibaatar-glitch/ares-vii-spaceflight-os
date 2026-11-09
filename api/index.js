@@ -1,4 +1,4 @@
-// api/index.ts
+// server/api-serverless.ts
 import express from "express";
 
 // server/routes.ts
@@ -2154,7 +2154,11 @@ async function registerRoutes(app2) {
   });
   app2.post("/api/hermes/command", async (req, res) => {
     try {
-      const parsed = hermesCommandSchema.safeParse(req.body);
+      const payload = {
+        ...req.body || {},
+        prompt: req.body?.prompt || req.body?.command || req.body?.message || req.body?.text || ""
+      };
+      const parsed = hermesCommandSchema.safeParse(payload);
       if (!parsed.success) {
         return res.status(400).json({
           message: "Invalid Hermes command payload",
@@ -2388,7 +2392,7 @@ ${stderr}` : "") + `
   return httpServer;
 }
 
-// api/index.ts
+// server/api-serverless.ts
 var app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
