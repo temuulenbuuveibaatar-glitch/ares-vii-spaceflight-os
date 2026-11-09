@@ -96,7 +96,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
                 <span>Sonnenblume Spaceflight Health OS</span>
               </div>
               <p className="text-[#a8baa0] leading-relaxed text-sm">
-                Named after the German word for Sunflower (following the sun and shielding crews from solar radiation). Built for 24/7 crew autonomy during 22-minute communication blackouts to Mars.
+                Named Sonnenblume (German for Sunflower) by our teammate Alessia (Italy)—inspired by how a sunflower tracks the sun while shielding its seeds. Built for 24/7 crew autonomy during 22-minute communication blackouts to Mars.
               </p>
             </div>
 
