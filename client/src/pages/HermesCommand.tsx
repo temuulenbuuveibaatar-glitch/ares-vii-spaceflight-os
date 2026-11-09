@@ -1,5 +1,5 @@
 import { generateHermesAIResponse } from "@shared/hermesAI";
-import { speakNaturalVoice } from "@/lib/speech";
+import { speakNaturalVoice, stopSpeaking, playQuindarTone, normalizeSpaceSpeech } from "@/lib/speech";
 import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
@@ -20,6 +20,7 @@ import {
   Brain,
   HeartHandshake,
   Radio,
+  Square,
 } from "lucide-react";
 
 interface HitlStep {
@@ -138,9 +139,21 @@ export default function HermesCommand() {
     },
   ]);
 
+  const [isSpeaking, setIsSpeaking] = useState(false);
+
   const speakText = (text: string) => {
     if (!voiceEnabled) return;
-    speakNaturalVoice(text);
+    speakNaturalVoice(text, {
+      persona: "apollo_intercom",
+      onStart: () => setIsSpeaking(true),
+      onEnd: () => setIsSpeaking(false),
+      onError: () => setIsSpeaking(false),
+    });
+  };
+
+  const handleStopSpeaking = () => {
+    stopSpeaking();
+    setIsSpeaking(false);
   };
 
   // 4-7-8 Autonomic Vagal Breathing Timer
@@ -320,7 +333,7 @@ export default function HermesCommand() {
       ...prev,
       {
         role: "hermes",
-        text: `[PRIVATE AI PSYCHOLOGICAL THERAPY] ${topic.hermesSpeech}`,
+        text: `${topic.hermesSpeech}`,
         timestamp: new Date().toLocaleTimeString(),
       },
     ]);
