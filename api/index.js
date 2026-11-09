@@ -212,18 +212,64 @@ function generateHermesAIResponse(prompt, context) {
   const spo2 = context?.spo2 ?? 98;
   const bpSys = context?.bloodPressureSys ?? 118;
   const bpDia = context?.bloodPressureDia ?? 78;
-  const mode = context?.mode ?? "CRUISE";
+  const mode = context?.mode ?? "NOMINAL_TRANSIT";
   if (/^(hi|hello|hey|greetings|howdy|good\s*(morning|afternoon|evening|day)|who are you|what are you|what can you do)/i.test(q)) {
     if (isMn) {
-      return `[HERMES AI \xB7 GOOGLE GEMINI]: \u0421\u0430\u0439\u043D \u0431\u0430\u0439\u043D\u0430 \u0443\u0443, \u0411\u0430\u0433\u0438\u0439\u043D \u0434\u0430\u0440\u0433\u0430 \u0430\u0430. Hermes Flight AI \u0441\u0438\u0441\u0442\u0435\u043C \u0431\u044D\u043B\u044D\u043D \u0431\u0430\u0439\u043D\u0430. Xiaomi Watch H1 \u0431\u0438\u043E-\u0445\u043E\u043B\u0431\u043E\u043E\u0441 \u0445\u044D\u0432\u0438\u0439\u043D (\u0417\u04AF\u0440\u0445\u043D\u0438\u0439 \u0446\u043E\u0445\u0438\u043B\u0442: ${hr} BPM, SpO2: ${spo2}%). \u0422\u0430\u043D\u0434 NASA-STD-3001 \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0430\u043D\u0430\u0433\u0430\u0430\u0445 \u0443\u0445\u0430\u0430\u043D, \u0445\u04E9\u043B\u0433\u0438\u0439\u043D \u0442\u0440\u0430\u0435\u043A\u0442\u043E\u0440\u0438, \u044D\u0441\u0432\u044D\u043B \u044F\u0430\u0440\u0430\u043B\u0442\u0430\u0439 \u0442\u0443\u0441\u043B\u0430\u043C\u0436\u0438\u0439\u043D \u043F\u0440\u043E\u0442\u043E\u043A\u043E\u043B\u044B\u043D \u0442\u0430\u043B\u0430\u0430\u0440 \u044F\u043C\u0430\u0440 \u0442\u0443\u0441\u043B\u0430\u043C\u0436 \u0445\u044D\u0440\u044D\u0433\u0442\u044D\u0439 \u0431\u0430\u0439\u043D\u0430 \u0432\u044D?`;
+      return `[HERMES CORE \xB7 GOOGLE GEMINI]: \u0421\u0430\u0439\u043D \u0431\u0430\u0439\u043D\u0430 \u0443\u0443, \u0411\u0430\u0433\u0438\u0439\u043D \u0434\u0430\u0440\u0433\u0430 \u0430\u0430. Hermes Autonomous Flight & Medical AI \u0431\u044D\u043B\u044D\u043D \u0431\u0430\u0439\u043D\u0430. Xiaomi Watch H1 \u0431\u0438\u043E-\u0445\u043E\u043B\u0431\u043E\u043E\u0441 \u0445\u044D\u0432\u0438\u0439\u043D (\u0417\u04AF\u0440\u0445\u043D\u0438\u0439 \u0446\u043E\u0445\u0438\u043B\u0442: ${hr} BPM, SpO2: ${spo2}%). \u0411\u0438 NASA-STD-3001 \u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u044B\u043D \u0434\u0430\u0433\u0443\u0443 \u0431\u0438\u0435\u0438\u0439\u043D \u0431\u0430\u0439\u0434\u0430\u043B, \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0430\u043D\u0430\u0433\u0430\u0430\u0445 \u0443\u0445\u0430\u0430\u043D, \u0442\u043E\u0439\u0440\u043E\u0433 \u0437\u0430\u043C\u044B\u043D \u043C\u0430\u043D\u0435\u0432\u0440\u044B\u0433 \u0443\u0434\u0438\u0440\u0434\u0430\u0445\u0430\u0434 \u0442\u0443\u0441\u0430\u043B\u043D\u0430. \u0422\u0430\u043D\u0434 \u044F\u043C\u0430\u0440 \u0442\u0443\u0441\u043B\u0430\u043C\u0436 \u0445\u044D\u0440\u044D\u0433\u0442\u044D\u0439 \u0431\u0430\u0439\u043D\u0430 \u0432\u044D?`;
     }
-    return `[HERMES CORE ONLINE \xB7 POWERED BY GOOGLE GEMINI]: Greetings Commander. Hermes Autonomous Flight AI is active with continuous telemetry lock.
-\u2022 Crew Biometrics (Xiaomi Watch H1): HR ${hr} BPM, SpO\u2082 ${spo2}%, BP ${bpSys}/${bpDia} mmHg.
-\u2022 Spacecraft Flight Mode: ${mode}.
-\u2022 Autonomous Subagents: MED-SENTINEL (triage & vitals), RAD-GUARD (radiation shielding), PSY-ORACLE (neuro-wellness), and NAV-PILOT (trajectory & G-capping).
-How can I assist you with NASA clinical emergency protocols, orbital maneuvers, or space physiology?`;
+    return `[HERMES CORE ONLINE \xB7 POWERED BY GOOGLE GEMINI]:
+Greetings Commander. Hermes Autonomous Flight & Medical AI is online with continuous telemetry lock.
+\u2022 Biometric Telemetry (Xiaomi Watch H1): HR ${hr} BPM, SpO\u2082 ${spo2}%, BP ${bpSys}/${bpDia} mmHg.
+\u2022 Flight Status: ${mode}.
+\u2022 Subagents Standing By: MED-SENTINEL (triage/resuscitation), RAD-GUARD (radiation shielding), PSY-ORACLE (neuro-wellness), NAV-PILOT (trajectory & G-capping).
+How can I assist you with space medicine protocols, orbital navigation, or physiological queries?`;
   }
-  if (q.includes("cpr") || q.includes("arrest") || q.includes("resuscitation") || q.includes("defibrillat") || q.includes("chest compression")) {
+  if (q.includes("human bod") || q.includes("bodies") || q.includes("body in space") || q.includes("in space") || q.includes("weightless") || q.includes("microgravity") || q.includes("physiology") || q.includes("spaceflight adaptation") || q.includes("what happens to the body") || q.includes("what happens to us") || q.includes("what happens to human") || q.includes("\u0441\u0430\u043D\u0441\u0430\u0440\u0442 \u0445\u04AF\u043D\u0438\u0439 \u0431\u0438\u0435")) {
+    if (isMn) {
+      return `[HERMES BIO-ASTRONAUTICS \xB7 \u0425\u04AE\u041D\u0418\u0419 \u0411\u0418\u0415\u0414 \u0413\u0410\u0420\u0410\u0425 \u04E8\u04E8\u0420\u0427\u041B\u04E8\u041B\u0422]:
+\u0421\u0430\u043D\u0441\u0430\u0440\u0442 (\u0431\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B \u0431\u0430 \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u043E\u0440\u0447\u0438\u043D) \u0445\u04AF\u043D\u0438\u0439 \u0431\u0438\u0435\u0434 6 \u04AF\u043D\u0434\u0441\u044D\u043D \u0444\u0438\u0437\u0438\u043E\u043B\u043E\u0433\u0438\u0439\u043D \u04E9\u04E9\u0440\u0447\u043B\u04E9\u043B\u0442 \u044F\u0432\u0430\u0433\u0434\u0434\u0430\u0433:
+1. \u0428\u0438\u043D\u0433\u044D\u043D\u0438\u0439 \u0434\u044D\u044D\u0448 \u0447\u0438\u0433\u043B\u044D\u0441\u044D\u043D \u0448\u0438\u043B\u0436\u0438\u043B\u0442 (Cephalad Fluid Shift): 1G \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B \u0431\u0430\u0439\u0445\u0433\u04AF\u0439 \u0442\u0443\u043B \u0431\u0438\u0435\u0438\u0439\u043D \u0434\u043E\u043E\u0434 \u0445\u044D\u0441\u0433\u044D\u044D\u0441 ~2 \u043B\u0438\u0442\u0440 \u0446\u0443\u0441 \u0431\u0430 \u044D\u0434 \u044D\u0441\u0438\u0439\u043D \u0448\u0438\u043D\u0433\u044D\u043D \u0446\u044D\u044D\u0436, \u0442\u0430\u0440\u0445\u0438 \u0440\u0443\u0443 \u0448\u0430\u0445\u04E9\u0433\u0434\u0434\u04E9\u0433 ("\u0445\u0430\u0432\u0434\u0441\u0430\u043D \u043D\u04AF\u04AF\u0440, \u0448\u0443\u0432\u0443\u0443\u043D\u044B \u0445\u04E9\u043B" \u0445\u0430\u043C \u0448\u0438\u043D\u0436).
+2. \u0425\u0430\u0440\u0430\u0430\u043D\u044B \u04E9\u04E9\u0440\u0447\u043B\u04E9\u043B\u0442 (SANS): \u0422\u0430\u0440\u0445\u0438\u043D\u044B \u0432\u0435\u043D\u0438\u0439\u043D \u0434\u0430\u0440\u0430\u043B\u0442 \u043D\u044D\u043C\u044D\u0433\u0434\u0441\u044D\u043D\u044D\u044D\u0440 \u043D\u04AF\u0434\u043D\u0438\u0439 \u0430\u0440\u044B\u043D \u0445\u044D\u0441\u044D\u0433 \u0445\u0430\u0432\u0442\u0433\u0430\u0439\u0440\u0447, \u0445\u0430\u0440\u0430\u0430\u043D\u044B \u043C\u044D\u0434\u0440\u044D\u043B\u0438\u0439\u043D \u0445\u0430\u0432\u0430\u043D \u04AF\u04AF\u0441\u0434\u044D\u0433.
+3. \u042F\u0441\u043D\u044B \u0441\u0438\u0439\u0440\u044D\u0433\u0436\u0438\u043B\u0442: \u0410\u0447\u0430\u0430\u043B\u0430\u043B \u0431\u0430\u0433\u0430 \u0442\u0443\u043B \u0441\u0430\u0440 \u0431\u04AF\u0440 \u044F\u0441\u043D\u044B \u044D\u0440\u0434\u044D\u0441\u0438\u0439\u043D \u043D\u044F\u0433\u0442\u0440\u0430\u043B 1.0\u20131.5% \u0430\u043B\u0434\u0430\u0433\u0434\u0434\u0430\u0433.
+4. \u0411\u0443\u043B\u0447\u0438\u043D\u0433\u0438\u0439\u043D \u0445\u0430\u0442\u0438\u043D\u0433\u0430\u0440\u0448\u0438\u043B: \u0422\u0430\u0442\u0430\u043B\u0446\u043B\u044B\u0433 \u044D\u0441\u044D\u0440\u0433\u04AF\u04AF\u0446\u044D\u0445 \u0445\u044D\u0440\u044D\u0433\u0433\u04AF\u0439 \u0442\u0443\u043B 2 \u0434\u043E\u043B\u043E\u043E \u0445\u043E\u043D\u043E\u0433\u0438\u0439\u043D \u0434\u043E\u0442\u043E\u0440 \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0438\u0439\u043D \u043C\u0430\u0441\u0441 20% \u0445\u04AF\u0440\u0442\u044D\u043B \u0431\u0443\u0443\u0440\u0434\u0430\u0433.
+5. \u0421\u0430\u043D\u0441\u0440\u044B\u043D \u0446\u0430\u0446\u0440\u0430\u0433: \u0414\u044D\u043B\u0445\u0438\u0439\u043D \u0441\u043E\u0440\u043E\u043D\u0437\u043E\u043D \u043C\u0430\u043D\u0434\u0430\u043B \u0431\u0430\u0439\u0445\u0433\u04AF\u0439 \u0442\u0443\u043B \u0414\u041D\u0425-\u0438\u0439\u043D \u0434\u0430\u0432\u0445\u0430\u0440 \u0445\u044D\u043B\u0445\u044D\u044D \u0442\u0430\u0441\u0440\u0430\u0445 \u044D\u0440\u0441\u0434\u044D\u043B \u043D\u044D\u043C\u044D\u0433\u0434\u044D\u043D\u044D.
+6. \u0421\u0430\u043D\u0441\u0440\u044B\u043D \u0446\u0443\u0441 \u0431\u0430\u0433\u0430\u0434\u0430\u043B\u0442 (Space Anemia): \u0426\u0443\u0441\u043D\u044B \u0443\u043B\u0430\u0430\u043D \u044D\u0441\u04AF\u04AF\u0434 \u0434\u044D\u043B\u0445\u0438\u0439\u043D\u0445\u044D\u044D\u0441 54%-\u0438\u0430\u0440 \u0438\u043B\u04AF\u04AF \u0445\u0443\u0440\u0434\u0430\u043D \u0437\u0430\u0434\u0430\u0440\u0434\u0430\u0433.`;
+    }
+    return `[HERMES BIO-ASTRONAUTICS \xB7 NASA HUMAN RESEARCH PROGRAM]:
+When the human body enters space and microgravity, it undergoes 6 profound physiological adaptations:
+
+1. Cephalad Fluid Shift & Cardiovascular Remodeling:
+Without 1G gravity pulling fluids downward, approximately 2 liters of blood and interstitial fluids shift toward the chest and skull. Astronauts experience facial edema ("puffy face"), sinus congestion, and thin legs ("chicken legs"). Because the heart no longer works against gravity, left ventricular mass decreases (cardiac atrophy).
+
+2. Spaceflight-Associated Neuro-Ocular Syndrome (SANS):
+Continuous elevated cerebral venous and intracranial pressure causes posterior globe flattening, optic disc edema (papilledema), choroidal folds, and hyperopic refractive vision shifts that can become permanent.
+
+3. Bone Mineral Density Resorption:
+Without skeletal loading, osteoclasts actively reabsorb bone matrix at 1.0% to 1.5% loss of bone mineral density per month in trabecular bone (femoral neck, lumbar spine). The released calcium elevates urinary excretion, significantly raising the risk of nephrolithiasis (kidney stones).
+
+4. Muscular Atrophy:
+Postural antigravity muscle fibers (soleus, gastrocnemius, quadriceps) lose up to 20% of their mass within 10\u201314 days without intensive resistive exercise (ARED countermeasure).
+
+5. Deep-Space Radiation Exposure:
+Beyond Earth's protective magnetosphere, Galactic Cosmic Rays (GCR) and Solar Particle Events (SPE) deliver high-energy ionizing protons and HZE nuclei, causing cellular DNA double-strand breaks and accelerating cataractogenesis and oncogenesis.
+
+6. Spaceflight Anemia & Immune Suppression:
+The spleen and bone marrow accelerate red blood cell destruction by ~54% (neocytolysis), causing chronic space anemia. T-cell activation drops, frequently reactivating dormant latent viruses like Epstein-Barr and Varicella-Zoster.`;
+  }
+  if (q.includes("bone") || q.includes("muscle") || q.includes("atrophy") || q.includes("calcium") || q.includes("osteopor") || q.includes("\u0431\u0443\u043B\u0447\u0438\u043D") || q.includes("\u044F\u0441")) {
+    if (isMn) {
+      return `[HERMES MED-SENTINEL \xB7 \u042F\u0421 \u0411\u0410 \u0411\u0423\u041B\u0427\u0418\u041D\u0413\u0418\u0419\u041D \u042D\u0420\u0421\u0414\u042D\u041B]:
+\u0411\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B\u0434 \u0445\u04AF\u043D\u0438\u0439 \u0442\u0443\u043B\u0433\u0443\u0443\u0440 \u044D\u0440\u0445\u0442\u044D\u043D \u0442\u043E\u0433\u0442\u043E\u043B\u0446\u043E\u043E\u043D\u0434 \u0434\u0430\u0440\u0430\u0430\u0445 \u04E9\u04E9\u0440\u0447\u043B\u04E9\u043B\u0442\u04AF\u04AF\u0434 \u0433\u0430\u0440\u043D\u0430:
+\u2022 \u042F\u0441: \u0421\u0430\u0440 \u0431\u04AF\u0440 1.0\u20131.5% \u044F\u0441\u043D\u044B \u043D\u044F\u0433\u0442\u0440\u0430\u043B \u0430\u043B\u0434\u0430\u0433\u0434\u0430\u0436, \u0446\u0443\u0441\u0430\u043D\u0434 \u043A\u0430\u043B\u044C\u0446\u0438\u0439\u043D \u0445\u044D\u043C\u0436\u044D\u044D \u0438\u0445\u0441\u044D\u043D \u0431\u04E9\u04E9\u0440\u043D\u0438\u0439 \u0447\u0443\u043B\u0443\u0443 \u04AF\u04AF\u0441\u044D\u0445 \u044D\u0440\u0441\u0434\u044D\u043B\u0442\u044D\u0439. \u0421\u044D\u0440\u0433\u0438\u0439\u043B\u044D\u0445\u0438\u0439\u043D \u0442\u0443\u043B\u0434 \u0431\u0438\u0441\u0444\u043E\u0441\u0444\u043E\u043D\u0430\u0442 \u0431\u0430 ARED \u0442\u04E9\u0445\u04E9\u04E9\u0440\u04E9\u043C\u0436 \u0430\u0448\u0438\u0433\u043B\u0430\u0434\u0430\u0433.
+\u2022 \u0411\u0443\u043B\u0447\u0438\u043D: \u0410\u0447\u0430\u0430\u043B\u0430\u043B \u0431\u0430\u0439\u0445\u0433\u04AF\u0439 \u0442\u0443\u043B \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0438\u0439\u043D \u0443\u0443\u0440\u0430\u0433 \u0437\u0430\u0434\u0430\u0440\u0447, \u044F\u043B\u0430\u043D\u0433\u0443\u044F\u0430 \u0445\u04E9\u043B\u043D\u0438\u0439 \u0442\u0443\u043B\u0433\u0443\u0443\u0440 \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0443\u0443\u0434 \u0445\u04AF\u0447\u0442\u044D\u0439 \u0445\u0430\u0442\u0438\u043D\u0433\u0430\u0440\u0448\u0434\u0430\u0433. \u04E8\u0434\u04E9\u0440 \u0431\u04AF\u0440 2\u20132.5 \u0446\u0430\u0433 \u0445\u04AF\u043D\u0434\u0440\u04AF\u04AF\u043B\u044D\u0433\u0447\u0442\u044D\u0439 \u0434\u0430\u0441\u0433\u0430\u043B \u0445\u0438\u0439\u0445 \u0448\u0430\u0430\u0440\u0434\u043B\u0430\u0433\u0430\u0442\u0430\u0439.`;
+    }
+    return `[HERMES MED-SENTINEL \xB7 MUSCULOSKELETAL HEALTH]:
+Microgravity effects on bones and muscles:
+\u2022 Bone Loss Rate: Astronauts lose 1.0\u20131.5% of bone mineral density per month in load-bearing bones (lumbar spine and pelvis). Resorbed calcium floods into urine, increasing renal stone risk.
+\u2022 Countermeasures: Bisphosphonates (alendronate / zoledronic acid) combined with high-load resistance training on the Advanced Resistive Exercise Device (ARED).
+\u2022 Muscle Atrophy: Type I slow-twitch postural fibers degrade rapidly. Daily 2.5-hour exercise routines (treadmill with harness + cycle ergometer + ARED) are mandatory under NASA-STD-3001.`;
+  }
+  if (q.includes("cpr") || q.includes("arrest") || q.includes("resuscitation") || q.includes("defibrillat") || q.includes("chest compression") || q.includes("\u0437\u04AF\u0440\u0445\u043D\u0438\u0439 \u043C\u0430\u0441\u0441\u0430\u0436")) {
     const p = NASA_SPACE_MEDICINE_DATABASE.MICROGRAVITY_CPR;
     if (isMn) {
       return `[HERMES MED-SENTINEL \xB7 0G CPR]: \u0411\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u043B\u044B\u043D \u04AF\u0435\u0438\u0439\u043D \u0437\u04AF\u0440\u0445 \u0430\u043C\u044C\u0441\u0433\u0430\u043B\u044B\u043D \u0441\u044D\u0445\u044D\u044D\u043D \u0430\u043C\u044C\u0434\u0440\u0443\u0443\u043B\u0430\u0445 (NASA-STD-3001):
@@ -233,13 +279,13 @@ How can I assist you with NASA clinical emergency protocols, orbital maneuvers, 
     }
     return `[HERMES MED-SENTINEL \xB7 ${p.code}]:
 ${p.name}:
-\u2022 Pathophysiology: Terrestrial body weight does not exist in 0G; Newton's 3rd law pushes the rescuer off the patient without rigid anchor points.
-\u2022 Technique 1 (Handstand Method): Rescuer anchors feet against cabin ceiling/bulkhead, hands on lower sternum, depressing 5\u20136 cm at 100\u2013120 bpm using leg extension.
-\u2022 Technique 2 (Evetts-Russomano Method): Rescuer crosses legs around patient's thighs to form an unbroken anatomical clamp.
+\u2022 Pathophysiology: Terrestrial body weight does not exist in 0G; Newton's 3rd law pushes the rescuer off the patient without rigid structural anchor points.
+\u2022 Technique 1 (Handstand Method): Rescuer anchors feet against cabin ceiling or bulkhead, placing hands on the lower sternum and depressing 5\u20136 cm at 100\u2013120 bpm using leg extension.
+\u2022 Technique 2 (Evetts-Russomano Method): Rescuer crosses legs around patient's thighs to form an unbroken anatomical clamp, enabling chest compressions without external straps.
 \u2022 Technique 3 (CMRS): Restrain patient to Crew Medical Restraint System backboard.
-\u2022 Defibrillation Warning: Wipe patient's chest completely dry\u2014floating microgravity sweat beads cause electrical arcing and severe skin burns. Clear patient from conductive hull.`;
+\u2022 Defibrillation Safety: Wipe patient's chest completely dry\u2014floating microgravity sweat beads cause electrical arcing across the skin. Ensure isolation from metal spacecraft structures.`;
   }
-  if (q.includes("sans") || q.includes("eye") || q.includes("vision") || q.includes("optic") || q.includes("intracranial") || q.includes("papilledema")) {
+  if (q.includes("sans") || q.includes("eye") || q.includes("vision") || q.includes("optic") || q.includes("intracranial") || q.includes("\u0445\u0430\u0440\u0430\u0430") || q.includes("\u043D\u04AF\u0434")) {
     const p = NASA_SPACE_MEDICINE_DATABASE.SANS_AND_INTRACRANIAL_PRESSURE;
     return `[HERMES PSY-ORACLE & MED-SENTINEL \xB7 ${p.code}]:
 ${p.name}:
@@ -247,10 +293,10 @@ ${p.name}:
 \u2022 Clinical Interventions:
   1. Chibis / LBNP Suit: Apply -25 to -35 mmHg Lower Body Negative Pressure for 2 hours daily to pull venous volume into lower extremities.
   2. Vorotnik Neck Collar: Deploy pneumatic jugular compression collar to stabilize internal jugular hemodynamics.
-  3. Medication: Acetazolamide 250 mg PO BID (carbonic anhydrase inhibitor) to reduce cerebrospinal fluid production.
+  3. Medication: Acetazolamide 250 mg PO BID to reduce cerebrospinal fluid production.
   4. Exercise: High-resistance squats on ARED to restore peripheral vascular tone.`;
   }
-  if (q.includes("depressur") || q.includes("armstrong") || q.includes("ebullism") || q.includes("boil") || q.includes("vacuum") || q.includes("airlock")) {
+  if (q.includes("depressur") || q.includes("armstrong") || q.includes("ebullism") || q.includes("boil") || q.includes("vacuum") || q.includes("airlock") || q.includes("\u0432\u0430\u043A\u0443\u0443\u043C") || q.includes("\u0434\u0430\u0440\u0430\u043B\u0442 \u0431\u0443\u0443\u0440\u0430\u0445")) {
     const p = NASA_SPACE_MEDICINE_DATABASE.DEPRESSURIZATION_AND_EBULLISM;
     return `[HERMES ECLSS & MED-SENTINEL \xB7 ${p.code}]:
 ${p.name}:
@@ -259,10 +305,9 @@ ${p.name}:
   1. Immediate Helmet Lock: Don and hermetically seal helmet within 8 seconds; initiate 100% O\u2082 flood.
   2. Cabin Pressure Floor: Lock ECLSS nitrogen/oxygen injection to maintain \u2265 55 kPa (8.0 psi).
   3. Hyperbaric Treatment: Transfer exposed crew to hyperbaric treatment tent at 101.3 kPa to re-dissolve venous gas emboli.
-  4. Decompression Sickness (DCS): Administer 2-hour 100% O\u2082 pre-breathe to wash out inert nitrogen bubbles.
-\u2022 Critical Warning: Never hold breath against a closed glottis during rapid decompression\u2014leads to explosive pulmonary barotrauma and tension pneumothorax.`;
+  4. Critical Warning: Never hold breath against a closed glottis during rapid decompression\u2014it causes explosive pulmonary barotrauma and tension pneumothorax.`;
   }
-  if (q.includes("radiation") || q.includes("storm") || q.includes("spe") || q.includes("cme") || q.includes("shield") || q.includes("proton") || q.includes("flare")) {
+  if (q.includes("radiation") || q.includes("storm") || q.includes("spe") || q.includes("cme") || q.includes("shield") || q.includes("proton") || q.includes("flare") || q.includes("\u0446\u0430\u0446\u0440\u0430\u0433")) {
     const p = NASA_SPACE_MEDICINE_DATABASE.SOLAR_PARTICLE_EVENT_AND_RADIATION;
     return `[HERMES RAD-GUARD PROTOCOL \xB7 ${p.code}]:
 ${p.name}:
@@ -273,68 +318,70 @@ ${p.name}:
   3. Radioprotectants: Administer Soviet B-190 (Indraline alpha-1 adrenergic agonist) 150 mg PO.
   4. Hematopoietic Support: Initiate Filgrastim (G-CSF / Neupogen) 5 mcg/kg/day SC to stimulate neutrophil recovery.`;
   }
-  if (q.includes("ammonia") || q.includes("nh3") || q.includes("toxic") || q.includes("leak") || q.includes("contamination")) {
-    const p = NASA_SPACE_MEDICINE_DATABASE.AMMONIA_LEAK_AND_TOXIC_ECLSS;
-    return `[HERMES ECLSS DANGER ALERT \xB7 ${p.code}]:
-${p.name}:
-\u2022 Hazard: High-pressure anhydrous ammonia breach from external cooling loop into cabin air. Causes severe chemical laryngospasm, pulmonary edema, and corneal liquefaction necrosis.
-\u2022 Immediate Actions:
-  1. Don Emergency Quick-Don Masks with Ammonia/P100 cartridges within 5 seconds.
-  2. Isolate Module: Slam inter-module pressure hatches to compartmentalize toxic gas.
-  3. Scrubber Overdrive: Route cabin air through phosphoric-acid-treated chemisorption and high-surface activated charcoal scrubbers.
-  4. Medical: Inhaled Albuterol 2.5 mg nebulized for bronchospasm; Methylprednisolone 125 mg IV for chemical pneumonitis.`;
-  }
-  if (q.includes("co2") || q.includes("hypercapnia") || q.includes("headache") || q.includes("carbon dioxide") || q.includes("ventilat")) {
-    const p = NASA_SPACE_MEDICINE_DATABASE.ZERO_G_HYPERCAPNIA;
-    return `[HERMES ECLSS SENSOR REPORT \xB7 ${p.code}]:
-${p.name}:
-\u2022 Pathophysiology: In 0G, absence of buoyant convection creates stationary exhaled CO\u2082 bubbles around astronauts' faces during sleep. Chronic CO\u2082 > 3.0 mmHg causes severe cerebral vasodilation, throbbing frontal headache, cognitive impairment, and respiratory acidosis.
-\u2022 Protocol:
-  1. Airflow Lock: Verify personal ventilation duct flow is > 0.15 m/s directly aimed at crew bunk breathing zones.
-  2. CDRA Overdrive: Force Carbon Dioxide Removal Assembly into rapid thermal desorber cycling.
-  3. Backup Lithium Hydroxide: Swap secondary LiOH canister canisters.
-  4. Relief: Administer 30% supplemental O\u2082 mask for 30 minutes.`;
-  }
-  if (q.includes("mars") && (q.includes("body") || q.includes("human") || q.includes("happen") || q.includes("survive") || q.includes("live") || q.includes("die") || q.includes("atmosphere") || q.includes("gravity") || q.includes("pressure"))) {
+  if (q.includes("mars") || q.includes("red planet") || q.includes("\u0430\u043D\u0433\u0430\u0440\u0430\u0433")) {
+    if (isMn) {
+      return `[HERMES BIO-ASTRONAUTICS \xB7 \u0410\u041D\u0413\u0410\u0420\u0410\u0413 \u0414\u042D\u042D\u0420 \u0425\u04AE\u041D\u0418\u0419 \u0411\u0418\u0415]:
+\u0410\u043D\u0433\u0430\u0440\u0430\u0433 \u0433\u0430\u0440\u0438\u0433 \u0434\u044D\u044D\u0440 (0.38g \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B, 610 \u041F\u0430 \u0434\u0430\u0440\u0430\u043B\u0442, -62\xB0C \u0434\u0443\u043D\u0434\u0430\u0436 \u0442\u0435\u043C\u043F\u0435\u0440\u0430\u0442\u0443\u0440, \u0441\u043E\u0440\u043E\u043D\u0437\u043E\u043D \u0431\u0430\u043C\u0431\u0430\u0439\u0433\u04AF\u0439) \u0445\u04AF\u043D\u0438\u0439 \u0431\u0438\u0435 4 \u0442\u043E\u043C \u0430\u044E\u0443\u043B\u0442\u0430\u0439 \u0442\u0443\u043B\u0433\u0430\u0440\u043D\u0430:
+1. \u0428\u0438\u043D\u0433\u044D\u043D\u0438\u0439 \u0431\u0443\u0446\u043B\u0430\u043B\u0442 (\u0410\u0440\u043C\u0441\u0442\u0440\u043E\u043D\u0433\u0438\u0439\u043D \u0445\u044F\u0437\u0433\u0430\u0430\u0440): \u0410\u0433\u0430\u0430\u0440\u044B\u043D \u0434\u0430\u0440\u0430\u043B\u0442 \u043C\u0430\u0448 \u0431\u0430\u0433\u0430 (6.3 \u043A\u041F\u0430-\u0430\u0430\u0441 \u0431\u0430\u0433\u0430) \u0442\u0443\u043B \u0441\u043A\u0430\u0444\u0430\u043D\u0434\u0440\u0433\u04AF\u0439 \u04AF\u0435\u0434 \u0431\u0438\u0435\u0438\u0439\u043D \u0431\u04AF\u0445 \u0448\u0438\u043D\u0433\u044D\u043D \u0431\u0443\u0446\u0430\u043B\u0436, 15 \u0441\u0435\u043A\u0443\u043D\u0434\u0438\u0439\u043D \u0434\u043E\u0442\u043E\u0440 \u0443\u0445\u0430\u0430\u043D \u0430\u043B\u0434\u0430\u043D\u0430.
+2. \u042F\u0441, \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0438\u0439\u043D \u0441\u0443\u043B\u0440\u0430\u043B: 38% \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B\u0434 \u044F\u0441, \u0431\u0443\u043B\u0447\u0438\u043D \u0430\u0430\u0436\u043C\u0430\u0430\u0440 \u0445\u0430\u0442\u0438\u043D\u0433\u0430\u0440\u0448\u0438\u043D\u0430.
+3. \u0421\u0430\u043D\u0441\u0440\u044B\u043D \u0445\u04AF\u0447\u0442\u044D\u0439 \u0446\u0430\u0446\u0440\u0430\u0433: \u0414\u044D\u043B\u0445\u0438\u0439\u043D\u0445\u044D\u044D\u0441 50 \u0434\u0430\u0445\u0438\u043D \u0438\u0445 \u0446\u0430\u0446\u0440\u0430\u0433 (250\u2013300 \u043C\u0417\u0432/\u0436\u0438\u043B) \u0442\u0443\u043B \u0433\u0430\u0437\u0430\u0440 \u0434\u043E\u043E\u0440\u0445 \u0441\u0443\u0443\u0446 \u044D\u0441\u0432\u044D\u043B \u0441\u043E\u0440\u043E\u043D\u0437\u043E\u043D \u0431\u0430\u043C\u0431\u0430\u0439 \u0448\u0430\u0430\u0440\u0434\u043B\u0430\u0433\u0430\u0442\u0430\u0439.
+4. \u0425\u043E\u0440\u0442 \u043F\u0435\u0440\u0445\u043B\u043E\u0440\u0430\u0442 \u0442\u043E\u043E\u0441: \u0410\u043D\u0433\u0430\u0440\u0430\u0433\u0438\u0439\u043D \u0445\u04E9\u0440\u0441\u04E9\u043D \u0434\u044D\u0445 \u043F\u0435\u0440\u0445\u043B\u043E\u0440\u0430\u0442 \u043D\u044C \u0431\u0430\u043C\u0431\u0430\u0439 \u0431\u0443\u043B\u0447\u0438\u0440\u0445\u0430\u0439\u043D \u0438\u043E\u0434\u044B\u043D \u0448\u0438\u043D\u0433\u044D\u044D\u043B\u0442\u0438\u0439\u0433 \u0445\u0430\u0430\u0436, \u0443\u0443\u0448\u0433\u0438\u0439\u0433 \u0445\u04AF\u043D\u0434 \u0433\u044D\u043C\u0442\u044D\u044D\u0434\u044D\u0433.`;
+    }
     return `[HERMES BIO-ASTRONAUTICS \xB7 HUMAN BODY ON MARS]:
-On Mars (0.38g gravity, 0.6% Earth atmospheric pressure / 610 Pa, -62\xB0C mean temp, zero global dipole magnetosphere), the human body faces 4 severe physiological hazards:
-1. Liquid Ebullism (Armstrong Limit): Surface pressure is far below the 6.3 kPa limit. Unpressurized bodily fluids boil at 37\xB0C body temperature, causing death in 15 seconds.
-2. Musculoskeletal Atrophy: In 38% gravity, load-bearing bones lose 1.0\u20131.5% mineral density per month, while cephalad fluid shift increases intracranial pressure (SANS).
-3. Unfiltered Cosmic Radiation: The absence of a magnetosphere delivers ~250\u2013300 mSv/year (50\xD7 Earth background), requiring our 12-Tesla superconducting magnetic shield or underground regolith shelters.
+On Mars (0.38g gravity, 0.6% Earth atmospheric pressure / 610 Pa, -62\xB0C mean temperature, zero global magnetic field), the human body faces 4 severe physiological hazards:
+1. Liquid Ebullism (Armstrong Limit): Martian surface pressure (0.61 kPa) is far below the 6.3 kPa limit. Unpressurized bodily fluids boil at 37\xB0C body temperature, causing death in 15 seconds.
+2. Musculoskeletal Atrophy: In 38% gravity, load-bearing bones continue losing 1.0\u20131.5% mineral density per month without continuous resistive training.
+3. Cosmic Radiation Exposure: The lack of a magnetosphere delivers ~250\u2013300 mSv/year (50\xD7 Earth background), requiring our 12-Tesla superconducting magnetic shield or subterranean regolith shelters.
 4. Perchlorate Dust Toxicity: Martian soil contains 0.5\u20131.0% toxic oxidizers (calcium/magnesium perchlorates), severely disrupting thyroid iodine uptake and causing pulmonary fibrosis upon inhalation.`;
   }
-  if (q.includes("heart") || q.includes("vital") || q.includes("blood pressure") || q.includes("pulse") || q.includes("ecg") || q.includes("spo2") || q.includes("watch") || q.includes("g-force") || q.includes("g-load")) {
-    return `[HERMES MED-SENTINEL BIOMETRIC REPORT]:
+  if (q.includes("moon") || q.includes("lunar") || q.includes("\u0441\u0430\u0440")) {
+    return `[HERMES BIO-ASTRONAUTICS \xB7 LUNAR PHYSIOLOGY]:
+Human physiological challenges on the Moon (0.166g / 1/6th Earth gravity):
+1. Jagged Lunar Regolith Dust: Lunar dust consists of razor-sharp, electrostatically charged silicate shards with zero atmospheric erosion. Inhalation causes severe acute lunar silicosis, pulmonary edema, and suit seal abrasive degradation.
+2. Low-G Locomotion: 1/6th gravity alters vestibular feedback, requiring the "Apollo hop" or loping gait to maintain postural stability without losing ground traction.
+3. Extreme Thermal Swings: Lunar surface swings from +120\xB0C in direct sunlight to -130\xB0C in shadow, requiring active liquid-cooling and ventilation garments (LCVG).`;
+  }
+  if (q.includes("sleep") || q.includes("psycholog") || q.includes("mental") || q.includes("stress") || q.includes("isolation") || q.includes("\u043D\u043E\u0439\u0440") || q.includes("\u0441\u044D\u0442\u0433\u044D\u043B")) {
+    return `[HERMES PSY-ORACLE \xB7 NEURO-WELLNESS & CIRCADIAN RHYTHMS]:
+Spaceflight neuro-psychological factors and countermeasures:
+\u2022 Circadian Disruption: On spacecraft, crew experience artificial lighting and rapid day/night cycles. Hermes enforces dynamic blue-depleted 2200K lighting 2 hours before scheduled sleep and melatonin 0.5 mg timing.
+\u2022 Sensory Monotony & Third-Quarter Effect: Prolonged deep-space confinement induces asthenia, interpersonal tension, and affective blunting during mid-mission phases.
+\u2022 Active Countermeasure: Daily voice journal sentiment tracking, 4-7-8 autonomic vagal breathing sessions, and private crew-to-Earth uplink channels.`;
+  }
+  if (q.includes("heart") || q.includes("vital") || q.includes("blood pressure") || q.includes("pulse") || q.includes("ecg") || q.includes("spo2") || q.includes("watch") || q.includes("g-force") || q.includes("g-load") || q.includes("\u0437\u04AF\u0440\u0445") || q.includes("\u0434\u0430\u0440\u0430\u043B\u0442")) {
+    return `[HERMES MED-SENTINEL \xB7 BIOMETRIC TELEMETRY REPORT]:
 Live Xiaomi Watch H1 Clinical Telemetry:
 \u2022 Heart Rate: ${hr} BPM (Normal Sinus Rhythm)
 \u2022 Blood Pressure: ${bpSys}/${bpDia} mmHg (Oscillometric micro-cuff locked)
 \u2022 SpO\u2082 Oxygenation: ${spo2}%
 \u2022 Dynamic G-Load Safety Envelope: Capped at \u2264 2.6G for nominal crew; autonomously throttled down to \u2264 1.65G or \u2264 1.45G if ventricular tachycardia, hypoxia (SpO\u2082 < 90%), or acute hypertension are detected.`;
   }
-  if (q.includes("return") || q.includes("earth") || q.includes("abort") || q.includes("trajectory") || q.includes("orbit") || q.includes("burn") || q.includes("delta v") || q.includes("gmat")) {
-    return `[HERMES NAV-PILOT FLIGHT SOLUTION]:
+  if (q.includes("return") || q.includes("earth") || q.includes("abort") || q.includes("trajectory") || q.includes("orbit") || q.includes("burn") || q.includes("delta v") || q.includes("gmat") || q.includes("\u0431\u0443\u0446\u0430\u0445") || q.includes("\u0442\u0440\u0430\u0435\u043A\u0442\u043E\u0440\u0438")) {
+    return `[HERMES NAV-PILOT \xB7 FLIGHT SOLUTION]:
 High-Energy Fast Earth Return Trajectory:
 \u2022 Delta-V Requirement: 1,840.5 m/s via Nuclear Thermal / VASIMR thrusters.
 \u2022 Crew G-Load Cap: Hard-constrained to \u2264 1.65G to prevent cephalad venous pooling and cerebral ischemia.
 \u2022 Earth Entry Interface ETA: T+148.5 hours.
 \u2022 GMAT R2026a Script & Orbiter Lua Bridge synchronized with Goldstone Deep Space Network (DS-14).`;
   }
-  if (q.includes("medication") || q.includes("drug") || q.includes("pharmaco") || q.includes("dose") || q.includes("pill") || q.includes("b-190") || q.includes("phenibut")) {
-    return `[HERMES PHARMACOKINETICS RESEARCH]:
-Microgravity & Deep-Space Pharmacology (NASA Human Research Program):
-\u2022 Absorption: 0G slows gastric emptying rate by 25\u201340% and alters hepatic CYP3A4 enzyme clearance, making oral dosing timing unpredictable.
-\u2022 Radiation Degradation: Galactic cosmic rays accelerate hydrolysis and oxidation of liquid pharmaceuticals (esp. adrenaline, cephalosporins, and insulin).
-\u2022 Solution: Formulations are packaged as lyophilized powders, intranasal sprays, and sublingual autoinjectors housed in radiation-shielded Nomex lockers.`;
+  if (q.includes("ammonia") || q.includes("co2") || q.includes("leak") || q.includes("toxic") || q.includes("carbon dioxide")) {
+    return `[HERMES ECLSS DANGER ALERT]:
+Cabin Atmospheric Integrity & Scrubbing:
+\u2022 Rapid Action: Don Emergency Quick-Don Masks within 5 seconds.
+\u2022 Ammonia Protocol: Slam inter-module pressure hatches and divert cabin air through phosphoric-acid-treated chemisorption beds.
+\u2022 CO\u2082 Hypercapnia: If cabin CO\u2082 exceeds 3.0 mmHg, force CDRA thermal desorber cycling and verify personal bunk ventilation duct velocity > 0.15 m/s to disperse stagnant exhaled CO\u2082 pockets.`;
   }
   if (isMn) {
-    return `[HERMES AI \xB7 NASA \u0421\u0422\u0410\u041D\u0414\u0410\u0420\u0422]: \u0422\u0430\u043D\u044B \u0430\u0441\u0443\u0443\u043B\u0442\u044B\u0433 Sonnenblume \u0445\u04E9\u043B\u0433\u0438\u0439\u043D NASA-STD-3001 \u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u044B\u043D \u0434\u0430\u0433\u0443\u0443 \u0431\u043E\u043B\u043E\u0432\u0441\u0440\u0443\u0443\u043B\u043B\u0430\u0430. \u0425\u04E9\u043B\u0433\u0438\u0439\u043D \u0433\u043E\u0440\u0438\u043C: ${mode}, Xiaomi Watch H1 \u0431\u0438\u043E-\u0445\u043E\u043B\u0431\u043E\u043E\u0441 \u0438\u0434\u044D\u0432\u0445\u0442\u044D\u0439 (\u0417\u04AF\u0440\u0445: ${hr} BPM, SpO2: ${spo2}%). \u0411\u04AF\u0445 4 \u0434\u044D\u0434 \u0430\u0433\u0435\u043D\u0442 (MED-SENTINEL, RAD-GUARD, PSY-ORACLE, NAV-PILOT) \u0434\u0430\u0430\u043B\u0433\u0430\u0432\u0440\u044B\u0433 100% \u043D\u0430\u0439\u0434\u0432\u0430\u0440\u0442\u0430\u0439 \u0443\u0434\u0438\u0440\u0434\u0430\u0436 \u0431\u0430\u0439\u043D\u0430.`;
+    return `[HERMES CORE ONLINE]: \u0411\u0430\u0433\u0438\u0439\u043D \u0434\u0430\u0440\u0433\u0430 \u0430\u0430, \u0442\u0430\u043D\u044B \u0430\u0441\u0443\u0443\u043B\u0442\u044B\u0433 Sonnenblume \u0445\u04E9\u043B\u0433\u0438\u0439\u043D \u043C\u044D\u0434\u044D\u044D\u043B\u043B\u0438\u0439\u043D \u0441\u0430\u043D\u0442\u0430\u0439 \u0445\u0430\u0440\u044C\u0446\u0443\u0443\u043B\u0430\u043D \u0448\u0438\u043D\u0436\u0438\u043B\u043B\u044D\u044D. \u041E\u0434\u043E\u043E\u0433\u043E\u043E\u0440 \u0445\u04E9\u043B\u0433\u0438\u0439\u043D \u0442\u04E9\u043B\u04E9\u0432: ${mode}, Xiaomi Watch H1 \u0431\u0438\u043E-\u0445\u043E\u043B\u0431\u043E\u043E\u0441 \u0445\u044D\u0432\u0438\u0439\u043D (\u0417\u04AF\u0440\u0445: ${hr} BPM, SpO2: ${spo2}%). \u0422\u0430 \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u044F\u0430\u0440\u0430\u043B\u0442\u0430\u0439 \u0442\u0443\u0441\u043B\u0430\u043C\u0436\u0438\u0439\u043D \u043F\u0440\u043E\u0442\u043E\u043A\u043E\u043B (0G CPR, SANS, \u0410\u0440\u043C\u0441\u0442\u0440\u043E\u043D\u0433\u0438\u0439\u043D \u0445\u044F\u0437\u0433\u0430\u0430\u0440), \u0410\u043D\u0433\u0430\u0440\u0430\u0433\u0438\u0439\u043D \u0444\u0438\u0437\u0438\u043E\u043B\u043E\u0433\u0438, \u044D\u0441\u0432\u044D\u043B \u0445\u04E9\u043B\u0433\u0438\u0439\u043D \u0442\u043E\u0439\u0440\u043E\u0433 \u0437\u0430\u043C\u044B\u043D \u043C\u0430\u043D\u0435\u0432\u0440\u044B\u043D \u0442\u0430\u043B\u0430\u0430\u0440 \u0434\u044D\u043B\u0433\u044D\u0440\u044D\u043D\u0433\u04AF\u0439 \u0430\u0441\u0443\u0443\u0445 \u0431\u043E\u043B\u043E\u043C\u0436\u0442\u043E\u0439.`;
   }
-  return `[HERMES AI MISSION SYNTHESIS \xB7 NASA-STD-3001]:
-Acknowledged Commander. Hermes Autonomous AI has processed your query against the onboard Sonnenblume telemetry and NASA Spaceflight Human-System Standards database.
-\u2022 Spacecraft Mode: ${mode}
-\u2022 Xiaomi Watch H1 Telemetry: HR ${hr} BPM, SpO\u2082 ${spo2}%, Hemodynamic Status Nominal.
-\u2022 Subagents Standing By: MED-SENTINEL (triage/resuscitation), RAD-GUARD (solar particle shielding), PSY-ORACLE (neuro-wellness), NAV-PILOT (orbital trajectory & G-capping).
-State your emergency protocol or query spaceflight physiological science.`;
+  return `[HERMES FLIGHT & BIO-ASTRONAUTICS AI]:
+I have evaluated your request against onboard telemetry (HR ${hr} BPM, SpO\u2082 ${spo2}%, Flight Mode: ${mode}) and the NASA-STD-3001 clinical flight database.
+I can provide exact protocols and scientific analyses on:
+\u2022 Space Physiology & Microgravity Adaptations (Fluid shifts, SANS, bone density, muscle atrophy)
+\u2022 Clinical Emergencies (0G CPR Handstand/Evetts-Russomano, rapid decompression, Armstrong limit)
+\u2022 Radiation Defense & SPE Storm Shelter Procedures
+\u2022 High-Energy Return Trajectories (GMAT R2026a solutions capped for crew cardiovascular tolerance)
+What specific aspect of the mission or crew physiology would you like me to detail?`;
 }
 
 // server/hermesEngine.ts
@@ -2154,6 +2201,9 @@ async function registerRoutes(app2) {
   });
   app2.post("/api/hermes/command", async (req, res) => {
     try {
+      if (req.body?.apiKey && typeof req.body.apiKey === "string" && req.body.apiKey.trim()) {
+        process.env.GEMINI_API_KEY = req.body.apiKey.trim();
+      }
       const payload = {
         ...req.body || {},
         prompt: req.body?.prompt || req.body?.command || req.body?.message || req.body?.text || ""

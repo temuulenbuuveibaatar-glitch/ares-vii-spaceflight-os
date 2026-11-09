@@ -132,6 +132,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // 6. POST /api/hermes/command - Interactive Hermes AI Agent natural-language command & subagent execution
   app.post("/api/hermes/command", async (req: Request, res: Response) => {
     try {
+      if (req.body?.apiKey && typeof req.body.apiKey === "string" && req.body.apiKey.trim()) {
+        process.env.GEMINI_API_KEY = req.body.apiKey.trim();
+      }
       const payload = {
         ...(req.body || {}),
         prompt: req.body?.prompt || req.body?.command || req.body?.message || req.body?.text || "",

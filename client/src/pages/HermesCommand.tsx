@@ -1,4 +1,5 @@
 import { generateHermesAIResponse } from "@shared/hermesAI";
+import { speakNaturalVoice } from "@/lib/speech";
 import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
@@ -138,18 +139,8 @@ export default function HermesCommand() {
   ]);
 
   const speakText = (text: string) => {
-    if (
-      !voiceEnabled ||
-      typeof window === "undefined" ||
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 1.02;
-    utterance.pitch = 1.0;
-    window.speechSynthesis.speak(utterance);
+    if (!voiceEnabled) return;
+    speakNaturalVoice(text);
   };
 
   // 4-7-8 Autonomic Vagal Breathing Timer
