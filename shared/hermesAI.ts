@@ -2,10 +2,8 @@
  * HERMES AI Knowledge & Conversational Intelligence Engine
  * Shared between Server (hermesEngine) and Client (HermesFloatingAgent & HermesCommand offline fallback).
  * Trained on official NASA Spaceflight Human-System Standards (NASA-STD-3001) and NASA Human Research Program (HRP).
- * Exclusively powered by Google Gemini and real-world aerospace medicine research.
+ * Speaks in a clear, thoughtful, conversational tone like an aerospace scientist or flight surgeon.
  */
-
-import { NASA_SPACE_MEDICINE_DATABASE } from "./nasaSpaceMedicineResearch";
 
 export interface HermesAIContext {
   mode?: string;
@@ -26,19 +24,15 @@ export function generateHermesAIResponse(prompt: string, context?: HermesAIConte
   const spo2 = context?.spo2 ?? 98;
   const bpSys = context?.bloodPressureSys ?? 118;
   const bpDia = context?.bloodPressureDia ?? 78;
-  const mode = context?.mode ?? "NOMINAL_TRANSIT";
 
   // 1. GREETINGS & INTRODUCTIONS
   if (/^(hi|hello|hey|greetings|howdy|good\s*(morning|afternoon|evening|day)|who are you|what are you|what can you do)/i.test(q)) {
     if (isMn) {
-      return `[HERMES CORE · GOOGLE GEMINI]: Сайн байна уу, Багийн дарга аа. Hermes Autonomous Flight & Medical AI бэлэн байна. Xiaomi Watch H1 био-холбоос хэвийн (Зүрхний цохилт: ${hr} BPM, SpO2: ${spo2}%). Би NASA-STD-3001 стандартын дагуу биеийн байдал, сансрын анагаах ухаан, тойрог замын маневрыг удирдахад тусална. Танд ямар тусламж хэрэгтэй байна вэ?`;
+      return `Сайн байна уу! Би бол сансрын нислэгийн анагаах ухаан болон хөлгийн удирдлагын туслах Hermes байна. Таны Xiaomi Watch H1 ухаалаг цагны мэдээлэл хэвийн (зүрхний цохилт ${hr} BPM, хүчилтөрөгчийн ханалт ${spo2}%). Сансрын физиологи, хүний биед гарах өөрчлөлт, тойрог замын маневр эсвэл яаралтай тусламжийн талаар сонирхсон зүйлээ асуугаарай.`;
     }
-    return `[HERMES CORE ONLINE · POWERED BY GOOGLE GEMINI]:
-Greetings Commander. Hermes Autonomous Flight & Medical AI is online with continuous telemetry lock.
-• Biometric Telemetry (Xiaomi Watch H1): HR ${hr} BPM, SpO₂ ${spo2}%, BP ${bpSys}/${bpDia} mmHg.
-• Flight Status: ${mode}.
-• Subagents Standing By: MED-SENTINEL (triage/resuscitation), RAD-GUARD (radiation shielding), PSY-ORACLE (neuro-wellness), NAV-PILOT (trajectory & G-capping).
-How can I assist you with space medicine protocols, orbital navigation, or physiological queries?`;
+    return `Hello Commander. I am Hermes, your onboard aerospace medicine and flight partner. I monitor your live Xiaomi Watch H1 biometric stream (currently HR ${hr} BPM, SpO₂ ${spo2}%, BP ${bpSys}/${bpDia} mmHg) and assist with clinical space emergency protocols, trajectory calculations, and environmental life support.
+
+What would you like to explore or check right now?`;
   }
 
   // 2. HUMAN BODY IN SPACE / SPACE PHYSIOLOGY / MICROGRAVITY ADAPTATIONS
@@ -57,181 +51,212 @@ How can I assist you with space medicine protocols, orbital navigation, or physi
     q.includes("сансарт хүний бие")
   ) {
     if (isMn) {
-      return `[HERMES BIO-ASTRONAUTICS · ХҮНИЙ БИЕД ГАРАХ ӨӨРЧЛӨЛТ]:
-Сансарт (бичил таталцал ба сансрын орчин) хүний биед 6 үндсэн физиологийн өөрчлөлт явагддаг:
-1. Шингэний дээш чиглэсэн шилжилт (Cephalad Fluid Shift): 1G таталцал байхгүй тул биеийн доод хэсгээс ~2 литр цус ба эд эсийн шингэн цээж, тархи руу шахөгддөг ("хавдсан нүүр, шувууны хөл" хам шинж).
-2. Харааны өөрчлөлт (SANS): Тархины венийн даралт нэмэгдсэнээр нүдний арын хэсэг хавтгайрч, харааны мэдрэлийн хаван үүсдэг.
-3. Ясны сийрэгжилт: Ачаалал бага тул сар бүр ясны эрдэсийн нягтрал 1.0–1.5% алдагддаг.
-4. Булчингийн хатингаршил: Таталцлыг эсэргүүцэх хэрэггүй тул 2 долоо хоногийн дотор булчингийн масс 20% хүртэл буурдаг.
-5. Сансрын цацраг: Дэлхийн соронзон мандал байхгүй тул ДНХ-ийн давхар хэлхээ тасрах эрсдэл нэмэгдэнэ.
-6. Сансрын цус багадалт (Space Anemia): Цусны улаан эсүүд дэлхийнхээс 54%-иар илүү хурдан задардаг.`;
+      return `Сансарт хүн очиход бичил таталцал болон сансрын орчны нөлөөгөөр биед хэд хэдэн томоохон өөрчлөлт гардаг.
+
+Нэгдүгээрт, шингэний дээш чиглэсэн шилжилт (Cephalad fluid shift) явагдана. Бидний бие дэлхийн 1G таталцалд зохицсон байдаг тул сансарт хөлний цус, шингэнийг доош татах таталцал үгүй болж, ойролцоогоор 1.5–2 литр шингэн цээж ба толгой руу шилждэг. Үүнээс болж сансрын нисгэгчдийн нүүр хөөнгөтөж, хамар битүүрч, хөл нь нарийсдаг ("шувууны хөл" хам шинж). Зүрх нь таталцлыг сөрж ажиллах шаардлагагүй болдог тул зүрхний булчингийн масс бага зэрэг жижгэрдэг.
+
+Хоёрдугаарт, яс болон булчин эрчимтэй суларна. Хүн өөрийн биеийн жинг даах шаардлагагүй тул сар бүр ясны эрдэсийн нягтрал (ялангуяа нуруу болон аарцагны яс) 1%–1.5% алдагддаг. Яснаас ялгарсан кальци цусаар дамжин шээсээр гадагшлахдаа бөөрний чулуу үүсгэх эрсдэлтэй. Булчин хатингаршихаас сэргийлж сансрын нисгэгчид өдөрт заавал 2 цаг хүч чадлын дасгал хийдэг.
+
+Гуравдугаарт, харааны өөрчлөлт буюу SANS үүснэ. Гавлын дотоод даралт нэмэгдсэнээс нүдний арын бөмбөлөг хавтгайрч, харааны мэдрэлийн хаван үүсдэг. Мөн дэлхийн соронзон мандал байхгүй тул сансрын хүчтэй цацраг ДНХ-г гэмтээх эрсдэл бий.
+
+Танд эдгээрээс тодорхой нэг асуудал (дасгал сургуулилт, нойр, хооллолт, эсвэл Ангараг руу нисэхэд ямар байх) талаар дэлгэрүүлж ярих уу?`;
     }
-    return `[HERMES BIO-ASTRONAUTICS · NASA HUMAN RESEARCH PROGRAM]:
-When the human body enters space and microgravity, it undergoes 6 profound physiological adaptations:
+    return `In microgravity, your body undergoes immediate and profound changes because human physiology evolved entirely under Earth's constant 1G gravitational pull.
 
-1. Cephalad Fluid Shift & Cardiovascular Remodeling:
-Without 1G gravity pulling fluids downward, approximately 2 liters of blood and interstitial fluids shift toward the chest and skull. Astronauts experience facial edema ("puffy face"), sinus congestion, and thin legs ("chicken legs"). Because the heart no longer works against gravity, left ventricular mass decreases (cardiac atrophy).
+First, fluids immediately shift upward. Without gravity pulling blood and lymph down toward your legs, about 1.5 to 2 liters of fluid migrate into your chest and head. This leads to facial edema ("puffy face"), nasal congestion, and noticeably thinner legs ("chicken legs"). Because the heart no longer has to pump against gravity to perfuse the brain, left ventricular workload drops, causing mild cardiac muscle remodeling over months. When astronauts return to Earth, this leads to orthostatic intolerance—dizziness and fainting upon standing.
 
-2. Spaceflight-Associated Neuro-Ocular Syndrome (SANS):
-Continuous elevated cerebral venous and intracranial pressure causes posterior globe flattening, optic disc edema (papilledema), choroidal folds, and hyperopic refractive vision shifts that can become permanent.
+Second, your bones and muscles rapidly shed density. Without mechanical loading from supporting your body weight, bone-resorbing osteoclasts outpace bone-building osteoblasts. Astronauts lose roughly 1.0% to 1.5% of bone mineral density every single month, particularly in the lumbar spine, pelvis, and femurs. The calcium flushed out into the bloodstream significantly raises the risk of kidney stones. Postural muscles (like the calves and lower back) also atrophy by up to 20% in weeks unless countered by heavy daily training.
 
-3. Bone Mineral Density Resorption:
-Without skeletal loading, osteoclasts actively reabsorb bone matrix at 1.0% to 1.5% loss of bone mineral density per month in trabecular bone (femoral neck, lumbar spine). The released calcium elevates urinary excretion, significantly raising the risk of nephrolithiasis (kidney stones).
+There are also critical systemic effects:
+• SANS (Spaceflight-Associated Neuro-Ocular Syndrome): Elevated intracranial venous pressure flattens the back of the eyeball and swells the optic disc, causing farsighted vision shifts that can sometimes become permanent.
+• Spaceflight Anemia: The body destroys red blood cells at an accelerated rate in orbit through a process called neocytolysis.
+• Cosmic Radiation: Beyond the protective shield of Earth's atmosphere and magnetosphere, galactic cosmic rays and solar flares inflict DNA double-strand breaks, elevating lifetime cancer and cataract risks.
 
-4. Muscular Atrophy:
-Postural antigravity muscle fibers (soleus, gastrocnemius, quadriceps) lose up to 20% of their mass within 10–14 days without intensive resistive exercise (ARED countermeasure).
-
-5. Deep-Space Radiation Exposure:
-Beyond Earth's protective magnetosphere, Galactic Cosmic Rays (GCR) and Solar Particle Events (SPE) deliver high-energy ionizing protons and HZE nuclei, causing cellular DNA double-strand breaks and accelerating cataractogenesis and oncogenesis.
-
-6. Spaceflight Anemia & Immune Suppression:
-The spleen and bone marrow accelerate red blood cell destruction by ~54% (neocytolysis), causing chronic space anemia. T-cell activation drops, frequently reactivating dormant latent viruses like Epstein-Barr and Varicella-Zoster.`;
+To counter these, astronauts on the ISS spend about two hours every day using the ARED resistance device and cycle ergometer. Are you curious about how they treat medical emergencies in space, or what countermeasures are used for deep-space Mars missions?`;
   }
 
-  // 3. BONES & MUSCLES SPECIFICALLY
+  // 3. BONES & MUSCLES
   if (q.includes("bone") || q.includes("muscle") || q.includes("atrophy") || q.includes("calcium") || q.includes("osteopor") || q.includes("булчин") || q.includes("яс")) {
     if (isMn) {
-      return `[HERMES MED-SENTINEL · ЯС БА БУЛЧИНГИЙН ЭРСДЭЛ]:
-Бичил таталцалд хүний тулгуур эрхтэн тогтолцоонд дараах өөрчлөлтүүд гарна:
-• Яс: Сар бүр 1.0–1.5% ясны нягтрал алдагдаж, цусанд кальцийн хэмжээ ихсэн бөөрний чулуу үүсэх эрсдэлтэй. Сэргийлэхийн тулд бисфосфонат ба ARED төхөөрөмж ашигладаг.
-• Булчин: Ачаалал байхгүй тул булчингийн уураг задарч, ялангуяа хөлний тулгуур булчингууд хүчтэй хатингаршдаг. Өдөр бүр 2–2.5 цаг хүндрүүлэгчтэй дасгал хийх шаардлагатай.`;
+      return `Бичил таталцалд яс болон булчингийн эд эс маш хурдан задардаг. Таталцлын ачаалал байхгүй үед яс сар бүр нягтралынхаа 1%–1.5%-ийг алддаг бөгөөд энэ нь өндөр настай хүмүүсийн ясны сийрэгжилтээс 10 дахин хурдан үзүүлэлт юм.
+
+Булчингийн хувьд байрлал хадгалах үүрэгтэй хөл, нурууны булчингууд 2 долоо хоногийн дотор 20% хүртэл хатингарших аюултай. Үүнээс сэргийлэхийн тулд сансрын нисгэгчид вакуум поршень ашиглан 270 кг хүртэл эсэргүүцэл үүсгэдэг ARED төхөөрөмж дээр өдөр бүр хүндрүүлэгчтэй дасгал хийж, бисфосфонат эмийн эмчилгээ авдаг.`;
     }
-    return `[HERMES MED-SENTINEL · MUSCULOSKELETAL HEALTH]:
-Microgravity effects on bones and muscles:
-• Bone Loss Rate: Astronauts lose 1.0–1.5% of bone mineral density per month in load-bearing bones (lumbar spine and pelvis). Resorbed calcium floods into urine, increasing renal stone risk.
-• Countermeasures: Bisphosphonates (alendronate / zoledronic acid) combined with high-load resistance training on the Advanced Resistive Exercise Device (ARED).
-• Muscle Atrophy: Type I slow-twitch postural fibers degrade rapidly. Daily 2.5-hour exercise routines (treadmill with harness + cycle ergometer + ARED) are mandatory under NASA-STD-3001.`;
+    return `Without the mechanical stress of gravity, bone and muscle tissue deteriorate rapidly. 
+
+Astronauts lose about 1.0% to 1.5% of bone mineral density per month in load-bearing regions like the femoral head and lumbar vertebrae—a rate about ten times faster than post-menopausal osteoporosis on Earth. The excess calcium leaches into the bloodstream and kidneys, making nephrolithiasis (kidney stones) a constant threat.
+
+Postural muscles—especially slow-twitch fibers in the calves (soleus) and spinal erectors—begin atrophying within days. To prevent irreversible muscle wasting and maintain cardiovascular capacity for emergency egress upon landing, astronauts must perform 2 to 2.5 hours of high-resistance exercise daily on the Advanced Resistive Exercise Device (ARED), which uses vacuum cylinders to simulate up to 600 pounds of weight. They also use pharmacological countermeasures like bisphosphonates (such as alendronate) to inhibit osteoclastic bone resorption.`;
   }
 
-  // 4. MICROGRAVITY CPR & RESUSCITATION (NASA-STD-3001-CPR-0G)
+  // 4. MICROGRAVITY CPR & RESUSCITATION
   if (q.includes("cpr") || q.includes("arrest") || q.includes("resuscitation") || q.includes("defibrillat") || q.includes("chest compression") || q.includes("зүрхний массаж")) {
     const p = NASA_SPACE_MEDICINE_DATABASE.MICROGRAVITY_CPR;
     if (isMn) {
-      return `[HERMES MED-SENTINEL · 0G CPR]: Бичил таталцлын үеийн зүрх амьсгалын сэхээн амьдруулах (NASA-STD-3001):\n1. Handstand арга: Хөлөө таазанд тулж, хоёр гараараа өвчтөний өвчүүний доод хагаст 5-6 см даралт хийнэ (100-120 bpm).\n2. Evetts-Russomano арга: Аврагч хөлөө өвчтөний гуян дээгүүр зөрүүлэн түгжиж даралт хийнэ.\n3. Дефибрилляци хийхдээ электродын эргэн тойрон дахь хөлсийг сайтар арчих ёстой—бичил таталцалд хөлсний дуслууд нуман оч үүсгэдэг!`;
+      return `Сансарт зүрхний массаж (CPR) хийх нь дэлхийнхээс эрс ялгаатай. Ньютоны 3-р хуулиар өвчтөний цээжин дээр даралт үзүүлэхэд аврагч өөрөө таталцалгүй тул өөдөөс нь түлхэгдэн нисдэг.
+
+Тиймээс NASA-STD-3001 стандартын дагуу 2 үндсэн аргыг хэрэглэдэг:
+1. Handstand арга: Аврагч хөлөө тааз эсвэл хананы тулгуурт түгжиж, хоёр гараараа өвчүүний доод хагаст 5–6 см гүн даралт хийнэ (минутад 100–120 удаа).
+2. Evetts-Russomano арга: Аврагч өвчтөний гуян дээгүүр хөлөө зөрүүлэн ороож, бүтэн биеэрээ түгжээд цээжний шахалтыг хийнэ.
+
+Чухал анхааруулга: Дефибрилляци (цахилгаан шок) өгөх үед өвчтөний цээжин дэх хөлсийг бүрэн арчих ёстой. Бичил таталцалд хөвөгч хөлсний дуслууд өндөр хүчдэлийн нуман оч үүсгэж, арьсыг хүнд түлдэг.`;
     }
-    return `[HERMES MED-SENTINEL · ${p.code}]:
-${p.name}:
-• Pathophysiology: Terrestrial body weight does not exist in 0G; Newton's 3rd law pushes the rescuer off the patient without rigid structural anchor points.
-• Technique 1 (Handstand Method): Rescuer anchors feet against cabin ceiling or bulkhead, placing hands on the lower sternum and depressing 5–6 cm at 100–120 bpm using leg extension.
-• Technique 2 (Evetts-Russomano Method): Rescuer crosses legs around patient's thighs to form an unbroken anatomical clamp, enabling chest compressions without external straps.
-• Technique 3 (CMRS): Restrain patient to Crew Medical Restraint System backboard.
-• Defibrillation Safety: Wipe patient's chest completely dry—floating microgravity sweat beads cause electrical arcing across the skin. Ensure isolation from metal spacecraft structures.`;
+    return `Performing CPR in microgravity presents a fundamental physics problem: under Newton's third law, when you push down on a patient's sternum, the equal and opposite reaction pushes you away from them because you have no body weight.
+
+To solve this, NASA and space medicine researchers developed two clinically validated techniques under NASA-STD-3001:
+
+1. The Handstand Method:
+The rescuer wedges their feet into foot restraints or directly against the cabin ceiling or bulkhead above the patient, placing their hands on the lower half of the sternum. They use their leg and arm extension to depress the chest 5 to 6 cm at 100 to 120 beats per minute.
+
+2. The Evetts-Russomano Technique:
+The rescuer wraps and crosses their legs firmly around the patient's torso and thighs, creating a rigid anatomical clamp. This allows effective chest compressions even in free-floating cabins without ceiling anchor points.
+
+Defibrillation Safety: You must thoroughly towel dry the patient's skin before delivering a shock. In microgravity, sweat does not roll off the body—it pools in floating beads, which can cause severe electrical arcing across the skin during a shock.`;
   }
 
   // 5. SANS & INTRACRANIAL PRESSURE
   if (q.includes("sans") || q.includes("eye") || q.includes("vision") || q.includes("optic") || q.includes("intracranial") || q.includes("хараа") || q.includes("нүд")) {
-    const p = NASA_SPACE_MEDICINE_DATABASE.SANS_AND_INTRACRANIAL_PRESSURE;
-    return `[HERMES PSY-ORACLE & MED-SENTINEL · ${p.code}]:
-${p.name}:
-• Mechanism: Cephalad shift of ~2000 mL venous blood and interstitial fluid elevates cerebral venous and retrobulbar optic nerve sheath pressure, causing optic disc edema (papilledema), globe flattening, and hyperopic refractive shift.
-• Clinical Interventions:
-  1. Chibis / LBNP Suit: Apply -25 to -35 mmHg Lower Body Negative Pressure for 2 hours daily to pull venous volume into lower extremities.
-  2. Vorotnik Neck Collar: Deploy pneumatic jugular compression collar to stabilize internal jugular hemodynamics.
-  3. Medication: Acetazolamide 250 mg PO BID to reduce cerebrospinal fluid production.
-  4. Exercise: High-resistance squats on ARED to restore peripheral vascular tone.`;
+    if (isMn) {
+      return `SANS буюу Сансрын нислэгийн хараа-мэдрэлийн хам шинж нь сансрын анагаах ухааны хамгийн чухал сэдвүүдийн нэг юм.
+
+Таталцалгүй орчинд венийн цус ба тархи-нугасны шингэн толгой руу тасралтгүй шахагдаж, гавлын дотоод даралт ихэсдэг. Энэ даралт нүдний арын хэсгийг хавтгайруулж, харааны мэдрэлийг хавдуулан (папилледема), алсын харааны өөрчлөлт үүсгэдэг.
+
+Эсрэг арга хэмжээ болгож өдөрт 2 цаг ЧИБИС костюм (хөлний хэсэгт сөрөг даралт үүсгэж цусыг доош татдаг) өмсөх, хүзүүний венийн урсгалыг тогтворжуулах хүзүүний тусгай бэхэлгээ, эсвэл Acetazolamide эм хэрэглэдэг.`;
+    }
+    return `SANS (Spaceflight-Associated Neuro-Ocular Syndrome) is one of the most significant medical challenges of long-duration spaceflight.
+
+On Earth, gravity pulls cerebrospinal fluid and venous blood down toward your feet whenever you stand. In space, that downward pull is gone 24 hours a day. The continuous cephalad fluid shift elevates venous pressure in the brain and retrobulbar optic nerve sheath.
+
+Over weeks and months, this sustained pressure causes:
+• Optic disc edema (swelling of the optic nerve head)
+• Globe flattening (the posterior eye ball flattens)
+• Choroidal folds and cotton wool spots
+• Progressive hyperopic (farsighted) vision shifts, meaning astronauts who had perfect vision suddenly need reading glasses.
+
+Countermeasures currently in flight trials include the Russian "Chibis" Lower Body Negative Pressure (LBNP) suit—which applies negative pressure to pull venous blood back down into the legs for several hours each day—and specialized jugular compression collars to stabilize intracranial hemodynamics.`;
   }
 
-  // 6. DEPRESSURIZATION, EBULLISM & THE ARMSTRONG LIMIT
-  if (q.includes("depressur") || q.includes("armstrong") || q.includes("ebullism") || q.includes("boil") || q.includes("vacuum") || q.includes("airlock") || q.includes("вакуум") || q.includes("даралт буурах")) {
-    const p = NASA_SPACE_MEDICINE_DATABASE.DEPRESSURIZATION_AND_EBULLISM;
-    return `[HERMES ECLSS & MED-SENTINEL · ${p.code}]:
-${p.name}:
-• The Armstrong Limit (6.3 kPa / 47 mmHg / 0.062 atm): Ambient pressure drops below the vapor pressure of water at human core temperature (37°C), causing saliva, tears, and alveolar moisture to boil instantly (liquid ebullism). Time of Useful Consciousness is 9–15 seconds.
-• Immediate Actions:
-  1. Immediate Helmet Lock: Don and hermetically seal helmet within 8 seconds; initiate 100% O₂ flood.
-  2. Cabin Pressure Floor: Lock ECLSS nitrogen/oxygen injection to maintain ≥ 55 kPa (8.0 psi).
-  3. Hyperbaric Treatment: Transfer exposed crew to hyperbaric treatment tent at 101.3 kPa to re-dissolve venous gas emboli.
-  4. Critical Warning: Never hold breath against a closed glottis during rapid decompression—it causes explosive pulmonary barotrauma and tension pneumothorax.`;
+  // 6. DEPRESSURIZATION, VACUUM & THE ARMSTRONG LIMIT
+  if (q.includes("depressur") || q.includes("armstrong") || q.includes("ebullism") || q.includes("boil") || q.includes("vacuum") || q.includes("airlock") || q.includes("helmet") || q.includes("вакуум") || q.includes("даралт буурах")) {
+    if (isMn) {
+      return `Сансрын вакуум болон агаарын даралт алдагдах үед юу болдог вэ?
+
+Хамгийн гол физик хязгаар бол Армстронгийн хязгаар (6.3 кПа / 47 мм м.у.б) юм. Хүний биеийн температур 37°C байхад орчны даралт 6.3 кПа-аас доош буувал усны буцлах цэг 37°C болж буурдаг. Өөрөөр хэлбэл амны шүлс, нулимс, уушгины чийг хормын төдийд буцалж эхэлнэ (ebullism).
+
+Агаар алдагдах үед хүний ухамсарт үйл ажиллагаа ердөө 9–15 секунд л үргэлжилнэ. Учир нь уушгинд агаар байхгүй болсноор цусан дахь хүчилтөрөгч эсрэгээрээ уушги руу сорогдож, тархины хүчилтөрөгч хормын дотор тасардаг.
+
+Хамгийн аюултай алдаа бол амьсгалаа хүчээр түгжих явдал юм—даралт огцом унахад уушгины доторх агаар тэлж, уушгийг дэлбэлэх аюултай. Тиймээс даралт алдагдах үед 8 секундийн дотор дуулгаа түгжиж хүчилтөрөгчөө асаах ёстой.`;
+    }
+    return `If an astronaut is exposed to the vacuum of space, what happens is dictated by physical laws rather than Hollywood explosions.
+
+The critical physiological threshold is the Armstrong Limit (6.3 kilopascals, or about 47 mmHg). At this pressure—roughly 6% of sea level atmospheric pressure—the boiling point of water drops to 37°C, which is normal human core body temperature. 
+
+Unpressurized exposed moisture—saliva on the tongue, tears on the cornea, and moisture inside the alveoli of the lungs—instantly boils into vapor. This phenomenon is called ebullism. The circulatory system stays under enough internal vascular pressure that blood inside the arteries does not immediately boil, but gas bubbles rapidly form in veins.
+
+You would not explode, but you would have only 9 to 15 seconds of useful consciousness. Because there is no ambient oxygen, venous blood rushing through the lungs actually diffuses oxygen backward out of the blood into the vacuum, depriving the brain of oxygen within seconds.
+
+The most catastrophic reaction would be trying to hold your breath: if you close your glottis during rapid depressurization, the expanding trapped air in your lungs will rupture the alveoli, causing fatal pulmonary barotrauma and massive air emboli.`;
   }
 
   // 7. SOLAR STORMS & RADIATION
   if (q.includes("radiation") || q.includes("storm") || q.includes("spe") || q.includes("cme") || q.includes("shield") || q.includes("proton") || q.includes("flare") || q.includes("цацраг")) {
-    const p = NASA_SPACE_MEDICINE_DATABASE.SOLAR_PARTICLE_EVENT_AND_RADIATION;
-    return `[HERMES RAD-GUARD PROTOCOL · ${p.code}]:
-${p.name}:
-• Mechanism: Coronal Mass Ejections accelerate 10–100+ MeV relativistic protons. Exposure > 1.0 Gy triggers Acute Radiation Syndrome (ARS) with mucosal shedding, bone marrow depletion, and opportunistic sepsis.
-• Countermeasures Executed:
-  1. Slew Spacecraft Tail-to-Sun (Yaw 180°): Align aft 15cm potable water storm-shelter bulkhead toward incoming solar proton flux, attenuating 78% of dose.
-  2. 12-Tesla Superconducting Magnet: Energize magnetic deflector coils to 100% field strength.
-  3. Radioprotectants: Administer Soviet B-190 (Indraline alpha-1 adrenergic agonist) 150 mg PO.
-  4. Hematopoietic Support: Initiate Filgrastim (G-CSF / Neupogen) 5 mcg/kg/day SC to stimulate neutrophil recovery.`;
+    if (isMn) {
+      return `Сансрын цацраг бол сансрын нисгэгчдийн эрүүл мэндэд учирч болох хамгийн ноцтой аюул юм.
+
+Сансарт хоёр төрлийн цацраг бий:
+1. Галактикийн сансрын туяа (GCR): Нарны аймгийн гаднаас ирдэг өндөр энергитэй бөөмс бөгөөд одоогоор бүрэн хаах боломжгүй.
+2. Нарны титмийн цацрагийн шуурга (SPE): Наран дээр хүчтэй дэлбэрэлт болоход релятивист протонууд их хэмжээгээр цацагддаг.
+
+Хэрэв SPE шуурга эхэлбэл Sonnenblume хөлөг хойд хэсгийн усны нөөцийн ханаа Нар руу чиглүүлэн байрлаж (ус бол устөрөгчөөр баялаг хамгийн сайн хамгаалагч), 12-Теслагийн соронзон хамгаалалтыг асаадаг. Багийнханд цус төлжүүлэгч Filgrastim болон радиопротектант эмийг өгч эрсдэлийг бууруулдаг.`;
+    }
+    return `Deep-space radiation consists of two distinct threats: steady Galactic Cosmic Rays (GCR) from outside our solar system, and violent, intermittent Solar Particle Events (SPE) triggered by solar flares and Coronal Mass Ejections.
+
+SPEs are acute medical emergencies: the sun accelerates relativistic protons that can deliver a lethal whole-body ionizing dose (over 1 to 2 Gray) within hours, triggering Acute Radiation Syndrome—destroying bone marrow hematopoietic stem cells and intestinal mucosal lining.
+
+Our Sonnenblume autonomous protection protocol handles this in multiple layers:
+1. Storm Shelter Alignment: The spacecraft slews 180 degrees tail-to-sun. The ship's potable water tanks and food stores (which are rich in hydrogen atoms) are concentrated in the aft bulkhead to absorb 75–80% of incoming proton flux.
+2. Active Magnetic Shielding: A 12-Tesla superconducting deflector creates an artificial magnetosphere around the habitable module.
+3. Medical Countermeasures: We initiate hematopoietic growth factors (Filgrastim / G-CSF) to stimulate neutrophil production, alongside radioprotective antioxidants.`;
   }
 
-  // 8. MARS PHYSIOLOGY & SURVIVAL
+  // 8. MARS PHYSIOLOGY
   if (q.includes("mars") || q.includes("red planet") || q.includes("ангараг")) {
     if (isMn) {
-      return `[HERMES BIO-ASTRONAUTICS · АНГАРАГ ДЭЭР ХҮНИЙ БИЕ]:
-Ангараг гариг дээр (0.38g таталцал, 610 Па даралт, -62°C дундаж температур, соронзон бамбайгүй) хүний бие 4 том аюултай тулгарна:
-1. Шингэний буцлалт (Армстронгийн хязгаар): Агаарын даралт маш бага (6.3 кПа-аас бага) тул скафандргүй үед биеийн бүх шингэн буцалж, 15 секундийн дотор ухаан алдана.
-2. Яс, булчингийн сулрал: 38% таталцалд яс, булчин аажмаар хатингаршина.
-3. Сансрын хүчтэй цацраг: Дэлхийнхээс 50 дахин их цацраг (250–300 мЗв/жил) тул газар доорх сууц эсвэл соронзон бамбай шаардлагатай.
-4. Хорт перхлорат тоос: Ангарагийн хөрсөн дэх перхлорат нь бамбай булчирхайн иодын шингээлтийг хааж, уушгийг хүнд гэмтээдэг.`;
+      return `Ангараг дээр хүний биед юу тохиолдох вэ?
+
+Ангараг гариг дээр очсон хүн дараах 4 том сорилттой тулгарна:
+1. 0.38g хөнгөн таталцал: Дэлхийн таталцлын дөнгөж 38%-тай тэнцэх тул бие хөнгөн болж явахад хялбар боловч яс, булчингийн сулрал үргэлжилнэ.
+2. Бага даралт (610 Па): Дэлхийн даралтын 1 хүрэхгүй хувь (0.6%) тул скафандргүй гарвал Армстронгийн хязгаараас болж биеийн шингэн буцалж, хэдхэн секундэд амь насанд хүрнэ.
+3. Соронзон бамбайгүй: Ангараг нь дэлхий шиг соронзон оронтой биш тул сансрын цацраг гадарга дээр шууд тусдаг (жилд 250–300 мЗв). Иймээс Ангараг дээрх бааз нь газар доор эсвэл зузаан хөрсөн хучаастай байх шаардлагатай.
+4. Хорт перхлорат тоос: Ангарагийн хөрсөнд 0.5%–1.0% перхлорат байдаг нь бамбай булчирхайн үйл ажиллагааг дарангуйлж, уушгинд сорогдвол хүнд гэмтэл учруулдаг.`;
     }
-    return `[HERMES BIO-ASTRONAUTICS · HUMAN BODY ON MARS]:
-On Mars (0.38g gravity, 0.6% Earth atmospheric pressure / 610 Pa, -62°C mean temperature, zero global magnetic field), the human body faces 4 severe physiological hazards:
-1. Liquid Ebullism (Armstrong Limit): Martian surface pressure (0.61 kPa) is far below the 6.3 kPa limit. Unpressurized bodily fluids boil at 37°C body temperature, causing death in 15 seconds.
-2. Musculoskeletal Atrophy: In 38% gravity, load-bearing bones continue losing 1.0–1.5% mineral density per month without continuous resistive training.
-3. Cosmic Radiation Exposure: The lack of a magnetosphere delivers ~250–300 mSv/year (50× Earth background), requiring our 12-Tesla superconducting magnetic shield or subterranean regolith shelters.
-4. Perchlorate Dust Toxicity: Martian soil contains 0.5–1.0% toxic oxidizers (calcium/magnesium perchlorates), severely disrupting thyroid iodine uptake and causing pulmonary fibrosis upon inhalation.`;
+    return `On Mars, the human body faces an environment that is hostile in four interconnected ways:
+
+1. Fractional Gravity (0.38g):
+Mars has 38% of Earth's surface gravity. While astronauts will feel light and agile, fractional gravity does not fully prevent musculoskeletal atrophy or cephalad fluid shift. Without daily resistance workouts, bone mineral loss will continue.
+
+2. Near-Vacuum Atmospheric Pressure (610 Pascals):
+Martian atmospheric pressure is less than 1% of Earth's sea level pressure (101.3 kPa). Because 0.61 kPa is far below the 6.3 kPa Armstrong limit, any suit puncture would immediately boil tears, saliva, and lung moisture. A pressurized environmental suit is mandatory 100% of the time outside the habitat.
+
+3. Lack of a Global Magnetosphere:
+Unlike Earth, Mars has no active planetary dynamo to generate a global magnetic shield. The surface receives an unfiltered chronic cosmic radiation dose of approximately 250 to 300 millisieverts per year—over fifty times the Earth background. Long-term habitats will need to be buried beneath several meters of Martian regolith or inside lava tubes.
+
+4. Toxic Perchlorate Dust:
+Martian soil contains 0.5% to 1.0% reactive perchlorate salts. If tracked into habitats on EVA suits, inhaled dust competitively inhibits thyroid iodine uptake and causes severe pulmonary irritation and chronic fibrosis.`;
   }
 
   // 9. LUNAR / MOON PHYSIOLOGY
   if (q.includes("moon") || q.includes("lunar") || q.includes("сар")) {
-    return `[HERMES BIO-ASTRONAUTICS · LUNAR PHYSIOLOGY]:
-Human physiological challenges on the Moon (0.166g / 1/6th Earth gravity):
-1. Jagged Lunar Regolith Dust: Lunar dust consists of razor-sharp, electrostatically charged silicate shards with zero atmospheric erosion. Inhalation causes severe acute lunar silicosis, pulmonary edema, and suit seal abrasive degradation.
-2. Low-G Locomotion: 1/6th gravity alters vestibular feedback, requiring the "Apollo hop" or loping gait to maintain postural stability without losing ground traction.
-3. Extreme Thermal Swings: Lunar surface swings from +120°C in direct sunlight to -130°C in shadow, requiring active liquid-cooling and ventilation garments (LCVG).`;
+    return `Operating on the Moon (at 1/6th Earth gravity / 0.166g) presents challenges distinct from both Earth and Mars:
+
+First, lunar regolith dust is extraordinarily dangerous. Because the Moon has no atmosphere or liquid water, there is zero weathering. Every microscopic dust particle is razor-sharp, jagged volcanic glass that carries a static electrical charge. Inhaling even tiny quantities tracked inside an airlock causes acute lunar silicosis, mucosal inflammation, and lung damage.
+
+Second, the lack of an atmosphere produces 300°C temperature swings between the two-week-long lunar day (+120°C) and the two-week-long lunar night (-130°C). Spacesuits require continuous active liquid cooling and ventilation garments (LCVG) to prevent hyperthermia or hypothermia.`;
   }
 
-  // 10. SLEEP, PSYCHOLOGY & CONFINEMENT IN SPACE
+  // 10. SLEEP, PSYCHOLOGY & CONFINEMENT
   if (q.includes("sleep") || q.includes("psycholog") || q.includes("mental") || q.includes("stress") || q.includes("isolation") || q.includes("нойр") || q.includes("сэтгэл")) {
-    return `[HERMES PSY-ORACLE · NEURO-WELLNESS & CIRCADIAN RHYTHMS]:
-Spaceflight neuro-psychological factors and countermeasures:
-• Circadian Disruption: On spacecraft, crew experience artificial lighting and rapid day/night cycles. Hermes enforces dynamic blue-depleted 2200K lighting 2 hours before scheduled sleep and melatonin 0.5 mg timing.
-• Sensory Monotony & Third-Quarter Effect: Prolonged deep-space confinement induces asthenia, interpersonal tension, and affective blunting during mid-mission phases.
-• Active Countermeasure: Daily voice journal sentiment tracking, 4-7-8 autonomic vagal breathing sessions, and private crew-to-Earth uplink channels.`;
+    return `In deep space, psychological stability is just as vital as cardiovascular health.
+
+Astronauts live in a sealed, cramped environment with high background noise (from fans, pumps, and scrubbers) and no natural day-night cycle. On the ISS, astronauts experience 16 sunrises and sunsets every 24 hours.
+
+Without proper circadian entrainment, sleep fragmentation and insomnia are common. Hermes regulates this by adjusting spacecraft lighting: two hours before scheduled sleep, cabin lights shift to blue-depleted 2200K warm tones to trigger natural melatonin release.
+
+Prolonged isolation also triggers the "third-quarter phenomenon"—a well-documented psychological dip where motivation, interpersonal communication, and energy drop during the middle half of a mission. We track this through daily voice sentiment telemetry, HRV vagal tone, and structured 4-7-8 autonomic breathing exercises.`;
   }
 
-  // 11. XIAOMI WATCH H1 VITALS & CARDIOVASCULAR G-CAP
+  // 11. XIAOMI WATCH H1 VITALS & G-CAP
   if (q.includes("heart") || q.includes("vital") || q.includes("blood pressure") || q.includes("pulse") || q.includes("ecg") || q.includes("spo2") || q.includes("watch") || q.includes("g-force") || q.includes("g-load") || q.includes("зүрх") || q.includes("даралт")) {
-    return `[HERMES MED-SENTINEL · BIOMETRIC TELEMETRY REPORT]:
-Live Xiaomi Watch H1 Clinical Telemetry:
+    return `Your live Xiaomi Watch H1 biometric feed is actively streaming to the flight deck:
 • Heart Rate: ${hr} BPM (Normal Sinus Rhythm)
-• Blood Pressure: ${bpSys}/${bpDia} mmHg (Oscillometric micro-cuff locked)
-• SpO₂ Oxygenation: ${spo2}%
-• Dynamic G-Load Safety Envelope: Capped at ≤ 2.6G for nominal crew; autonomously throttled down to ≤ 1.65G or ≤ 1.45G if ventricular tachycardia, hypoxia (SpO₂ < 90%), or acute hypertension are detected.`;
+• Blood Pressure: ${bpSys}/${bpDia} mmHg (Measured via the watch's precision micro-pump cuff)
+• Oxygen Saturation: ${spo2}% SpO₂
+
+Our autonomous flight controller dynamically links this data to spacecraft propulsion. In a nominal state, thruster acceleration is capped at ≤ 2.6G. If your heart rate spikes above safe thresholds or your blood pressure deviates significantly due to acute stress or trauma, Hermes autonomously throttles thrusters down to ≤ 1.65G to prevent cephalad venous pooling and loss of consciousness.`;
   }
 
-  // 12. TRAJECTORY, RETURN TO EARTH & ORBITAL MECHANICS (GMAT / ORBITER)
+  // 12. TRAJECTORY, RETURN TO EARTH & ORBITAL MECHANICS
   if (q.includes("return") || q.includes("earth") || q.includes("abort") || q.includes("trajectory") || q.includes("orbit") || q.includes("burn") || q.includes("delta v") || q.includes("gmat") || q.includes("буцах") || q.includes("траектори")) {
-    return `[HERMES NAV-PILOT · FLIGHT SOLUTION]:
-High-Energy Fast Earth Return Trajectory:
-• Delta-V Requirement: 1,840.5 m/s via Nuclear Thermal / VASIMR thrusters.
-• Crew G-Load Cap: Hard-constrained to ≤ 1.65G to prevent cephalad venous pooling and cerebral ischemia.
-• Earth Entry Interface ETA: T+148.5 hours.
-• GMAT R2026a Script & Orbiter Lua Bridge synchronized with Goldstone Deep Space Network (DS-14).`;
+    return `For an emergency Earth return, orbital mechanics requires balancing transit time against total fuel expenditure (delta-V) and human G-tolerance:
+
+Our high-energy Lambert return solution requires approximately 1,840.5 m/s of delta-V using high-specific-impulse thrusters. That yields an Earth Entry Interface ETA of roughly 148.5 hours.
+
+Crucially, the burn profile is shaped to never exceed 1.65G. Because injured or deconditioned astronauts have lower cardiovascular reserve, a standard 4G or 5G ballistic burn could cause cerebral hypoperfusion and blackout. The exact GMAT mission script and Orbiter flight bridge coordinates are synchronized directly on your navigation console.`;
   }
 
-  // 13. TOXIC AMMONIA OR CO2 IN CABIN
-  if (q.includes("ammonia") || q.includes("co2") || q.includes("leak") || q.includes("toxic") || q.includes("carbon dioxide")) {
-    return `[HERMES ECLSS DANGER ALERT]:
-Cabin Atmospheric Integrity & Scrubbing:
-• Rapid Action: Don Emergency Quick-Don Masks within 5 seconds.
-• Ammonia Protocol: Slam inter-module pressure hatches and divert cabin air through phosphoric-acid-treated chemisorption beds.
-• CO₂ Hypercapnia: If cabin CO₂ exceeds 3.0 mmHg, force CDRA thermal desorber cycling and verify personal bunk ventilation duct velocity > 0.15 m/s to disperse stagnant exhaled CO₂ pockets.`;
-  }
-
-  // 14. DEFAULT NATURAL & INFORMATIVE RESPONSE
+  // 13. DEFAULT INFORMATIVE SCIENTIFIC ANSWER
   if (isMn) {
-    return `[HERMES CORE ONLINE]: Багийн дарга аа, таны асуултыг Sonnenblume хөлгийн мэдээллийн сантай харьцуулан шинжиллээ. Одоогоор хөлгийн төлөв: ${mode}, Xiaomi Watch H1 био-холбоос хэвийн (Зүрх: ${hr} BPM, SpO2: ${spo2}%). Та сансрын яаралтай тусламжийн протокол (0G CPR, SANS, Армстронгийн хязгаар), Ангарагийн физиологи, эсвэл хөлгийн тойрог замын маневрын талаар дэлгэрэнгүй асуух боломжтой.`;
+    return `Би таны асуултыг сансрын анагаах ухаан, NASA-STD-3001 стандарт болон хөлгийн телеметрийн мэдээлэл дээр үндэслэн шинжиллээ.
+
+Одоогоор таны Xiaomi Watch H1 био-холбоос хэвийн ажиллаж байна (зүрх ${hr} BPM, хүчилтөрөгч ${spo2}%). Та бичил таталцлын физиологийн өөрчлөлт (SANS, шингэний шилжилт, ясны нягтрал), сансрын яаралтай тусламж (0G CPR, вакуум даралт алдагдах), эсвэл тойрог замын маневр, G-хүчний хязгаарлалтын талаар тодорхой асуулт тавибал би дэлгэрэнгүй тайлбарлаж өгч чадна.`;
   }
-  return `[HERMES FLIGHT & BIO-ASTRONAUTICS AI]:
-I have evaluated your request against onboard telemetry (HR ${hr} BPM, SpO₂ ${spo2}%, Flight Mode: ${mode}) and the NASA-STD-3001 clinical flight database.
-I can provide exact protocols and scientific analyses on:
-• Space Physiology & Microgravity Adaptations (Fluid shifts, SANS, bone density, muscle atrophy)
-• Clinical Emergencies (0G CPR Handstand/Evetts-Russomano, rapid decompression, Armstrong limit)
-• Radiation Defense & SPE Storm Shelter Procedures
-• High-Energy Return Trajectories (GMAT R2026a solutions capped for crew cardiovascular tolerance)
-What specific aspect of the mission or crew physiology would you like me to detail?`;
+  return `I have evaluated your query against our onboard aerospace medicine research database and live crew telemetry (currently HR ${hr} BPM, SpO₂ ${spo2}%).
+
+I can provide detailed scientific breakdowns on:
+• Spaceflight Physiology: Cephalad fluid shifts, SANS optic changes, and bone/muscle atrophy countermeasures
+• Emergency Medicine in 0G: Handstand CPR, depressurization ebullism at the Armstrong Limit, and toxic ECLSS leaks
+• Orbital Trajectory & Propulsion: High-energy fast return solutions and cardiovascular G-force constraints
+• Deep-Space Hazards: Solar particle event shielding and Martian regolith toxicity
+
+Which specific scenario or physiological mechanism would you like me to walk through?`;
 }

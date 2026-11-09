@@ -2,7 +2,7 @@ import { generateHermesAIResponse } from "@shared/hermesAI";
 import { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
-import { speakNaturalVoice } from "@/lib/speech";
+import { speakNaturalVoice, stopSpeaking, getAvailableEnglishVoices } from "@/lib/speech";
 import { Link } from "wouter";
 import {
   Send,
@@ -17,6 +17,7 @@ import {
   RotateCcw,
   Sparkles,
   Key,
+  Square,
 } from "lucide-react";
 
 const QUICK_STEPS = [
@@ -29,12 +30,18 @@ const QUICK_STEPS = [
 export default function HermesFloatingAgent() {
   const [isOpen, setIsOpen] = useState(false);
   const [prompt, setPrompt] = useState("");
-  const [voiceEnabled, setVoiceEnabled] = useState(true);
+  // Default to muted to prevent nagging; respects user's stored preference
+  const [voiceEnabled, setVoiceEnabled] = useState<boolean>(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("hermes_voice_enabled") === "true";
+    }
+    return false;
+  });
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [activeStepIdx, setActiveStepIdx] = useState<number>(0);
   const [loopRunning, setLoopRunning] = useState<boolean>(false);
-  const [showKeyInput, setShowKeyInput] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
   const [geminiKey, setGeminiKey] = useState<string>(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("hermes_gemini_key") || "";
@@ -42,6 +49,8 @@ export default function HermesFloatingAgent() {
     return "";
   });
   const [keySavedMessage, setKeySavedMessage] = useState(false);
+  const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [selectedVoiceName, setSelectedVoiceName] = useState<string>("");
   const chatBottomRef = useRef<HTMLDivElement>(null);
 
   const [chatHistory, setChatHistory] = useState<
@@ -53,18 +62,50 @@ export default function HermesFloatingAgent() {
   >([
     {
       role: "hermes",
-      text: "Hermes Flight AI online. Telemetry lock active. I can speak with you and guide you step-by-step through any medical emergency, trajectory maneuver, or spaceflight physiology question.",
+      text: "Hello Commander. Hermes flight and aerospace medicine intelligence online. Ask me about microgravity adaptations, clinical emergencies, or spacecraft trajectories—or click 'Listen Aloud' on any message to hear it spoken in a natural voice.",
       timestamp: new Date().toLocaleTimeString(),
     },
   ]);
 
+  useEffect(() => {
+    const list = getAvailableEnglishVoices();
+    setAvailableVoices(list);
+    if (list.length > 0 && !selectedVoiceName) {
+      setSelectedVoiceName(list[0].name);
+    }
+  }, [isOpen]);
+
   const speak = (text: string) => {
     if (!voiceEnabled) return;
+    const voiceObj = availableVoices.find((v) => v.name === selectedVoiceName) || null;
     speakNaturalVoice(text, {
+      voice: voiceObj,
       onStart: () => setIsSpeaking(true),
       onEnd: () => setIsSpeaking(false),
       onError: () => setIsSpeaking(false),
     });
+  };
+
+  const speakExplicit = (text: string) => {
+    const voiceObj = availableVoices.find((v) => v.name === selectedVoiceName) || null;
+    speakNaturalVoice(text, {
+      voice: voiceObj,
+      onStart: () => setIsSpeaking(true),
+      onEnd: () => setIsSpeaking(false),
+      onError: () => setIsSpeaking(false),
+    });
+  };
+
+  const handleToggleVoice = () => {
+    const next = !voiceEnabled;
+    setVoiceEnabled(next);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("hermes_voice_enabled", String(next));
+    }
+    if (!next) {
+      stopSpeaking();
+      setIsSpeaking(false);
+    }
   };
 
   useEffect(() => {
@@ -98,7 +139,6 @@ export default function HermesFloatingAgent() {
         const res = await apiRequest("POST", "/api/hermes/command", payload);
         return await res.json();
       } catch (err) {
-        // Instant resilient fallback for offline, static preview, or network drops
         return {
           reply: generateHermesAIResponse(userPrompt, {
             heartRate: latestTelemetry?.heartRate,
@@ -123,7 +163,9 @@ export default function HermesFloatingAgent() {
           timestamp: new Date().toLocaleTimeString(),
         },
       ]);
-      speak(reply);
+      if (voiceEnabled) {
+        speak(reply);
+      }
       queryClient.invalidateQueries({ queryKey: ["/api/mission/overview"] });
     },
     onError: (_, userPrompt) => {
@@ -139,7 +181,9 @@ export default function HermesFloatingAgent() {
           timestamp: new Date().toLocaleTimeString(),
         },
       ]);
-      speak(fallback);
+      if (voiceEnabled) {
+        speak(fallback);
+      }
     },
   });
 
@@ -161,7 +205,7 @@ export default function HermesFloatingAgent() {
     commandMutation.mutate(text);
   };
 
-  const handleSaveKey = () => {
+  const handleSaveSettings = () => {
     if (typeof window !== "undefined") {
       localStorage.setItem("hermes_gemini_key", geminiKey.trim());
     }
@@ -171,7 +215,7 @@ export default function HermesFloatingAgent() {
     setKeySavedMessage(true);
     setTimeout(() => {
       setKeySavedMessage(false);
-      setShowKeyInput(false);
+      setShowSettings(false);
     }, 1500);
   };
 
@@ -180,7 +224,7 @@ export default function HermesFloatingAgent() {
       (window as any).SpeechRecognition ||
       (window as any).webkitSpeechRecognition;
     if (!SpeechRecognition) {
-      speak(QUICK_STEPS[activeStepIdx] || "Hermes voice input is not supported in this browser, but voice playback is active.");
+      speakExplicit(QUICK_STEPS[activeStepIdx] || "Voice recognition is not supported in this browser, but text is fully active.");
       return;
     }
     try {
@@ -206,14 +250,14 @@ export default function HermesFloatingAgent() {
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2 font-sans">
       {isOpen ? (
-        <div className="surface-enter w-[380px] sm:w-[420px] rounded-2xl border border-[#354528] bg-[#0e120b] shadow-2xl shadow-black/80 overflow-hidden">
+        <div className="surface-enter w-[380px] sm:w-[440px] rounded-2xl border border-[#354528] bg-[#0e120b] shadow-2xl shadow-black/80 overflow-hidden">
           {/* TOP BAR */}
           <div className="bg-[#13190e] px-4 py-3 border-b border-[#232d1a] flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <span className={`w-2 h-2 rounded-full ${isSpeaking ? "bg-[#fbbf24] animate-ping" : "bg-[#84a96c]"}`} />
               <div>
                 <div className="text-xs font-bold text-white flex items-center gap-1.5 font-mono">
-                  <span>HERMES VOICE AI</span>
+                  <span>HERMES MEDICAL & FLIGHT AI</span>
                   {isSpeaking && (
                     <span className="text-[10px] text-[#fbbf24] font-mono px-1 py-0.2 rounded bg-[#28381c]">
                       SPEAKING
@@ -221,29 +265,34 @@ export default function HermesFloatingAgent() {
                   )}
                 </div>
                 <div className="text-[11px] text-[#8ea873]">
-                  Google Gemini · NASA-STD-3001 Space Medicine
+                  NASA-STD-3001 Clinical Science · Aerospace Intelligence
                 </div>
               </div>
             </div>
             <div className="flex items-center gap-1">
+              {isSpeaking && (
+                <button
+                  onClick={() => {
+                    stopSpeaking();
+                    setIsSpeaking(false);
+                  }}
+                  className="p-1.5 text-red-400 hover:text-white rounded-lg hover:bg-red-950/40 cursor-pointer transition-colors"
+                  title="Stop speaking"
+                >
+                  <Square className="w-3.5 h-3.5 fill-current" />
+                </button>
+              )}
               <button
-                onClick={() => setShowKeyInput(!showKeyInput)}
-                className={`p-1.5 rounded-lg cursor-pointer transition-colors ${geminiKey ? "text-[#fbbf24] hover:bg-[#28381c]" : "text-[#8ea873] hover:text-white hover:bg-[#1a2313]"}`}
-                title={geminiKey ? "Gemini Key Configured" : "Add Google Gemini API Key"}
+                onClick={() => setShowSettings(!showSettings)}
+                className={`p-1.5 rounded-lg cursor-pointer transition-colors ${showSettings || geminiKey ? "text-[#fbbf24] hover:bg-[#28381c]" : "text-[#8ea873] hover:text-white hover:bg-[#1a2313]"}`}
+                title="AI & Voice Settings"
               >
                 <Key className="w-4 h-4" />
               </button>
               <button
-                onClick={() => {
-                  const nextState = !voiceEnabled;
-                  setVoiceEnabled(nextState);
-                  if (!nextState && typeof window !== "undefined" && "speechSynthesis" in window) {
-                    window.speechSynthesis.cancel();
-                    setIsSpeaking(false);
-                  }
-                }}
+                onClick={handleToggleVoice}
                 className="p-1.5 text-[#8ea873] hover:text-white rounded-lg hover:bg-[#1a2313] cursor-pointer transition-colors"
-                title={voiceEnabled ? "Mute voice narration" : "Enable voice narration"}
+                title={voiceEnabled ? "Voice narration ON (click to mute)" : "Voice narration MUTED (click to enable)"}
               >
                 {voiceEnabled ? (
                   <Volume2 className="w-4 h-4 text-[#fbbf24]" />
@@ -263,10 +312,8 @@ export default function HermesFloatingAgent() {
               <button
                 onClick={() => {
                   setIsOpen(false);
-                  if (typeof window !== "undefined" && "speechSynthesis" in window) {
-                    window.speechSynthesis.cancel();
-                    setIsSpeaking(false);
-                  }
+                  stopSpeaking();
+                  setIsSpeaking(false);
                 }}
                 className="p-1.5 text-[#8ea873] hover:text-white rounded-lg hover:bg-[#1a2313] cursor-pointer transition-colors"
               >
@@ -275,30 +322,53 @@ export default function HermesFloatingAgent() {
             </div>
           </div>
 
-          {/* OPTIONAL GEMINI API KEY INPUT DRAWER */}
-          {showKeyInput && (
-            <div className="p-3 bg-[#182213] border-b border-[#2e3b23] space-y-2 text-xs">
+          {/* AI & VOICE SETTINGS DRAWER */}
+          {showSettings && (
+            <div className="p-3.5 bg-[#182213] border-b border-[#2e3b23] space-y-3 text-xs">
               <div className="flex items-center justify-between text-[#fbbf24] font-bold">
-                <span>Google Gemini API Key (Optional)</span>
-                {keySavedMessage && <span className="text-[#84a96c]">Saved!</span>}
+                <span>AI & Voice Configuration</span>
+                {keySavedMessage && <span className="text-[#84a96c]">Preferences Saved!</span>}
               </div>
-              <p className="text-[11px] text-[#a8baa0]">
-                Enter a Gemini API key for live LLM responses. If omitted, Hermes uses onboard NASA-STD-3001 clinical intelligence.
-              </p>
-              <div className="flex gap-2">
-                <input
-                  type="password"
-                  placeholder="AIzaSy..."
-                  value={geminiKey}
-                  onChange={(e) => setGeminiKey(e.target.value)}
-                  className="flex-1 bg-[#0b0e0a] border border-[#2e3b23] text-white px-2.5 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-[#fbbf24]"
-                />
-                <button
-                  onClick={handleSaveKey}
-                  className="px-3 py-1.5 bg-[#fbbf24] text-black font-bold rounded-lg cursor-pointer hover:bg-[#f59e0b] text-xs"
-                >
-                  Save
-                </button>
+
+              {/* Voice Selection */}
+              {availableVoices.length > 0 && (
+                <div className="space-y-1">
+                  <label className="text-[11px] text-[#a8baa0] font-mono">Synthesizer Voice:</label>
+                  <select
+                    value={selectedVoiceName}
+                    onChange={(e) => setSelectedVoiceName(e.target.value)}
+                    className="w-full bg-[#0b0e0a] border border-[#2e3b23] text-white px-2 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-[#fbbf24]"
+                  >
+                    {availableVoices.map((v) => (
+                      <option key={v.name} value={v.name}>
+                        {v.name} ({v.lang})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {/* Gemini Key */}
+              <div className="space-y-1">
+                <label className="text-[11px] text-[#a8baa0] font-mono">Google Gemini API Key (Optional):</label>
+                <p className="text-[10px] text-[#788e6a] leading-tight">
+                  Enter an API key for dynamic cloud LLM responses. If omitted, Hermes uses onboard NASA-STD-3001 clinical intelligence.
+                </p>
+                <div className="flex gap-2 pt-0.5">
+                  <input
+                    type="password"
+                    placeholder="AIzaSy..."
+                    value={geminiKey}
+                    onChange={(e) => setGeminiKey(e.target.value)}
+                    className="flex-1 bg-[#0b0e0a] border border-[#2e3b23] text-white px-2.5 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-[#fbbf24]"
+                  />
+                  <button
+                    onClick={handleSaveSettings}
+                    className="px-3 py-1.5 bg-[#fbbf24] text-black font-bold rounded-lg cursor-pointer hover:bg-[#f59e0b] text-xs"
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
             </div>
           )}
@@ -313,7 +383,7 @@ export default function HermesFloatingAgent() {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => {
-                      speak(QUICK_STEPS[activeStepIdx]);
+                      speakExplicit(QUICK_STEPS[activeStepIdx]);
                     }}
                     className="flex items-center gap-1 text-[11px] text-[#8ea873] hover:text-[#fbbf24] px-2 py-0.5 rounded border border-[#232d1a] cursor-pointer"
                   >
@@ -357,30 +427,44 @@ export default function HermesFloatingAgent() {
           </div>
 
           {/* CHAT MESSAGES */}
-          <div className="h-64 overflow-y-auto p-4 space-y-3 bg-[#0a0d07] scrollbar-thin">
+          <div className="h-72 overflow-y-auto p-4 space-y-3 bg-[#0a0d07] scrollbar-thin">
             {chatHistory.map((m, idx) => (
               <div
                 key={idx}
                 className={`flex flex-col ${m.role === "user" ? "items-end" : "items-start"}`}
               >
                 <div className="text-[10px] text-[#556947] font-mono mb-1">
-                  {m.role === "user" ? "ASTRONAUT" : "HERMES VOICE"} · {m.timestamp}
+                  {m.role === "user" ? "ASTRONAUT" : "HERMES AI"} · {m.timestamp}
                 </div>
                 <div
-                  className={`p-3 rounded-xl text-xs max-w-[90%] leading-relaxed whitespace-pre-line ${
+                  className={`p-3.5 rounded-xl text-xs max-w-[92%] leading-relaxed whitespace-pre-line ${
                     m.role === "user"
                       ? "bg-[#28381c] text-[#e3ecd8] rounded-br-none border border-[#3f572c]"
-                      : "bg-[#13190e] text-[#c7dfb8] rounded-bl-none border border-[#232d1a]"
+                      : "bg-[#13190e] text-[#d7e6ce] rounded-bl-none border border-[#232d1a]"
                   }`}
                 >
                   {m.text}
+
+                  {m.role === "hermes" && (
+                    <div className="mt-2.5 pt-2 border-t border-[#232d1a]/80 flex items-center justify-between text-[11px] text-[#8ea873]">
+                      <button
+                        type="button"
+                        onClick={() => speakExplicit(m.text)}
+                        className="flex items-center gap-1 hover:text-[#fbbf24] cursor-pointer transition-colors"
+                        title="Listen to this response aloud"
+                      >
+                        <Volume2 className="w-3.5 h-3.5 text-[#fbbf24]" />
+                        <span>Listen Aloud</span>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
             {commandMutation.isPending && (
               <div className="flex items-center gap-2 text-xs text-[#fbbf24] font-mono">
                 <Sparkles className="w-3.5 h-3.5 animate-spin" />
-                <span>Hermes evaluating space medicine protocols...</span>
+                <span>Hermes evaluating aerospace medicine protocols...</span>
               </div>
             )}
             <div ref={chatBottomRef} />
@@ -411,7 +495,7 @@ export default function HermesFloatingAgent() {
               type="text"
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Ask Hermes, say 'done', or speak..."
+              placeholder="Ask Hermes, or say 'done'..."
               className="flex-1 bg-[#0b0e0a] border border-[#232d1a] text-white text-xs px-3 py-2 rounded-xl focus:outline-none focus:border-[#fbbf24]"
             />
             <button
@@ -438,12 +522,12 @@ export default function HermesFloatingAgent() {
               <Sparkles className="w-3 h-3 text-[#fbbf24]" />
             </div>
             <div className="text-[10px] text-[#8ea873]">
-              Say "Done" to advance checklist, or ask medical help
+              Ask any spaceflight medical question
             </div>
           </div>
           <div className="px-2 py-1 rounded-lg bg-[#28381c] text-[#fbbf24] text-[11px] font-bold flex items-center gap-1">
             <Mic className="w-3 h-3" />
-            <span>Speak</span>
+            <span>Chat</span>
           </div>
         </button>
       )}
