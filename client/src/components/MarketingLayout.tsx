@@ -8,7 +8,8 @@ interface MarketingLayoutProps {
 
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   const isLocal = typeof window !== "undefined" && window.location.hostname.includes("localhost");
-  const toolUrl = isLocal ? "/app" : "https://sonnenblume-tool.vercel.app";
+  const isToolOrAres = typeof window !== "undefined" && (window.location.hostname.includes("tool") || window.location.hostname.includes("ares-vii"));
+  const toolUrl = isLocal || isToolOrAres ? "/app" : "https://sonnenblume-tool.vercel.app";
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0b0e0a] text-[#e3ecd8] selection:bg-[#2e3b23] selection:text-[#fbbf24]">

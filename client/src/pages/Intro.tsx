@@ -263,7 +263,7 @@ export default function Intro() {
           {/* Action Row */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-base font-bold">
             <a
-              href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+              href={typeof window !== "undefined" && (window.location.hostname.includes("localhost") || window.location.hostname.includes("tool") || window.location.hostname.includes("ares-vii")) ? "/app" : "https://sonnenblume-tool.vercel.app"}
               className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-black text-base px-8 py-4 rounded-xl inline-flex items-center gap-2.5 shadow-xl shadow-amber-500/20 cursor-pointer active:scale-95 transition-all"
             >
               <Rocket className="w-5 h-5 text-[#0b0e0a]" />
@@ -619,7 +619,7 @@ export default function Intro() {
 
             <div className="shrink-0">
               <a
-                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/xiaomi-watch" : "https://sonnenblume-tool.vercel.app/xiaomi-watch"}
+                href={typeof window !== "undefined" && (window.location.hostname.includes("localhost") || window.location.hostname.includes("tool") || window.location.hostname.includes("ares-vii")) ? "/xiaomi-watch" : "https://sonnenblume-tool.vercel.app/xiaomi-watch"}
                 className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-black text-xs px-5 py-3 rounded-xl inline-flex items-center gap-2 cursor-pointer shadow-md shadow-amber-500/20 active:scale-95 transition-all"
               >
                 <Activity className="w-4 h-4 text-[#0b0e0a]" />
@@ -1175,7 +1175,7 @@ export default function Intro() {
               </div>
 
               <a
-                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+                href={typeof window !== "undefined" && (window.location.hostname.includes("localhost") || window.location.hostname.includes("tool") || window.location.hostname.includes("ares-vii")) ? "/app" : "https://sonnenblume-tool.vercel.app"}
                 className="w-full bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-bold text-sm py-3.5 px-4 rounded-xl shadow-lg shadow-amber-500/20 active:scale-95 transition-all text-center flex items-center justify-center gap-2"
               >
                 <Rocket className="w-4 h-4 text-[#0b0e0a]" />
@@ -1365,7 +1365,7 @@ export default function Intro() {
                 </p>
               </div>
               <a
-                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+                href={typeof window !== "undefined" && (window.location.hostname.includes("localhost") || window.location.hostname.includes("tool") || window.location.hostname.includes("ares-vii")) ? "/app" : "https://sonnenblume-tool.vercel.app"}
                 className="w-full bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-bold text-center py-3.5 px-4 rounded-xl shadow-md transition-all block"
               >
                 Open Web Tool Now ↗
@@ -1410,7 +1410,7 @@ export default function Intro() {
                 </p>
               </div>
               <a
-                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/xiaomi-watch" : "https://sonnenblume-tool.vercel.app/xiaomi-watch"}
+                href={typeof window !== "undefined" && (window.location.hostname.includes("localhost") || window.location.hostname.includes("tool") || window.location.hostname.includes("ares-vii")) ? "/xiaomi-watch" : "https://sonnenblume-tool.vercel.app/xiaomi-watch"}
                 className="w-full bg-[#182213] hover:bg-[#28381c] text-white border border-[#3f5231] font-bold text-center py-3.5 px-4 rounded-xl transition-all block"
               >
                 Wearable Telemetry Hub ↗
@@ -1447,7 +1447,7 @@ export default function Intro() {
                 </h3>
               </div>
               <a
-                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+                href={typeof window !== "undefined" && (window.location.hostname.includes("localhost") || window.location.hostname.includes("tool") || window.location.hostname.includes("ares-vii")) ? "/app" : "https://sonnenblume-tool.vercel.app"}
                 className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-black text-sm px-6 py-3 rounded-xl shadow-md transition-all self-start sm:self-auto"
               >
                 Launch Full Cockpit ↗
@@ -1498,7 +1498,7 @@ export default function Intro() {
               </div>
 
               <a
-                href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+                href={typeof window !== "undefined" && (window.location.hostname.includes("localhost") || window.location.hostname.includes("tool") || window.location.hostname.includes("ares-vii")) ? "/app" : "https://sonnenblume-tool.vercel.app"}
                 className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-bold text-base px-8 py-3.5 rounded-xl cursor-pointer shadow-lg shadow-amber-500/20 active:scale-95 transition-all text-center shrink-0"
               >
                 Launch Sonnenblume Tool ↗
@@ -1551,7 +1551,7 @@ export default function Intro() {
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <a
-              href={typeof window !== "undefined" && window.location.hostname.includes("localhost") ? "/app" : "https://sonnenblume-tool.vercel.app"}
+              href={typeof window !== "undefined" && (window.location.hostname.includes("localhost") || window.location.hostname.includes("tool") || window.location.hostname.includes("ares-vii")) ? "/app" : "https://sonnenblume-tool.vercel.app"}
               className="bg-[#fbbf24] hover:bg-[#f59e0b] text-[#0b0e0a] font-black text-lg px-10 py-5 rounded-2xl inline-flex items-center gap-3 shadow-2xl shadow-amber-500/25 cursor-pointer active:scale-95 transition-all"
             >
               <Rocket className="w-6 h-6 text-[#0b0e0a]" />
