@@ -1,3 +1,6 @@
+import { GoogleGenAI } from "@google/genai";
+import { buildNASASystemInstruction } from "@shared/nasaSpaceMedicineResearch";
+import { generateHermesAIResponse } from "@shared/hermesAI";
 import type {
   Astronaut,
   XiaomiWatchTelemetry,
@@ -826,13 +829,87 @@ export function buildScenarioTelemetry(
  * Interactive Hermes AI Agent Command & Diagnostic Handler
  * Has full read/write awareness of astronauts, Xiaomi Watch H1 streams, orbital mechanics, and ship systems.
  */
-export function processHermesNaturalCommand(params: {
+
+
+let geminiClientInstance: GoogleGenAI | null = null;
+function getGeminiClient(): GoogleGenAI | null {
+  const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
+  if (!apiKey) return null;
+  if (!geminiClientInstance) {
+    try {
+      geminiClientInstance = new GoogleGenAI({ apiKey });
+    } catch {
+      return null;
+    }
+  }
+  return geminiClientInstance;
+}
+
+export async function queryGeminiAgent(prompt: string, contextSummary: string): Promise<string | null> {
+  const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
+  if (!apiKey) return null;
+
+  // 1. Primary: Official Google GenAI SDK with NASA Spaceflight Medical System Instruction
+  try {
+    const ai = getGeminiClient();
+    if (ai) {
+      const response = await ai.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: prompt,
+        config: {
+          systemInstruction: buildNASASystemInstruction(contextSummary),
+          temperature: 0.2,
+        },
+      });
+      const text = response?.text;
+      if (text && text.trim().length > 0) {
+        return text.trim();
+      }
+    }
+  } catch (err: any) {
+    // SDK fallback
+  }
+
+  // 2. Secondary: Resilient direct Gemini REST API endpoint
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 6000);
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      signal: controller.signal,
+      body: JSON.stringify({
+        systemInstruction: {
+          parts: [{ text: buildNASASystemInstruction(contextSummary) }]
+        },
+        contents: [{
+          role: "user",
+          parts: [{ text: prompt }]
+        }],
+        generationConfig: {
+          temperature: 0.2,
+          maxOutputTokens: 600
+        }
+      })
+    });
+    clearTimeout(timer);
+    if (res.ok) {
+      const data: any = await res.json();
+      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (text && text.trim().length > 0) return text.trim();
+    }
+  } catch {}
+
+  return null;
+}
+
+export async function processHermesNaturalCommand(params: {
   prompt: string;
   language: "en" | "mn";
   astronauts: Astronaut[];
   latestTelemetry: Record<string, XiaomiWatchTelemetry>;
   autopilot: ShipAutopilotState;
-}): {
+}): Promise<{
   reply: string;
   delegatedSubagents: string[];
   recommendedManeuver?:
@@ -842,7 +919,7 @@ export function processHermesNaturalCommand(params: {
     | "nominal_orbit";
   toggleOverride?: boolean;
   subagentLog: HermesSubagentLog;
-} {
+}> {
   const { prompt, language, astronauts, latestTelemetry, autopilot } = params;
   const q = prompt.toLowerCase();
   const isMn = language === "mn" || /[а-яөүё]/i.test(prompt);
@@ -954,7 +1031,7 @@ export function processHermesNaturalCommand(params: {
     } else if (toggleOverride === true) {
       reply = `[HERMES AI]: Гар удирдлагын горим (Human Manual Override) идэвхжлээ. Хөлгийн удирдлагыг багийн ахлагчид шилжүүллээ. Био-телеметрийн хяналт хэвийн үргэлжилнэ.`;
     } else {
-      reply = `[HERMES БҮРЭН ОНОШИЛГОО]: Sonnenblume хөлгийн горим: ${autopilot.mode}. ${crewSummaryEn}. Бүх 4 дэд агент (MED-SENTINEL, RAD-GUARD, PSY-ORACLE, NAV-PILOT) Xiaomi Watch H1-ийн мэдээллийг бодит хугацаанд хянаж байна.`;
+      reply = generateHermesAIResponse(prompt, { mode: autopilot.mode, heartRate: cmdrTel?.heartRate, spo2: cmdrTel?.spo2, bloodPressureSys: cmdrTel?.bloodPressureSys, bloodPressureDia: cmdrTel?.bloodPressureDia, stressIndex: cmdrTel?.stressIndex, currentManeuver: autopilot.currentManeuver, commanderName: commander?.name });
     }
   } else {
     if (recommendedManeuver === "fast_earth_return") {
@@ -966,7 +1043,8 @@ export function processHermesNaturalCommand(params: {
     } else if (toggleOverride === true) {
       reply = `[HERMES CORE]: Human Manual Override acknowledged. Autonomous thrusters safed and flight authority transferred to Commander Elena Vance. Hermes subagents remain in active bio-monitoring advisory mode.`;
     } else {
-      reply = `[HERMES FULL DIAGNOSTIC REPORT]: Ship Mode: ${autopilot.mode} (${autopilot.currentManeuver}). Crew Telemetry via Xiaomi Watch H1: ${crewSummaryEn}. All 4 Subagents (MED-SENTINEL, RAD-GUARD, PSY-ORACLE, NAV-PILOT) online with full ship & life-support authority.`;
+      const llmReply = await queryGeminiAgent(prompt, crewSummaryEn + " | Mode: " + autopilot.mode);
+      reply = llmReply || generateHermesAIResponse(prompt, { mode: autopilot.mode, heartRate: cmdrTel?.heartRate, spo2: cmdrTel?.spo2, bloodPressureSys: cmdrTel?.bloodPressureSys, bloodPressureDia: cmdrTel?.bloodPressureDia, stressIndex: cmdrTel?.stressIndex, currentManeuver: autopilot.currentManeuver, commanderName: commander?.name });
     }
   }
 

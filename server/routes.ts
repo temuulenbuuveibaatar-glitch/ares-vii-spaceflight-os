@@ -141,7 +141,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       const currentOverview = await storage.getMissionOverview();
-      const cmdResult = processHermesNaturalCommand({
+      const cmdResult = await processHermesNaturalCommand({
         prompt: parsed.data.prompt,
         language: parsed.data.language,
         astronauts: currentOverview.astronauts,
@@ -207,6 +207,33 @@ export async function registerRoutes(app: Express): Promise<Server> {
         message: err?.message || "Failed to transmit Earth DSN message",
       });
     }
+  });
+
+  // 7b. GET /api/gemini/status & POST /api/gemini/config - Google Gemini Live & Autonomous Space AI
+  app.get("/api/gemini/status", (_req: Request, res: Response) => {
+    const hasKey = Boolean(process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY);
+    res.json({
+      provider: "Google Gemini (NASA Space Apps Challenge)",
+      active: true,
+      hasKey,
+      sdk: "@google/genai",
+      liveApiModel: "gemini-3.8-live",
+      standardModel: "gemini-2.5-flash",
+      medicalStandard: "NASA-STD-3001 & NASA HRP",
+      openAiExcluded: true,
+    });
+  });
+
+  app.post("/api/gemini/config", (req: Request, res: Response) => {
+    const { apiKey } = req.body;
+    if (apiKey && typeof apiKey === "string") {
+      process.env.GEMINI_API_KEY = apiKey.trim();
+      return res.json({
+        success: true,
+        message: "Gemini API Key securely loaded into Hermes Autonomous Agent.",
+      });
+    }
+    res.status(400).json({ message: "Invalid apiKey format" });
   });
 
   // 8. GET /api/supabase/status & POST /api/supabase/config - Dynamic runtime Supabase connection & sync

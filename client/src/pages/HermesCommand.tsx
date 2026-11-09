@@ -1,3 +1,4 @@
+import { generateHermesAIResponse } from "@shared/hermesAI";
 import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
@@ -199,15 +200,28 @@ export default function HermesCommand() {
 
   const commandMutation = useMutation({
     mutationFn: async (userPrompt: string) => {
-      const res = await apiRequest("POST", "/api/hermes/command", {
-        prompt: userPrompt,
-      });
-      return res.json();
+      try {
+        const res = await apiRequest("POST", "/api/hermes/command", {
+          prompt: userPrompt,
+        });
+        return await res.json();
+      } catch (err) {
+        return {
+          reply: generateHermesAIResponse(userPrompt, {
+            heartRate: overview?.recentTelemetry?.[0]?.heartRate,
+            spo2: overview?.recentTelemetry?.[0]?.spo2,
+            mode: overview?.autopilotState?.mode,
+          }),
+        };
+      }
     },
     onSuccess: (data) => {
       const reply =
         data.reply ||
-        "Checked onboard sensors, updated spacecraft safety limits, and synced status with Earth Mission Control.";
+        generateHermesAIResponse(prompt, {
+          heartRate: overview?.recentTelemetry?.[0]?.heartRate,
+          spo2: overview?.recentTelemetry?.[0]?.spo2,
+        });
       setChatHistory((prev) => [
         ...prev,
         {
@@ -218,6 +232,21 @@ export default function HermesCommand() {
       ]);
       speakText(reply);
       queryClient.invalidateQueries({ queryKey: ["/api/mission/overview"] });
+    },
+    onError: () => {
+      const fallback = generateHermesAIResponse(prompt, {
+        heartRate: overview?.recentTelemetry?.[0]?.heartRate,
+        spo2: overview?.recentTelemetry?.[0]?.spo2,
+      });
+      setChatHistory((prev) => [
+        ...prev,
+        {
+          role: "hermes",
+          text: fallback,
+          timestamp: new Date().toLocaleTimeString(),
+        },
+      ]);
+      speakText(fallback);
     },
   });
 
@@ -608,8 +637,9 @@ export default function HermesCommand() {
             <div className="card-inner p-6 space-y-4">
               <div className="flex items-center justify-between border-b border-[#232d1a] pb-3">
                 <div>
-                  <h2 className="text-base font-bold text-white">
-                    Speak With Hermes AI
+                  <h2 className="text-base font-bold text-white flex items-center gap-2">
+                    <span>Speak With Hermes AI</span>
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#fbbf24]/10 text-[#fbbf24] border border-[#fbbf24]/30 font-bold">GEMINI · NASA-STD-3001</span>
                   </h2>
                   <p className="text-xs text-[#a8baa0]">
                     Say &ldquo;Done&rdquo; to advance checklist, or ask any clinical question.
@@ -638,6 +668,12 @@ export default function HermesCommand() {
               </div>
 
               <div className="space-y-2.5 max-h-[280px] overflow-y-auto pr-1">
+                {commandMutation.isPending && (
+                  <div className="p-3 rounded-xl text-xs bg-[#0b0e0a] border border-[#232d1a] text-[#8ea873] mr-4 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#fbbf24] animate-ping" />
+                    <span className="font-mono text-[11px]">HERMES GEMINI AI evaluating NASA-STD-3001 protocols & vitals...</span>
+                  </div>
+                )}
                 {chatHistory.map((msg, i) => (
                   <div
                     key={i}

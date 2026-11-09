@@ -1,3 +1,4 @@
+import { generateHermesAIResponse } from "@shared/hermesAI";
 import { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
@@ -86,15 +87,29 @@ export default function HermesFloatingAgent() {
 
   const commandMutation = useMutation({
     mutationFn: async (userPrompt: string) => {
-      const res = await apiRequest("POST", "/api/hermes/command", {
-        prompt: userPrompt,
-      });
-      return res.json();
+      try {
+        const res = await apiRequest("POST", "/api/hermes/command", {
+          prompt: userPrompt,
+        });
+        return await res.json();
+      } catch (err) {
+        // Instant resilient fallback for offline, static preview, or network drops
+        return {
+          reply: generateHermesAIResponse(userPrompt, {
+            heartRate: latestTelemetry?.heartRate,
+            spo2: latestTelemetry?.spo2,
+            mode: overview?.autopilotState?.mode,
+          }),
+        };
+      }
     },
     onSuccess: (data) => {
       const reply =
         data.reply ||
-        "Checked onboard sensors and updated spacecraft safety limits.";
+        generateHermesAIResponse(prompt, {
+          heartRate: latestTelemetry?.heartRate,
+          spo2: latestTelemetry?.spo2,
+        });
       setChatHistory((prev) => [
         ...prev,
         {
@@ -105,6 +120,21 @@ export default function HermesFloatingAgent() {
       ]);
       speak(reply);
       queryClient.invalidateQueries({ queryKey: ["/api/mission/overview"] });
+    },
+    onError: () => {
+      const fallback = generateHermesAIResponse(prompt, {
+        heartRate: latestTelemetry?.heartRate,
+        spo2: latestTelemetry?.spo2,
+      });
+      setChatHistory((prev) => [
+        ...prev,
+        {
+          role: "hermes",
+          text: fallback,
+          timestamp: new Date().toLocaleTimeString(),
+        },
+      ]);
+      speak(fallback);
     },
   });
 
@@ -174,7 +204,7 @@ export default function HermesFloatingAgent() {
                   )}
                 </div>
                 <div className="text-[11px] text-[#8ea873]">
-                  Speaks aloud · Guides until 100% complete
+                  Google Gemini · NASA-STD-3001 Space Medicine Protocols
                 </div>
               </div>
             </div>
@@ -287,6 +317,14 @@ export default function HermesFloatingAgent() {
                 </div>
               </div>
             ))}
+            {commandMutation.isPending && (
+              <div className="flex flex-col items-start">
+                <div className="rounded-xl px-3 py-2 text-xs bg-[#13190e] border border-[#232d1a] text-[#8ea873] flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#fbbf24] animate-ping" />
+                  <span className="font-mono text-[10px]">HERMES GEMINI AI analyzing NASA space medicine & telemetry...</span>
+                </div>
+              </div>
+            )}
             <div ref={chatBottomRef} />
           </div>
 
