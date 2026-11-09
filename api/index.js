@@ -14484,6 +14484,14 @@ var require_text = __commonJS({
   }
 });
 
+// node_modules/es-object-atoms/index.js
+var require_es_object_atoms = __commonJS({
+  "node_modules/es-object-atoms/index.js"(exports, module) {
+    "use strict";
+    module.exports = Object;
+  }
+});
+
 // node_modules/es-errors/index.js
 var require_es_errors = __commonJS({
   "node_modules/es-errors/index.js"(exports, module) {
@@ -14540,6 +14548,118 @@ var require_uri = __commonJS({
   }
 });
 
+// node_modules/math-intrinsics/abs.js
+var require_abs = __commonJS({
+  "node_modules/math-intrinsics/abs.js"(exports, module) {
+    "use strict";
+    module.exports = Math.abs;
+  }
+});
+
+// node_modules/math-intrinsics/floor.js
+var require_floor = __commonJS({
+  "node_modules/math-intrinsics/floor.js"(exports, module) {
+    "use strict";
+    module.exports = Math.floor;
+  }
+});
+
+// node_modules/math-intrinsics/max.js
+var require_max = __commonJS({
+  "node_modules/math-intrinsics/max.js"(exports, module) {
+    "use strict";
+    module.exports = Math.max;
+  }
+});
+
+// node_modules/math-intrinsics/min.js
+var require_min = __commonJS({
+  "node_modules/math-intrinsics/min.js"(exports, module) {
+    "use strict";
+    module.exports = Math.min;
+  }
+});
+
+// node_modules/math-intrinsics/pow.js
+var require_pow = __commonJS({
+  "node_modules/math-intrinsics/pow.js"(exports, module) {
+    "use strict";
+    module.exports = Math.pow;
+  }
+});
+
+// node_modules/math-intrinsics/round.js
+var require_round = __commonJS({
+  "node_modules/math-intrinsics/round.js"(exports, module) {
+    "use strict";
+    module.exports = Math.round;
+  }
+});
+
+// node_modules/math-intrinsics/isNaN.js
+var require_isNaN = __commonJS({
+  "node_modules/math-intrinsics/isNaN.js"(exports, module) {
+    "use strict";
+    module.exports = Number.isNaN || function isNaN2(a) {
+      return a !== a;
+    };
+  }
+});
+
+// node_modules/math-intrinsics/sign.js
+var require_sign = __commonJS({
+  "node_modules/math-intrinsics/sign.js"(exports, module) {
+    "use strict";
+    var $isNaN = require_isNaN();
+    module.exports = function sign(number) {
+      if ($isNaN(number) || number === 0) {
+        return number;
+      }
+      return number < 0 ? -1 : 1;
+    };
+  }
+});
+
+// node_modules/gopd/gOPD.js
+var require_gOPD = __commonJS({
+  "node_modules/gopd/gOPD.js"(exports, module) {
+    "use strict";
+    module.exports = Object.getOwnPropertyDescriptor;
+  }
+});
+
+// node_modules/gopd/index.js
+var require_gopd = __commonJS({
+  "node_modules/gopd/index.js"(exports, module) {
+    "use strict";
+    var $gOPD = require_gOPD();
+    if ($gOPD) {
+      try {
+        $gOPD([], "length");
+      } catch (e2) {
+        $gOPD = null;
+      }
+    }
+    module.exports = $gOPD;
+  }
+});
+
+// node_modules/es-define-property/index.js
+var require_es_define_property = __commonJS({
+  "node_modules/es-define-property/index.js"(exports, module) {
+    "use strict";
+    var $defineProperty = Object.defineProperty || false;
+    if ($defineProperty) {
+      try {
+        $defineProperty({}, "a", { value: 1 });
+      } catch (e2) {
+        $defineProperty = false;
+      }
+    }
+    module.exports = $defineProperty;
+  }
+});
+
 // node_modules/has-symbols/shams.js
 var require_shams = __commonJS({
   "node_modules/has-symbols/shams.js"(exports, module) {
@@ -14565,7 +14685,7 @@ var require_shams = __commonJS({
       }
       var symVal = 42;
       obj[sym] = symVal;
-      for (sym in obj) {
+      for (var _ in obj) {
         return false;
       }
       if (typeof Object.keys === "function" && Object.keys(obj).length !== 0) {
@@ -14582,7 +14702,10 @@ var require_shams = __commonJS({
         return false;
       }
       if (typeof Object.getOwnPropertyDescriptor === "function") {
-        var descriptor = Object.getOwnPropertyDescriptor(obj, sym);
+        var descriptor = (
+          /** @type {PropertyDescriptor} */
+          Object.getOwnPropertyDescriptor(obj, sym)
+        );
         if (descriptor.value !== symVal || descriptor.enumerable !== true) {
           return false;
         }
@@ -14616,18 +14739,20 @@ var require_has_symbols = __commonJS({
   }
 });
 
-// node_modules/has-proto/index.js
-var require_has_proto = __commonJS({
-  "node_modules/has-proto/index.js"(exports, module) {
+// node_modules/get-proto/Reflect.getPrototypeOf.js
+var require_Reflect_getPrototypeOf = __commonJS({
+  "node_modules/get-proto/Reflect.getPrototypeOf.js"(exports, module) {
     "use strict";
-    var test = {
-      __proto__: null,
-      foo: {}
-    };
-    var $Object = Object;
-    module.exports = function hasProto() {
-      return { __proto__: test }.foo === test.foo && !(test instanceof $Object);
-    };
+    module.exports = typeof Reflect !== "undefined" && Reflect.getPrototypeOf || null;
+  }
+});
+
+// node_modules/get-proto/Object.getPrototypeOf.js
+var require_Object_getPrototypeOf = __commonJS({
+  "node_modules/get-proto/Object.getPrototypeOf.js"(exports, module) {
+    "use strict";
+    var $Object = require_es_object_atoms();
+    module.exports = $Object.getPrototypeOf || null;
   }
 });
 
@@ -14716,6 +14841,110 @@ var require_function_bind = __commonJS({
   }
 });
 
+// node_modules/call-bind-apply-helpers/functionCall.js
+var require_functionCall = __commonJS({
+  "node_modules/call-bind-apply-helpers/functionCall.js"(exports, module) {
+    "use strict";
+    module.exports = Function.prototype.call;
+  }
+});
+
+// node_modules/call-bind-apply-helpers/functionApply.js
+var require_functionApply = __commonJS({
+  "node_modules/call-bind-apply-helpers/functionApply.js"(exports, module) {
+    "use strict";
+    module.exports = Function.prototype.apply;
+  }
+});
+
+// node_modules/call-bind-apply-helpers/reflectApply.js
+var require_reflectApply = __commonJS({
+  "node_modules/call-bind-apply-helpers/reflectApply.js"(exports, module) {
+    "use strict";
+    module.exports = typeof Reflect !== "undefined" && Reflect && Reflect.apply;
+  }
+});
+
+// node_modules/call-bind-apply-helpers/actualApply.js
+var require_actualApply = __commonJS({
+  "node_modules/call-bind-apply-helpers/actualApply.js"(exports, module) {
+    "use strict";
+    var bind = require_function_bind();
+    var $apply = require_functionApply();
+    var $call = require_functionCall();
+    var $reflectApply = require_reflectApply();
+    module.exports = $reflectApply || bind.call($call, $apply);
+  }
+});
+
+// node_modules/call-bind-apply-helpers/index.js
+var require_call_bind_apply_helpers = __commonJS({
+  "node_modules/call-bind-apply-helpers/index.js"(exports, module) {
+    "use strict";
+    var bind = require_function_bind();
+    var $TypeError = require_type();
+    var $call = require_functionCall();
+    var $actualApply = require_actualApply();
+    module.exports = function callBindBasic(args) {
+      if (args.length < 1 || typeof args[0] !== "function") {
+        throw new $TypeError("a function is required");
+      }
+      return $actualApply(bind, $call, args);
+    };
+  }
+});
+
+// node_modules/dunder-proto/get.js
+var require_get = __commonJS({
+  "node_modules/dunder-proto/get.js"(exports, module) {
+    "use strict";
+    var callBind = require_call_bind_apply_helpers();
+    var gOPD = require_gopd();
+    var hasProtoAccessor;
+    try {
+      hasProtoAccessor = /** @type {{ __proto__?: typeof Array.prototype }} */
+      [].__proto__ === Array.prototype;
+    } catch (e2) {
+      if (!e2 || typeof e2 !== "object" || !("code" in e2) || e2.code !== "ERR_PROTO_ACCESS") {
+        throw e2;
+      }
+    }
+    var desc = !!hasProtoAccessor && gOPD && gOPD(
+      Object.prototype,
+      /** @type {keyof typeof Object.prototype} */
+      "__proto__"
+    );
+    var $Object = Object;
+    var $getPrototypeOf = $Object.getPrototypeOf;
+    module.exports = desc && typeof desc.get === "function" ? callBind([desc.get]) : typeof $getPrototypeOf === "function" ? (
+      /** @type {import('./get')} */
+      function getDunder(value) {
+        return $getPrototypeOf(value == null ? value : $Object(value));
+      }
+    ) : false;
+  }
+});
+
+// node_modules/get-proto/index.js
+var require_get_proto = __commonJS({
+  "node_modules/get-proto/index.js"(exports, module) {
+    "use strict";
+    var reflectGetProto = require_Reflect_getPrototypeOf();
+    var originalGetProto = require_Object_getPrototypeOf();
+    var getDunderProto = require_get();
+    module.exports = reflectGetProto ? function getProto(O) {
+      return reflectGetProto(O);
+    } : originalGetProto ? function getProto(O) {
+      if (!O || typeof O !== "object" && typeof O !== "function") {
+        throw new TypeError("getProto: not an object");
+      }
+      return originalGetProto(O);
+    } : getDunderProto ? function getProto(O) {
+      return getDunderProto(O);
+    } : null;
+  }
+});
+
 // node_modules/hasown/index.js
 var require_hasown = __commonJS({
   "node_modules/hasown/index.js"(exports, module) {
@@ -14732,6 +14961,7 @@ var require_get_intrinsic = __commonJS({
   "node_modules/get-intrinsic/index.js"(exports, module) {
     "use strict";
     var undefined2;
+    var $Object = require_es_object_atoms();
     var $Error = require_es_errors();
     var $EvalError = require_eval();
     var $RangeError = require_range();
@@ -14739,6 +14969,13 @@ var require_get_intrinsic = __commonJS({
     var $SyntaxError = require_syntax();
     var $TypeError = require_type();
     var $URIError = require_uri();
+    var abs = require_abs();
+    var floor = require_floor();
+    var max = require_max();
+    var min = require_min();
+    var pow = require_pow();
+    var round = require_round();
+    var sign = require_sign();
     var $Function = Function;
     var getEvalledConstructor = function(expressionSyntax) {
       try {
@@ -14746,14 +14983,8 @@ var require_get_intrinsic = __commonJS({
       } catch (e2) {
       }
     };
-    var $gOPD = Object.getOwnPropertyDescriptor;
-    if ($gOPD) {
-      try {
-        $gOPD({}, "");
-      } catch (e2) {
-        $gOPD = null;
-      }
-    }
+    var $gOPD = require_gopd();
+    var $defineProperty = require_es_define_property();
     var throwTypeError = function() {
       throw new $TypeError();
     };
@@ -14770,10 +15001,11 @@ var require_get_intrinsic = __commonJS({
       }
     }() : throwTypeError;
     var hasSymbols = require_has_symbols()();
-    var hasProto = require_has_proto()();
-    var getProto = Object.getPrototypeOf || (hasProto ? function(x2) {
-      return x2.__proto__;
-    } : null);
+    var getProto = require_get_proto();
+    var $ObjectGPO = require_Object_getPrototypeOf();
+    var $ReflectGPO = require_Reflect_getPrototypeOf();
+    var $apply = require_functionApply();
+    var $call = require_functionCall();
     var needsEval = {};
     var TypedArray = typeof Uint8Array === "undefined" || !getProto ? undefined2 : getProto(Uint8Array);
     var INTRINSICS = {
@@ -14802,6 +15034,7 @@ var require_get_intrinsic = __commonJS({
       "%eval%": eval,
       // eslint-disable-line no-eval
       "%EvalError%": $EvalError,
+      "%Float16Array%": typeof Float16Array === "undefined" ? undefined2 : Float16Array,
       "%Float32Array%": typeof Float32Array === "undefined" ? undefined2 : Float32Array,
       "%Float64Array%": typeof Float64Array === "undefined" ? undefined2 : Float64Array,
       "%FinalizationRegistry%": typeof FinalizationRegistry === "undefined" ? undefined2 : FinalizationRegistry,
@@ -14818,7 +15051,8 @@ var require_get_intrinsic = __commonJS({
       "%MapIteratorPrototype%": typeof Map === "undefined" || !hasSymbols || !getProto ? undefined2 : getProto((/* @__PURE__ */ new Map())[Symbol.iterator]()),
       "%Math%": Math,
       "%Number%": Number,
-      "%Object%": Object,
+      "%Object%": $Object,
+      "%Object.getOwnPropertyDescriptor%": $gOPD,
       "%parseFloat%": parseFloat,
       "%parseInt%": parseInt,
       "%Promise%": typeof Promise === "undefined" ? undefined2 : Promise,
@@ -14844,7 +15078,19 @@ var require_get_intrinsic = __commonJS({
       "%URIError%": $URIError,
       "%WeakMap%": typeof WeakMap === "undefined" ? undefined2 : WeakMap,
       "%WeakRef%": typeof WeakRef === "undefined" ? undefined2 : WeakRef,
-      "%WeakSet%": typeof WeakSet === "undefined" ? undefined2 : WeakSet
+      "%WeakSet%": typeof WeakSet === "undefined" ? undefined2 : WeakSet,
+      "%Function.prototype.call%": $call,
+      "%Function.prototype.apply%": $apply,
+      "%Object.defineProperty%": $defineProperty,
+      "%Object.getPrototypeOf%": $ObjectGPO,
+      "%Math.abs%": abs,
+      "%Math.floor%": floor,
+      "%Math.max%": max,
+      "%Math.min%": min,
+      "%Math.pow%": pow,
+      "%Math.round%": round,
+      "%Math.sign%": sign,
+      "%Reflect.getPrototypeOf%": $ReflectGPO
     };
     if (getProto) {
       try {
@@ -14933,11 +15179,11 @@ var require_get_intrinsic = __commonJS({
     };
     var bind = require_function_bind();
     var hasOwn2 = require_hasown();
-    var $concat = bind.call(Function.call, Array.prototype.concat);
-    var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
-    var $replace = bind.call(Function.call, String.prototype.replace);
-    var $strSlice = bind.call(Function.call, String.prototype.slice);
-    var $exec = bind.call(Function.call, RegExp.prototype.exec);
+    var $concat = bind.call($call, Array.prototype.concat);
+    var $spliceApply = bind.call($apply, Array.prototype.splice);
+    var $replace = bind.call($call, String.prototype.replace);
+    var $strSlice = bind.call($call, String.prototype.slice);
+    var $exec = bind.call($call, RegExp.prototype.exec);
     var rePropName = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
     var reEscapeChar = /\\(\\)?/g;
     var stringToPath = function stringToPath2(string) {
@@ -15038,40 +15284,6 @@ var require_get_intrinsic = __commonJS({
       }
       return value;
     };
-  }
-});
-
-// node_modules/es-define-property/index.js
-var require_es_define_property = __commonJS({
-  "node_modules/es-define-property/index.js"(exports, module) {
-    "use strict";
-    var GetIntrinsic = require_get_intrinsic();
-    var $defineProperty = GetIntrinsic("%Object.defineProperty%", true) || false;
-    if ($defineProperty) {
-      try {
-        $defineProperty({}, "a", { value: 1 });
-      } catch (e2) {
-        $defineProperty = false;
-      }
-    }
-    module.exports = $defineProperty;
-  }
-});
-
-// node_modules/gopd/index.js
-var require_gopd = __commonJS({
-  "node_modules/gopd/index.js"(exports, module) {
-    "use strict";
-    var GetIntrinsic = require_get_intrinsic();
-    var $gOPD = GetIntrinsic("%Object.getOwnPropertyDescriptor%", true);
-    if ($gOPD) {
-      try {
-        $gOPD([], "length");
-      } catch (e2) {
-        $gOPD = null;
-      }
-    }
-    module.exports = $gOPD;
   }
 });
 
@@ -84556,7 +84768,7 @@ function getApiKeyFromEnv() {
 }
 
 // shared/nasaSpaceMedicineResearch.ts
-var NASA_SPACE_MEDICINE_DATABASE2 = {
+var NASA_SPACE_MEDICINE_DATABASE = {
   MICROGRAVITY_CPR: {
     id: "microgravity_cpr",
     name: "0G Cardiopulmonary Resuscitation (ACLS Microgravity)",
@@ -84719,7 +84931,7 @@ var NASA_SPACE_MEDICINE_DATABASE2 = {
   }
 };
 function buildNASASystemInstruction(contextSummary) {
-  const protocolsText = Object.values(NASA_SPACE_MEDICINE_DATABASE2).map(
+  const protocolsText = Object.values(NASA_SPACE_MEDICINE_DATABASE).map(
     (p) => `### ${p.name} (${p.code})
 Standard: ${p.standard}
 Pathophysiology: ${p.mechanism}
@@ -84759,200 +84971,88 @@ function generateHermesAIResponse(prompt, context) {
   const bpDia = context?.bloodPressureDia ?? 78;
   if (/^(hi|hello|hey|greetings|howdy|good\s*(morning|afternoon|evening|day)|who are you|what are you|what can you do)/i.test(q)) {
     if (isMn) {
-      return `\u0421\u0430\u0439\u043D \u0431\u0430\u0439\u043D\u0430 \u0443\u0443! \u0411\u0438 \u0431\u043E\u043B \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u043D\u0438\u0441\u043B\u044D\u0433\u0438\u0439\u043D \u0430\u043D\u0430\u0433\u0430\u0430\u0445 \u0443\u0445\u0430\u0430\u043D \u0431\u043E\u043B\u043E\u043D \u0445\u04E9\u043B\u0433\u0438\u0439\u043D \u0443\u0434\u0438\u0440\u0434\u043B\u0430\u0433\u044B\u043D \u0442\u0443\u0441\u043B\u0430\u0445 Hermes \u0431\u0430\u0439\u043D\u0430. \u0422\u0430\u043D\u044B Xiaomi Watch H1 \u0443\u0445\u0430\u0430\u043B\u0430\u0433 \u0446\u0430\u0433\u043D\u044B \u043C\u044D\u0434\u044D\u044D\u043B\u044D\u043B \u0445\u044D\u0432\u0438\u0439\u043D (\u0437\u04AF\u0440\u0445\u043D\u0438\u0439 \u0446\u043E\u0445\u0438\u043B\u0442 ${hr} BPM, \u0445\u04AF\u0447\u0438\u043B\u0442\u04E9\u0440\u04E9\u0433\u0447\u0438\u0439\u043D \u0445\u0430\u043D\u0430\u043B\u0442 ${spo2}%). \u0421\u0430\u043D\u0441\u0440\u044B\u043D \u0444\u0438\u0437\u0438\u043E\u043B\u043E\u0433\u0438, \u0445\u04AF\u043D\u0438\u0439 \u0431\u0438\u0435\u0434 \u0433\u0430\u0440\u0430\u0445 \u04E9\u04E9\u0440\u0447\u043B\u04E9\u043B\u0442, \u0442\u043E\u0439\u0440\u043E\u0433 \u0437\u0430\u043C\u044B\u043D \u043C\u0430\u043D\u0435\u0432\u0440 \u044D\u0441\u0432\u044D\u043B \u044F\u0430\u0440\u0430\u043B\u0442\u0430\u0439 \u0442\u0443\u0441\u043B\u0430\u043C\u0436\u0438\u0439\u043D \u0442\u0430\u043B\u0430\u0430\u0440 \u0441\u043E\u043D\u0438\u0440\u0445\u0441\u043E\u043D \u0437\u04AF\u0439\u043B\u044D\u044D \u0430\u0441\u0443\u0443\u0433\u0430\u0430\u0440\u0430\u0439.`;
+      return `\u0421\u0430\u0439\u043D \u0431\u0430\u0439\u043D\u0430 \u0443\u0443 Commander. \u0411\u0438 \u0431\u043E\u043B \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u043D\u0438\u0441\u043B\u044D\u0433\u0438\u0439\u043D \u0430\u043D\u0430\u0433\u0430\u0430\u0445 \u0443\u0445\u0430\u0430\u043D \u0431\u043E\u043B\u043E\u043D \u0445\u04E9\u043B\u0433\u0438\u0439\u043D \u0430\u0432\u0442\u043E\u043D\u043E\u043C \u0443\u0434\u0438\u0440\u0434\u043B\u0430\u0433\u044B\u043D \u0442\u0443\u0441\u043B\u0430\u0445 Hermes \u0431\u0430\u0439\u043D\u0430. \u0422\u0430\u043D\u044B Xiaomi Watch H1 \u0443\u0445\u0430\u0430\u043B\u0430\u0433 \u0446\u0430\u0433\u043D\u044B \u0442\u0435\u043B\u0435\u043C\u0435\u0442\u0440 \u0445\u044D\u0432\u0438\u0439\u043D \u0445\u043E\u043B\u0431\u043E\u0433\u0434\u0441\u043E\u043D, \u0437\u04AF\u0440\u0445\u043D\u0438\u0439 \u0446\u043E\u0445\u0438\u043B\u0442 ${hr} BPM, \u0445\u04AF\u0447\u0438\u043B\u0442\u04E9\u0440\u04E9\u0433\u0447\u0438\u0439\u043D \u0445\u0430\u043D\u0430\u043B\u0442 ${spo2} \u0445\u0443\u0432\u044C\u0442\u0430\u0439 \u0431\u0430\u0439\u043D\u0430. \u0411\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u043B\u044B\u043D \u0444\u0438\u0437\u0438\u043E\u043B\u043E\u0433\u0438\u0439\u043D \u043D\u04E9\u043B\u04E9\u04E9, \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u044D\u043C\u043D\u044D\u043B\u0433\u0438\u0439\u043D \u044F\u0430\u0440\u0430\u043B\u0442\u0430\u0439 \u0442\u0443\u0441\u043B\u0430\u043C\u0436 \u0431\u043E\u043B\u043E\u043D \u0445\u04E9\u043B\u0433\u0438\u0439\u043D \u0442\u043E\u0439\u0440\u043E\u0433 \u0437\u0430\u043C\u044B\u043D \u043C\u0430\u043D\u0435\u0432\u0440\u044B\u043D \u0442\u0430\u043B\u0430\u0430\u0440 \u044E\u0443 \u0441\u043E\u043D\u0438\u0440\u0445\u043E\u0436 \u0431\u0430\u0439\u043D\u0430 \u0432\u044D?`;
     }
-    return `Hello Commander. I am Hermes, your onboard aerospace medicine and flight partner. I monitor your live Xiaomi Watch H1 biometric stream (currently HR ${hr} BPM, SpO\u2082 ${spo2}%, BP ${bpSys}/${bpDia} mmHg) and assist with clinical space emergency protocols, trajectory calculations, and environmental life support.
-
-What would you like to explore or check right now?`;
+    return `Hello Commander. I am Hermes, your onboard aerospace medicine and flight operations AI. I continuously track your real-time biometrics through your Xiaomi Watch H1 (currently sitting at ${hr} BPM, ${spo2}% oxygen saturation, and ${bpSys} over ${bpDia} millimeters of mercury) while running autonomous NASA-STD-3001 spaceflight clinical protocols and trajectory solutions. What would you like to examine?`;
   }
   if (q.includes("human bod") || q.includes("bodies") || q.includes("body in space") || q.includes("in space") || q.includes("weightless") || q.includes("microgravity") || q.includes("physiology") || q.includes("spaceflight adaptation") || q.includes("what happens to the body") || q.includes("what happens to us") || q.includes("what happens to human") || q.includes("\u0441\u0430\u043D\u0441\u0430\u0440\u0442 \u0445\u04AF\u043D\u0438\u0439 \u0431\u0438\u0435")) {
     if (isMn) {
-      return `\u0421\u0430\u043D\u0441\u0430\u0440\u0442 \u0445\u04AF\u043D \u043E\u0447\u0438\u0445\u043E\u0434 \u0431\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B \u0431\u043E\u043B\u043E\u043D \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u043E\u0440\u0447\u043D\u044B \u043D\u04E9\u043B\u04E9\u04E9\u0433\u04E9\u04E9\u0440 \u0431\u0438\u0435\u0434 \u0445\u044D\u0434 \u0445\u044D\u0434\u044D\u043D \u0442\u043E\u043C\u043E\u043E\u0445\u043E\u043D \u04E9\u04E9\u0440\u0447\u043B\u04E9\u043B\u0442 \u0433\u0430\u0440\u0434\u0430\u0433.
+      return `\u0421\u0430\u043D\u0441\u0430\u0440\u0442 \u0445\u04AF\u043D \u043E\u0447\u0438\u0445\u043E\u0434 \u0431\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B \u0445\u04AF\u043D\u0438\u0439 \u0444\u0438\u0437\u0438\u043E\u043B\u043E\u0433\u0438\u0439\u0433 \u043C\u0430\u0448 \u0445\u0443\u0440\u0434\u0430\u043D \u0431\u04E9\u0433\u04E9\u04E9\u0434 \u0441\u0443\u0443\u0440\u0438\u0430\u0440 \u043D\u044C \u04E9\u04E9\u0440\u0447\u0438\u043B\u0436 \u044D\u0445\u044D\u043B\u0434\u044D\u0433. \u0414\u044D\u043B\u0445\u0438\u0439\u043D 1G \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B \u0431\u0430\u0439\u0445\u0433\u04AF\u0439 \u0431\u043E\u043B\u0441\u043D\u043E\u043E\u0440 \u0445\u04E9\u043B\u043D\u0438\u0439 \u0446\u0443\u0441, \u0448\u0438\u043D\u0433\u044D\u043D\u0438\u0439\u0433 \u0434\u043E\u043E\u0448 \u0442\u0430\u0442\u0430\u0445 \u0445\u04AF\u0447 \u04AF\u0433\u04AF\u0439 \u0431\u043E\u043B\u0436, \u0445\u043E\u0451\u0440 \u043E\u0440\u0447\u0438\u043C \u043B\u0438\u0442\u0440 \u0432\u0435\u043D\u0438\u0439\u043D \u0448\u0438\u043D\u0433\u044D\u043D \u0446\u044D\u044D\u0436 \u0431\u0430 \u0442\u043E\u043B\u0433\u043E\u0439 \u0440\u0443\u0443 \u043E\u0433\u0446\u043E\u043C \u0448\u0438\u043B\u0436\u0434\u044D\u0433. \u04AE\u04AF\u043D\u044D\u044D\u0441 \u04AF\u04AF\u0434\u044D\u043D \u043D\u04AF\u04AF\u0440 \u0445\u04E9\u04E9\u043D\u0433\u04E9\u0442\u04E9\u0436, \u0445\u0430\u043C\u0430\u0440 \u0431\u0438\u0442\u04AF\u04AF\u0440\u0447, \u0433\u0430\u0432\u043B\u044B\u043D \u0434\u043E\u0442\u043E\u043E\u0434 \u0432\u0435\u043D\u0438\u0439\u043D \u0434\u0430\u0440\u0430\u043B\u0442 \u0442\u043E\u0433\u0442\u043C\u043E\u043B \u04E9\u043D\u0434\u04E9\u0440 \u0431\u043E\u043B\u0434\u043E\u0433. \u042D\u043D\u044D\u0445\u04AF\u04AF \u0434\u0430\u0440\u0430\u043B\u0442 \u043D\u044C \u043D\u04AF\u0434\u043D\u0438\u0439 \u0430\u0440\u044B\u043D \u0445\u044D\u0441\u0433\u0438\u0439\u0433 \u0445\u0430\u0432\u0442\u0433\u0430\u0439\u0440\u0443\u0443\u043B\u0430\u043D \u0445\u0430\u0440\u0430\u0430\u043D\u044B \u043C\u044D\u0434\u0440\u044D\u043B\u0438\u0439\u0433 \u0445\u0430\u0432\u0434\u0443\u0443\u043B\u0434\u0430\u0433 \u0431\u04E9\u0433\u04E9\u04E9\u0434 \u04AF\u04AF\u043D\u0438\u0439\u0433 \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0445\u0430\u0440\u0430\u0430-\u043C\u044D\u0434\u0440\u044D\u043B\u0438\u0439\u043D \u0445\u0430\u043C \u0448\u0438\u043D\u0436 \u0431\u0443\u044E\u0443 SANS \u0433\u044D\u0436 \u043D\u044D\u0440\u043B\u044D\u0434\u044D\u0433.
 
-\u041D\u044D\u0433\u0434\u04AF\u0433\u044D\u044D\u0440\u0442, \u0448\u0438\u043D\u0433\u044D\u043D\u0438\u0439 \u0434\u044D\u044D\u0448 \u0447\u0438\u0433\u043B\u044D\u0441\u044D\u043D \u0448\u0438\u043B\u0436\u0438\u043B\u0442 (Cephalad fluid shift) \u044F\u0432\u0430\u0433\u0434\u0430\u043D\u0430. \u0411\u0438\u0434\u043D\u0438\u0439 \u0431\u0438\u0435 \u0434\u044D\u043B\u0445\u0438\u0439\u043D 1G \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B\u0434 \u0437\u043E\u0445\u0438\u0446\u0441\u043E\u043D \u0431\u0430\u0439\u0434\u0430\u0433 \u0442\u0443\u043B \u0441\u0430\u043D\u0441\u0430\u0440\u0442 \u0445\u04E9\u043B\u043D\u0438\u0439 \u0446\u0443\u0441, \u0448\u0438\u043D\u0433\u044D\u043D\u0438\u0439\u0433 \u0434\u043E\u043E\u0448 \u0442\u0430\u0442\u0430\u0445 \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B \u04AF\u0433\u04AF\u0439 \u0431\u043E\u043B\u0436, \u043E\u0439\u0440\u043E\u043B\u0446\u043E\u043E\u0433\u043E\u043E\u0440 1.5\u20132 \u043B\u0438\u0442\u0440 \u0448\u0438\u043D\u0433\u044D\u043D \u0446\u044D\u044D\u0436 \u0431\u0430 \u0442\u043E\u043B\u0433\u043E\u0439 \u0440\u0443\u0443 \u0448\u0438\u043B\u0436\u0434\u044D\u0433. \u04AE\u04AF\u043D\u044D\u044D\u0441 \u0431\u043E\u043B\u0436 \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u043D\u0438\u0441\u0433\u044D\u0433\u0447\u0434\u0438\u0439\u043D \u043D\u04AF\u04AF\u0440 \u0445\u04E9\u04E9\u043D\u0433\u04E9\u0442\u04E9\u0436, \u0445\u0430\u043C\u0430\u0440 \u0431\u0438\u0442\u04AF\u04AF\u0440\u0447, \u0445\u04E9\u043B \u043D\u044C \u043D\u0430\u0440\u0438\u0439\u0441\u0434\u0430\u0433 ("\u0448\u0443\u0432\u0443\u0443\u043D\u044B \u0445\u04E9\u043B" \u0445\u0430\u043C \u0448\u0438\u043D\u0436). \u0417\u04AF\u0440\u0445 \u043D\u044C \u0442\u0430\u0442\u0430\u043B\u0446\u043B\u044B\u0433 \u0441\u04E9\u0440\u0436 \u0430\u0436\u0438\u043B\u043B\u0430\u0445 \u0448\u0430\u0430\u0440\u0434\u043B\u0430\u0433\u0430\u0433\u04AF\u0439 \u0431\u043E\u043B\u0434\u043E\u0433 \u0442\u0443\u043B \u0437\u04AF\u0440\u0445\u043D\u0438\u0439 \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0438\u0439\u043D \u043C\u0430\u0441\u0441 \u0431\u0430\u0433\u0430 \u0437\u044D\u0440\u044D\u0433 \u0436\u0438\u0436\u0433\u044D\u0440\u0434\u044D\u0433.
-
-\u0425\u043E\u0451\u0440\u0434\u0443\u0433\u0430\u0430\u0440\u0442, \u044F\u0441 \u0431\u043E\u043B\u043E\u043D \u0431\u0443\u043B\u0447\u0438\u043D \u044D\u0440\u0447\u0438\u043C\u0442\u044D\u0439 \u0441\u0443\u043B\u0430\u0440\u043D\u0430. \u0425\u04AF\u043D \u04E9\u04E9\u0440\u0438\u0439\u043D \u0431\u0438\u0435\u0438\u0439\u043D \u0436\u0438\u043D\u0433 \u0434\u0430\u0430\u0445 \u0448\u0430\u0430\u0440\u0434\u043B\u0430\u0433\u0430\u0433\u04AF\u0439 \u0442\u0443\u043B \u0441\u0430\u0440 \u0431\u04AF\u0440 \u044F\u0441\u043D\u044B \u044D\u0440\u0434\u044D\u0441\u0438\u0439\u043D \u043D\u044F\u0433\u0442\u0440\u0430\u043B (\u044F\u043B\u0430\u043D\u0433\u0443\u044F\u0430 \u043D\u0443\u0440\u0443\u0443 \u0431\u043E\u043B\u043E\u043D \u0430\u0430\u0440\u0446\u0430\u0433\u043D\u044B \u044F\u0441) 1%\u20131.5% \u0430\u043B\u0434\u0430\u0433\u0434\u0434\u0430\u0433. \u042F\u0441\u043D\u0430\u0430\u0441 \u044F\u043B\u0433\u0430\u0440\u0441\u0430\u043D \u043A\u0430\u043B\u044C\u0446\u0438 \u0446\u0443\u0441\u0430\u0430\u0440 \u0434\u0430\u043C\u0436\u0438\u043D \u0448\u044D\u044D\u0441\u044D\u044D\u0440 \u0433\u0430\u0434\u0430\u0433\u0448\u043B\u0430\u0445\u0434\u0430\u0430 \u0431\u04E9\u04E9\u0440\u043D\u0438\u0439 \u0447\u0443\u043B\u0443\u0443 \u04AF\u04AF\u0441\u0433\u044D\u0445 \u044D\u0440\u0441\u0434\u044D\u043B\u0442\u044D\u0439. \u0411\u0443\u043B\u0447\u0438\u043D \u0445\u0430\u0442\u0438\u043D\u0433\u0430\u0440\u0448\u0438\u0445\u0430\u0430\u0441 \u0441\u044D\u0440\u0433\u0438\u0439\u043B\u0436 \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u043D\u0438\u0441\u0433\u044D\u0433\u0447\u0438\u0434 \u04E9\u0434\u04E9\u0440\u0442 \u0437\u0430\u0430\u0432\u0430\u043B 2 \u0446\u0430\u0433 \u0445\u04AF\u0447 \u0447\u0430\u0434\u043B\u044B\u043D \u0434\u0430\u0441\u0433\u0430\u043B \u0445\u0438\u0439\u0434\u044D\u0433.
-
-\u0413\u0443\u0440\u0430\u0432\u0434\u0443\u0433\u0430\u0430\u0440\u0442, \u0445\u0430\u0440\u0430\u0430\u043D\u044B \u04E9\u04E9\u0440\u0447\u043B\u04E9\u043B\u0442 \u0431\u0443\u044E\u0443 SANS \u04AF\u04AF\u0441\u043D\u044D. \u0413\u0430\u0432\u043B\u044B\u043D \u0434\u043E\u0442\u043E\u043E\u0434 \u0434\u0430\u0440\u0430\u043B\u0442 \u043D\u044D\u043C\u044D\u0433\u0434\u0441\u044D\u043D\u044D\u044D\u0441 \u043D\u04AF\u0434\u043D\u0438\u0439 \u0430\u0440\u044B\u043D \u0431\u04E9\u043C\u0431\u04E9\u043B\u04E9\u0433 \u0445\u0430\u0432\u0442\u0433\u0430\u0439\u0440\u0447, \u0445\u0430\u0440\u0430\u0430\u043D\u044B \u043C\u044D\u0434\u0440\u044D\u043B\u0438\u0439\u043D \u0445\u0430\u0432\u0430\u043D \u04AF\u04AF\u0441\u0434\u044D\u0433. \u041C\u04E9\u043D \u0434\u044D\u043B\u0445\u0438\u0439\u043D \u0441\u043E\u0440\u043E\u043D\u0437\u043E\u043D \u043C\u0430\u043D\u0434\u0430\u043B \u0431\u0430\u0439\u0445\u0433\u04AF\u0439 \u0442\u0443\u043B \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0445\u04AF\u0447\u0442\u044D\u0439 \u0446\u0430\u0446\u0440\u0430\u0433 \u0414\u041D\u0425-\u0433 \u0433\u044D\u043C\u0442\u044D\u044D\u0445 \u044D\u0440\u0441\u0434\u044D\u043B \u0431\u0438\u0439.
-
-\u0422\u0430\u043D\u0434 \u044D\u0434\u0433\u044D\u044D\u0440\u044D\u044D\u0441 \u0442\u043E\u0434\u043E\u0440\u0445\u043E\u0439 \u043D\u044D\u0433 \u0430\u0441\u0443\u0443\u0434\u0430\u043B (\u0434\u0430\u0441\u0433\u0430\u043B \u0441\u0443\u0440\u0433\u0443\u0443\u043B\u0438\u043B\u0442, \u043D\u043E\u0439\u0440, \u0445\u043E\u043E\u043B\u043B\u043E\u043B\u0442, \u044D\u0441\u0432\u044D\u043B \u0410\u043D\u0433\u0430\u0440\u0430\u0433 \u0440\u0443\u0443 \u043D\u0438\u0441\u044D\u0445\u044D\u0434 \u044F\u043C\u0430\u0440 \u0431\u0430\u0439\u0445) \u0442\u0430\u043B\u0430\u0430\u0440 \u0434\u044D\u043B\u0433\u044D\u0440\u04AF\u04AF\u043B\u0436 \u044F\u0440\u0438\u0445 \u0443\u0443?`;
+\u04AE\u04AF\u043D\u0438\u0439 \u0437\u044D\u0440\u044D\u0433\u0446\u044D\u044D \u0442\u0443\u043B\u0433\u0443\u0443\u0440 \u044D\u0440\u0445\u0442\u044D\u043D \u0442\u043E\u0433\u0442\u043E\u043B\u0446\u043E\u043E\u043D\u0434 \u0445\u04AF\u0447\u0442\u044D\u0439 \u0437\u0430\u0434\u0440\u0430\u043B \u044F\u0432\u0430\u0433\u0434\u0430\u043D\u0430. \u0411\u0438\u0435\u0438\u0439\u043D \u0436\u0438\u043D\u0433\u044D\u044D \u0434\u0430\u0430\u0445 \u0448\u0430\u0430\u0440\u0434\u043B\u0430\u0433\u0430\u0433\u04AF\u0439 \u0431\u043E\u043B\u0441\u043D\u043E\u043E\u0440 \u044F\u0441\u044B\u0433 \u0437\u0430\u0434\u043B\u0430\u0433\u0447 \u043E\u0441\u0442\u0435\u043E\u043A\u043B\u0430\u0441\u0442 \u044D\u0441\u04AF\u04AF\u0434 \u0438\u0434\u044D\u0432\u0445\u0436\u0438\u0436, \u0441\u0430\u0440 \u0431\u04AF\u0440 \u043D\u0443\u0440\u0443\u0443 \u0431\u043E\u043B\u043E\u043D \u0430\u0430\u0440\u0446\u0430\u0433\u043D\u044B \u044F\u0441\u043D\u044B \u044D\u0440\u0434\u044D\u0441\u0438\u0439\u043D \u043D\u044F\u0433\u0442\u0440\u0430\u043B 1-\u044D\u044D\u0441 1.5 \u0445\u0443\u0432\u0438\u0430\u0440 \u0430\u043B\u0434\u0430\u0433\u0434\u0434\u0430\u0433. \u042D\u043D\u044D \u043D\u044C \u0434\u044D\u043B\u0445\u0438\u0439 \u0434\u044D\u044D\u0440\u0445 \u044F\u0441\u043D\u044B \u0441\u0438\u0439\u0440\u044D\u0433\u0436\u0438\u043B\u0442\u044D\u044D\u0441 \u0430\u0440\u0430\u0432 \u0434\u0430\u0445\u0438\u043D \u0445\u0443\u0440\u0434\u0430\u043D \u04AF\u0437\u04AF\u04AF\u043B\u044D\u043B\u0442 \u044E\u043C. \u0427\u04E9\u043B\u04E9\u04E9\u043B\u04E9\u0433\u0434\u0441\u04E9\u043D \u0438\u0445 \u0445\u044D\u043C\u0436\u044D\u044D\u043D\u0438\u0439 \u043A\u0430\u043B\u044C\u0446\u0438 \u0446\u0443\u0441\u0430\u0430\u0440 \u0434\u0430\u043C\u0436\u0438\u043D \u0431\u04E9\u04E9\u0440\u04E9\u04E9\u0440 \u0448\u04AF\u04AF\u0433\u0434\u044D\u0445\u0434\u044D\u044D \u0431\u04E9\u04E9\u0440\u043D\u0438\u0439 \u0447\u0443\u043B\u0443\u0443 \u04AF\u04AF\u0441\u0433\u044D\u0445 \u04E9\u043D\u0434\u04E9\u0440 \u044D\u0440\u0441\u0434\u044D\u043B \u0431\u0438\u0439 \u0431\u043E\u043B\u0433\u043E\u0434\u043E\u0433. \u041C\u04E9\u043D \u0431\u0430\u0439\u0440\u043B\u0430\u043B \u0445\u0430\u0434\u0433\u0430\u043B\u0430\u0445 \u04AF\u04AF\u0440\u044D\u0433\u0442\u044D\u0439 \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0443\u0443\u0434 \u0445\u044D\u0434\u0445\u044D\u043D \u0434\u043E\u043B\u043E\u043E \u0445\u043E\u043D\u043E\u0433\u0442 \u0445\u0430\u0442\u0438\u043D\u0433\u0430\u0440\u0448\u0434\u0430\u0433 \u0442\u0443\u043B \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u043D\u0438\u0441\u0433\u044D\u0433\u0447\u0438\u0434 \u04E9\u0434\u04E9\u0440 \u0431\u04AF\u0440 ARED \u0445\u04AF\u043D\u0434\u0440\u04AF\u04AF\u043B\u044D\u0433\u0447\u0442\u044D\u0439 \u0432\u0430\u043A\u0443\u0443\u043C \u0442\u04E9\u0445\u04E9\u04E9\u0440\u04E9\u043C\u0436 \u0434\u044D\u044D\u0440 \u0445\u043E\u0451\u0440 \u0446\u0430\u0433 \u0434\u0430\u0441\u0433\u0430\u043B \u0445\u0438\u0439\u0434\u044D\u0433. \u041C\u04E9\u043D \u0434\u044D\u043B\u0445\u0438\u0439\u043D \u0441\u043E\u0440\u043E\u043D\u0437\u043E\u043D \u043C\u0430\u043D\u0434\u043B\u0430\u0430\u0441 \u0433\u0430\u0434\u0430\u0433\u0448 \u0433\u0430\u0440\u0441\u0430\u043D \u04AF\u0435\u0434 \u0433\u0430\u043B\u0430\u043A\u0442\u0438\u043A\u0438\u0439\u043D \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0442\u0443\u044F\u0430 \u044D\u0441\u0438\u0439\u043D \u0414\u041D\u0425-\u0434 \u0442\u0430\u0441\u0440\u0430\u043B\u0442\u0433\u04AF\u0439 \u043D\u04E9\u043B\u04E9\u04E9\u043B\u0434\u04E9\u0433 \u0442\u0443\u043B \u0442\u0443\u0441\u0433\u0430\u0439 \u0443\u0441\u0442\u04E9\u0440\u04E9\u0433\u0447\u0438\u0442 \u0445\u0430\u043C\u0433\u0430\u0430\u043B\u0430\u043B\u0442 \u0448\u0430\u0430\u0440\u0434\u043B\u0430\u0433\u0430\u0442\u0430\u0439 \u0431\u043E\u043B\u0434\u043E\u0433.`;
     }
-    return `In microgravity, your body undergoes immediate and profound changes because human physiology evolved entirely under Earth's constant 1G gravitational pull.
+    return `When a human enters microgravity, the body undergoes an immediate cascade of profound adaptations because human biology evolved strictly under Earth's constant 1G gravitational pull.
 
-First, fluids immediately shift upward. Without gravity pulling blood and lymph down toward your legs, about 1.5 to 2 liters of fluid migrate into your chest and head. This leads to facial edema ("puffy face"), nasal congestion, and noticeably thinner legs ("chicken legs"). Because the heart no longer has to pump against gravity to perfuse the brain, left ventricular workload drops, causing mild cardiac muscle remodeling over months. When astronauts return to Earth, this leads to orthostatic intolerance\u2014dizziness and fainting upon standing.
+The first response is rapid fluid redistribution. Without gravity pulling blood and interstitial lymph downward into the lower extremities, roughly two liters of venous fluid shift toward the thorax and head. This produces facial puffiness, nasal congestion, and a marked reduction in lower-limb volume, while also triggering the kidneys to shed plasma volume. Crucially, that elevated cephalad venous pressure acts directly on the retrobulbar optic nerve sheath, flattening the posterior globe of the eye and swelling the optic disc in a clinical condition we classify as Spaceflight-Associated Neuro-Ocular Syndrome, or SANS.
 
-Second, your bones and muscles rapidly shed density. Without mechanical loading from supporting your body weight, bone-resorbing osteoclasts outpace bone-building osteoblasts. Astronauts lose roughly 1.0% to 1.5% of bone mineral density every single month, particularly in the lumbar spine, pelvis, and femurs. The calcium flushed out into the bloodstream significantly raises the risk of kidney stones. Postural muscles (like the calves and lower back) also atrophy by up to 20% in weeks unless countered by heavy daily training.
+Simultaneously, the musculoskeletal system unloads. Without mechanical strain from body weight, bone-resorbing osteoclasts dramatically outpace osteoblasts, causing astronauts to shed between 1.0 and 1.5 percent of bone mineral density every month, especially across the lumbar vertebrae, pelvis, and femoral heads. The excess calcium released into circulation significantly elevates nephrolithiasis risk. Postural muscle groups like the soleus and gastrocnemius also atrophy rapidly without constant neuromuscular resistance, which is why crewmembers maintain rigorous two-hour daily workouts on the Advanced Resistive Exercise Device.
 
-There are also critical systemic effects:
-\u2022 SANS (Spaceflight-Associated Neuro-Ocular Syndrome): Elevated intracranial venous pressure flattens the back of the eyeball and swells the optic disc, causing farsighted vision shifts that can sometimes become permanent.
-\u2022 Spaceflight Anemia: The body destroys red blood cells at an accelerated rate in orbit through a process called neocytolysis.
-\u2022 Cosmic Radiation: Beyond the protective shield of Earth's atmosphere and magnetosphere, galactic cosmic rays and solar flares inflict DNA double-strand breaks, elevating lifetime cancer and cataract risks.
-
-To counter these, astronauts on the ISS spend about two hours every day using the ARED resistance device and cycle ergometer. Are you curious about how they treat medical emergencies in space, or what countermeasures are used for deep-space Mars missions?`;
+Systemically, microgravity also induces neocytolysis, where the spleen selectively destroys newly formed erythrocytes, causing spaceflight anemia. Outside Earth's protective geomagnetic shield, deep-space radiation constantly poses lifetime oncogenic and cataract risks that require active hull shielding.`;
   }
   if (q.includes("bone") || q.includes("muscle") || q.includes("atrophy") || q.includes("calcium") || q.includes("osteopor") || q.includes("\u0431\u0443\u043B\u0447\u0438\u043D") || q.includes("\u044F\u0441")) {
     if (isMn) {
-      return `\u0411\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B\u0434 \u044F\u0441 \u0431\u043E\u043B\u043E\u043D \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0438\u0439\u043D \u044D\u0434 \u044D\u0441 \u043C\u0430\u0448 \u0445\u0443\u0440\u0434\u0430\u043D \u0437\u0430\u0434\u0430\u0440\u0434\u0430\u0433. \u0422\u0430\u0442\u0430\u043B\u0446\u043B\u044B\u043D \u0430\u0447\u0430\u0430\u043B\u0430\u043B \u0431\u0430\u0439\u0445\u0433\u04AF\u0439 \u04AF\u0435\u0434 \u044F\u0441 \u0441\u0430\u0440 \u0431\u04AF\u0440 \u043D\u044F\u0433\u0442\u0440\u0430\u043B\u044B\u043D\u0445\u0430\u0430 1%\u20131.5%-\u0438\u0439\u0433 \u0430\u043B\u0434\u0434\u0430\u0433 \u0431\u04E9\u0433\u04E9\u04E9\u0434 \u044D\u043D\u044D \u043D\u044C \u04E9\u043D\u0434\u04E9\u0440 \u043D\u0430\u0441\u0442\u0430\u0439 \u0445\u04AF\u043C\u04AF\u04AF\u0441\u0438\u0439\u043D \u044F\u0441\u043D\u044B \u0441\u0438\u0439\u0440\u044D\u0433\u0436\u0438\u043B\u0442\u044D\u044D\u0441 10 \u0434\u0430\u0445\u0438\u043D \u0445\u0443\u0440\u0434\u0430\u043D \u04AF\u0437\u04AF\u04AF\u043B\u044D\u043B\u0442 \u044E\u043C.
-
-\u0411\u0443\u043B\u0447\u0438\u043D\u0433\u0438\u0439\u043D \u0445\u0443\u0432\u044C\u0434 \u0431\u0430\u0439\u0440\u043B\u0430\u043B \u0445\u0430\u0434\u0433\u0430\u043B\u0430\u0445 \u04AF\u04AF\u0440\u044D\u0433\u0442\u044D\u0439 \u0445\u04E9\u043B, \u043D\u0443\u0440\u0443\u0443\u043D\u044B \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0443\u0443\u0434 2 \u0434\u043E\u043B\u043E\u043E \u0445\u043E\u043D\u043E\u0433\u0438\u0439\u043D \u0434\u043E\u0442\u043E\u0440 20% \u0445\u04AF\u0440\u0442\u044D\u043B \u0445\u0430\u0442\u0438\u043D\u0433\u0430\u0440\u0448\u0438\u0445 \u0430\u044E\u0443\u043B\u0442\u0430\u0439. \u04AE\u04AF\u043D\u044D\u044D\u0441 \u0441\u044D\u0440\u0433\u0438\u0439\u043B\u044D\u0445\u0438\u0439\u043D \u0442\u0443\u043B\u0434 \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u043D\u0438\u0441\u0433\u044D\u0433\u0447\u0438\u0434 \u0432\u0430\u043A\u0443\u0443\u043C \u043F\u043E\u0440\u0448\u0435\u043D\u044C \u0430\u0448\u0438\u0433\u043B\u0430\u043D 270 \u043A\u0433 \u0445\u04AF\u0440\u0442\u044D\u043B \u044D\u0441\u044D\u0440\u0433\u04AF\u04AF\u0446\u044D\u043B \u04AF\u04AF\u0441\u0433\u044D\u0434\u044D\u0433 ARED \u0442\u04E9\u0445\u04E9\u04E9\u0440\u04E9\u043C\u0436 \u0434\u044D\u044D\u0440 \u04E9\u0434\u04E9\u0440 \u0431\u04AF\u0440 \u0445\u04AF\u043D\u0434\u0440\u04AF\u04AF\u043B\u044D\u0433\u0447\u0442\u044D\u0439 \u0434\u0430\u0441\u0433\u0430\u043B \u0445\u0438\u0439\u0436, \u0431\u0438\u0441\u0444\u043E\u0441\u0444\u043E\u043D\u0430\u0442 \u044D\u043C\u0438\u0439\u043D \u044D\u043C\u0447\u0438\u043B\u0433\u044D\u044D \u0430\u0432\u0434\u0430\u0433.`;
+      return `\u0411\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B\u0434 \u0442\u0430\u0442\u0430\u043B\u0446\u043B\u044B\u043D \u0430\u0447\u0430\u0430\u043B\u0430\u043B \u0431\u0430\u0439\u0445\u0433\u04AF\u0439 \u0431\u043E\u043B\u0441\u043D\u043E\u043E\u0440 \u044F\u0441 \u0441\u0430\u0440 \u0431\u04AF\u0440 \u043D\u044F\u0433\u0442\u0440\u0430\u043B\u044B\u043D\u0445\u0430\u0430 1-\u044D\u044D\u0441 1.5 \u0445\u0443\u0432\u0438\u0439\u0433 \u0430\u043B\u0434\u0434\u0430\u0433 \u0431\u04E9\u0433\u04E9\u04E9\u0434 \u044D\u043D\u044D \u043D\u044C \u0434\u044D\u043B\u0445\u0438\u0439 \u0434\u044D\u044D\u0440\u0445 \u04E9\u043D\u0434\u04E9\u0440 \u043D\u0430\u0441\u0442\u0430\u0439 \u0445\u04AF\u043C\u04AF\u04AF\u0441\u0438\u0439\u043D \u044F\u0441\u043D\u044B \u0441\u0438\u0439\u0440\u044D\u0433\u0436\u0438\u043B\u0442\u044D\u044D\u0441 \u0430\u0440\u0430\u0432 \u0434\u0430\u0445\u0438\u043D \u0445\u0443\u0440\u0434\u0430\u043D \u043F\u0440\u043E\u0446\u0435\u0441\u0441 \u044E\u043C. \u042F\u043B\u0430\u043D\u0433\u0443\u044F\u0430 \u043D\u0443\u0440\u0443\u0443 \u0431\u043E\u043B\u043E\u043D \u0430\u0430\u0440\u0446\u0430\u0433\u043D\u044B \u0430\u0447\u0430\u0430\u043B\u0430\u043B \u0430\u0432\u0434\u0430\u0433 \u044F\u0441\u043D\u0443\u0443\u0434 \u0445\u0430\u043C\u0433\u0438\u0439\u043D \u0438\u0445 \u0441\u0438\u0439\u0440\u044D\u0433\u0436\u0434\u044D\u0433. \u042F\u0441\u043D\u0430\u0430\u0441 \u0446\u0443\u0441\u0430\u043D\u0434 \u0438\u0445 \u0445\u044D\u043C\u0436\u044D\u044D\u043D\u0438\u0439 \u043A\u0430\u043B\u044C\u0446\u0438 \u044F\u043B\u0433\u0430\u0440\u0441\u043D\u0430\u0430\u0440 \u0431\u04E9\u04E9\u0440\u043D\u0438\u0439 \u0447\u0443\u043B\u0443\u0443 \u04AF\u04AF\u0441\u044D\u0445 \u044D\u0440\u0441\u0434\u044D\u043B \u044D\u0440\u0441 \u043D\u044D\u043C\u044D\u0433\u0434\u044D\u043D\u044D. \u0411\u0443\u043B\u0447\u0438\u043D\u0433\u0438\u0439\u043D \u0445\u0443\u0432\u044C\u0434 \u0431\u0430\u0439\u0440\u043B\u0430\u043B \u0445\u0430\u0434\u0433\u0430\u043B\u0430\u0445 \u04AF\u04AF\u0440\u044D\u0433\u0442\u044D\u0439 \u0445\u04E9\u043B, \u043D\u0443\u0440\u0443\u0443\u043D\u044B \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0443\u0443\u0434 \u0445\u044D\u0434\u0445\u044D\u043D \u0434\u043E\u043B\u043E\u043E \u0445\u043E\u043D\u043E\u0433\u0442 20 \u0445\u04AF\u0440\u0442\u044D\u043B \u0445\u0443\u0432\u0438\u0430\u0440 \u0445\u0430\u0442\u0438\u043D\u0433\u0430\u0440\u0448\u0434\u0430\u0433 \u0442\u0443\u043B \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u043D\u0438\u0441\u0433\u044D\u0433\u0447\u0438\u0434 \u0432\u0430\u043A\u0443\u0443\u043C \u0446\u0438\u043B\u0438\u043D\u0434\u0440\u0442\u044D\u0439 ARED \u0442\u04E9\u0445\u04E9\u04E9\u0440\u04E9\u043C\u0436 \u0434\u044D\u044D\u0440 \u04E9\u0434\u04E9\u0440\u0442 \u0445\u043E\u0451\u0440 \u0446\u0430\u0433 \u0434\u0430\u0441\u0433\u0430\u043B \u0445\u0438\u0439\u0436, \u0431\u0438\u0441\u0444\u043E\u0441\u0444\u043E\u043D\u0430\u0442 \u0442\u04E9\u0440\u043B\u0438\u0439\u043D \u044D\u043C\u0447\u0438\u043B\u0433\u044D\u044D \u0430\u0432\u0434\u0430\u0433.`;
     }
-    return `Without the mechanical stress of gravity, bone and muscle tissue deteriorate rapidly. 
+    return `In microgravity, bone and muscle tissue deteriorate at an alarming rate without mechanical loading. Astronauts shed roughly 1.0 to 1.5 percent of their bone mineral density per month in load-bearing zones like the proximal femur and lumbar spine, which is about ten times faster than post-menopausal osteoporosis on Earth. 
 
-Astronauts lose about 1.0% to 1.5% of bone mineral density per month in load-bearing regions like the femoral head and lumbar vertebrae\u2014a rate about ten times faster than post-menopausal osteoporosis on Earth. The excess calcium leaches into the bloodstream and kidneys, making nephrolithiasis (kidney stones) a constant threat.
-
-Postural muscles\u2014especially slow-twitch fibers in the calves (soleus) and spinal erectors\u2014begin atrophying within days. To prevent irreversible muscle wasting and maintain cardiovascular capacity for emergency egress upon landing, astronauts must perform 2 to 2.5 hours of high-resistance exercise daily on the Advanced Resistive Exercise Device (ARED), which uses vacuum cylinders to simulate up to 600 pounds of weight. They also use pharmacological countermeasures like bisphosphonates (such as alendronate) to inhibit osteoclastic bone resorption.`;
+The calcium leached from bone matrix enters the bloodstream and concentrates in the renal filtration system, creating a continuous risk of calcium-oxalate kidney stones. Muscle fibers\u2014especially slow-twitch postural motor units in the calves and back\u2014atrophy within weeks. To counteract this degradation and preserve the physical capacity needed for emergency egress upon planetary arrival, crewmembers perform two to two-and-a-half hours of daily resistance training on the vacuum-piston ARED system, often supplemented with antiresorptive bisphosphonates.`;
   }
   if (q.includes("cpr") || q.includes("arrest") || q.includes("resuscitation") || q.includes("defibrillat") || q.includes("chest compression") || q.includes("\u0437\u04AF\u0440\u0445\u043D\u0438\u0439 \u043C\u0430\u0441\u0441\u0430\u0436")) {
-    const p = NASA_SPACE_MEDICINE_DATABASE.MICROGRAVITY_CPR;
     if (isMn) {
-      return `\u0421\u0430\u043D\u0441\u0430\u0440\u0442 \u0437\u04AF\u0440\u0445\u043D\u0438\u0439 \u043C\u0430\u0441\u0441\u0430\u0436 (CPR) \u0445\u0438\u0439\u0445 \u043D\u044C \u0434\u044D\u043B\u0445\u0438\u0439\u043D\u0445\u044D\u044D\u0441 \u044D\u0440\u0441 \u044F\u043B\u0433\u0430\u0430\u0442\u0430\u0439. \u041D\u044C\u044E\u0442\u043E\u043D\u044B 3-\u0440 \u0445\u0443\u0443\u043B\u0438\u0430\u0440 \u04E9\u0432\u0447\u0442\u04E9\u043D\u0438\u0439 \u0446\u044D\u044D\u0436\u0438\u043D \u0434\u044D\u044D\u0440 \u0434\u0430\u0440\u0430\u043B\u0442 \u04AF\u0437\u04AF\u04AF\u043B\u044D\u0445\u044D\u0434 \u0430\u0432\u0440\u0430\u0433\u0447 \u04E9\u04E9\u0440\u04E9\u04E9 \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B\u0433\u04AF\u0439 \u0442\u0443\u043B \u04E9\u04E9\u0434\u04E9\u04E9\u0441 \u043D\u044C \u0442\u04AF\u043B\u0445\u044D\u0433\u0434\u044D\u043D \u043D\u0438\u0441\u0434\u044D\u0433.
-
-\u0422\u0438\u0439\u043C\u044D\u044D\u0441 NASA-STD-3001 \u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u044B\u043D \u0434\u0430\u0433\u0443\u0443 2 \u04AF\u043D\u0434\u0441\u044D\u043D \u0430\u0440\u0433\u044B\u0433 \u0445\u044D\u0440\u044D\u0433\u043B\u044D\u0434\u044D\u0433:
-1. Handstand \u0430\u0440\u0433\u0430: \u0410\u0432\u0440\u0430\u0433\u0447 \u0445\u04E9\u043B\u04E9\u04E9 \u0442\u0430\u0430\u0437 \u044D\u0441\u0432\u044D\u043B \u0445\u0430\u043D\u0430\u043D\u044B \u0442\u0443\u043B\u0433\u0443\u0443\u0440\u0442 \u0442\u04AF\u0433\u0436\u0438\u0436, \u0445\u043E\u0451\u0440 \u0433\u0430\u0440\u0430\u0430\u0440\u0430\u0430 \u04E9\u0432\u0447\u04AF\u04AF\u043D\u0438\u0439 \u0434\u043E\u043E\u0434 \u0445\u0430\u0433\u0430\u0441\u0442 5\u20136 \u0441\u043C \u0433\u04AF\u043D \u0434\u0430\u0440\u0430\u043B\u0442 \u0445\u0438\u0439\u043D\u044D (\u043C\u0438\u043D\u0443\u0442\u0430\u0434 100\u2013120 \u0443\u0434\u0430\u0430).
-2. Evetts-Russomano \u0430\u0440\u0433\u0430: \u0410\u0432\u0440\u0430\u0433\u0447 \u04E9\u0432\u0447\u0442\u04E9\u043D\u0438\u0439 \u0433\u0443\u044F\u043D \u0434\u044D\u044D\u0433\u04AF\u04AF\u0440 \u0445\u04E9\u043B\u04E9\u04E9 \u0437\u04E9\u0440\u04AF\u04AF\u043B\u044D\u043D \u043E\u0440\u043E\u043E\u0436, \u0431\u04AF\u0442\u044D\u043D \u0431\u0438\u0435\u044D\u0440\u044D\u044D \u0442\u04AF\u0433\u0436\u044D\u044D\u0434 \u0446\u044D\u044D\u0436\u043D\u0438\u0439 \u0448\u0430\u0445\u0430\u043B\u0442\u044B\u0433 \u0445\u0438\u0439\u043D\u044D.
-
-\u0427\u0443\u0445\u0430\u043B \u0430\u043D\u0445\u0430\u0430\u0440\u0443\u0443\u043B\u0433\u0430: \u0414\u0435\u0444\u0438\u0431\u0440\u0438\u043B\u043B\u044F\u0446\u0438 (\u0446\u0430\u0445\u0438\u043B\u0433\u0430\u0430\u043D \u0448\u043E\u043A) \u04E9\u0433\u04E9\u0445 \u04AF\u0435\u0434 \u04E9\u0432\u0447\u0442\u04E9\u043D\u0438\u0439 \u0446\u044D\u044D\u0436\u0438\u043D \u0434\u044D\u0445 \u0445\u04E9\u043B\u0441\u0438\u0439\u0433 \u0431\u04AF\u0440\u044D\u043D \u0430\u0440\u0447\u0438\u0445 \u0451\u0441\u0442\u043E\u0439. \u0411\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B\u0434 \u0445\u04E9\u0432\u04E9\u0433\u0447 \u0445\u04E9\u043B\u0441\u043D\u0438\u0439 \u0434\u0443\u0441\u043B\u0443\u0443\u0434 \u04E9\u043D\u0434\u04E9\u0440 \u0445\u04AF\u0447\u0434\u044D\u043B\u0438\u0439\u043D \u043D\u0443\u043C\u0430\u043D \u043E\u0447 \u04AF\u04AF\u0441\u0433\u044D\u0436, \u0430\u0440\u044C\u0441\u044B\u0433 \u0445\u04AF\u043D\u0434 \u0442\u04AF\u043B\u0434\u044D\u0433.`;
+      return `\u0421\u0430\u043D\u0441\u0430\u0440\u0442 \u0437\u04AF\u0440\u0445\u043D\u0438\u0439 \u043C\u0430\u0441\u0441\u0430\u0436 \u0445\u0438\u0439\u0445\u044D\u0434 \u041D\u044C\u044E\u0442\u043E\u043D\u044B \u0433\u0443\u0440\u0430\u0432\u0434\u0443\u0433\u0430\u0430\u0440 \u0445\u0443\u0443\u043B\u0438\u0439\u043D \u0434\u0430\u0433\u0443\u0443 \u0446\u044D\u044D\u0436\u0438\u043D \u0434\u044D\u044D\u0440 \u0434\u0430\u0440\u0430\u0445\u0430\u0434 \u0430\u0432\u0440\u0430\u0433\u0447 \u04E9\u04E9\u0440\u04E9\u04E9 \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B\u0433\u04AF\u0439 \u0442\u0443\u043B \u04E9\u04E9\u0434\u04E9\u04E9\u0441 \u043D\u044C \u0442\u04AF\u043B\u0445\u044D\u0433\u0434\u044D\u043D \u043D\u0438\u0441\u0434\u044D\u0433. \u0422\u0438\u0439\u043C\u044D\u044D\u0441 NASA-STD-3001 \u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u044B\u043D \u0434\u0430\u0433\u0443\u0443 \u0445\u043E\u0451\u0440 \u04AF\u043D\u0434\u0441\u044D\u043D \u0430\u0440\u0433\u044B\u0433 \u0430\u0448\u0438\u0433\u043B\u0430\u0434\u0430\u0433. \u041D\u044D\u0433 \u043D\u044C Handstand \u0430\u0440\u0433\u0430 \u0431\u04E9\u0433\u04E9\u04E9\u0434 \u0430\u0432\u0440\u0430\u0433\u0447 \u0445\u04E9\u043B\u04E9\u04E9 \u0442\u0430\u0430\u0437\u043D\u044B \u0442\u0443\u043B\u0433\u0443\u0443\u0440\u0442 \u0442\u04AF\u0433\u0436\u0438\u0436 \u0431\u0430\u0439\u0433\u0430\u0430\u0434 \u0446\u044D\u044D\u0436\u0438\u0439\u0433 5-\u0430\u0430\u0441 6 \u0441\u043C \u0433\u04AF\u043D \u0434\u0430\u0440\u0434\u0430\u0433. \u041D\u04E9\u0433\u04E9\u04E9 \u043D\u044C Evetts-Russomano \u0430\u0440\u0433\u0430 \u0431\u04E9\u0433\u04E9\u04E9\u0434 \u0430\u0432\u0440\u0430\u0433\u0447 \u04E9\u0432\u0447\u0442\u04E9\u043D\u0438\u0439 \u0433\u0443\u044F \u0431\u043E\u043B\u043E\u043D \u0431\u0438\u0435\u0438\u0439\u0433 \u0445\u04E9\u043B\u04E9\u04E9\u0440\u04E9\u04E9 \u0437\u04E9\u0440\u04AF\u04AF\u043B\u044D\u043D \u043E\u0440\u043E\u043E\u0436 \u0442\u04AF\u0433\u0436\u044D\u044D\u0434 \u0446\u044D\u044D\u0436\u043D\u0438\u0439 \u0448\u0430\u0445\u0430\u043B\u0442\u044B\u0433 \u0433\u04AF\u0439\u0446\u044D\u0442\u0433\u044D\u0434\u044D\u0433. \u0426\u0430\u0445\u0438\u043B\u0433\u0430\u0430\u043D \u0448\u043E\u043A \u04E9\u0433\u04E9\u0445 \u04AF\u0435\u0434 \u0445\u04E9\u0432\u04E9\u0433\u0447 \u0445\u04E9\u043B\u0441\u043D\u0438\u0439 \u0434\u0443\u0441\u043B\u0443\u0443\u0434 \u04E9\u043D\u0434\u04E9\u0440 \u0445\u04AF\u0447\u0434\u044D\u043B\u0438\u0439\u043D \u043D\u0443\u043C\u0430\u043D \u043E\u0447 \u04AF\u04AF\u0441\u0433\u044D\u0436 \u0430\u0440\u044C\u0441\u044B\u0433 \u0442\u04AF\u043B\u044D\u0445 \u0430\u044E\u0443\u043B\u0442\u0430\u0439 \u0442\u0443\u043B \u04E9\u0432\u0447\u0442\u04E9\u043D\u0438\u0439 \u0446\u044D\u044D\u0436\u0438\u0439\u0433 \u044D\u0445\u043B\u044D\u044D\u0434 \u0431\u04AF\u0440\u044D\u043D \u0430\u0440\u0447\u0438\u0436 \u0445\u0443\u0443\u0440\u0430\u0439\u0448\u0443\u0443\u043B\u0430\u0445 \u0451\u0441\u0442\u043E\u0439.`;
     }
-    return `Performing CPR in microgravity presents a fundamental physics problem: under Newton's third law, when you push down on a patient's sternum, the equal and opposite reaction pushes you away from them because you have no body weight.
+    return `Performing CPR in weightlessness is fundamentally complicated by Newton's third law: pushing down on a patient's sternum propels the rescuer backward into the cabin because there is no gravitational body weight to hold them in place.
 
-To solve this, NASA and space medicine researchers developed two clinically validated techniques under NASA-STD-3001:
-
-1. The Handstand Method:
-The rescuer wedges their feet into foot restraints or directly against the cabin ceiling or bulkhead above the patient, placing their hands on the lower half of the sternum. They use their leg and arm extension to depress the chest 5 to 6 cm at 100 to 120 beats per minute.
-
-2. The Evetts-Russomano Technique:
-The rescuer wraps and crosses their legs firmly around the patient's torso and thighs, creating a rigid anatomical clamp. This allows effective chest compressions even in free-floating cabins without ceiling anchor points.
-
-Defibrillation Safety: You must thoroughly towel dry the patient's skin before delivering a shock. In microgravity, sweat does not roll off the body\u2014it pools in floating beads, which can cause severe electrical arcing across the skin during a shock.`;
+Under NASA-STD-3001, flight crews train in two proven physical configurations. The first is the Handstand technique, where the rescuer wedges their feet into ceiling restraints or against the overhead bulkhead directly above the patient, using leg and torso extension to achieve the required five to six centimeter sternal depression at 100 to 120 beats per minute. The second is the Evetts-Russomano method, where the rescuer wraps and crosses their legs firmly around the patient's pelvis and thighs, forming an anatomical clamp that allows effective compressions even in an open cabin without ceiling anchors. If defibrillation is necessary, the patient's torso must be dried thoroughly first, as floating sweat beads in microgravity can create electrical arcs that severely burn the skin.`;
   }
   if (q.includes("sans") || q.includes("eye") || q.includes("vision") || q.includes("optic") || q.includes("intracranial") || q.includes("\u0445\u0430\u0440\u0430\u0430") || q.includes("\u043D\u04AF\u0434")) {
     if (isMn) {
-      return `SANS \u0431\u0443\u044E\u0443 \u0421\u0430\u043D\u0441\u0440\u044B\u043D \u043D\u0438\u0441\u043B\u044D\u0433\u0438\u0439\u043D \u0445\u0430\u0440\u0430\u0430-\u043C\u044D\u0434\u0440\u044D\u043B\u0438\u0439\u043D \u0445\u0430\u043C \u0448\u0438\u043D\u0436 \u043D\u044C \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0430\u043D\u0430\u0433\u0430\u0430\u0445 \u0443\u0445\u0430\u0430\u043D\u044B \u0445\u0430\u043C\u0433\u0438\u0439\u043D \u0447\u0443\u0445\u0430\u043B \u0441\u044D\u0434\u0432\u04AF\u04AF\u0434\u0438\u0439\u043D \u043D\u044D\u0433 \u044E\u043C.
-
-\u0422\u0430\u0442\u0430\u043B\u0446\u0430\u043B\u0433\u04AF\u0439 \u043E\u0440\u0447\u0438\u043D\u0434 \u0432\u0435\u043D\u0438\u0439\u043D \u0446\u0443\u0441 \u0431\u0430 \u0442\u0430\u0440\u0445\u0438-\u043D\u0443\u0433\u0430\u0441\u043D\u044B \u0448\u0438\u043D\u0433\u044D\u043D \u0442\u043E\u043B\u0433\u043E\u0439 \u0440\u0443\u0443 \u0442\u0430\u0441\u0440\u0430\u043B\u0442\u0433\u04AF\u0439 \u0448\u0430\u0445\u0430\u0433\u0434\u0430\u0436, \u0433\u0430\u0432\u043B\u044B\u043D \u0434\u043E\u0442\u043E\u043E\u0434 \u0434\u0430\u0440\u0430\u043B\u0442 \u0438\u0445\u044D\u0441\u0434\u044D\u0433. \u042D\u043D\u044D \u0434\u0430\u0440\u0430\u043B\u0442 \u043D\u04AF\u0434\u043D\u0438\u0439 \u0430\u0440\u044B\u043D \u0445\u044D\u0441\u0433\u0438\u0439\u0433 \u0445\u0430\u0432\u0442\u0433\u0430\u0439\u0440\u0443\u0443\u043B\u0436, \u0445\u0430\u0440\u0430\u0430\u043D\u044B \u043C\u044D\u0434\u0440\u044D\u043B\u0438\u0439\u0433 \u0445\u0430\u0432\u0434\u0443\u0443\u043B\u0430\u043D (\u043F\u0430\u043F\u0438\u043B\u043B\u0435\u0434\u0435\u043C\u0430), \u0430\u043B\u0441\u044B\u043D \u0445\u0430\u0440\u0430\u0430\u043D\u044B \u04E9\u04E9\u0440\u0447\u043B\u04E9\u043B\u0442 \u04AF\u04AF\u0441\u0433\u044D\u0434\u044D\u0433.
-
-\u042D\u0441\u0440\u044D\u0433 \u0430\u0440\u0433\u0430 \u0445\u044D\u043C\u0436\u044D\u044D \u0431\u043E\u043B\u0433\u043E\u0436 \u04E9\u0434\u04E9\u0440\u0442 2 \u0446\u0430\u0433 \u0427\u0418\u0411\u0418\u0421 \u043A\u043E\u0441\u0442\u044E\u043C (\u0445\u04E9\u043B\u043D\u0438\u0439 \u0445\u044D\u0441\u044D\u0433\u0442 \u0441\u04E9\u0440\u04E9\u0433 \u0434\u0430\u0440\u0430\u043B\u0442 \u04AF\u04AF\u0441\u0433\u044D\u0436 \u0446\u0443\u0441\u044B\u0433 \u0434\u043E\u043E\u0448 \u0442\u0430\u0442\u0434\u0430\u0433) \u04E9\u043C\u0441\u04E9\u0445, \u0445\u04AF\u0437\u04AF\u04AF\u043D\u0438\u0439 \u0432\u0435\u043D\u0438\u0439\u043D \u0443\u0440\u0441\u0433\u0430\u043B\u044B\u0433 \u0442\u043E\u0433\u0442\u0432\u043E\u0440\u0436\u0443\u0443\u043B\u0430\u0445 \u0445\u04AF\u0437\u04AF\u04AF\u043D\u0438\u0439 \u0442\u0443\u0441\u0433\u0430\u0439 \u0431\u044D\u0445\u044D\u043B\u0433\u044D\u044D, \u044D\u0441\u0432\u044D\u043B Acetazolamide \u044D\u043C \u0445\u044D\u0440\u044D\u0433\u043B\u044D\u0434\u044D\u0433.`;
+      return `SANS \u0431\u0443\u044E\u0443 \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0445\u0430\u0440\u0430\u0430-\u043C\u044D\u0434\u0440\u044D\u043B\u0438\u0439\u043D \u0445\u0430\u043C \u0448\u0438\u043D\u0436 \u043D\u044C \u0443\u0440\u0442 \u0445\u0443\u0433\u0430\u0446\u0430\u0430\u043D\u044B \u043D\u0438\u0441\u043B\u044D\u0433\u0442 \u0442\u0443\u043B\u0433\u0430\u0440\u0434\u0430\u0433 \u0433\u043E\u043B \u0441\u043E\u0440\u0438\u043B\u0442\u0443\u0443\u0434\u044B\u043D \u043D\u044D\u0433 \u044E\u043C. \u0414\u044D\u043B\u0445\u0438\u0439 \u0434\u044D\u044D\u0440 \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B \u0432\u0435\u043D\u0438\u0439\u043D \u0446\u0443\u0441 \u0431\u043E\u043B\u043E\u043D \u043D\u0443\u0433\u0430\u0441\u043D\u044B \u0448\u0438\u043D\u0433\u044D\u043D\u0438\u0439\u0433 \u0434\u043E\u043E\u0448 \u0442\u0430\u0442\u0434\u0430\u0433 \u0431\u043E\u043B \u0441\u0430\u043D\u0441\u0430\u0440\u0442 \u044D\u043D\u044D \u0431\u0443\u0443\u043B\u0442 \u0431\u04AF\u0440\u044D\u043D \u0430\u043B\u0433\u0430 \u0431\u043E\u043B\u0434\u043E\u0433. \u0422\u043E\u043B\u0433\u043E\u0439\u0434 \u04AF\u04AF\u0441\u0441\u044D\u043D \u0431\u0430\u0439\u043D\u0433\u044B\u043D \u0432\u0435\u043D\u0438\u0439\u043D \u0434\u0430\u0440\u0430\u043B\u0442 \u043D\u044C \u043D\u04AF\u0434\u043D\u0438\u0439 \u0430\u043B\u0438\u043C\u043D\u044B \u0430\u0440\u044B\u043D \u0445\u0430\u043D\u044B\u0433 \u0445\u0430\u0432\u0442\u0433\u0430\u0439\u0440\u0443\u0443\u043B\u0436, \u0445\u0430\u0440\u0430\u0430\u043D\u044B \u043C\u044D\u0434\u0440\u044D\u043B\u0438\u0439\u0433 \u0445\u0430\u0432\u0434\u0443\u0443\u043B\u0430\u043D \u0430\u043B\u0441\u044B\u043D \u0445\u0430\u0440\u0430\u0430\u043D\u044B \u04E9\u04E9\u0440\u0447\u043B\u04E9\u043B\u0442 \u04AF\u04AF\u0441\u0433\u044D\u0434\u044D\u0433. \u042D\u0441\u0440\u044D\u0433 \u0430\u0440\u0433\u0430 \u0445\u044D\u043C\u0436\u044D\u044D \u0431\u043E\u043B\u0433\u043E\u0436 \u0445\u04E9\u043B \u0440\u04AF\u04AF \u0446\u0443\u0441\u044B\u0433 \u0442\u0430\u0442\u0430\u0445 \u0427\u0418\u0411\u0418\u0421 \u0441\u04E9\u0440\u04E9\u0433 \u0434\u0430\u0440\u0430\u043B\u0442\u044B\u043D \u043A\u043E\u0441\u0442\u044E\u043C, \u0445\u04AF\u0437\u04AF\u04AF\u043D\u0438\u0439 \u0434\u0430\u0440\u0430\u043B\u0442 \u0442\u043E\u0445\u0438\u0440\u0443\u0443\u043B\u0430\u0433\u0447 \u0431\u043E\u043B\u043E\u043D \u044D\u043C\u044D\u043D \u044D\u043C\u0447\u0438\u043B\u0433\u044D\u044D\u0433 \u0442\u0443\u0440\u0448\u0438\u0436 \u0431\u0430\u0439\u043D\u0430.`;
     }
-    return `SANS (Spaceflight-Associated Neuro-Ocular Syndrome) is one of the most significant medical challenges of long-duration spaceflight.
+    return `Spaceflight-Associated Neuro-Ocular Syndrome, or SANS, is among the most consequential medical obstacles for long-duration interplanetary transit. On Earth, standing naturally draws cerebral venous blood and cerebrospinal fluid downward toward the feet. In microgravity, that diurnal gravitational gradient disappears entirely, maintaining chronically elevated central venous and intracranial pressure around the clock.
 
-On Earth, gravity pulls cerebrospinal fluid and venous blood down toward your feet whenever you stand. In space, that downward pull is gone 24 hours a day. The continuous cephalad fluid shift elevates venous pressure in the brain and retrobulbar optic nerve sheath.
-
-Over weeks and months, this sustained pressure causes:
-\u2022 Optic disc edema (swelling of the optic nerve head)
-\u2022 Globe flattening (the posterior eye ball flattens)
-\u2022 Choroidal folds and cotton wool spots
-\u2022 Progressive hyperopic (farsighted) vision shifts, meaning astronauts who had perfect vision suddenly need reading glasses.
-
-Countermeasures currently in flight trials include the Russian "Chibis" Lower Body Negative Pressure (LBNP) suit\u2014which applies negative pressure to pull venous blood back down into the legs for several hours each day\u2014and specialized jugular compression collars to stabilize intracranial hemodynamics.`;
+This continuous hydrostatic loading distends the retrobulbar optic nerve sheath, swells the optic disc, flattens the posterior aspect of the globe, and causes progressive hyperopic vision shifts that often force astronauts to use reading glasses. Countermeasures currently undergoing operational evaluation include Lower Body Negative Pressure chambers like the Russian Chibis suit, which pull venous blood volume back toward the legs for several hours each day to restore terrestrial fluid hemodynamics.`;
   }
   if (q.includes("depressur") || q.includes("armstrong") || q.includes("ebullism") || q.includes("boil") || q.includes("vacuum") || q.includes("airlock") || q.includes("helmet") || q.includes("\u0432\u0430\u043A\u0443\u0443\u043C") || q.includes("\u0434\u0430\u0440\u0430\u043B\u0442 \u0431\u0443\u0443\u0440\u0430\u0445")) {
     if (isMn) {
-      return `\u0421\u0430\u043D\u0441\u0440\u044B\u043D \u0432\u0430\u043A\u0443\u0443\u043C \u0431\u043E\u043B\u043E\u043D \u0430\u0433\u0430\u0430\u0440\u044B\u043D \u0434\u0430\u0440\u0430\u043B\u0442 \u0430\u043B\u0434\u0430\u0433\u0434\u0430\u0445 \u04AF\u0435\u0434 \u044E\u0443 \u0431\u043E\u043B\u0434\u043E\u0433 \u0432\u044D?
-
-\u0425\u0430\u043C\u0433\u0438\u0439\u043D \u0433\u043E\u043B \u0444\u0438\u0437\u0438\u043A \u0445\u044F\u0437\u0433\u0430\u0430\u0440 \u0431\u043E\u043B \u0410\u0440\u043C\u0441\u0442\u0440\u043E\u043D\u0433\u0438\u0439\u043D \u0445\u044F\u0437\u0433\u0430\u0430\u0440 (6.3 \u043A\u041F\u0430 / 47 \u043C\u043C \u043C.\u0443.\u0431) \u044E\u043C. \u0425\u04AF\u043D\u0438\u0439 \u0431\u0438\u0435\u0438\u0439\u043D \u0442\u0435\u043C\u043F\u0435\u0440\u0430\u0442\u0443\u0440 37\xB0C \u0431\u0430\u0439\u0445\u0430\u0434 \u043E\u0440\u0447\u043D\u044B \u0434\u0430\u0440\u0430\u043B\u0442 6.3 \u043A\u041F\u0430-\u0430\u0430\u0441 \u0434\u043E\u043E\u0448 \u0431\u0443\u0443\u0432\u0430\u043B \u0443\u0441\u043D\u044B \u0431\u0443\u0446\u043B\u0430\u0445 \u0446\u044D\u0433 37\xB0C \u0431\u043E\u043B\u0436 \u0431\u0443\u0443\u0440\u0434\u0430\u0433. \u04E8\u04E9\u0440\u04E9\u04E9\u0440 \u0445\u044D\u043B\u0431\u044D\u043B \u0430\u043C\u043D\u044B \u0448\u04AF\u043B\u0441, \u043D\u0443\u043B\u0438\u043C\u0441, \u0443\u0443\u0448\u0433\u0438\u043D\u044B \u0447\u0438\u0439\u0433 \u0445\u043E\u0440\u043C\u044B\u043D \u0442\u04E9\u0434\u0438\u0439\u0434 \u0431\u0443\u0446\u0430\u043B\u0436 \u044D\u0445\u044D\u043B\u043D\u044D (ebullism).
-
-\u0410\u0433\u0430\u0430\u0440 \u0430\u043B\u0434\u0430\u0433\u0434\u0430\u0445 \u04AF\u0435\u0434 \u0445\u04AF\u043D\u0438\u0439 \u0443\u0445\u0430\u043C\u0441\u0430\u0440\u0442 \u04AF\u0439\u043B \u0430\u0436\u0438\u043B\u043B\u0430\u0433\u0430\u0430 \u0435\u0440\u0434\u04E9\u04E9 9\u201315 \u0441\u0435\u043A\u0443\u043D\u0434 \u043B \u04AF\u0440\u0433\u044D\u043B\u0436\u0438\u043B\u043D\u044D. \u0423\u0447\u0438\u0440 \u043D\u044C \u0443\u0443\u0448\u0433\u0438\u043D\u0434 \u0430\u0433\u0430\u0430\u0440 \u0431\u0430\u0439\u0445\u0433\u04AF\u0439 \u0431\u043E\u043B\u0441\u043D\u043E\u043E\u0440 \u0446\u0443\u0441\u0430\u043D \u0434\u0430\u0445\u044C \u0445\u04AF\u0447\u0438\u043B\u0442\u04E9\u0440\u04E9\u0433\u0447 \u044D\u0441\u0440\u044D\u0433\u044D\u044D\u0440\u044D\u044D \u0443\u0443\u0448\u0433\u0438 \u0440\u0443\u0443 \u0441\u043E\u0440\u043E\u0433\u0434\u043E\u0436, \u0442\u0430\u0440\u0445\u0438\u043D\u044B \u0445\u04AF\u0447\u0438\u043B\u0442\u04E9\u0440\u04E9\u0433\u0447 \u0445\u043E\u0440\u043C\u044B\u043D \u0434\u043E\u0442\u043E\u0440 \u0442\u0430\u0441\u0430\u0440\u0434\u0430\u0433.
-
-\u0425\u0430\u043C\u0433\u0438\u0439\u043D \u0430\u044E\u0443\u043B\u0442\u0430\u0439 \u0430\u043B\u0434\u0430\u0430 \u0431\u043E\u043B \u0430\u043C\u044C\u0441\u0433\u0430\u043B\u0430\u0430 \u0445\u04AF\u0447\u044D\u044D\u0440 \u0442\u04AF\u0433\u0436\u0438\u0445 \u044F\u0432\u0434\u0430\u043B \u044E\u043C\u2014\u0434\u0430\u0440\u0430\u043B\u0442 \u043E\u0433\u0446\u043E\u043C \u0443\u043D\u0430\u0445\u0430\u0434 \u0443\u0443\u0448\u0433\u0438\u043D\u044B \u0434\u043E\u0442\u043E\u0440\u0445 \u0430\u0433\u0430\u0430\u0440 \u0442\u044D\u043B\u0436, \u0443\u0443\u0448\u0433\u0438\u0439\u0433 \u0434\u044D\u043B\u0431\u044D\u043B\u044D\u0445 \u0430\u044E\u0443\u043B\u0442\u0430\u0439. \u0422\u0438\u0439\u043C\u044D\u044D\u0441 \u0434\u0430\u0440\u0430\u043B\u0442 \u0430\u043B\u0434\u0430\u0433\u0434\u0430\u0445 \u04AF\u0435\u0434 8 \u0441\u0435\u043A\u0443\u043D\u0434\u0438\u0439\u043D \u0434\u043E\u0442\u043E\u0440 \u0434\u0443\u0443\u043B\u0433\u0430\u0430 \u0442\u04AF\u0433\u0436\u0438\u0436 \u0445\u04AF\u0447\u0438\u043B\u0442\u04E9\u0440\u04E9\u0433\u0447\u04E9\u04E9 \u0430\u0441\u0430\u0430\u0445 \u0451\u0441\u0442\u043E\u0439.`;
+      return `\u0421\u0430\u043D\u0441\u0440\u044B\u043D \u0432\u0430\u043A\u0443\u0443\u043C \u043E\u0440\u0447\u0438\u043D\u0434 \u0434\u0430\u0440\u0430\u043B\u0442 \u0430\u043B\u0434\u0430\u0433\u0434\u0430\u0445 \u04AF\u0435\u0438\u0439\u043D \u0433\u043E\u043B \u0444\u0438\u0437\u0438\u043A \u0445\u044F\u0437\u0433\u0430\u0430\u0440 \u0431\u043E\u043B 6.3 \u043A\u041F\u0430 \u0434\u0430\u0440\u0430\u043B\u0442 \u0431\u0443\u044E\u0443 \u0410\u0440\u043C\u0441\u0442\u0440\u043E\u043D\u0433\u0438\u0439\u043D \u0445\u044F\u0437\u0433\u0430\u0430\u0440 \u044E\u043C. \u042D\u043D\u044D \u0442\u04AF\u0432\u0448\u0438\u043D\u0434 \u0443\u0441\u043D\u044B \u0431\u0443\u0446\u043B\u0430\u0445 \u0442\u0435\u043C\u043F\u0435\u0440\u0430\u0442\u0443\u0440 \u0445\u04AF\u043D\u0438\u0439 \u0431\u0438\u0435\u0438\u0439\u043D 37\xB0C \u0445\u04AF\u0440\u0442\u044D\u043B \u0431\u0443\u0443\u0440\u0434\u0430\u0433 \u0442\u0443\u043B \u0430\u043C\u043D\u044B \u0448\u04AF\u043B\u0441, \u043D\u0443\u043B\u0438\u043C\u0441, \u0443\u0443\u0448\u0433\u0438\u043D\u044B \u0447\u0438\u0439\u0433 \u0445\u043E\u0440\u043C\u044B\u043D \u0442\u04E9\u0434\u0438\u0439\u0434 \u0431\u0443\u0446\u0430\u043B\u0436 \u044D\u0445\u044D\u043B\u0434\u044D\u0433 (ebullism). \u0423\u0443\u0448\u0433\u0438\u043D\u0434 \u0430\u0433\u0430\u0430\u0440 \u0431\u0430\u0439\u0445\u0433\u04AF\u0439 \u0431\u043E\u043B\u0441\u043D\u043E\u043E\u0440 \u0446\u0443\u0441\u0430\u043D \u0434\u0430\u0445\u044C \u0445\u04AF\u0447\u0438\u043B\u0442\u04E9\u0440\u04E9\u0433\u0447 \u044D\u0441\u0440\u044D\u0433\u044D\u044D\u0440\u044D\u044D \u0443\u0443\u0448\u0433\u0438 \u0440\u0443\u0443 \u0441\u043E\u0440\u043E\u0433\u0434\u043E\u0436, \u0445\u04AF\u043D\u0434 \u0435\u0440\u0434\u04E9\u04E9 9-\u04E9\u04E9\u0441 15 \u0441\u0435\u043A\u0443\u043D\u0434\u0438\u0439\u043D \u043B \u0443\u0445\u0430\u043C\u0441\u0430\u0440\u0442 \u0445\u0443\u0433\u0430\u0446\u0430\u0430 \u04AF\u043B\u0434\u044D\u043D\u044D. \u042D\u043D\u044D \u04AF\u0435\u0434 \u0430\u043C\u044C\u0441\u0433\u0430\u043B\u0430\u0430 \u0445\u04AF\u0447\u044D\u044D\u0440 \u0442\u04AF\u0433\u0436\u0438\u0445 \u043D\u044C \u0443\u0443\u0448\u0433\u0438\u0439\u0433 \u0434\u043E\u0442\u0440\u043E\u043E\u0441 \u043D\u044C \u0434\u044D\u043B\u0431\u044D\u043B\u044D\u0445 \u0430\u044E\u0443\u043B\u0442\u0430\u0439 \u0442\u0443\u043B \u0434\u0430\u0440\u0430\u043B\u0442 \u0430\u043B\u0434\u0430\u0433\u0434\u0430\u0445\u0430\u0434 \u044F\u0430\u0440\u0430\u043B\u0442\u0430\u0439 \u0434\u0443\u0443\u043B\u0433\u0430\u0430 \u0445\u0430\u0430\u0436 \u0441\u0438\u0441\u0442\u0435\u043C\u044D\u044D \u0445\u0430\u043C\u0433\u0430\u0430\u043B\u0430\u0445 \u0448\u0430\u0430\u0440\u0434\u043B\u0430\u0433\u0430\u0442\u0430\u0439.`;
     }
-    return `If an astronaut is exposed to the vacuum of space, what happens is dictated by physical laws rather than Hollywood explosions.
+    return `When exposed to vacuum or severe cabin depressurization, human physiology is governed strictly by the Armstrong Limit at 6.3 kilopascals, or roughly 47 millimeters of mercury. At this pressure threshold, the boiling temperature of water plummets directly to 37 degrees Celsius, which is standard human core body temperature.
 
-The critical physiological threshold is the Armstrong Limit (6.3 kilopascals, or about 47 mmHg). At this pressure\u2014roughly 6% of sea level atmospheric pressure\u2014the boiling point of water drops to 37\xB0C, which is normal human core body temperature. 
-
-Unpressurized exposed moisture\u2014saliva on the tongue, tears on the cornea, and moisture inside the alveoli of the lungs\u2014instantly boils into vapor. This phenomenon is called ebullism. The circulatory system stays under enough internal vascular pressure that blood inside the arteries does not immediately boil, but gas bubbles rapidly form in veins.
-
-You would not explode, but you would have only 9 to 15 seconds of useful consciousness. Because there is no ambient oxygen, venous blood rushing through the lungs actually diffuses oxygen backward out of the blood into the vacuum, depriving the brain of oxygen within seconds.
-
-The most catastrophic reaction would be trying to hold your breath: if you close your glottis during rapid depressurization, the expanding trapped air in your lungs will rupture the alveoli, causing fatal pulmonary barotrauma and massive air emboli.`;
+Unpressurized exposed liquids\u2014including tears on the cornea, saliva on the mucosal membranes of the mouth, and fluid lining the alveoli in the lungs\u2014flash-boil into vapor in a process known as ebullism. Arterial blood remains pressurized enough by vascular tone that it does not immediately boil, but venous gas formation begins rapidly. You would have roughly 9 to 15 seconds of useful consciousness before the complete absence of alveolar oxygen reverses the diffusion gradient, pulling oxygen backward out of pulmonary capillary blood and starving the cerebral cortex. Closing the glottis and holding your breath is catastrophic, as trapped gas expanding in the pulmonary tree will instantly rupture the lungs and force fatal air emboli into the arterial system.`;
   }
   if (q.includes("radiation") || q.includes("storm") || q.includes("spe") || q.includes("cme") || q.includes("shield") || q.includes("proton") || q.includes("flare") || q.includes("\u0446\u0430\u0446\u0440\u0430\u0433")) {
     if (isMn) {
-      return `\u0421\u0430\u043D\u0441\u0440\u044B\u043D \u0446\u0430\u0446\u0440\u0430\u0433 \u0431\u043E\u043B \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u043D\u0438\u0441\u0433\u044D\u0433\u0447\u0434\u0438\u0439\u043D \u044D\u0440\u04AF\u04AF\u043B \u043C\u044D\u043D\u0434\u044D\u0434 \u0443\u0447\u0438\u0440\u0447 \u0431\u043E\u043B\u043E\u0445 \u0445\u0430\u043C\u0433\u0438\u0439\u043D \u043D\u043E\u0446\u0442\u043E\u0439 \u0430\u044E\u0443\u043B \u044E\u043C.
-
-\u0421\u0430\u043D\u0441\u0430\u0440\u0442 \u0445\u043E\u0451\u0440 \u0442\u04E9\u0440\u043B\u0438\u0439\u043D \u0446\u0430\u0446\u0440\u0430\u0433 \u0431\u0438\u0439:
-1. \u0413\u0430\u043B\u0430\u043A\u0442\u0438\u043A\u0438\u0439\u043D \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0442\u0443\u044F\u0430 (GCR): \u041D\u0430\u0440\u043D\u044B \u0430\u0439\u043C\u0433\u0438\u0439\u043D \u0433\u0430\u0434\u043D\u0430\u0430\u0441 \u0438\u0440\u0434\u044D\u0433 \u04E9\u043D\u0434\u04E9\u0440 \u044D\u043D\u0435\u0440\u0433\u0438\u0442\u044D\u0439 \u0431\u04E9\u04E9\u043C\u0441 \u0431\u04E9\u0433\u04E9\u04E9\u0434 \u043E\u0434\u043E\u043E\u0433\u043E\u043E\u0440 \u0431\u04AF\u0440\u044D\u043D \u0445\u0430\u0430\u0445 \u0431\u043E\u043B\u043E\u043C\u0436\u0433\u04AF\u0439.
-2. \u041D\u0430\u0440\u043D\u044B \u0442\u0438\u0442\u043C\u0438\u0439\u043D \u0446\u0430\u0446\u0440\u0430\u0433\u0438\u0439\u043D \u0448\u0443\u0443\u0440\u0433\u0430 (SPE): \u041D\u0430\u0440\u0430\u043D \u0434\u044D\u044D\u0440 \u0445\u04AF\u0447\u0442\u044D\u0439 \u0434\u044D\u043B\u0431\u044D\u0440\u044D\u043B\u0442 \u0431\u043E\u043B\u043E\u0445\u043E\u0434 \u0440\u0435\u043B\u044F\u0442\u0438\u0432\u0438\u0441\u0442 \u043F\u0440\u043E\u0442\u043E\u043D\u0443\u0443\u0434 \u0438\u0445 \u0445\u044D\u043C\u0436\u044D\u044D\u0433\u044D\u044D\u0440 \u0446\u0430\u0446\u0430\u0433\u0434\u0434\u0430\u0433.
-
-\u0425\u044D\u0440\u044D\u0432 SPE \u0448\u0443\u0443\u0440\u0433\u0430 \u044D\u0445\u044D\u043B\u0431\u044D\u043B Sonnenblume \u0445\u04E9\u043B\u04E9\u0433 \u0445\u043E\u0439\u0434 \u0445\u044D\u0441\u0433\u0438\u0439\u043D \u0443\u0441\u043D\u044B \u043D\u04E9\u04E9\u0446\u0438\u0439\u043D \u0445\u0430\u043D\u0430\u0430 \u041D\u0430\u0440 \u0440\u0443\u0443 \u0447\u0438\u0433\u043B\u04AF\u04AF\u043B\u044D\u043D \u0431\u0430\u0439\u0440\u043B\u0430\u0436 (\u0443\u0441 \u0431\u043E\u043B \u0443\u0441\u0442\u04E9\u0440\u04E9\u0433\u0447\u04E9\u04E9\u0440 \u0431\u0430\u044F\u043B\u0430\u0433 \u0445\u0430\u043C\u0433\u0438\u0439\u043D \u0441\u0430\u0439\u043D \u0445\u0430\u043C\u0433\u0430\u0430\u043B\u0430\u0433\u0447), 12-\u0422\u0435\u0441\u043B\u0430\u0433\u0438\u0439\u043D \u0441\u043E\u0440\u043E\u043D\u0437\u043E\u043D \u0445\u0430\u043C\u0433\u0430\u0430\u043B\u0430\u043B\u0442\u044B\u0433 \u0430\u0441\u0430\u0430\u0434\u0430\u0433. \u0411\u0430\u0433\u0438\u0439\u043D\u0445\u0430\u043D\u0434 \u0446\u0443\u0441 \u0442\u04E9\u043B\u0436\u04AF\u04AF\u043B\u044D\u0433\u0447 Filgrastim \u0431\u043E\u043B\u043E\u043D \u0440\u0430\u0434\u0438\u043E\u043F\u0440\u043E\u0442\u0435\u043A\u0442\u0430\u043D\u0442 \u044D\u043C\u0438\u0439\u0433 \u04E9\u0433\u0447 \u044D\u0440\u0441\u0434\u044D\u043B\u0438\u0439\u0433 \u0431\u0443\u0443\u0440\u0443\u0443\u043B\u0434\u0430\u0433.`;
+      return `\u0421\u0430\u043D\u0441\u0440\u044B\u043D \u0446\u0430\u0446\u0440\u0430\u0433 \u043D\u044C \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0433\u04AF\u043D\u044D\u044D\u0441 \u0438\u0440\u044D\u0445 \u0431\u0430\u0439\u043D\u0433\u044B\u043D \u0433\u0430\u043B\u0430\u043A\u0442\u0438\u043A\u0438\u0439\u043D \u0442\u0443\u044F\u0430 (GCR) \u0431\u043E\u043B\u043E\u043D \u043D\u0430\u0440\u0430\u043D \u0434\u044D\u044D\u0440\u0445 \u0434\u044D\u043B\u0431\u044D\u0440\u044D\u043B\u0442\u044D\u044D\u0441 \u04AF\u04AF\u0441\u044D\u0445 \u0445\u04AF\u0447\u0442\u044D\u0439 \u043F\u0440\u043E\u0442\u043E\u043D\u044B \u0448\u0443\u0443\u0440\u0433\u0430 (SPE) \u0433\u044D\u0441\u044D\u043D \u0445\u043E\u0451\u0440 \u0445\u044D\u043B\u0431\u044D\u0440\u0442\u044D\u0439. \u041D\u0430\u0440\u043D\u044B \u0445\u04AF\u0447\u0442\u044D\u0439 \u0448\u0443\u0443\u0440\u0433\u0430 \u043D\u044C \u0445\u044D\u0434\u0445\u044D\u043D \u0446\u0430\u0433\u0438\u0439\u043D \u0434\u043E\u0442\u043E\u0440 \u0445\u04AF\u043D\u0438\u0439 \u0446\u0443\u0441\u043D\u044B \u04AF\u04AF\u0434\u044D\u043B \u044D\u0441 \u0431\u043E\u043B\u043E\u043D \u0433\u044D\u0434\u044D\u0441\u043D\u0438\u0439 \u0441\u0430\u043B\u0441\u0442\u044B\u0433 \u0433\u044D\u043C\u0442\u044D\u044D\u0445 \u0430\u044E\u0443\u043B\u0442\u0430\u0439 \u0442\u0443\u043B Sonnenblume \u0445\u04E9\u043B\u04E9\u0433 \u0445\u043E\u0439\u0434 \u0445\u044D\u0441\u0433\u0438\u0439\u043D \u0443\u0441\u043D\u044B \u043D\u04E9\u04E9\u0446 \u0431\u043E\u043B\u043E\u043D \u0445\u043E\u043E\u043B\u043D\u044B \u0430\u0433\u0443\u0443\u043B\u0430\u0445\u0430\u0430 \u041D\u0430\u0440 \u0440\u0443\u0443 \u0447\u0438\u0433\u043B\u04AF\u04AF\u043B\u044D\u043D \u0431\u0430\u0439\u0440\u043B\u0443\u0443\u043B\u0436 \u0443\u0441\u0442\u04E9\u0440\u04E9\u0433\u0447\u0438\u0442 \u0445\u0430\u043C\u0433\u0430\u0430\u043B\u0430\u043B\u0442 \u04AF\u04AF\u0441\u0433\u044D\u0434\u044D\u0433. \u041C\u04E9\u043D 12-\u0422\u0435\u0441\u043B\u0430\u0433\u0438\u0439\u043D \u0441\u043E\u0440\u043E\u043D\u0437\u043E\u043D \u0445\u0430\u043C\u0433\u0430\u0430\u043B\u0430\u043B\u0442 \u0430\u0441\u0430\u0430\u0436, \u0431\u0430\u0433\u0438\u0439\u043D \u0433\u0438\u0448\u04AF\u04AF\u0434\u044D\u0434 \u0446\u0443\u0441 \u0442\u04E9\u043B\u0436\u04AF\u04AF\u043B\u044D\u0433\u0447 \u0442\u0443\u0441\u0433\u0430\u0439 \u044D\u043C\u0447\u0438\u043B\u0433\u044D\u044D \u0445\u0438\u0439\u0434\u044D\u0433.`;
     }
-    return `Deep-space radiation consists of two distinct threats: steady Galactic Cosmic Rays (GCR) from outside our solar system, and violent, intermittent Solar Particle Events (SPE) triggered by solar flares and Coronal Mass Ejections.
+    return `Deep-space radiation presents two starkly distinct operational hazards: the continuous, highly penetrating background of Galactic Cosmic Rays, and acute Solar Particle Events driven by coronal mass ejections. A severe solar proton storm can deliver a whole-body ionizing dose exceeding one to two Gray within hours, inducing acute radiation syndrome by decimating bone marrow stem cells and intestinal epithelium.
 
-SPEs are acute medical emergencies: the sun accelerates relativistic protons that can deliver a lethal whole-body ionizing dose (over 1 to 2 Gray) within hours, triggering Acute Radiation Syndrome\u2014destroying bone marrow hematopoietic stem cells and intestinal mucosal lining.
-
-Our Sonnenblume autonomous protection protocol handles this in multiple layers:
-1. Storm Shelter Alignment: The spacecraft slews 180 degrees tail-to-sun. The ship's potable water tanks and food stores (which are rich in hydrogen atoms) are concentrated in the aft bulkhead to absorb 75\u201380% of incoming proton flux.
-2. Active Magnetic Shielding: A 12-Tesla superconducting deflector creates an artificial magnetosphere around the habitable module.
-3. Medical Countermeasures: We initiate hematopoietic growth factors (Filgrastim / G-CSF) to stimulate neutrophil production, alongside radioprotective antioxidants.`;
+Our Sonnenblume protocol manages this through a layered defensive response. The spacecraft slews to align its aft bulkhead toward the sun, placing the ship's hydrogen-dense potable water reserves and food stores directly in the beam path to absorb up to 80 percent of incoming proton flux. Concurrently, a 12-Tesla superconducting deflector maintains an active magnetic deflection zone around the habitat while medical countermeasures, including granulocyte colony-stimulating factors like Filgrastim, are mobilized to protect immune cell counts.`;
   }
   if (q.includes("mars") || q.includes("red planet") || q.includes("\u0430\u043D\u0433\u0430\u0440\u0430\u0433")) {
     if (isMn) {
-      return `\u0410\u043D\u0433\u0430\u0440\u0430\u0433 \u0434\u044D\u044D\u0440 \u0445\u04AF\u043D\u0438\u0439 \u0431\u0438\u0435\u0434 \u044E\u0443 \u0442\u043E\u0445\u0438\u043E\u043B\u0434\u043E\u0445 \u0432\u044D?
-
-\u0410\u043D\u0433\u0430\u0440\u0430\u0433 \u0433\u0430\u0440\u0438\u0433 \u0434\u044D\u044D\u0440 \u043E\u0447\u0441\u043E\u043D \u0445\u04AF\u043D \u0434\u0430\u0440\u0430\u0430\u0445 4 \u0442\u043E\u043C \u0441\u043E\u0440\u0438\u043B\u0442\u0442\u043E\u0439 \u0442\u0443\u043B\u0433\u0430\u0440\u043D\u0430:
-1. 0.38g \u0445\u04E9\u043D\u0433\u04E9\u043D \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B: \u0414\u044D\u043B\u0445\u0438\u0439\u043D \u0442\u0430\u0442\u0430\u043B\u0446\u043B\u044B\u043D \u0434\u04E9\u043D\u0433\u04E9\u0436 38%-\u0442\u0430\u0439 \u0442\u044D\u043D\u0446\u044D\u0445 \u0442\u0443\u043B \u0431\u0438\u0435 \u0445\u04E9\u043D\u0433\u04E9\u043D \u0431\u043E\u043B\u0436 \u044F\u0432\u0430\u0445\u0430\u0434 \u0445\u044F\u043B\u0431\u0430\u0440 \u0431\u043E\u043B\u043E\u0432\u0447 \u044F\u0441, \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0438\u0439\u043D \u0441\u0443\u043B\u0440\u0430\u043B \u04AF\u0440\u0433\u044D\u043B\u0436\u0438\u043B\u043D\u044D.
-2. \u0411\u0430\u0433\u0430 \u0434\u0430\u0440\u0430\u043B\u0442 (610 \u041F\u0430): \u0414\u044D\u043B\u0445\u0438\u0439\u043D \u0434\u0430\u0440\u0430\u043B\u0442\u044B\u043D 1 \u0445\u04AF\u0440\u044D\u0445\u0433\u04AF\u0439 \u0445\u0443\u0432\u044C (0.6%) \u0442\u0443\u043B \u0441\u043A\u0430\u0444\u0430\u043D\u0434\u0440\u0433\u04AF\u0439 \u0433\u0430\u0440\u0432\u0430\u043B \u0410\u0440\u043C\u0441\u0442\u0440\u043E\u043D\u0433\u0438\u0439\u043D \u0445\u044F\u0437\u0433\u0430\u0430\u0440\u0430\u0430\u0441 \u0431\u043E\u043B\u0436 \u0431\u0438\u0435\u0438\u0439\u043D \u0448\u0438\u043D\u0433\u044D\u043D \u0431\u0443\u0446\u0430\u043B\u0436, \u0445\u044D\u0434\u0445\u044D\u043D \u0441\u0435\u043A\u0443\u043D\u0434\u044D\u0434 \u0430\u043C\u044C \u043D\u0430\u0441\u0430\u043D\u0434 \u0445\u04AF\u0440\u043D\u044D.
-3. \u0421\u043E\u0440\u043E\u043D\u0437\u043E\u043D \u0431\u0430\u043C\u0431\u0430\u0439\u0433\u04AF\u0439: \u0410\u043D\u0433\u0430\u0440\u0430\u0433 \u043D\u044C \u0434\u044D\u043B\u0445\u0438\u0439 \u0448\u0438\u0433 \u0441\u043E\u0440\u043E\u043D\u0437\u043E\u043D \u043E\u0440\u043E\u043D\u0442\u043E\u0439 \u0431\u0438\u0448 \u0442\u0443\u043B \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0446\u0430\u0446\u0440\u0430\u0433 \u0433\u0430\u0434\u0430\u0440\u0433\u0430 \u0434\u044D\u044D\u0440 \u0448\u0443\u0443\u0434 \u0442\u0443\u0441\u0434\u0430\u0433 (\u0436\u0438\u043B\u0434 250\u2013300 \u043C\u0417\u0432). \u0418\u0439\u043C\u044D\u044D\u0441 \u0410\u043D\u0433\u0430\u0440\u0430\u0433 \u0434\u044D\u044D\u0440\u0445 \u0431\u0430\u0430\u0437 \u043D\u044C \u0433\u0430\u0437\u0430\u0440 \u0434\u043E\u043E\u0440 \u044D\u0441\u0432\u044D\u043B \u0437\u0443\u0437\u0430\u0430\u043D \u0445\u04E9\u0440\u0441\u04E9\u043D \u0445\u0443\u0447\u0430\u0430\u0441\u0442\u0430\u0439 \u0431\u0430\u0439\u0445 \u0448\u0430\u0430\u0440\u0434\u043B\u0430\u0433\u0430\u0442\u0430\u0439.
-4. \u0425\u043E\u0440\u0442 \u043F\u0435\u0440\u0445\u043B\u043E\u0440\u0430\u0442 \u0442\u043E\u043E\u0441: \u0410\u043D\u0433\u0430\u0440\u0430\u0433\u0438\u0439\u043D \u0445\u04E9\u0440\u0441\u04E9\u043D\u0434 0.5%\u20131.0% \u043F\u0435\u0440\u0445\u043B\u043E\u0440\u0430\u0442 \u0431\u0430\u0439\u0434\u0430\u0433 \u043D\u044C \u0431\u0430\u043C\u0431\u0430\u0439 \u0431\u0443\u043B\u0447\u0438\u0440\u0445\u0430\u0439\u043D \u04AF\u0439\u043B \u0430\u0436\u0438\u043B\u043B\u0430\u0433\u0430\u0430\u0433 \u0434\u0430\u0440\u0430\u043D\u0433\u0443\u0439\u043B\u0436, \u0443\u0443\u0448\u0433\u0438\u043D\u0434 \u0441\u043E\u0440\u043E\u0433\u0434\u0432\u043E\u043B \u0445\u04AF\u043D\u0434 \u0433\u044D\u043C\u0442\u044D\u043B \u0443\u0447\u0440\u0443\u0443\u043B\u0434\u0430\u0433.`;
+      return `\u0410\u043D\u0433\u0430\u0440\u0430\u0433 \u0433\u0430\u0440\u0438\u0433 \u0434\u044D\u044D\u0440 \u0445\u04AF\u043D \u043E\u0447\u0438\u0445\u043E\u0434 \u0445\u044D\u0434 \u0445\u044D\u0434\u044D\u043D \u0442\u043E\u043C\u043E\u043E\u0445\u043E\u043D \u0441\u043E\u0440\u0438\u043B\u0442 \u0442\u0443\u043B\u0433\u0430\u0440\u043D\u0430. \u0413\u0430\u0434\u0430\u0440\u0433\u044B\u043D \u0442\u0430\u0442\u0430\u043B\u0446\u0430\u043B \u043D\u044C \u0434\u044D\u043B\u0445\u0438\u0439\u043D \u0434\u04E9\u043D\u0433\u04E9\u0436 38 \u0445\u0443\u0432\u044C\u0442\u0430\u0439 \u0442\u044D\u043D\u0446\u044D\u0445 \u0442\u0443\u043B \u0431\u0438\u0435 \u0445\u04E9\u043D\u0433\u04E9\u043D \u0431\u0430\u0439\u0445 \u0431\u043E\u043B\u043E\u0432\u0447 \u044F\u0441, \u0431\u0443\u043B\u0447\u0438\u043D\u0433\u0438\u0439\u043D \u0441\u0443\u043B\u0440\u0430\u043B \u04AF\u0440\u0433\u044D\u043B\u0436\u0438\u043B\u043D\u044D. \u0410\u0433\u0430\u0430\u0440 \u043C\u0430\u043D\u0434\u043B\u044B\u043D \u0434\u0430\u0440\u0430\u043B\u0442 \u043D\u044C 610 \u041F\u0430\u0441\u043A\u0430\u043B\u044C \u0431\u0443\u044E\u0443 \u0434\u044D\u043B\u0445\u0438\u0439\u043D \u0434\u0430\u0440\u0430\u043B\u0442\u044B\u043D \u043D\u044D\u0433 \u0445\u04AF\u0440\u044D\u0445\u0433\u04AF\u0439 \u0445\u0443\u0432\u044C \u0442\u0443\u043B \u0410\u0440\u043C\u0441\u0442\u0440\u043E\u043D\u0433\u0438\u0439\u043D \u0445\u044F\u0437\u0433\u0430\u0430\u0440\u0430\u0430\u0441 \u0434\u043E\u043E\u0448 \u043E\u0440\u0448\u0438\u0436, \u0441\u043A\u0430\u0444\u0430\u043D\u0434\u0440\u0433\u04AF\u0439 \u0433\u0430\u0440\u0432\u0430\u043B \u0431\u0438\u0435\u0438\u0439\u043D \u0448\u0438\u043D\u0433\u044D\u043D \u0445\u043E\u0440\u043C\u044B\u043D \u0434\u043E\u0442\u043E\u0440 \u0431\u0443\u0446\u0430\u043B\u043D\u0430. \u041C\u04E9\u043D \u0410\u043D\u0433\u0430\u0440\u0430\u0433 \u043D\u044C \u0441\u043E\u0440\u043E\u043D\u0437\u043E\u043D \u0431\u0430\u043C\u0431\u0430\u0439\u0433\u04AF\u0439 \u0442\u0443\u043B \u0446\u0430\u0446\u0440\u0430\u0433 \u0433\u0430\u0434\u0430\u0440\u0433\u0430 \u0434\u044D\u044D\u0440 \u0448\u0443\u0443\u0434 \u0442\u0443\u0441\u0434\u0430\u0433 \u0431\u04E9\u0433\u04E9\u04E9\u0434 \u0445\u04E9\u0440\u0441\u04E9\u043D\u0434 \u043D\u044C \u0431\u0430\u0439\u0445 \u043F\u0435\u0440\u0445\u043B\u043E\u0440\u0430\u0442 \u0434\u0430\u0432\u0441 \u043D\u044C \u0431\u0430\u043C\u0431\u0430\u0439 \u0431\u0443\u043B\u0447\u0438\u0440\u0445\u0430\u0439 \u0431\u043E\u043B\u043E\u043D \u0443\u0443\u0448\u0433\u0438\u043D\u0434 \u0445\u043E\u0440\u0442\u043E\u0439 \u043D\u04E9\u043B\u04E9\u04E9 \u04AF\u0437\u04AF\u04AF\u043B\u0434\u044D\u0433.`;
     }
-    return `On Mars, the human body faces an environment that is hostile in four interconnected ways:
+    return `Operating on the Martian surface presents an environment defined by fractional gravity, near-vacuum pressure, chronic radiation, and chemical toxicity. At 0.38g surface gravity, crewmembers experience significant relief compared to transit weightlessness, yet fractional gravity is insufficient on its own to arrest bone mineral density loss or reverse cephalad fluid dynamics without ongoing daily exercise.
 
-1. Fractional Gravity (0.38g):
-Mars has 38% of Earth's surface gravity. While astronauts will feel light and agile, fractional gravity does not fully prevent musculoskeletal atrophy or cephalad fluid shift. Without daily resistance workouts, bone mineral loss will continue.
-
-2. Near-Vacuum Atmospheric Pressure (610 Pascals):
-Martian atmospheric pressure is less than 1% of Earth's sea level pressure (101.3 kPa). Because 0.61 kPa is far below the 6.3 kPa Armstrong limit, any suit puncture would immediately boil tears, saliva, and lung moisture. A pressurized environmental suit is mandatory 100% of the time outside the habitat.
-
-3. Lack of a Global Magnetosphere:
-Unlike Earth, Mars has no active planetary dynamo to generate a global magnetic shield. The surface receives an unfiltered chronic cosmic radiation dose of approximately 250 to 300 millisieverts per year\u2014over fifty times the Earth background. Long-term habitats will need to be buried beneath several meters of Martian regolith or inside lava tubes.
-
-4. Toxic Perchlorate Dust:
-Martian soil contains 0.5% to 1.0% reactive perchlorate salts. If tracked into habitats on EVA suits, inhaled dust competitively inhibits thyroid iodine uptake and causes severe pulmonary irritation and chronic fibrosis.`;
+The Martian atmospheric pressure of 610 Pascals sits well below the 6.3 kilopascal Armstrong limit, meaning that without a full pressure suit, tears, saliva, and alveolar moisture would flash-boil immediately upon exposure. Furthermore, the absence of a global magnetic field leaves the Martian surface exposed to roughly 250 to 300 millisieverts of cosmic and solar radiation annually, requiring habitats to be shielded beneath several meters of regolith or located inside subsurface lava tubes. Finally, the soil contains active perchlorate salts that aggressively inhibit thyroid iodine uptake and cause chronic pulmonary damage if brought into the living quarters.`;
   }
   if (q.includes("moon") || q.includes("lunar") || q.includes("\u0441\u0430\u0440")) {
-    return `Operating on the Moon (at 1/6th Earth gravity / 0.166g) presents challenges distinct from both Earth and Mars:
-
-First, lunar regolith dust is extraordinarily dangerous. Because the Moon has no atmosphere or liquid water, there is zero weathering. Every microscopic dust particle is razor-sharp, jagged volcanic glass that carries a static electrical charge. Inhaling even tiny quantities tracked inside an airlock causes acute lunar silicosis, mucosal inflammation, and lung damage.
-
-Second, the lack of an atmosphere produces 300\xB0C temperature swings between the two-week-long lunar day (+120\xB0C) and the two-week-long lunar night (-130\xB0C). Spacesuits require continuous active liquid cooling and ventilation garments (LCVG) to prevent hyperthermia or hypothermia.`;
+    return `On the Moon, operating at one-sixth Earth gravity introduces hazards distinctly different from Mars. Because the lunar surface has had neither liquid water nor an atmosphere for billions of years, there is no mechanical weathering: every microscopic grain of lunar regolith is an abrasive, razor-sharp shard of volcanic glass that carries an electrostatic charge. Inhaling even minute quantities tracked inside an airlock causes acute abrasive airway inflammation similar to toxic silicosis. The lack of an atmospheric blanket also drives surface temperature swings across a 250-degree span between the two-week lunar day and the two-week lunar night, requiring high-capacity liquid cooling garments to maintain thermal equilibrium.`;
   }
   if (q.includes("sleep") || q.includes("psycholog") || q.includes("mental") || q.includes("stress") || q.includes("isolation") || q.includes("\u043D\u043E\u0439\u0440") || q.includes("\u0441\u044D\u0442\u0433\u044D\u043B")) {
-    return `In deep space, psychological stability is just as vital as cardiovascular health.
-
-Astronauts live in a sealed, cramped environment with high background noise (from fans, pumps, and scrubbers) and no natural day-night cycle. On the ISS, astronauts experience 16 sunrises and sunsets every 24 hours.
-
-Without proper circadian entrainment, sleep fragmentation and insomnia are common. Hermes regulates this by adjusting spacecraft lighting: two hours before scheduled sleep, cabin lights shift to blue-depleted 2200K warm tones to trigger natural melatonin release.
-
-Prolonged isolation also triggers the "third-quarter phenomenon"\u2014a well-documented psychological dip where motivation, interpersonal communication, and energy drop during the middle half of a mission. We track this through daily voice sentiment telemetry, HRV vagal tone, and structured 4-7-8 autonomic breathing exercises.`;
+    return `Psychological homeostasis is as critical to mission survival as life support pressure. In deep space, crewmembers live inside a rigid metal habitat saturated with background pump and scrubber noise and stripped of any natural terrestrial day-night cycle. Without environmental cues, circadian drift and sleep fragmentation become chronic risks, which Hermes manages by progressively tuning cabin lighting down to blue-depleted 2200K warm spectra prior to sleep periods to trigger natural pineal melatonin release. Prolonged isolation also produces the well-documented third-quarter dip in crew interpersonal cohesion and task motivation, which we monitor through daily speech cadence analysis, vagal heart rate variability, and guided vagal breathing exercises.`;
   }
   if (q.includes("heart") || q.includes("vital") || q.includes("blood pressure") || q.includes("pulse") || q.includes("ecg") || q.includes("spo2") || q.includes("watch") || q.includes("g-force") || q.includes("g-load") || q.includes("\u0437\u04AF\u0440\u0445") || q.includes("\u0434\u0430\u0440\u0430\u043B\u0442")) {
-    return `Your live Xiaomi Watch H1 biometric feed is actively streaming to the flight deck:
-\u2022 Heart Rate: ${hr} BPM (Normal Sinus Rhythm)
-\u2022 Blood Pressure: ${bpSys}/${bpDia} mmHg (Measured via the watch's precision micro-pump cuff)
-\u2022 Oxygen Saturation: ${spo2}% SpO\u2082
-
-Our autonomous flight controller dynamically links this data to spacecraft propulsion. In a nominal state, thruster acceleration is capped at \u2264 2.6G. If your heart rate spikes above safe thresholds or your blood pressure deviates significantly due to acute stress or trauma, Hermes autonomously throttles thrusters down to \u2264 1.65G to prevent cephalad venous pooling and loss of consciousness.`;
+    return `Your Xiaomi Watch H1 telemetry shows a heart rate of ${hr} BPM in normal sinus rhythm, blood pressure of ${bpSys} over ${bpDia} mmHg via the integrated micro-cuff, and oxygen saturation steady at ${spo2} percent. Our autonomous flight envelope links these cardiovascular metrics directly to propulsion limits: while nominal maneuvering permits accelerations up to 2.6G, any cardiovascular instability or acute trauma triggers Hermes to dynamically constrain thruster burn profiles to 1.65G or less, protecting cerebral perfusion and preventing G-induced loss of consciousness.`;
   }
   if (q.includes("return") || q.includes("earth") || q.includes("abort") || q.includes("trajectory") || q.includes("orbit") || q.includes("burn") || q.includes("delta v") || q.includes("gmat") || q.includes("\u0431\u0443\u0446\u0430\u0445") || q.includes("\u0442\u0440\u0430\u0435\u043A\u0442\u043E\u0440\u0438")) {
-    return `For an emergency Earth return, orbital mechanics requires balancing transit time against total fuel expenditure (delta-V) and human G-tolerance:
-
-Our high-energy Lambert return solution requires approximately 1,840.5 m/s of delta-V using high-specific-impulse thrusters. That yields an Earth Entry Interface ETA of roughly 148.5 hours.
-
-Crucially, the burn profile is shaped to never exceed 1.65G. Because injured or deconditioned astronauts have lower cardiovascular reserve, a standard 4G or 5G ballistic burn could cause cerebral hypoperfusion and blackout. The exact GMAT mission script and Orbiter flight bridge coordinates are synchronized directly on your navigation console.`;
+    return `Executing an emergency Earth return requires solving for high-energy Lambert orbital transfers while strictly limiting G-forces to match the crew's cardiovascular reserve. Our primary return solution calls for approximately 1,840.5 meters per second of delta-V using high-efficiency propulsion, targeting an Earth entry interface in roughly 148.5 hours. Crucially, the acceleration profile is dynamically capped at 1.65G to ensure that deconditioned or injured astronauts maintain adequate retinal and cerebral blood flow throughout every burn.`;
   }
   if (isMn) {
-    return `\u0411\u0438 \u0442\u0430\u043D\u044B \u0430\u0441\u0443\u0443\u043B\u0442\u044B\u0433 \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0430\u043D\u0430\u0433\u0430\u0430\u0445 \u0443\u0445\u0430\u0430\u043D, NASA-STD-3001 \u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442 \u0431\u043E\u043B\u043E\u043D \u0445\u04E9\u043B\u0433\u0438\u0439\u043D \u0442\u0435\u043B\u0435\u043C\u0435\u0442\u0440\u0438\u0439\u043D \u043C\u044D\u0434\u044D\u044D\u043B\u044D\u043B \u0434\u044D\u044D\u0440 \u04AF\u043D\u0434\u044D\u0441\u043B\u044D\u043D \u0448\u0438\u043D\u0436\u0438\u043B\u043B\u044D\u044D.
-
-\u041E\u0434\u043E\u043E\u0433\u043E\u043E\u0440 \u0442\u0430\u043D\u044B Xiaomi Watch H1 \u0431\u0438\u043E-\u0445\u043E\u043B\u0431\u043E\u043E\u0441 \u0445\u044D\u0432\u0438\u0439\u043D \u0430\u0436\u0438\u043B\u043B\u0430\u0436 \u0431\u0430\u0439\u043D\u0430 (\u0437\u04AF\u0440\u0445 ${hr} BPM, \u0445\u04AF\u0447\u0438\u043B\u0442\u04E9\u0440\u04E9\u0433\u0447 ${spo2}%). \u0422\u0430 \u0431\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u043B\u044B\u043D \u0444\u0438\u0437\u0438\u043E\u043B\u043E\u0433\u0438\u0439\u043D \u04E9\u04E9\u0440\u0447\u043B\u04E9\u043B\u0442 (SANS, \u0448\u0438\u043D\u0433\u044D\u043D\u0438\u0439 \u0448\u0438\u043B\u0436\u0438\u043B\u0442, \u044F\u0441\u043D\u044B \u043D\u044F\u0433\u0442\u0440\u0430\u043B), \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u044F\u0430\u0440\u0430\u043B\u0442\u0430\u0439 \u0442\u0443\u0441\u043B\u0430\u043C\u0436 (0G CPR, \u0432\u0430\u043A\u0443\u0443\u043C \u0434\u0430\u0440\u0430\u043B\u0442 \u0430\u043B\u0434\u0430\u0433\u0434\u0430\u0445), \u044D\u0441\u0432\u044D\u043B \u0442\u043E\u0439\u0440\u043E\u0433 \u0437\u0430\u043C\u044B\u043D \u043C\u0430\u043D\u0435\u0432\u0440, G-\u0445\u04AF\u0447\u043D\u0438\u0439 \u0445\u044F\u0437\u0433\u0430\u0430\u0440\u043B\u0430\u043B\u0442\u044B\u043D \u0442\u0430\u043B\u0430\u0430\u0440 \u0442\u043E\u0434\u043E\u0440\u0445\u043E\u0439 \u0430\u0441\u0443\u0443\u043B\u0442 \u0442\u0430\u0432\u0438\u0431\u0430\u043B \u0431\u0438 \u0434\u044D\u043B\u0433\u044D\u0440\u044D\u043D\u0433\u04AF\u0439 \u0442\u0430\u0439\u043B\u0431\u0430\u0440\u043B\u0430\u0436 \u04E9\u0433\u0447 \u0447\u0430\u0434\u043D\u0430.`;
+    return `\u0422\u0430\u043D\u044B \u0430\u0441\u0443\u0443\u043B\u0442\u044B\u0433 \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u0430\u043D\u0430\u0433\u0430\u0430\u0445 \u0443\u0445\u0430\u0430\u043D\u044B NASA-STD-3001 \u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442 \u0431\u043E\u043B\u043E\u043D \u0445\u04E9\u043B\u0433\u0438\u0439\u043D \u0431\u043E\u0434\u0438\u0442 \u0442\u0435\u043B\u0435\u043C\u0435\u0442\u0440\u0438\u0439\u043D \u04E9\u0433\u04E9\u0433\u0434\u04E9\u043B\u0434 \u04AF\u043D\u0434\u044D\u0441\u043B\u044D\u043D \u0448\u0438\u043D\u0436\u0438\u043B\u043B\u044D\u044D. \u041E\u0434\u043E\u043E\u0433\u043E\u043E\u0440 \u0442\u0430\u043D\u044B Xiaomi Watch H1 \u0443\u0445\u0430\u0430\u043B\u0430\u0433 \u0446\u0430\u0433\u043D\u044B \u043C\u044D\u0434\u044D\u044D\u043B\u044D\u043B \u0445\u044D\u0432\u0438\u0439\u043D, \u0437\u04AF\u0440\u0445\u043D\u0438\u0439 \u0446\u043E\u0445\u0438\u043B\u0442 ${hr} BPM, \u0445\u04AF\u0447\u0438\u043B\u0442\u04E9\u0440\u04E9\u0433\u0447\u0438\u0439\u043D \u0445\u0430\u043D\u0430\u043B\u0442 ${spo2} \u0445\u0443\u0432\u044C\u0442\u0430\u0439 \u0431\u0430\u0439\u043D\u0430. \u0411\u0438\u0447\u0438\u043B \u0442\u0430\u0442\u0430\u043B\u0446\u043B\u044B\u043D \u0444\u0438\u0437\u0438\u043E\u043B\u043E\u0433\u0438\u0439\u043D \u0434\u0430\u0441\u0430\u043D \u0437\u043E\u0445\u0438\u0446\u043E\u043B, \u0441\u0430\u043D\u0441\u0440\u044B\u043D \u044D\u043C\u043D\u044D\u043B\u0433\u0438\u0439\u043D \u0442\u0443\u0441\u043B\u0430\u043C\u0436, \u044D\u0441\u0432\u044D\u043B \u0445\u04E9\u043B\u0433\u0438\u0439\u043D \u0442\u043E\u0439\u0440\u043E\u0433 \u0437\u0430\u043C\u044B\u043D \u043C\u0430\u043D\u0435\u0432\u0440\u044B\u043D \u0442\u0430\u043B\u0430\u0430\u0440 \u0434\u044D\u043B\u0433\u044D\u0440\u044D\u043D\u0433\u04AF\u0439 \u0442\u043E\u0434\u0440\u0443\u0443\u043B\u0430\u0445 \u0437\u04AF\u0439\u043B \u0431\u0430\u0439\u0432\u0430\u043B \u0447\u04E9\u043B\u04E9\u04E9\u0442\u044D\u0439 \u0430\u0441\u0443\u0443\u0433\u0430\u0430\u0440\u0430\u0439.`;
   }
-  return `I have evaluated your query against our onboard aerospace medicine research database and live crew telemetry (currently HR ${hr} BPM, SpO\u2082 ${spo2}%).
-
-I can provide detailed scientific breakdowns on:
-\u2022 Spaceflight Physiology: Cephalad fluid shifts, SANS optic changes, and bone/muscle atrophy countermeasures
-\u2022 Emergency Medicine in 0G: Handstand CPR, depressurization ebullism at the Armstrong Limit, and toxic ECLSS leaks
-\u2022 Orbital Trajectory & Propulsion: High-energy fast return solutions and cardiovascular G-force constraints
-\u2022 Deep-Space Hazards: Solar particle event shielding and Martian regolith toxicity
-
-Which specific scenario or physiological mechanism would you like me to walk through?`;
+  return `I have evaluated your request against the NASA-STD-3001 aerospace medicine standard and your current biometric stream, which shows heart rate at ${hr} BPM and blood oxygen at ${spo2} percent. We can explore any aspect of spaceflight physiology, from cephalad fluid shifts and optic changes to zero-gravity emergency resuscitation, solar radiation storm mitigation, or trajectory acceleration limits.`;
 }
 
 // server/hermesEngine.ts

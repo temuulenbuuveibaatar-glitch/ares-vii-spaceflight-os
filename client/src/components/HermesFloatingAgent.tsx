@@ -4,6 +4,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import {
   speakNaturalVoice,
+  getBestVoice,
   stopSpeaking,
   getAvailableEnglishVoices,
   playQuindarTone,
@@ -88,10 +89,23 @@ export default function HermesFloatingAgent() {
   ]);
 
   useEffect(() => {
-    const list = getAvailableEnglishVoices();
-    setAvailableVoices(list);
-    if (list.length > 0 && !selectedVoiceName) {
-      setSelectedVoiceName(list[0].name);
+    const updateVoiceList = () => {
+      const list = getAvailableEnglishVoices();
+      setAvailableVoices(list);
+      const savedVoice = typeof window !== "undefined" ? localStorage.getItem("hermes_selected_voice") : "";
+      const best = getBestVoice();
+      if (savedVoice && list.some(v => v.name === savedVoice)) {
+        setSelectedVoiceName(savedVoice);
+      } else if (best) {
+        setSelectedVoiceName(best.name);
+      } else if (list.length > 0) {
+        setSelectedVoiceName(list[0].name);
+      }
+    };
+
+    updateVoiceList();
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.onvoiceschanged = updateVoiceList;
     }
   }, [isOpen]);
 
@@ -434,6 +448,41 @@ export default function HermesFloatingAgent() {
             </div>
           </div>
 
+          {/* QUICK VOICE TOOLBAR */}
+          <div className="bg-[#10160c] px-3.5 py-1.5 border-b border-[#232d1a] flex items-center justify-between text-[11px] font-mono">
+            <div className="flex items-center gap-1.5 flex-1 min-w-0 mr-2">
+              <span className="text-[#8ea873] shrink-0">Voice:</span>
+              <select
+                value={selectedVoiceName}
+                onChange={(e) => {
+                  setSelectedVoiceName(e.target.value);
+                  if (typeof window !== "undefined") {
+                    localStorage.setItem("hermes_selected_voice", e.target.value);
+                  }
+                }}
+                className="bg-[#182213] border border-[#2e3b23] text-[#e3ecd8] rounded px-1.5 py-0.5 text-[11px] truncate focus:outline-none focus:border-[#fbbf24] max-w-[210px]"
+              >
+                {availableVoices.map((v) => (
+                  <option key={v.name} value={v.name}>
+                    {v.name.replace(/Microsoft |Desktop |Online \(Natural\)|\(United States\)/gi, "").trim()}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                const voiceObj = availableVoices.find((v) => v.name === selectedVoiceName) || null;
+                speakExplicit("Hermes flight and medical voice engine operational. This voice is active.", { voice: voiceObj });
+              }}
+              className="px-2 py-0.5 rounded bg-[#28381c] hover:bg-[#344824] text-[#fbbf24] border border-[#3f572c] text-[10px] font-bold flex items-center gap-1 shrink-0 cursor-pointer"
+              title="Test current voice"
+            >
+              <Play className="w-2.5 h-2.5" />
+              <span>Test Voice</span>
+            </button>
+          </div>
+
           {/* AI & VOICE SETTINGS DRAWER */}
           {showSettings && (
             <div className="p-3.5 bg-[#182213] border-b border-[#2e3b23] space-y-3 text-xs">
@@ -465,7 +514,7 @@ export default function HermesFloatingAgent() {
                   <label className="text-[11px] text-[#a8baa0] font-mono">Synthesizer Voice Engine:</label>
                   <select
                     value={selectedVoiceName}
-                    onChange={(e) => setSelectedVoiceName(e.target.value)}
+                    onChange={(e) => { setSelectedVoiceName(e.target.value); if (typeof window !== "undefined") localStorage.setItem("hermes_selected_voice", e.target.value); }}
                     className="w-full bg-[#0b0e0a] border border-[#2e3b23] text-white px-2 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-[#fbbf24]"
                   >
                     {availableVoices.map((v) => (

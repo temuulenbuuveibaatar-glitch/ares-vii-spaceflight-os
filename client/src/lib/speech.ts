@@ -300,6 +300,10 @@ export function getBestVoice(): SpeechSynthesisVoice | null {
     "karen",
     "serena",
     "oliver",
+    "zira",
+    "hazel",
+    "catherine",
+    "eva",
     "enhanced",
     "neural",
     "online",
@@ -314,12 +318,13 @@ export function getBestVoice(): SpeechSynthesisVoice | null {
     if (found) return found;
   }
 
-  const modernEnglish = voices.find(
+  // Avoid harsh legacy desktop robotic voice (Microsoft David)
+  const nonDavidEnglish = voices.find(
     (v) =>
       v.lang.toLowerCase().startsWith("en") &&
-      !v.name.toLowerCase().includes("desktop")
+      !v.name.toLowerCase().includes("david")
   );
-  if (modernEnglish) return modernEnglish;
+  if (nonDavidEnglish) return nonDavidEnglish;
 
   const anyEnglish = voices.find((v) => v.lang.toLowerCase().startsWith("en"));
   return anyEnglish || voices[0] || null;
