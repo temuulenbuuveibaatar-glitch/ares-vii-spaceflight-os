@@ -1,21 +1,23 @@
 /**
- * Hermes Advanced Speech & Acoustic Engine
- * Cleanroom aerospace audio architecture inspired by open-source voice agents (OpenJarvis)
- * Rebuilt from first principles with NASA-STD-3001 spaceflight clinical protocols:
- * 
- * 1. Web Audio API Apollo/Artemis Quindar Tones (2524 Hz intro / 2475 Hz outro)
- * 2. Natural Sentence-by-Sentence Streamed TTS with breathing pauses
- * 3. NASA Aero-Medical Speech Recognition Normalizer (fixes speech-to-text acronyms)
- * 4. Continuous Wake-Word Detection ("Hey Hermes", "Hermes", "Flight")
- * 5. Multi-Profile Acoustic Personas (Flight Surgeon, Orbital Navigator, Apollo Intercom, Neuro Coach)
- * 6. High-Fidelity Neural Voice Selection & Instant Barge-In Interruptibility
+ * Hermes Advanced Multilingual Speech & Acoustic Engine
+ * Built for Sonnenblume Space OS (NASA Space Apps Challenge).
+ *
+ * Highlights:
+ * 1. Cloud Neural MP3 Audio Stream (/api/hermes/speech) - Eliminates robotic OS voices (Microsoft David)
+ * 2. Multi-language Support: English, French, Spanish, Chinese, Russian, Italian, German, Mongolian
+ * 3. Apollo/Artemis CapCom Quindar Tones (2524 Hz intro / 2475 Hz outro) via Web Audio API
+ * 4. Automatic Language Detection & Aerospace Speech Normalization
+ * 5. Instant Barge-In Stop & Full Duplex Hands-Free Mode
  */
+
+import { detectLanguage, SupportedLanguage } from "@shared/hermesAI";
 
 let cachedVoices: SpeechSynthesisVoice[] = [];
 let audioCtx: AudioContext | null = null;
 let currentStreamQueue: string[] = [];
 let isStreamingActive = false;
 let activeUtterance: SpeechSynthesisUtterance | null = null;
+let currentAudioElement: HTMLAudioElement | null = null;
 
 function getAudioContext(): AudioContext | null {
   if (typeof window === "undefined") return null;
@@ -33,9 +35,7 @@ function getAudioContext(): AudioContext | null {
 
 /**
  * Authentic NASA Apollo/Artemis CapCom Quindar Tones
- * Intro tone: 2524 Hz (250 ms)
- * Outro tone: 2475 Hz (250 ms)
- * Synthesized mathematically via Web Audio API sine oscillators.
+ * 2524 Hz intro / 2475 Hz outro
  */
 export function playQuindarTone(type: "intro" | "outro" | "ack" | "mic_open" | "mic_close"): void {
   const ctx = getAudioContext();
@@ -49,7 +49,6 @@ export function playQuindarTone(type: "intro" | "outro" | "ack" | "mic_open" | "
     osc.type = "sine";
 
     if (type === "intro") {
-      // 2524 Hz Apollo/Skylab Ground-to-Space PTT start tone
       osc.frequency.setValueAtTime(2524, now);
       gain.gain.setValueAtTime(0, now);
       gain.gain.linearRampToValueAtTime(0.04, now + 0.015);
@@ -60,7 +59,6 @@ export function playQuindarTone(type: "intro" | "outro" | "ack" | "mic_open" | "
       osc.start(now);
       osc.stop(now + 0.23);
     } else if (type === "outro") {
-      // 2475 Hz Apollo/Skylab Ground-to-Space PTT release tone
       osc.frequency.setValueAtTime(2475, now);
       gain.gain.setValueAtTime(0, now);
       gain.gain.linearRampToValueAtTime(0.035, now + 0.015);
@@ -71,7 +69,6 @@ export function playQuindarTone(type: "intro" | "outro" | "ack" | "mic_open" | "
       osc.start(now);
       osc.stop(now + 0.23);
     } else if (type === "mic_open") {
-      // Modern subtle HUD uplink chirp: 587 Hz (D5) -> 880 Hz (A5)
       osc.frequency.setValueAtTime(587.33, now);
       osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
       gain.gain.setValueAtTime(0, now);
@@ -82,7 +79,6 @@ export function playQuindarTone(type: "intro" | "outro" | "ack" | "mic_open" | "
       osc.start(now);
       osc.stop(now + 0.13);
     } else if (type === "mic_close") {
-      // Soft downlink close chirp: 880 Hz -> 587 Hz
       osc.frequency.setValueAtTime(880, now);
       osc.frequency.exponentialRampToValueAtTime(587.33, now + 0.08);
       gain.gain.setValueAtTime(0, now);
@@ -93,9 +89,8 @@ export function playQuindarTone(type: "intro" | "outro" | "ack" | "mic_open" | "
       osc.start(now);
       osc.stop(now + 0.13);
     } else if (type === "ack") {
-      // Gentle dual-frequency confirmation
-      osc.frequency.setValueAtTime(523.25, now); // C5
-      osc.frequency.setValueAtTime(659.25, now + 0.06); // E5
+      osc.frequency.setValueAtTime(523.25, now);
+      osc.frequency.setValueAtTime(659.25, now + 0.06);
       gain.gain.setValueAtTime(0, now);
       gain.gain.linearRampToValueAtTime(0.04, now + 0.01);
       gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
@@ -104,9 +99,7 @@ export function playQuindarTone(type: "intro" | "outro" | "ack" | "mic_open" | "
       osc.start(now);
       osc.stop(now + 0.15);
     }
-  } catch {
-    // Non-blocking fallback if browser audio context is restricted
-  }
+  } catch {}
 }
 
 function loadVoices(): SpeechSynthesisVoice[] {
@@ -127,15 +120,10 @@ if (typeof window !== "undefined" && "speechSynthesis" in window) {
   };
 }
 
-/**
- * Normalizes speech recognition transcripts to correct common speech-to-text mistakes
- * for aerospace, clinical, and telemetry terms.
- */
 export function normalizeSpaceSpeech(rawTranscript: string): string {
   if (!rawTranscript) return "";
   let text = rawTranscript.trim();
 
-  // Correct speech recognition mishearings of spaceflight terms
   const corrections: [RegExp, string][] = [
     [/\b(sand|sam|sands)\s+(syndrome|vision|eye)\b/gi, "SANS syndrome"],
     [/\b(eclis|e-class|eclipse|ecliss|atlas)\b/gi, "ECLSS"],
@@ -159,10 +147,6 @@ export function normalizeSpaceSpeech(rawTranscript: string): string {
   return text;
 }
 
-/**
- * Detects wake words like "Hermes", "Hey Hermes", "Computer"
- * Returns true and the stripped user command if present.
- */
 export function checkWakeWord(transcript: string): { hasWakeWord: boolean; command: string } {
   if (!transcript) return { hasWakeWord: false, command: "" };
 
@@ -175,18 +159,15 @@ export function checkWakeWord(transcript: string): { hasWakeWord: boolean; comma
   return { hasWakeWord: false, command: transcript };
 }
 
-/**
- * Sanitizes markdown, robotic tags, and expands acronyms into natural pronunciation.
- */
 export function sanitizeTextForSpeech(raw: string): string {
   if (!raw) return "";
 
   let clean = raw;
 
-  // 1. Remove bracketed headers like [HERMES ...] or [NASA-STD-3001]
+  // 1. Remove bracketed headers
   clean = clean.replace(/\[[^\]]+\]:?/g, "");
 
-  // 2. Remove markdown formatting: bold, italic, code blocks, hashes
+  // 2. Remove markdown formatting
   clean = clean.replace(/[*_`#]/g, "");
 
   // 3. Smooth lists into flowing speech
@@ -200,7 +181,7 @@ export function sanitizeTextForSpeech(raw: string): string {
   clean = clean.replace(/Subagents Standing By:[^\n.]+[.]?/gi, "");
   clean = clean.replace(/State your emergency protocol[^\n.]+[.]?/gi, "");
 
-  // 5. Expand acronyms for natural conversational pronunciation
+  // 5. Expand acronyms
   clean = clean.replace(/\b0G\b/g, "zero gravity");
   clean = clean.replace(/\b1G\b/g, "one G");
   clean = clean.replace(/\bSpO2\b/gi, "blood oxygen");
@@ -216,27 +197,10 @@ export function sanitizeTextForSpeech(raw: string): string {
   clean = clean.replace(/\bμSv\/hr\b/g, "microsieverts per hour");
   clean = clean.replace(/\bARED\b/g, "A-red resistance gym");
 
-  // 6. Clean whitespace and repeated punctuation
   clean = clean.replace(/\s+/g, " ");
   clean = clean.replace(/([.!?])\s*\1+/g, "$1");
 
   return clean.trim();
-}
-
-/**
- * Splits text into natural sentence chunks for conversational streaming TTS.
- */
-export function splitIntoSentences(text: string): string[] {
-  const clean = sanitizeTextForSpeech(text);
-  if (!clean) return [];
-
-  // Match sentences ending in ., ?, !, or newlines
-  const sentences = clean
-    .split(/(?<=[.?!])\s+|\n+/)
-    .map((s) => s.trim())
-    .filter((s) => s.length > 2);
-
-  return sentences.length > 0 ? sentences : [clean];
 }
 
 export type VoicePersona = "flight_surgeon" | "orbital_navigator" | "apollo_intercom" | "neuro_coach";
@@ -255,7 +219,7 @@ export const VOICE_PERSONAS: Record<VoicePersona, VoicePersonaSettings> = {
     pitch: 1.0,
     useQuindar: false,
     name: "Flight Surgeon (Calm & Clear)",
-    description: "Steady, authoritative aerospace medical researcher tone.",
+    description: "Studio-quality aerospace medical researcher tone.",
   },
   apollo_intercom: {
     rate: 1.0,
@@ -280,9 +244,6 @@ export const VOICE_PERSONAS: Record<VoicePersona, VoicePersonaSettings> = {
   },
 };
 
-/**
- * Finds the highest quality, most natural sounding human voice available.
- */
 export function getBestVoice(): SpeechSynthesisVoice | null {
   const voices = loadVoices();
   if (!voices || voices.length === 0) return null;
@@ -318,7 +279,7 @@ export function getBestVoice(): SpeechSynthesisVoice | null {
     if (found) return found;
   }
 
-  // Avoid harsh legacy desktop robotic voice (Microsoft David)
+  // Strictly avoid robotic Microsoft David
   const nonDavidEnglish = voices.find(
     (v) =>
       v.lang.toLowerCase().startsWith("en") &&
@@ -326,8 +287,7 @@ export function getBestVoice(): SpeechSynthesisVoice | null {
   );
   if (nonDavidEnglish) return nonDavidEnglish;
 
-  const anyEnglish = voices.find((v) => v.lang.toLowerCase().startsWith("en"));
-  return anyEnglish || voices[0] || null;
+  return voices.find((v) => v.lang.toLowerCase().startsWith("en")) || voices[0] || null;
 }
 
 export function getAvailableEnglishVoices(): SpeechSynthesisVoice[] {
@@ -336,8 +296,9 @@ export function getAvailableEnglishVoices(): SpeechSynthesisVoice[] {
 }
 
 /**
- * Natural Sentence-Streamed Voice Engine with Micro-Pauses and Interruptibility
- * Prevents Chrome buffer lockups and delivers lifelike phrasing.
+ * Primary Voice Synthesis Engine
+ * Attempts high-definition Cloud Neural MP3 stream first (bypasses Windows David),
+ * falling back gracefully to client SpeechSynthesis if offline.
  */
 export function speakNaturalVoice(
   text: string,
@@ -346,118 +307,149 @@ export function speakNaturalVoice(
     persona?: VoicePersona;
     rate?: number;
     pitch?: number;
+    lang?: string;
     onStart?: () => void;
-    onSentence?: (sentenceIndex: number, sentenceText: string) => void;
     onEnd?: () => void;
     onError?: () => void;
   }
 ): boolean {
-  if (
-    typeof window === "undefined" ||
-    !("speechSynthesis" in window) ||
-    !text
-  ) {
-    return false;
-  }
+  if (!text) return false;
 
   stopSpeaking();
 
-  const sentences = splitIntoSentences(text);
-  if (sentences.length === 0) return false;
+  const clean = sanitizeTextForSpeech(text);
+  if (!clean) return false;
 
+  const detected = (options?.lang as SupportedLanguage) || detectLanguage(clean);
   const personaKey = options?.persona || "flight_surgeon";
   const persona = VOICE_PERSONAS[personaKey];
-  const voice = options?.voice || getBestVoice();
-  const rate = options?.rate ?? persona.rate;
-  const pitch = options?.pitch ?? persona.pitch;
-
-  currentStreamQueue = [...sentences];
-  isStreamingActive = true;
 
   if (persona.useQuindar) {
     playQuindarTone("intro");
   }
 
-  if (options?.onStart) {
-    options.onStart();
-  }
-
-  let currentIndex = 0;
-
-  function speakNext(): void {
-    if (!isStreamingActive || currentStreamQueue.length === 0) {
-      isStreamingActive = false;
-      if (persona.useQuindar) {
-        playQuindarTone("outro");
-      }
-      if (options?.onEnd) options.onEnd();
-      return;
-    }
-
-    const currentSentence = currentStreamQueue.shift()!;
-    if (options?.onSentence) {
-      options.onSentence(currentIndex++, currentSentence);
-    }
-
+  // Attempt High-Definition Neural Cloud MP3 stream first
+  if (typeof window !== "undefined" && typeof Audio !== "undefined") {
     try {
-      const utterance = new SpeechSynthesisUtterance(currentSentence);
-      activeUtterance = utterance;
+      const speechUrl = `/api/hermes/speech?text=${encodeURIComponent(clean.slice(0, 800))}&lang=${detected}`;
+      const audio = new Audio(speechUrl);
+      currentAudioElement = audio;
 
-      if (voice) {
-        utterance.voice = voice;
+      audio.onplay = () => {
+        if (options?.onStart) options.onStart();
+      };
+
+      audio.onended = () => {
+        currentAudioElement = null;
+        if (persona.useQuindar) {
+          playQuindarTone("outro");
+        }
+        if (options?.onEnd) options.onEnd();
+      };
+
+      audio.onerror = () => {
+        currentAudioElement = null;
+        // Fallback to local browser SpeechSynthesis
+        speakBrowserFallback(clean, detected, options);
+      };
+
+      const promise = audio.play();
+      if (promise !== undefined) {
+        promise.catch(() => {
+          speakBrowserFallback(clean, detected, options);
+        });
       }
-      utterance.rate = rate;
-      utterance.pitch = pitch;
-
-      utterance.onend = () => {
-        if (!isStreamingActive) return;
-        // 75ms natural respiratory pause between distinct thoughts
-        setTimeout(() => {
-          speakNext();
-        }, 75);
-      };
-
-      utterance.onerror = (e) => {
-        // If canceled explicitly, don't trigger error
-        if (e.error === "canceled" || e.error === "interrupted") {
-          return;
-        }
-        console.warn("Speech synthesis sentence note:", e.error);
-        if (isStreamingActive && currentStreamQueue.length > 0) {
-          speakNext();
-        } else {
-          isStreamingActive = false;
-          if (options?.onError) options.onError();
-        }
-      };
-
-      window.speechSynthesis.speak(utterance);
-    } catch (err) {
-      console.error("SpeechSynthesis error:", err);
-      isStreamingActive = false;
-      if (options?.onError) options.onError();
+      return true;
+    } catch {
+      speakBrowserFallback(clean, detected, options);
+      return true;
     }
   }
 
-  speakNext();
-  return true;
+  return speakBrowserFallback(clean, detected, options);
 }
 
-/**
- * Stops any active speech and clears queued sentences instantly (Barge-In).
- */
+function speakBrowserFallback(
+  text: string,
+  lang: SupportedLanguage,
+  options?: {
+    voice?: SpeechSynthesisVoice | null;
+    persona?: VoicePersona;
+    rate?: number;
+    pitch?: number;
+    onStart?: () => void;
+    onEnd?: () => void;
+    onError?: () => void;
+  }
+): boolean {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+    return false;
+  }
+
+  try {
+    const utterance = new SpeechSynthesisUtterance(text);
+    const personaKey = options?.persona || "flight_surgeon";
+    const persona = VOICE_PERSONAS[personaKey];
+
+    // Language mapping for browser speech synthesis
+    const langMap: Record<SupportedLanguage, string> = {
+      en: "en-US",
+      fr: "fr-FR",
+      es: "es-ES",
+      zh: "zh-CN",
+      ru: "ru-RU",
+      it: "it-IT",
+      de: "de-DE",
+      mn: "ru-RU",
+    };
+    utterance.lang = langMap[lang] || "en-US";
+
+    const voice = options?.voice || getBestVoice();
+    if (voice) {
+      utterance.voice = voice;
+    }
+    utterance.rate = options?.rate ?? persona.rate;
+    utterance.pitch = options?.pitch ?? persona.pitch;
+
+    if (options?.onStart) utterance.onstart = options.onStart;
+    utterance.onend = () => {
+      activeUtterance = null;
+      if (persona.useQuindar) playQuindarTone("outro");
+      if (options?.onEnd) options.onEnd();
+    };
+    utterance.onerror = () => {
+      activeUtterance = null;
+      if (options?.onError) options.onError();
+    };
+
+    activeUtterance = utterance;
+    window.speechSynthesis.speak(utterance);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function stopSpeaking(): void {
   isStreamingActive = false;
   currentStreamQueue = [];
   activeUtterance = null;
+  if (currentAudioElement) {
+    currentAudioElement.pause();
+    currentAudioElement.src = "";
+    currentAudioElement = null;
+  }
   if (typeof window !== "undefined" && "speechSynthesis" in window) {
     window.speechSynthesis.cancel();
   }
 }
 
 export function isSpeaking(): boolean {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) {
-    return false;
+  if (currentAudioElement && !currentAudioElement.paused) {
+    return true;
   }
-  return isStreamingActive || window.speechSynthesis.speaking;
+  if (typeof window !== "undefined" && "speechSynthesis" in window) {
+    return window.speechSynthesis.speaking;
+  }
+  return false;
 }

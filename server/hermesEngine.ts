@@ -1023,25 +1023,25 @@ export async function processHermesNaturalCommand(params: {
   let reply = "";
   if (isMn) {
     if (recommendedManeuver === "fast_earth_return") {
-      reply = `[HERMES AI УДИРДЛАГА]: Дэлхий рүү хамгийн хурдан буцах Ламберт траекторийг (dV = 1840.5 м/с, G-ачаалал <= 1.65G, Буцах хугацаа = 148.5 цаг) идэвхжүүллээ. Xiaomi Watch H1-ийн био-мэдээллийг NASA Хьюстон төв рүү (Goldstone DS-14) дамжуулж байна. Багийн төлөв: ${cmdrTel ? `Зүрхний цохилт ${cmdrTel.heartRate} BPM, SpO2 ${cmdrTel.spo2}%` : "Хэвийн"}.`;
+      reply = `Дэлхий рүү хамгийн хурдан буцах Ламберт траекторийг (dV = 1840.5 м/с, G-ачаалал <= 1.65G, Буцах хугацаа = 148.5 цаг) идэвхжүүллээ. Xiaomi Watch H1-ийн био-мэдээллийг NASA Хьюстон төв рүү (Goldstone DS-14) дамжуулж байна. Багийн төлөв: ${cmdrTel ? `Зүрхний цохилт ${cmdrTel.heartRate} BPM, SpO2 ${cmdrTel.spo2}%` : "Хэвийн"}.`;
     } else if (recommendedManeuver === "storm_shelter_attitude") {
-      reply = `[HERMES RAD-GUARD & NAV-PILOT]: Нарны титмийн цацрагийн шуурганаас хамгаалах горим идэвхжлээ. Хөлгийн хойд усан хаалтыг Нар руу чиглүүлж (Yaw 180°), 12-Тесла соронзон бамбайг 100% чадлаар ажиллуулж байна.`;
+      reply = `Нарны титмийн цацрагийн шуурганаас хамгаалах горим идэвхжлээ. Хөлгийн хойд усан хаалтыг Нар руу чиглүүлж (Yaw 180°), 12-Тесла соронзон бамбайг 100% чадлаар ажиллуулж байна.`;
     } else if (recommendedManeuver === "evasive_burn") {
-      reply = `[HERMES NAV-PILOT]: Сансрын хог хаягдлаас зайлсхийх маневр (dV = 342.8 м/с, +14 км орбитын хазайлт) амжилттай хийгдлээ.`;
+      reply = `Сансрын хог хаягдлаас зайлсхийх маневр (dV = 342.8 м/с, +14 км орбитын хазайлт) амжилттай хийгдлээ.`;
     } else if (toggleOverride === true) {
-      reply = `[HERMES AI]: Гар удирдлагын горим (Human Manual Override) идэвхжлээ. Хөлгийн удирдлагыг багийн ахлагчид шилжүүллээ. Био-телеметрийн хяналт хэвийн үргэлжилнэ.`;
+      reply = `Гар удирдлагын горим (Human Manual Override) идэвхжлээ. Хөлгийн удирдлагыг багийн ахлагчид шилжүүллээ. Био-телеметрийн хяналт хэвийн үргэлжилнэ.`;
     } else {
       reply = generateHermesAIResponse(prompt, { mode: autopilot.mode, heartRate: cmdrTel?.heartRate, spo2: cmdrTel?.spo2, bloodPressureSys: cmdrTel?.bloodPressureSys, bloodPressureDia: cmdrTel?.bloodPressureDia, stressIndex: cmdrTel?.stressIndex, currentManeuver: autopilot.currentManeuver, commanderName: commander?.name });
     }
   } else {
     if (recommendedManeuver === "fast_earth_return") {
-      reply = `[HERMES CORE -> NAV-PILOT & MED-SENTINEL]: Executing High-Energy Fast Earth Return trajectory (Lambert solution: dV = 1,840.5 m/s, G-load capped at 1.65G for crew cardiovascular protection, Earth Entry Interface ETA = 148.5 hrs). Priority-0 medical telemetry from Xiaomi Watch H1 transmitted to NASA Houston via ${autopilot.dsnStation}.`;
+      reply = `Executing High-Energy Fast Earth Return trajectory (Lambert solution: dV = 1,840.5 m/s, G-load capped at 1.65G for crew cardiovascular protection, Earth Entry Interface ETA = 148.5 hrs). Priority-0 medical telemetry from Xiaomi Watch H1 transmitted to NASA Houston via ${autopilot.dsnStation}.`;
     } else if (recommendedManeuver === "storm_shelter_attitude") {
-      reply = `[HERMES CORE -> RAD-GUARD & NAV-PILOT]: Solar Particle Event shield posture engaged. Slewing spacecraft 180 deg Tail-to-Sun, routing potable water into aft storm-shelter bulkhead, and energizing 12-Tesla superconducting magnetic deflector. Crew radiation flux attenuated by 78%.`;
+      reply = `Solar Particle Event shield posture engaged. Slewing spacecraft 180 deg Tail-to-Sun, routing potable water into aft storm-shelter bulkhead, and energizing 12-Tesla superconducting magnetic deflector. Crew radiation flux attenuated by 78%.`;
     } else if (recommendedManeuver === "evasive_burn") {
-      reply = `[HERMES CORE -> NAV-PILOT]: Executed Debris Conjunction Evasive Burn (dV = 342.8 m/s, +14 km inclination separation). Miss distance verified > 48.5 km. Spacecraft integrity 100%.`;
+      reply = `Executed Debris Conjunction Evasive Burn (dV = 342.8 m/s, +14 km inclination separation). Miss distance verified > 48.5 km. Spacecraft integrity 100%.`;
     } else if (toggleOverride === true) {
-      reply = `[HERMES CORE]: Human Manual Override acknowledged. Autonomous thrusters safed and flight authority transferred to Commander Elena Vance. Hermes subagents remain in active bio-monitoring advisory mode.`;
+      reply = `Human Manual Override acknowledged. Autonomous thrusters safed and flight authority transferred to Commander Elena Vance. Hermes subagents remain in active bio-monitoring advisory mode.`;
     } else {
       const llmReply = await queryGeminiAgent(prompt, crewSummaryEn + " | Mode: " + autopilot.mode);
       reply = llmReply || generateHermesAIResponse(prompt, { mode: autopilot.mode, heartRate: cmdrTel?.heartRate, spo2: cmdrTel?.spo2, bloodPressureSys: cmdrTel?.bloodPressureSys, bloodPressureDia: cmdrTel?.bloodPressureDia, stressIndex: cmdrTel?.stressIndex, currentManeuver: autopilot.currentManeuver, commanderName: commander?.name });

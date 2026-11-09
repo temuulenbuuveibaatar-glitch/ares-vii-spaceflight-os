@@ -187,6 +187,65 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  
+  // 6b. GET /api/hermes/speech - Multilingual Cloud Neural TTS audio stream (MP3)
+  app.get("/api/hermes/speech", async (req: Request, res: Response) => {
+    try {
+      const rawText = String(req.query.text || "").trim();
+      const langParam = String(req.query.lang || "en").trim();
+      if (!rawText) {
+        return res.status(400).send("Text query parameter required");
+      }
+
+      let ttsLang = "en";
+      if (langParam === "fr") ttsLang = "fr";
+      else if (langParam === "es") ttsLang = "es";
+      else if (langParam === "zh") ttsLang = "zh-CN";
+      else if (langParam === "ru" || langParam === "mn") ttsLang = "ru";
+      else if (langParam === "it") ttsLang = "it";
+      else if (langParam === "de") ttsLang = "de";
+
+      const chunks: string[] = [];
+      const words = rawText.split(/\s+/);
+      let currentChunk = "";
+      for (const w of words) {
+        if ((currentChunk + " " + w).length > 170) {
+          if (currentChunk.trim()) chunks.push(currentChunk.trim());
+          currentChunk = w;
+        } else {
+          currentChunk += (currentChunk ? " " : "") + w;
+        }
+      }
+      if (currentChunk.trim()) chunks.push(currentChunk.trim());
+
+      const limitedChunks = chunks.slice(0, 6);
+      const audioBuffers: Buffer[] = [];
+
+      for (const chunk of limitedChunks) {
+        const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=${ttsLang}&client=tw-ob`;
+        const response = await fetch(ttsUrl, {
+          headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+          },
+        });
+        if (response.ok) {
+          audioBuffers.push(Buffer.from(await response.arrayBuffer()));
+        }
+      }
+
+      if (audioBuffers.length === 0) {
+        return res.status(502).send("Failed to synthesize speech audio");
+      }
+
+      const combinedAudio = Buffer.concat(audioBuffers);
+      res.setHeader("Content-Type", "audio/mpeg");
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      res.send(combinedAudio);
+    } catch (err: any) {
+      res.status(500).send("TTS audio error: " + err?.message);
+    }
+  });
+
   // 7. POST /api/earth-comm/send - Downlink telemetry/message to NASA DSN Ground Station
   app.post("/api/earth-comm/send", async (req: Request, res: Response) => {
     try {
