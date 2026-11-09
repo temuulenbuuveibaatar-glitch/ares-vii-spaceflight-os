@@ -103,10 +103,10 @@ export default function HermesFloatingAgent() {
         };
       }
     },
-    onSuccess: (data) => {
+    onSuccess: (data, userPrompt) => {
       const reply =
-        data.reply ||
-        generateHermesAIResponse(prompt, {
+        data?.reply ||
+        generateHermesAIResponse(userPrompt, {
           heartRate: latestTelemetry?.heartRate,
           spo2: latestTelemetry?.spo2,
         });
@@ -121,8 +121,8 @@ export default function HermesFloatingAgent() {
       speak(reply);
       queryClient.invalidateQueries({ queryKey: ["/api/mission/overview"] });
     },
-    onError: () => {
-      const fallback = generateHermesAIResponse(prompt, {
+    onError: (_, userPrompt) => {
+      const fallback = generateHermesAIResponse(userPrompt, {
         heartRate: latestTelemetry?.heartRate,
         spo2: latestTelemetry?.spo2,
       });

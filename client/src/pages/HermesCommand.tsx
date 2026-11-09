@@ -215,10 +215,10 @@ export default function HermesCommand() {
         };
       }
     },
-    onSuccess: (data) => {
+    onSuccess: (data, userPrompt) => {
       const reply =
-        data.reply ||
-        generateHermesAIResponse(prompt, {
+        data?.reply ||
+        generateHermesAIResponse(userPrompt, {
           heartRate: overview?.recentTelemetry?.[0]?.heartRate,
           spo2: overview?.recentTelemetry?.[0]?.spo2,
         });
@@ -233,8 +233,8 @@ export default function HermesCommand() {
       speakText(reply);
       queryClient.invalidateQueries({ queryKey: ["/api/mission/overview"] });
     },
-    onError: () => {
-      const fallback = generateHermesAIResponse(prompt, {
+    onError: (_, userPrompt) => {
+      const fallback = generateHermesAIResponse(userPrompt, {
         heartRate: overview?.recentTelemetry?.[0]?.heartRate,
         spo2: overview?.recentTelemetry?.[0]?.spo2,
       });
